@@ -5,4 +5,4 @@ App only compiled for windows 64 bit. Other plactform need to copy source files 
 Windows 64 bit can use this setup->
 
 
-![](Screenshot (116).png)
+![](Screenshot%20(116).png)
