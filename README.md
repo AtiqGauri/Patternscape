@@ -5,4 +5,5 @@ App only compiled for windows 64 bit. Other plactform need to copy source files 
 Windows 64 bit can use this setup->
 
 
-![](Screenshot%20(116).png)
+
+<img src="Screenshot (116).png">
