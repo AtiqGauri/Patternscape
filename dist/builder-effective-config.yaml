@@ -1,0 +1,22 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.atiqgauri
+files:
+  - filter:
+      - build/**/*
+      - index.html
+      - renderer.js
+      - main.js
+      - preload.js
+extraFiles:
+  - filter:
+      - data
+win:
+  target: nsis
+  icon: build/flip-h.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  runAfterFinish: true
+electronVersion: 6.0.0
