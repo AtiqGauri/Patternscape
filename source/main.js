@@ -16,19 +16,18 @@ function createWindow () {
       nativeWindowOpen: true,
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
-      //nativeWindowOpen: true,
-      //contextIsolation: false,
       //webSecurity: false,
+      //contextIsolation: false,
       //allowRunningInsecureContent: true,
       //experimentalFeatures: true,
       //enableBlinkFeatures: ['ExecCommandInJavaScript'],
       //enableRemoteModule: true,
-      preload: path.join(__dirname, 'preload.js')
+      //preload: path.join(__dirname, 'preload.js')
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('source/index.html')
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools()

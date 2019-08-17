@@ -5,18 +5,15 @@
     <title>Atiq</title>
   </head>
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:100&display=swap" rel="stylesheet">
-  <link href="./build/resources/style.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
   <body>
-    <h1 style="text-align:center">Let's do 456+ Million calculations</h1>
+    <h1 style="text-align:center";>Let's do 456+ Million calculations</h1>
     
     <div class="row">
     	<button class="button button1"; onclick="startWorker1()">Start Calculations</button>
     	<!-- <button class="button button2"; onclick="startWorker2()">Start Worker2</button> -->
-    	<button class="button button3"; onclick="stopWorker()">Stop</button>
+    	<button id="demo"; class="button button3"; onclick="stopWorker()">Stop</button>
     </div>
-
-    <script src="./renderer.js"></script>
-    <script src="./build/resources/client.js" type="text/javascript"></script>
     <script>
         function startWorker1() {
           startWork1();
@@ -24,35 +21,35 @@
         function startWorker2() {
           startWork2();
         }
-        function stopWorker() { 
+        function stopWorker() {
           stopWork();
         }
     </script>
     
     <!-- You can also require other files to run in this process -->
-    <svg id="game" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" overflow="visible">
+	<svg id="game" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" overflow="visible">
 	<linearGradient id="ArcGradient" >
 			<stop offset="0"  stop-color="#fff" stop-opacity=".2"/>
 			<stop offset="50%" stop-color="#fff" stop-opacity="0"/>
 	</linearGradient>
-    <path id="arc" fill="none" stroke="url(#ArcGradient)" stroke-width="4" d="M100,250c250-400,550-400,800,0"  pointer-events="none"/>
-    <defs>
-        <g id="arrow">
-            <line x2="60" fill="none" stroke="#888" stroke-width="2" />
-            <polygon fill="#888" points="64 0 58 2 56 0 58 -2" />
-            <polygon fill="#88ce02" points="2 -3 -4 -3 -1 0 -4 3 2 3 5 0" />
-        </g>
-    </defs>
-    <g id="target">
-        <path fill="#FFF" d="M924.2,274.2c-21.5,21.5-45.9,19.9-52,3.2c-4.4-12.1,2.4-29.2,14.2-41c11.8-11.8,29-18.6,41-14.2 C944.1,228.3,945.7,252.8,924.2,274.2z" />
-        <path fill="#F4531C" d="M915.8,265.8c-14.1,14.1-30.8,14.6-36,4.1c-4.1-8.3,0.5-21.3,9.7-30.5s22.2-13.8,30.5-9.7 C930.4,235,929.9,251.7,915.8,265.8z" />
-        <path fill="#FFF" d="M908.9,258.9c-8,8-17.9,9.2-21.6,3.5c-3.2-4.9-0.5-13.4,5.6-19.5c6.1-6.1,14.6-8.8,19.5-5.6 C918.1,241,916.9,250.9,908.9,258.9z" />
-        <path fill="#F4531C" d="M903.2,253.2c-2.9,2.9-6.7,3.6-8.3,1.7c-1.5-1.8-0.6-5.4,2-8c2.6-2.6,6.2-3.6,8-2 C906.8,246.5,906.1,250.2,903.2,253.2z" />
-    </g>
+	<path id="arc" fill="none" stroke="url(#ArcGradient)" stroke-width="4" d="M100,250c250-400,550-400,800,0"  pointer-events="none"/>
+	<defs>
+		<g id="arrow">
+			<line x2="60" fill="none" stroke="#888" stroke-width="2" />
+			<polygon fill="#888" points="64 0 58 2 56 0 58 -2" />
+			<polygon fill="#88ce02" points="2 -3 -4 -3 -1 0 -4 3 2 3 5 0" />
+		</g>
+	</defs>
+	<g id="target">
+		<path fill="#FFF" d="M924.2,274.2c-21.5,21.5-45.9,19.9-52,3.2c-4.4-12.1,2.4-29.2,14.2-41c11.8-11.8,29-18.6,41-14.2 C944.1,228.3,945.7,252.8,924.2,274.2z" />
+		<path fill="#F4531C" d="M915.8,265.8c-14.1,14.1-30.8,14.6-36,4.1c-4.1-8.3,0.5-21.3,9.7-30.5s22.2-13.8,30.5-9.7 C930.4,235,929.9,251.7,915.8,265.8z" />
+		<path fill="#FFF" d="M908.9,258.9c-8,8-17.9,9.2-21.6,3.5c-3.2-4.9-0.5-13.4,5.6-19.5c6.1-6.1,14.6-8.8,19.5-5.6 C918.1,241,916.9,250.9,908.9,258.9z" />
+		<path fill="#F4531C" d="M903.2,253.2c-2.9,2.9-6.7,3.6-8.3,1.7c-1.5-1.8-0.6-5.4,2-8c2.6-2.6,6.2-3.6,8-2 C906.8,246.5,906.1,250.2,903.2,253.2z" />
+	</g>
 		<g id="bow" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" pointer-events="none">
 			<polyline fill="none" stroke="#ddd" stroke-linecap="round" points="88,200 88,250 88,300"/>
 			<path fill="none" stroke="#88ce02" stroke-width="3" stroke-linecap="round" d="M88,300 c0-10.1,12-25.1,12-50s-12-39.9-12-50"/>
-    </g>
+	</g>
 	<g class="arrow-angle"><use x="100" y="250" xlink:href="#arrow"/></g>
 	<clipPath id="mask">
 		<polygon opacity=".5" points="0,0 1500,0 1500,200 970,290 950,240 925,220 875,280 890,295 920,310 0,350" pointer-events="none"/>
@@ -87,12 +84,17 @@
 
 	<circle class="point" r="7" fill="purple" opacity=".4"/> -->
 	</svg>
-
-	<span onmousedown="WhichButton(event)" style="font-size: 20px; font-weight: bold;">Draw back an arrow and launch it!</span>
+	<script src="./renderer.js"></script>
+	<script src="./client.js" type="text/javascript"></script>
+	<span onmousedown="WhichButton(event)" style="font-size: 20px; font-weight: bold;" id="instruct">Draw back an arrow and launch it!</span>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
 	<script src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js'></script>
-	<script  src="./build/resources/game.js"></script>
-    
+	<script  src="./game.js"></script>
+	
+	<div id="list"; class="row">
+	</div>
+	<div id="list1">
+	</div>
     <br>
     <center class="footer"style="font-weight: bold;">
     	We are using Node.js <span id="node-version"></span>,

@@ -1,19 +1,24 @@
 const h1 = document.querySelector("h1");
+var svg = document.querySelector("svg");
 console.log('make a worker: ', 'worker1.js')
 console.log('make a worker: ', 'worker2.js')
 var worker1; var worker2;
 
 
 function startWork1(){
-	worker1 = new Worker('./build/resources/worker1.js')
+	worker1 = new Worker('./worker1.js')
 
 	worker1.onmessage = function(event) {
 		console.log("worker1 : ", event.data);
 		worker1.terminate();
 		h1.innerHTML = (
-			'<p style="text-align:center"> Calculations are completed:'
-			+ '</br>' + 'Check root$ data/Output </p>'
+			'<p style="text-align:center"> Calculations are completed </p>'
 		);
+		//svg.setAttribute("viewBox","0 0 1000 400");
+		document.getElementById("instruct").style.fontSize = "35px"
+		document.getElementById("instruct").innerHTML = 'OUTPUT: ';
+		//This function is defined in renderer.js to list all files in Output folder 
+		listOutput();
 	};
 
 	worker1.onerror = function (event) {
@@ -22,7 +27,7 @@ function startWork1(){
 }
 
 function startWork2(){
-	worker2 = new Worker('./build/resources/worker2.js')
+	worker2 = new Worker('./worker2.js')
 
 	worker2.onmessage = function(event) {
 		console.log("worker2 : ", event.data);
