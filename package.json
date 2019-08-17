@@ -2,7 +2,7 @@
   "name": "PasswordTool",
   "version": "1.0.0",
   "description": "A minimal Electron application",
-  "main": "main.js",
+  "main": "source/main.js",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron ./",
@@ -12,18 +12,16 @@
   "build": {
     "appId": "com.atiqgauri",
     "files": [
-      "build/**/*",
-      "index.html",
-      "renderer.js",
-      "main.js",
+      "source/**/*",
       "preload.js"
     ],
     "extraFiles": [
-      "data"
+      "data/**/*"
     ],
     "win": {
       "target": "nsis",
-      "icon": "build/flip-h.ico"
+      "requestedExecutionLevel": "highestAvailable",
+      "icon": "source/flip-h.ico"
     },
     "nsis": {
       "oneClick": false,
