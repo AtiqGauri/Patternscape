@@ -7,4 +7,4 @@ Windows 64 bit can use this setup->
 download repo as zip and look inside dist folder.
 
 
-<img src="Screenshot (116).png">
+<img src="Screenshot.png">
