@@ -1,3 +1,975 @@
+Password: vecmrf
+			Pattern1: Common1/Undetected/
+			Values1: "vecm" Length:4 Position:0, "rf" Length:2 Position:4, 
+
+Password: baseball7
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "baseball" Length:8 Position:0, "7" Length:1 Position:8, 
+			Values2: "ba" Length:2 Position:0, "seba" Length:4 Position:2, "ll7" Length:3 Position:6, 
+
+Password: 123456
+			Pattern1: Mobile/
+			Values1: "123456" Length:6 Position:0, 
+
+Password: ab0123
+			Pattern1: email_Name/Undetected/
+			Pattern2: Undetected/Mobile/
+			Values1: "ab012" Length:5 Position:0, "3" Length:1 Position:5, 
+			Values2: "ab" Length:2 Position:0, "0123" Length:4 Position:2, 
+
+Password: teddy1
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Values1: "teddy" Length:5 Position:0, "1" Length:1 Position:5, 
+			Values2: "tedd" Length:4 Position:0, "y1" Length:2 Position:4, 
+
+Password: 84041495
+			Pattern1: Mobile/
+			Values1: "84041495" Length:8 Position:0, 
+
+Password: bosco3908
+			Pattern1: Name/Mobile/
+			Pattern2: Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "bosco" Length:5 Position:0, "3908" Length:4 Position:5, 
+			Values2: "bosco" Length:5 Position:0, "3908" Length:4 Position:5, 
+			Values3: "b" Length:1 Position:0, "osco" Length:4 Position:1, "3908" Length:4 Position:5, 
+
+Password: sneaky4me
+			Pattern1: Common1/Undetected/
+			Values1: "sneaky" Length:6 Position:0, "4me" Length:3 Position:6, 
+
+Password: 19860205
+			Pattern1: Mobile/
+			Pattern2: DOB/Undetected/
+			Values1: "19860205" Length:8 Position:0, 
+			Values2: "1986" Length:4 Position:0, "0205" Length:4 Position:4, 
+
+Password: a2101989
+			Pattern1: Undetected/Mobile/
+			Pattern2: Undetected/DOB/
+			Values1: "a" Length:1 Position:0, "2101989" Length:7 Position:1, 
+			Values2: "a210" Length:4 Position:0, "1989" Length:4 Position:4, 
+
+Password: password1
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "password" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values2: "pas" Length:3 Position:0, "swor" Length:4 Position:3, "d1" Length:2 Position:7, 
+
+Password: srice210
+			Pattern1: Undetected/Common1/Undetected/
+			Values1: "s" Length:1 Position:0, "rice" Length:4 Position:1, "210" Length:3 Position:5, 
+
+Password: 96232gtnh
+			Pattern1: Mobile/Undetected/
+			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
+
+Password: 96232gtnh
+			Pattern1: Mobile/Undetected/
+			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
+
+Password: 96232gtnh
+			Pattern1: Mobile/Undetected/
+			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
+
+Password: poptart1
+			Pattern1: Common1/Undetected/
+			Values1: "poptart" Length:7 Position:0, "1" Length:1 Position:7, 
+
+Password: samantha
+			Pattern1: Name/
+			Pattern2: Common1/
+			Pattern3: Name/Undetected/
+			Pattern4: Name/Undetected/Name/Undetected/
+			Pattern5: Name/Undetected/Name/Name/Undetected/
+			Values1: "samantha" Length:8 Position:0, 
+			Values2: "samantha" Length:8 Position:0, 
+			Values3: "samanth" Length:7 Position:0, "a" Length:1 Position:7, 
+			Values4: "saman" Length:5 Position:0, "s" Length:1 Position:0, "amantha" Length:7 Position:1, "tha" Length:3 Position:5, 
+			Values5: "sama" Length:4 Position:0, "sam" Length:3 Position:0, "aman" Length:4 Position:1, "antha" Length:5 Position:3, "ntha" Length:4 Position:4, 
+
+Password: ab1215
+			Pattern1: Undetected/Mobile/
+			Values1: "ab" Length:2 Position:0, "1215" Length:4 Position:2, 
+
+Password: ab123123
+			Pattern1: Undetected/Mobile/
+			Values1: "ab" Length:2 Position:0, "123123" Length:6 Position:2, 
+
+Password: 0350365
+			Pattern1: Mobile/
+			Values1: "0350365" Length:7 Position:0, 
+
+Password: 0350365
+			Pattern1: Mobile/
+			Values1: "0350365" Length:7 Position:0, 
+
+Password: 0350365
+			Pattern1: Mobile/
+			Values1: "0350365" Length:7 Position:0, 
+
+Password: 0350365
+			Pattern1: Mobile/
+			Values1: "0350365" Length:7 Position:0, 
+
+Password: 0350365
+			Pattern1: Mobile/
+			Values1: "0350365" Length:7 Position:0, 
+
+Password: cd0805466
+			Pattern1: Undetected/Mobile/
+			Values1: "cd" Length:2 Position:0, "0805466" Length:7 Position:2, 
+
+Password: theone1
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Pattern4: Name/Undetected/
+			Pattern5: Undetected/Name/Undetected/
+			Values1: "theone" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values2: "theone" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values3: "theon" Length:5 Position:0, "e1" Length:2 Position:5, 
+			Values4: "theo" Length:4 Position:0, "ne1" Length:3 Position:4, 
+			Values5: "t" Length:1 Position:0, "heon" Length:4 Position:1, "e1" Length:2 Position:5, 
+
+Password: 240310
+			Pattern1: Mobile/
+			Values1: "240310" Length:6 Position:0, 
+
+Password: 240310
+			Pattern1: Mobile/
+			Values1: "240310" Length:6 Position:0, 
+
+Password: ab04031972
+			Pattern1: email_Name/
+			Pattern2: Undetected/Mobile/
+			Pattern3: Undetected/DOB/
+			Values1: "ab04031972" Length:10 Position:0, 
+			Values2: "ab" Length:2 Position:0, "04031972" Length:8 Position:2, 
+			Values3: "ab0403" Length:6 Position:0, "1972" Length:4 Position:6, 
+
+Password: **batman1
+			Pattern1: Undetected/Location/Undetected/
+			Pattern2: Undetected/Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
+			Values2: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
+			Values3: "**b" Length:3 Position:0, "atma" Length:4 Position:3, "n1" Length:2 Position:7, 
+
+Password: **batman1
+			Pattern1: Undetected/Location/Undetected/
+			Pattern2: Undetected/Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
+			Values2: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
+			Values3: "**b" Length:3 Position:0, "atma" Length:4 Position:3, "n1" Length:2 Position:7, 
+
+Password: 11vfvf
+			Pattern1: Undetected/
+			Values1: "11vfvf" Length:6 Position:0, 
+
+Password: launch1
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "launch" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values2: "laun" Length:4 Position:0, "ch1" Length:3 Position:4, 
+			Values3: "la" Length:2 Position:0, "unch" Length:4 Position:2, "1" Length:1 Position:6, 
+
+Password: april17
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Values1: "april" Length:5 Position:0, "17" Length:2 Position:5, 
+			Values2: "april" Length:5 Position:0, "17" Length:2 Position:5, 
+
+Password: РёРЅСЃС‚РёРЅРєС‚
+			Pattern1: Undetected/
+			Values1: "РёРЅСЃС‚РёРЅРєС‚" Length:34 Position:0, 
+
+Password: инстинкт
+			Pattern1: Undetected/
+			Values1: "инстинкт" Length:16 Position:0, 
+
+Password: m0llybreen
+			Pattern1: Undetected/Name/
+			Pattern2: Undetected/Common1/
+			Pattern3: Undetected/Name/
+			Values1: "m0lly" Length:5 Position:0, "breen" Length:5 Position:5, 
+			Values2: "m0lly" Length:5 Position:0, "breen" Length:5 Position:5, 
+			Values3: "m0llyb" Length:6 Position:0, "reen" Length:4 Position:6, 
+
+Password: racncv6
+			Pattern1: Undetected/
+			Values1: "racncv6" Length:7 Position:0, 
+
+Password: 801014
+			Pattern1: Mobile/
+			Values1: "801014" Length:6 Position:0, 
+
+Password: pealutu
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Values1: "peal" Length:4 Position:0, "utu" Length:3 Position:4, 
+			Values2: "peal" Length:4 Position:0, "utu" Length:3 Position:4, 
+
+Password: aa9999aa
+			Pattern1: Undetected/Mobile/Undetected/
+			Values1: "aa" Length:2 Position:0, "9999" Length:4 Position:2, "aa" Length:2 Position:6, 
+
+Password: kaa1198347055673
+			Pattern1: Undetected/Mobile/
+			Pattern2: Undetected/DOB/Undetected/
+			Values1: "kaa" Length:3 Position:0, "1198347055673" Length:13 Position:3, 
+			Values2: "kaa1" Length:4 Position:0, "1983" Length:4 Position:4, "47055673" Length:8 Position:8, 
+
+Password: vfrcbv
+			Pattern1: Undetected/
+			Values1: "vfrcbv" Length:6 Position:0, 
+
+Password: ab1905
+			Pattern1: Undetected/DOB/
+			Pattern2: Undetected/Mobile/
+			Values1: "ab" Length:2 Position:0, "1905" Length:4 Position:2, 
+			Values2: "ab" Length:2 Position:0, "1905" Length:4 Position:2, 
+
+Password: 06011982
+			Pattern1: Mobile/
+			Pattern2: Undetected/DOB/
+			Values1: "06011982" Length:8 Position:0, 
+			Values2: "0601" Length:4 Position:0, "1982" Length:4 Position:4, 
+
+Password: lg041104
+			Pattern1: Undetected/Mobile/
+			Values1: "lg" Length:2 Position:0, "041104" Length:6 Position:2, 
+
+Password: hunter88
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Location/Undetected/
+			Values1: "hunter" Length:6 Position:0, "88" Length:2 Position:6, 
+			Values2: "h" Length:1 Position:0, "unter" Length:5 Position:1, "88" Length:2 Position:6, 
+
+Password: 06061981
+			Pattern1: Mobile/
+			Pattern2: Undetected/DOB/
+			Values1: "06061981" Length:8 Position:0, 
+			Values2: "0606" Length:4 Position:0, "1981" Length:4 Position:4, 
+
+Password: 13102005ba
+			Pattern1: Mobile/Undetected/
+			Pattern2: Undetected/DOB/Undetected/
+			Values1: "13102005" Length:8 Position:0, "ba" Length:2 Position:8, 
+			Values2: "1310" Length:4 Position:0, "2005" Length:4 Position:4, "ba" Length:2 Position:8, 
+
+Password: 13537275777
+			Pattern1: Mobile/
+			Values1: "13537275777" Length:11 Position:0, 
+
+Password: 888888
+			Pattern1: Mobile/
+			Values1: "888888" Length:6 Position:0, 
+
+Password: password1
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "password" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values2: "pas" Length:3 Position:0, "swor" Length:4 Position:3, "d1" Length:2 Position:7, 
+
+Password: 0672906837abu
+			Pattern1: Mobile/Undetected/
+			Values1: "0672906837" Length:10 Position:0, "abu" Length:3 Position:10, 
+
+Password: 07079177ab
+			Pattern1: Mobile/Undetected/
+			Values1: "07079177" Length:8 Position:0, "ab" Length:2 Position:8, 
+
+Password: 1234ab
+			Pattern1: Mobile/Undetected/
+			Values1: "1234" Length:4 Position:0, "ab" Length:2 Position:4, 
+
+Password: 1223334444
+			Pattern1: Mobile/
+			Values1: "1223334444" Length:10 Position:0, 
+
+Password: богамолов
+			Pattern1: Undetected/
+			Values1: "богамолов" Length:18 Position:0, 
+
+Password: library1
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Pattern4: Undetected/Name/Undetected/
+			Values1: "library" Length:7 Position:0, "1" Length:1 Position:7, 
+			Values2: "l" Length:1 Position:0, "ibrar" Length:5 Position:1, "y1" Length:2 Position:6, 
+			Values3: "li" Length:2 Position:0, "brar" Length:4 Position:2, "y1" Length:2 Position:6, 
+			Values4: "lib" Length:3 Position:0, "rary" Length:4 Position:3, "1" Length:1 Position:7, 
+
+Password: 777777
+			Pattern1: Mobile/
+			Values1: "777777" Length:6 Position:0, 
+
+Password: a777777
+			Pattern1: Undetected/Mobile/
+			Values1: "a" Length:1 Position:0, "777777" Length:6 Position:1, 
+
+Password: 777684777063928
+			Pattern1: Mobile/
+			Values1: "777684777063928" Length:15 Position:0, 
+
+Password: alaska1
+			Pattern1: Location/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Pattern4: Undetected/Name/Undetected/
+			Values1: "alaska" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values2: "alaska" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values3: "a" Length:1 Position:0, "laska" Length:5 Position:1, "1" Length:1 Position:6, 
+			Values4: "a" Length:1 Position:0, "lask" Length:4 Position:1, "a1" Length:2 Position:5, 
+
+Password: money4
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "money" Length:5 Position:0, "4" Length:1 Position:5, 
+			Values2: "mone" Length:4 Position:0, "y4" Length:2 Position:4, 
+			Values3: "m" Length:1 Position:0, "oney" Length:4 Position:1, "4" Length:1 Position:5, 
+
+Password: 0801ab1984
+			Pattern1: Mobile/Undetected/DOB/
+			Values1: "0801" Length:4 Position:0, "ab" Length:2 Position:4, "1984" Length:4 Position:6, 
+
+Password: tilahu56
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "tila" Length:4 Position:0, "hu56" Length:4 Position:4, 
+			Values2: "tila" Length:4 Position:0, "hu56" Length:4 Position:4, 
+			Values3: "t" Length:1 Position:0, "ilah" Length:4 Position:1, "u56" Length:3 Position:5, 
+
+Password: alya05+love
+			Pattern1: Name/Undetected/Common1/
+			Pattern2: Common2/Undetected/
+			Values1: "alya" Length:4 Position:0, "05+" Length:3 Position:4, "love" Length:4 Position:7, 
+			Values2: "alya" Length:4 Position:0, "05+love" Length:7 Position:4, 
+
+Password: adam123
+			Pattern1: Common1/Undetected/
+			Values1: "adam" Length:4 Position:0, "123" Length:3 Position:4, 
+
+Password: алина810
+			Pattern1: Undetected/
+			Values1: "алина810" Length:13 Position:0, 
+
+Password: linkedin2245
+			Pattern1: Common1/Mobile/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "linkedin" Length:8 Position:0, "2245" Length:4 Position:8, 
+			Values2: "linke" Length:5 Position:0, "din2245" Length:7 Position:5, 
+			Values3: "link" Length:4 Position:0, "edin" Length:4 Position:4, "2245" Length:4 Position:8, 
+
+Password: 3yubvb
+			Pattern1: Undetected/
+			Values1: "3yubvb" Length:6 Position:0, 
+
+Password: family97
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Pattern4: Undetected/Name/Undetected/
+			Values1: "family" Length:6 Position:0, "97" Length:2 Position:6, 
+			Values2: "f" Length:1 Position:0, "amily" Length:5 Position:1, "97" Length:2 Position:6, 
+			Values3: "f" Length:1 Position:0, "amil" Length:4 Position:1, "y97" Length:3 Position:5, 
+			Values4: "fa" Length:2 Position:0, "mily" Length:4 Position:2, "97" Length:2 Position:6, 
+
+Password: azzurri08
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "azzurri" Length:7 Position:0, "08" Length:2 Position:7, 
+			Values2: "az" Length:2 Position:0, "zurri" Length:5 Position:2, "08" Length:2 Position:7, 
+
+Password: ab0911016767
+			Pattern1: email_Name/
+			Pattern2: Undetected/Mobile/
+			Values1: "ab0911016767" Length:12 Position:0, 
+			Values2: "ab" Length:2 Position:0, "0911016767" Length:10 Position:2, 
+
+Password: myspace1
+			Pattern1: Common1/Undetected/
+			Values1: "myspace" Length:7 Position:0, "1" Length:1 Position:7, 
+
+Password: michelle1
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Pattern4: Name/Undetected/Name/Undetected/
+			Pattern5: Location/Undetected/Name/Undetected/
+			Pattern6: Name/Undetected/Name/Undetected/
+			Pattern7: Name/Undetected/Name/Undetected/
+			Pattern8: Undetected/Name/Undetected/
+			Values1: "michelle" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values2: "michelle" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values3: "michell" Length:7 Position:0, "e1" Length:2 Position:7, 
+			Values4: "michel" Length:6 Position:0, "m" Length:1 Position:0, "ichelle" Length:7 Position:1, "le1" Length:3 Position:6, 
+			Values5: "michel" Length:6 Position:0, "mi" Length:2 Position:0, "chelle" Length:6 Position:2, "le1" Length:3 Position:6, 
+			Values6: "miche" Length:5 Position:0, "mi" Length:2 Position:0, "chell" Length:5 Position:2, "lle1" Length:4 Position:5, 
+			Values7: "mich" Length:4 Position:0, "mic" Length:3 Position:0, "helle" Length:5 Position:3, "elle1" Length:5 Position:4, 
+			Values8: "mich" Length:4 Position:0, "elle" Length:4 Position:4, "1" Length:1 Position:8, 
+
+Password: dag31a7
+			Pattern1: Common1/Undetected/
+			Values1: "dag" Length:3 Position:0, "31a7" Length:4 Position:3, 
+
+Password: 
+			Pattern1: Undetected/
+			Values1: "" Length:0 Position:0, 
+
+Password: ajb123
+			Pattern1: Undetected/
+			Values1: "ajb123" Length:6 Position:0, 
+
+Password: 117811
+			Pattern1: Mobile/
+			Values1: "117811" Length:6 Position:0, 
+
+Password: taralynn
+			Pattern1: Name/
+			Pattern2: Name/Undetected/
+			Pattern3: Common1/Undetected/Name/Undetected/
+			Pattern4: Name/Undetected/Name/Undetected/
+			Pattern5: Undetected/Name/Name/Undetected/
+			Pattern6: Undetected/Name/Undetected/
+			Pattern7: Undetected/Name/
+			Pattern8: Undetected/Name/Undetected/
+			Pattern9: Undetected/Name/
+			Values1: "taralynn" Length:8 Position:0, 
+			Values2: "taralyn" Length:7 Position:0, "n" Length:1 Position:7, 
+			Values3: "taral" Length:5 Position:0, "t" Length:1 Position:0, "aralynn" Length:7 Position:1, "ynn" Length:3 Position:5, 
+			Values4: "tara" Length:4 Position:0, "t" Length:1 Position:0, "aralyn" Length:6 Position:1, "lynn" Length:4 Position:4, 
+			Values5: "ta" Length:2 Position:0, "araly" Length:5 Position:1, "ralynn" Length:6 Position:2, "nn" Length:2 Position:6, 
+			Values6: "ta" Length:2 Position:0, "ralyn" Length:5 Position:2, "n" Length:1 Position:7, 
+			Values7: "tar" Length:3 Position:0, "alynn" Length:5 Position:3, 
+			Values8: "tar" Length:3 Position:0, "alyn" Length:4 Position:3, "n" Length:1 Position:7, 
+			Values9: "tara" Length:4 Position:0, "lynn" Length:4 Position:4, 
+
+Password: redskin1
+			Pattern1: Common1/Undetected/
+			Values1: "redskin" Length:7 Position:0, "1" Length:1 Position:7, 
+
+Password: adb1109
+			Pattern1: Undetected/Mobile/
+			Values1: "adb" Length:3 Position:0, "1109" Length:4 Position:3, 
+
+Password: apple1
+			Pattern1: Location/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Values1: "apple" Length:5 Position:0, "1" Length:1 Position:5, 
+			Values2: "apple" Length:5 Position:0, "1" Length:1 Position:5, 
+			Values3: "appl" Length:4 Position:0, "e1" Length:2 Position:4, 
+
+Password: vijayanand123
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Name/Undetected/
+			Pattern4: Name/Undetected/Name/Undetected/
+			Pattern5: Name/Undetected/Name/Undetected/
+			Pattern6: Undetected/Name/Name/Undetected/
+			Pattern7: Undetected/Name/Name/Undetected/
+			Pattern8: Undetected/Location/Undetected/
+			Pattern9: Undetected/Name/Name/Undetected/
+			Pattern10: Undetected/Location/Undetected/
+			Pattern11: Undetected/Name/Undetected/
+			Values1: "vijayan" Length:7 Position:0, "and123" Length:6 Position:7, 
+			Values2: "vijayan" Length:7 Position:0, "and123" Length:6 Position:7, 
+			Values3: "vijaya" Length:6 Position:0, "nand" Length:4 Position:6, "123" Length:3 Position:10, 
+			Values4: "vijay" Length:5 Position:0, "vi" Length:2 Position:0, "jayana" Length:6 Position:2, "anand123" Length:8 Position:5, 
+			Values5: "vija" Length:4 Position:0, "vi" Length:2 Position:0, "jayan" Length:5 Position:2, "yanand123" Length:9 Position:4, 
+			Values6: "vij" Length:3 Position:0, "jaya" Length:4 Position:2, "ayana" Length:5 Position:3, "nand123" Length:7 Position:6, 
+			Values7: "vija" Length:4 Position:0, "ayan" Length:4 Position:3, "yanan" Length:5 Position:4, "and123" Length:6 Position:7, 
+			Values8: "vija" Length:4 Position:0, "yanan" Length:5 Position:4, "d123" Length:4 Position:9, 
+			Values9: "vijay" Length:5 Position:0, "yana" Length:4 Position:4, "anand" Length:5 Position:5, "nd123" Length:5 Position:8, 
+			Values10: "vijay" Length:5 Position:0, "anand" Length:5 Position:5, "123" Length:3 Position:10, 
+			Values11: "vijay" Length:5 Position:0, "anan" Length:4 Position:5, "d123" Length:4 Position:9, 
+
+Password: pinkfl0yd
+			Pattern1: Common1/Undetected/
+			Values1: "pink" Length:4 Position:0, "fl0yd" Length:5 Position:4, 
+
+Password: ab111990
+			Pattern1: Undetected/Mobile/
+			Pattern2: Undetected/DOB/
+			Values1: "ab" Length:2 Position:0, "111990" Length:6 Position:2, 
+			Values2: "ab11" Length:4 Position:0, "1990" Length:4 Position:4, 
+
+Password: scarface1
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "scarface" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values2: "scarface" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values3: "sc" Length:2 Position:0, "arfa" Length:4 Position:2, "ce1" Length:3 Position:6, 
+
+Password: 6rv8c1
+			Pattern1: Undetected/
+			Values1: "6rv8c1" Length:6 Position:0, 
+
+Password: 6rv8c1
+			Pattern1: Undetected/
+			Values1: "6rv8c1" Length:6 Position:0, 
+
+Password: ab0mw1
+			Pattern1: Undetected/
+			Values1: "ab0mw1" Length:6 Position:0, 
+
+Password: ab0mw1
+			Pattern1: Undetected/
+			Values1: "ab0mw1" Length:6 Position:0, 
+
+Password: peewee1
+			Pattern1: Common1/Undetected/
+			Values1: "peewee" Length:6 Position:0, "1" Length:1 Position:6, 
+
+Password: catdog
+			Pattern1: Common1/Undetected/
+			Values1: "catd" Length:4 Position:0, "og" Length:2 Position:4, 
+
+Password: superman12
+			Pattern1: Common1/Undetected/
+			Pattern2: Location/Undetected/Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Pattern4: Undetected/Name/Undetected/
+			Pattern5: Undetected/Name/Undetected/
+			Values1: "superman" Length:8 Position:0, "12" Length:2 Position:8, 
+			Values2: "super" Length:5 Position:0, "su" Length:2 Position:0, "perman" Length:6 Position:2, "man12" Length:5 Position:5, 
+			Values3: "su" Length:2 Position:0, "perma" Length:5 Position:2, "n12" Length:3 Position:7, 
+			Values4: "sup" Length:3 Position:0, "erman" Length:5 Position:3, "12" Length:2 Position:8, 
+			Values5: "sup" Length:3 Position:0, "erma" Length:4 Position:3, "n12" Length:3 Position:7, 
+
+Password: sabin88
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "sabin" Length:5 Position:0, "88" Length:2 Position:5, 
+			Values2: "sabi" Length:4 Position:0, "n88" Length:3 Position:4, 
+			Values3: "s" Length:1 Position:0, "abin" Length:4 Position:1, "88" Length:2 Position:5, 
+
+Password: asdfghjkl
+			Pattern1: Common1/Undetected/
+			Values1: "asdfg" Length:5 Position:0, "hjkl" Length:4 Position:5, 
+
+Password: radio
+			Pattern1: Common1/
+			Pattern2: Name/Undetected/
+			Values1: "radio" Length:5 Position:0, 
+			Values2: "radi" Length:4 Position:0, "o" Length:1 Position:4, 
+
+Password: iloveyou12
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "iloveyou" Length:8 Position:0, "12" Length:2 Position:8, 
+			Values2: "i" Length:1 Position:0, "lovey" Length:5 Position:1, "ou12" Length:4 Position:6, 
+			Values3: "il" Length:2 Position:0, "ovey" Length:4 Position:2, "ou12" Length:4 Position:6, 
+
+Password: armida1
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "armida" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values2: "armida" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values3: "ar" Length:2 Position:0, "mida" Length:4 Position:2, "1" Length:1 Position:6, 
+
+Password: 47domo
+			Pattern1: Undetected/Common1/
+			Values1: "47" Length:2 Position:0, "domo" Length:4 Position:2, 
+
+Password: above10
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "above" Length:5 Position:0, "10" Length:2 Position:5, 
+			Values2: "a" Length:1 Position:0, "bove" Length:4 Position:1, "10" Length:2 Position:5, 
+
+Password: vaduece2
+			Pattern1: Undetected/Common1/Undetected/
+			Values1: "va" Length:2 Position:0, "duece" Length:5 Position:2, "2" Length:1 Position:7, 
+
+Password: 1baseball
+			Pattern1: Undetected/Common1/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "1" Length:1 Position:0, "baseball" Length:8 Position:1, 
+			Values2: "1ba" Length:3 Position:0, "seba" Length:4 Position:3, "ll" Length:2 Position:7, 
+
+Password: ddiew238
+			Pattern1: Common1/Undetected/
+			Values1: "ddie" Length:4 Position:0, "w238" Length:4 Position:4, 
+
+Password: solja12345
+			Pattern1: Undetected/Common1/Name/Undetected/Mobile/
+			Values1: "solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
+
+Password: ananan
+			Pattern1: Name/Undetected/
+			Pattern2: Name/Undetected/Location/Undetected/
+			Pattern3: Undetected/Common1/Undetected/
+			Values1: "anana" Length:5 Position:0, "n" Length:1 Position:5, 
+			Values2: "anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
+			Values3: "a" Length:1 Position:0, "nana" Length:4 Position:1, "n" Length:1 Position:5, 
+
+Password: ananan
+			Pattern1: Name/Undetected/
+			Pattern2: Name/Undetected/Location/Undetected/
+			Pattern3: Undetected/Common1/Undetected/
+			Values1: "anana" Length:5 Position:0, "n" Length:1 Position:5, 
+			Values2: "anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
+			Values3: "a" Length:1 Position:0, "nana" Length:4 Position:1, "n" Length:1 Position:5, 
+
+Password: sunyata
+			Pattern1: Common1/
+			Pattern2: Name/Undetected/
+			Values1: "sunyata" Length:7 Position:0, 
+			Values2: "sunya" Length:5 Position:0, "ta" Length:2 Position:5, 
+
+Password: sunyata?
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Values1: "sunyata" Length:7 Position:0, "?" Length:1 Position:7, 
+			Values2: "sunya" Length:5 Position:0, "ta?" Length:3 Position:5, 
+
+Password: 135677840699
+			Pattern1: Mobile/
+			Values1: "135677840699" Length:12 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: 100442
+			Pattern1: Mobile/
+			Values1: "100442" Length:6 Position:0, 
+
+Password: august5198
+			Pattern1: Common1/Mobile/
+			Pattern2: Name/Undetected/
+			Values1: "august" Length:6 Position:0, "5198" Length:4 Position:6, 
+			Values2: "augus" Length:5 Position:0, "t5198" Length:5 Position:5, 
+
+Password: fktyf272102
+			Pattern1: Undetected/Mobile/
+			Values1: "fktyf" Length:5 Position:0, "272102" Length:6 Position:5, 
+
+Password: qwertyqwer
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "qwerty" Length:6 Position:0, "qwer" Length:4 Position:6, 
+			Values2: "q" Length:1 Position:0, "wert" Length:4 Position:1, "yqwer" Length:5 Position:5, 
+
+Password: dmajor07
+			Pattern1: Undetected/Common1/Undetected/
+			Values1: "d" Length:1 Position:0, "major" Length:5 Position:1, "07" Length:2 Position:6, 
+
+Password: ericsson
+			Pattern1: Name/
+			Pattern2: Common1/
+			Pattern3: Name/Undetected/
+			Values1: "ericsson" Length:8 Position:0, 
+			Values2: "ericsson" Length:8 Position:0, 
+			Values3: "eric" Length:4 Position:0, "sson" Length:4 Position:4, 
+
+Password: piggyp1
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Values1: "piggy" Length:5 Position:0, "p1" Length:2 Position:5, 
+			Values2: "pigg" Length:4 Position:0, "yp1" Length:3 Position:4, 
+			Values3: "p" Length:1 Position:0, "iggy" Length:4 Position:1, "p1" Length:2 Position:5, 
+
+Password: 10121999
+			Pattern1: Mobile/
+			Pattern2: Undetected/DOB/
+			Values1: "10121999" Length:8 Position:0, 
+			Values2: "1012" Length:4 Position:0, "1999" Length:4 Position:4, 
+
+Password: stm6689
+			Pattern1: Undetected/Mobile/
+			Values1: "stm" Length:3 Position:0, "6689" Length:4 Position:3, 
+
+Password: catherine1
+			Pattern1: Name/Undetected/
+			Pattern2: Location/Undetected/
+			Pattern3: Common1/Undetected/
+			Pattern4: Name/Undetected/
+			Pattern5: Name/Undetected/Name/Undetected/
+			Pattern6: Name/Undetected/Name/Name/Undetected/
+			Pattern7: Name/Undetected/Name/Undetected/
+			Pattern8: Undetected/Name/Name/Undetected/
+			Pattern9: Undetected/Name/Undetected/
+			Pattern10: Undetected/Name/Undetected/
+			Values1: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
+			Values2: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
+			Values3: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
+			Values4: "catherin" Length:8 Position:0, "e1" Length:2 Position:8, 
+			Values5: "cather" Length:6 Position:0, "c" Length:1 Position:0, "atherine" Length:8 Position:1, "ine1" Length:4 Position:6, 
+			Values6: "cathe" Length:5 Position:0, "ca" Length:2 Position:0, "ather" Length:5 Position:1, "therine" Length:7 Position:2, "rine1" Length:5 Position:5, 
+			Values7: "cath" Length:4 Position:0, "ca" Length:2 Position:0, "therin" Length:6 Position:2, "erine1" Length:6 Position:4, 
+			Values8: "cath" Length:4 Position:0, "heri" Length:4 Position:3, "erine" Length:5 Position:4, "ne1" Length:3 Position:7, 
+			Values9: "cath" Length:4 Position:0, "erin" Length:4 Position:4, "e1" Length:2 Position:8, 
+			Values10: "cathe" Length:5 Position:0, "rine" Length:4 Position:5, "1" Length:1 Position:9, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 101767
+			Pattern1: Mobile/
+			Values1: "101767" Length:6 Position:0, 
+
+Password: 
+			Pattern1: Undetected/
+			Values1: "" Length:0 Position:0, 
+
+Password: loudoun83
+			Pattern1: Common1/Undetected/
+			Values1: "loudoun" Length:7 Position:0, "83" Length:2 Position:7, 
+
+Password: 510rider
+			Pattern1: Undetected/Common1/
+			Values1: "510" Length:3 Position:0, "rider" Length:5 Position:3, 
+
+Password: softball11
+			Pattern1: Common1/Undetected/
+			Values1: "softball" Length:8 Position:0, "11" Length:2 Position:8, 
+
+Password: gate11
+			Pattern1: Common1/Undetected/
+			Values1: "gate" Length:4 Position:0, "11" Length:2 Position:4, 
+
+Password: headers1
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Pattern3: Undetected/Name/Undetected/
+			Pattern4: Undetected/Name/Undetected/
+			Pattern5: Undetected/Name/Undetected/
+			Values1: "headers" Length:7 Position:0, "1" Length:1 Position:7, 
+			Values2: "heade" Length:5 Position:0, "rs1" Length:3 Position:5, 
+			Values3: "h" Length:1 Position:0, "eader" Length:5 Position:1, "s1" Length:2 Position:6, 
+			Values4: "h" Length:1 Position:0, "eade" Length:4 Position:1, "rs1" Length:3 Position:5, 
+			Values5: "he" Length:2 Position:0, "ader" Length:4 Position:2, "s1" Length:2 Position:6, 
+
+Password: poop74
+			Pattern1: Common1/Undetected/
+			Values1: "poop" Length:4 Position:0, "74" Length:2 Position:4, 
+
+Password: bpnc312
+			Pattern1: Undetected/
+			Values1: "bpnc312" Length:7 Position:0, 
+
+Password: bloodz5
+			Pattern1: Common1/Undetected/
+			Values1: "blood" Length:5 Position:0, "z5" Length:2 Position:5, 
+
+Password: alisha789
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Pattern4: Name/Undetected/Name/Undetected/
+			Pattern5: Undetected/Name/Undetected/
+			Pattern6: Undetected/Name/Undetected/
+			Values1: "alisha" Length:6 Position:0, "789" Length:3 Position:6, 
+			Values2: "alisha" Length:6 Position:0, "789" Length:3 Position:6, 
+			Values3: "alish" Length:5 Position:0, "a789" Length:4 Position:5, 
+			Values4: "alis" Length:4 Position:0, "a" Length:1 Position:0, "lisha" Length:5 Position:1, "ha789" Length:5 Position:4, 
+			Values5: "a" Length:1 Position:0, "lish" Length:4 Position:1, "a789" Length:4 Position:5, 
+			Values6: "al" Length:2 Position:0, "isha" Length:4 Position:2, "789" Length:3 Position:6, 
+
+Password: va53712
+			Pattern1: Undetected/Mobile/
+			Values1: "va" Length:2 Position:0, "53712" Length:5 Position:2, 
+
+Password: tight.
+			Pattern1: Common1/Undetected/
+			Pattern2: Name/Undetected/
+			Values1: "tight" Length:5 Position:0, "." Length:1 Position:5, 
+			Values2: "tigh" Length:4 Position:0, "t." Length:2 Position:4, 
+
+Password: applepie12
+			Pattern1: Location/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Values1: "apple" Length:5 Position:0, "pie12" Length:5 Position:5, 
+			Values2: "apple" Length:5 Position:0, "pie12" Length:5 Position:5, 
+			Values3: "appl" Length:4 Position:0, "epie12" Length:6 Position:4, 
+
+Password: shyne36
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Values1: "shyne" Length:5 Position:0, "36" Length:2 Position:5, 
+			Values2: "shyne" Length:5 Position:0, "36" Length:2 Position:5, 
+
+Password: arnieb1955
+			Pattern1: Name/Undetected/DOB/
+			Pattern2: Common1/Undetected/Mobile/
+			Pattern3: Name/Undetected/
+			Values1: "arnie" Length:5 Position:0, "b" Length:1 Position:5, "1955" Length:4 Position:6, 
+			Values2: "arnie" Length:5 Position:0, "b" Length:1 Position:5, "1955" Length:4 Position:6, 
+			Values3: "arni" Length:4 Position:0, "eb1955" Length:6 Position:4, 
+
+Password: 123456789
+			Pattern1: Mobile/
+			Values1: "123456789" Length:9 Position:0, 
+
+Password: rgbjikm
+			Pattern1: Undetected/
+			Values1: "rgbjikm" Length:7 Position:0, 
+
+Password: fcm2611
+			Pattern1: Undetected/Mobile/
+			Values1: "fcm" Length:3 Position:0, "2611" Length:4 Position:3, 
+
+Password: carolina1
+			Pattern1: Name/Undetected/
+			Pattern2: Location/Undetected/
+			Pattern3: Common1/Undetected/
+			Pattern4: Name/Undetected/
+			Pattern5: Name/Undetected/
+			Pattern6: Location/Undetected/
+			Pattern7: Name/Undetected/Name/Undetected/
+			Pattern8: Undetected/Name/Name/Undetected/
+			Pattern9: Undetected/Name/Undetected/
+			Pattern10: Undetected/Name/Undetected/
+			Values1: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values2: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values3: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
+			Values4: "carolin" Length:7 Position:0, "a1" Length:2 Position:7, 
+			Values5: "caroli" Length:6 Position:0, "na1" Length:3 Position:6, 
+			Values6: "carol" Length:5 Position:0, "ina1" Length:4 Position:5, 
+			Values7: "caro" Length:4 Position:0, "ca" Length:2 Position:0, "rolin" Length:5 Position:2, "lina1" Length:5 Position:4, 
+			Values8: "car" Length:3 Position:0, "arol" Length:4 Position:1, "olina" Length:5 Position:3, "ina1" Length:4 Position:5, 
+			Values9: "car" Length:3 Position:0, "olin" Length:4 Position:3, "a1" Length:2 Position:7, 
+			Values10: "caro" Length:4 Position:0, "lina" Length:4 Position:4, "1" Length:1 Position:8, 
+
+Password: laker8
+			Pattern1: Common1/Undetected/
+			Pattern2: Undetected/Name/Undetected/
+			Values1: "laker" Length:5 Position:0, "8" Length:1 Position:5, 
+			Values2: "l" Length:1 Position:0, "aker" Length:4 Position:1, "8" Length:1 Position:5, 
+
+Password: fenton1
+			Pattern1: Name/Undetected/
+			Pattern2: Common1/Undetected/
+			Pattern3: Name/Undetected/
+			Values1: "fenton" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values2: "fenton" Length:6 Position:0, "1" Length:1 Position:6, 
+			Values3: "fent" Length:4 Position:0, "on1" Length:3 Position:4, 
+
+Password: rain01234
+			Pattern1: Common1/Undetected/Mobile/Undetected/
+			Values1: "rain" Length:4 Position:0, "rain" Length:4 Position:0, "01234" Length:5 Position:4, "01234" Length:5 Position:4, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: aurore1985
+			Pattern1: Name/DOB/
+			Pattern2: Common1/Mobile/
+			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
+
+Password: minena1
+			Pattern1: Undetected/Name/Undetected/
+			Pattern2: Undetected/Common1/Undetected/
+			Values1: "mi" Length:2 Position:0, "nena" Length:4 Position:2, "1" Length:1 Position:6, 
+			Values2: "mi" Length:2 Position:0, "nena" Length:4 Position:2, "1" Length:1 Position:6, 
+
 Password: butterflydot
 			Pattern1: Common1/Undetected/
 			Pattern2: Name/Undetected/
@@ -4749,976 +5721,4 @@ Password: 424366
 Password: gebwfgqy
 			Pattern1: Undetected/
 			Values1: "gebwfgqy" Length:8 Position:0, 
-
-Password: vecmrf
-			Pattern1: Common1/Undetected/
-			Values1: "vecm" Length:4 Position:0, "rf" Length:2 Position:4, 
-
-Password: baseball7
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "baseball" Length:8 Position:0, "7" Length:1 Position:8, 
-			Values2: "ba" Length:2 Position:0, "seba" Length:4 Position:2, "ll7" Length:3 Position:6, 
-
-Password: 123456
-			Pattern1: Mobile/
-			Values1: "123456" Length:6 Position:0, 
-
-Password: ab0123
-			Pattern1: email_Name/Undetected/
-			Pattern2: Undetected/Mobile/
-			Values1: "ab012" Length:5 Position:0, "3" Length:1 Position:5, 
-			Values2: "ab" Length:2 Position:0, "0123" Length:4 Position:2, 
-
-Password: teddy1
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Values1: "teddy" Length:5 Position:0, "1" Length:1 Position:5, 
-			Values2: "tedd" Length:4 Position:0, "y1" Length:2 Position:4, 
-
-Password: 84041495
-			Pattern1: Mobile/
-			Values1: "84041495" Length:8 Position:0, 
-
-Password: bosco3908
-			Pattern1: Name/Mobile/
-			Pattern2: Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "bosco" Length:5 Position:0, "3908" Length:4 Position:5, 
-			Values2: "bosco" Length:5 Position:0, "3908" Length:4 Position:5, 
-			Values3: "b" Length:1 Position:0, "osco" Length:4 Position:1, "3908" Length:4 Position:5, 
-
-Password: sneaky4me
-			Pattern1: Common1/Undetected/
-			Values1: "sneaky" Length:6 Position:0, "4me" Length:3 Position:6, 
-
-Password: 19860205
-			Pattern1: Mobile/
-			Pattern2: DOB/Undetected/
-			Values1: "19860205" Length:8 Position:0, 
-			Values2: "1986" Length:4 Position:0, "0205" Length:4 Position:4, 
-
-Password: a2101989
-			Pattern1: Undetected/Mobile/
-			Pattern2: Undetected/DOB/
-			Values1: "a" Length:1 Position:0, "2101989" Length:7 Position:1, 
-			Values2: "a210" Length:4 Position:0, "1989" Length:4 Position:4, 
-
-Password: password1
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "password" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values2: "pas" Length:3 Position:0, "swor" Length:4 Position:3, "d1" Length:2 Position:7, 
-
-Password: srice210
-			Pattern1: Undetected/Common1/Undetected/
-			Values1: "s" Length:1 Position:0, "rice" Length:4 Position:1, "210" Length:3 Position:5, 
-
-Password: 96232gtnh
-			Pattern1: Mobile/Undetected/
-			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
-
-Password: 96232gtnh
-			Pattern1: Mobile/Undetected/
-			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
-
-Password: 96232gtnh
-			Pattern1: Mobile/Undetected/
-			Values1: "96232" Length:5 Position:0, "gtnh" Length:4 Position:5, 
-
-Password: poptart1
-			Pattern1: Common1/Undetected/
-			Values1: "poptart" Length:7 Position:0, "1" Length:1 Position:7, 
-
-Password: samantha
-			Pattern1: Name/
-			Pattern2: Common1/
-			Pattern3: Name/Undetected/
-			Pattern4: Name/Undetected/Name/Undetected/
-			Pattern5: Name/Undetected/Name/Name/Undetected/
-			Values1: "samantha" Length:8 Position:0, 
-			Values2: "samantha" Length:8 Position:0, 
-			Values3: "samanth" Length:7 Position:0, "a" Length:1 Position:7, 
-			Values4: "saman" Length:5 Position:0, "s" Length:1 Position:0, "amantha" Length:7 Position:1, "tha" Length:3 Position:5, 
-			Values5: "sama" Length:4 Position:0, "sam" Length:3 Position:0, "aman" Length:4 Position:1, "antha" Length:5 Position:3, "ntha" Length:4 Position:4, 
-
-Password: ab1215
-			Pattern1: Undetected/Mobile/
-			Values1: "ab" Length:2 Position:0, "1215" Length:4 Position:2, 
-
-Password: ab123123
-			Pattern1: Undetected/Mobile/
-			Values1: "ab" Length:2 Position:0, "123123" Length:6 Position:2, 
-
-Password: 0350365
-			Pattern1: Mobile/
-			Values1: "0350365" Length:7 Position:0, 
-
-Password: 0350365
-			Pattern1: Mobile/
-			Values1: "0350365" Length:7 Position:0, 
-
-Password: 0350365
-			Pattern1: Mobile/
-			Values1: "0350365" Length:7 Position:0, 
-
-Password: 0350365
-			Pattern1: Mobile/
-			Values1: "0350365" Length:7 Position:0, 
-
-Password: 0350365
-			Pattern1: Mobile/
-			Values1: "0350365" Length:7 Position:0, 
-
-Password: cd0805466
-			Pattern1: Undetected/Mobile/
-			Values1: "cd" Length:2 Position:0, "0805466" Length:7 Position:2, 
-
-Password: theone1
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Pattern4: Name/Undetected/
-			Pattern5: Undetected/Name/Undetected/
-			Values1: "theone" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values2: "theone" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values3: "theon" Length:5 Position:0, "e1" Length:2 Position:5, 
-			Values4: "theo" Length:4 Position:0, "ne1" Length:3 Position:4, 
-			Values5: "t" Length:1 Position:0, "heon" Length:4 Position:1, "e1" Length:2 Position:5, 
-
-Password: 240310
-			Pattern1: Mobile/
-			Values1: "240310" Length:6 Position:0, 
-
-Password: 240310
-			Pattern1: Mobile/
-			Values1: "240310" Length:6 Position:0, 
-
-Password: ab04031972
-			Pattern1: email_Name/
-			Pattern2: Undetected/Mobile/
-			Pattern3: Undetected/DOB/
-			Values1: "ab04031972" Length:10 Position:0, 
-			Values2: "ab" Length:2 Position:0, "04031972" Length:8 Position:2, 
-			Values3: "ab0403" Length:6 Position:0, "1972" Length:4 Position:6, 
-
-Password: **batman1
-			Pattern1: Undetected/Location/Undetected/
-			Pattern2: Undetected/Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
-			Values2: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
-			Values3: "**b" Length:3 Position:0, "atma" Length:4 Position:3, "n1" Length:2 Position:7, 
-
-Password: **batman1
-			Pattern1: Undetected/Location/Undetected/
-			Pattern2: Undetected/Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
-			Values2: "**" Length:2 Position:0, "batman" Length:6 Position:2, "1" Length:1 Position:8, 
-			Values3: "**b" Length:3 Position:0, "atma" Length:4 Position:3, "n1" Length:2 Position:7, 
-
-Password: 11vfvf
-			Pattern1: Undetected/
-			Values1: "11vfvf" Length:6 Position:0, 
-
-Password: launch1
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "launch" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values2: "laun" Length:4 Position:0, "ch1" Length:3 Position:4, 
-			Values3: "la" Length:2 Position:0, "unch" Length:4 Position:2, "1" Length:1 Position:6, 
-
-Password: april17
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Values1: "april" Length:5 Position:0, "17" Length:2 Position:5, 
-			Values2: "april" Length:5 Position:0, "17" Length:2 Position:5, 
-
-Password: РёРЅСЃС‚РёРЅРєС‚
-			Pattern1: Undetected/
-			Values1: "РёРЅСЃС‚РёРЅРєС‚" Length:34 Position:0, 
-
-Password: инстинкт
-			Pattern1: Undetected/
-			Values1: "инстинкт" Length:16 Position:0, 
-
-Password: m0llybreen
-			Pattern1: Undetected/Name/
-			Pattern2: Undetected/Common1/
-			Pattern3: Undetected/Name/
-			Values1: "m0lly" Length:5 Position:0, "breen" Length:5 Position:5, 
-			Values2: "m0lly" Length:5 Position:0, "breen" Length:5 Position:5, 
-			Values3: "m0llyb" Length:6 Position:0, "reen" Length:4 Position:6, 
-
-Password: racncv6
-			Pattern1: Undetected/
-			Values1: "racncv6" Length:7 Position:0, 
-
-Password: 801014
-			Pattern1: Mobile/
-			Values1: "801014" Length:6 Position:0, 
-
-Password: pealutu
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Values1: "peal" Length:4 Position:0, "utu" Length:3 Position:4, 
-			Values2: "peal" Length:4 Position:0, "utu" Length:3 Position:4, 
-
-Password: aa9999aa
-			Pattern1: Undetected/Mobile/Undetected/
-			Values1: "aa" Length:2 Position:0, "9999" Length:4 Position:2, "aa" Length:2 Position:6, 
-
-Password: kaa1198347055673
-			Pattern1: Undetected/Mobile/
-			Pattern2: Undetected/DOB/Undetected/
-			Values1: "kaa" Length:3 Position:0, "1198347055673" Length:13 Position:3, 
-			Values2: "kaa1" Length:4 Position:0, "1983" Length:4 Position:4, "47055673" Length:8 Position:8, 
-
-Password: vfrcbv
-			Pattern1: Undetected/
-			Values1: "vfrcbv" Length:6 Position:0, 
-
-Password: ab1905
-			Pattern1: Undetected/DOB/
-			Pattern2: Undetected/Mobile/
-			Values1: "ab" Length:2 Position:0, "1905" Length:4 Position:2, 
-			Values2: "ab" Length:2 Position:0, "1905" Length:4 Position:2, 
-
-Password: 06011982
-			Pattern1: Mobile/
-			Pattern2: Undetected/DOB/
-			Values1: "06011982" Length:8 Position:0, 
-			Values2: "0601" Length:4 Position:0, "1982" Length:4 Position:4, 
-
-Password: lg041104
-			Pattern1: Undetected/Mobile/
-			Values1: "lg" Length:2 Position:0, "041104" Length:6 Position:2, 
-
-Password: hunter88
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Location/Undetected/
-			Values1: "hunter" Length:6 Position:0, "88" Length:2 Position:6, 
-			Values2: "h" Length:1 Position:0, "unter" Length:5 Position:1, "88" Length:2 Position:6, 
-
-Password: 06061981
-			Pattern1: Mobile/
-			Pattern2: Undetected/DOB/
-			Values1: "06061981" Length:8 Position:0, 
-			Values2: "0606" Length:4 Position:0, "1981" Length:4 Position:4, 
-
-Password: 13102005ba
-			Pattern1: Mobile/Undetected/
-			Pattern2: Undetected/DOB/Undetected/
-			Values1: "13102005" Length:8 Position:0, "ba" Length:2 Position:8, 
-			Values2: "1310" Length:4 Position:0, "2005" Length:4 Position:4, "ba" Length:2 Position:8, 
-
-Password: 13537275777
-			Pattern1: Mobile/
-			Values1: "13537275777" Length:11 Position:0, 
-
-Password: 888888
-			Pattern1: Mobile/
-			Values1: "888888" Length:6 Position:0, 
-
-Password: password1
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "password" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values2: "pas" Length:3 Position:0, "swor" Length:4 Position:3, "d1" Length:2 Position:7, 
-
-Password: 0672906837abu
-			Pattern1: Mobile/Undetected/
-			Values1: "0672906837" Length:10 Position:0, "abu" Length:3 Position:10, 
-
-Password: 07079177ab
-			Pattern1: Mobile/Undetected/
-			Values1: "07079177" Length:8 Position:0, "ab" Length:2 Position:8, 
-
-Password: 1234ab
-			Pattern1: Mobile/Undetected/
-			Values1: "1234" Length:4 Position:0, "ab" Length:2 Position:4, 
-
-Password: 1223334444
-			Pattern1: Mobile/
-			Values1: "1223334444" Length:10 Position:0, 
-
-Password: богамолов
-			Pattern1: Undetected/
-			Values1: "богамолов" Length:18 Position:0, 
-
-Password: library1
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Pattern4: Undetected/Name/Undetected/
-			Values1: "library" Length:7 Position:0, "1" Length:1 Position:7, 
-			Values2: "l" Length:1 Position:0, "ibrar" Length:5 Position:1, "y1" Length:2 Position:6, 
-			Values3: "li" Length:2 Position:0, "brar" Length:4 Position:2, "y1" Length:2 Position:6, 
-			Values4: "lib" Length:3 Position:0, "rary" Length:4 Position:3, "1" Length:1 Position:7, 
-
-Password: 777777
-			Pattern1: Mobile/
-			Values1: "777777" Length:6 Position:0, 
-
-Password: a777777
-			Pattern1: Undetected/Mobile/
-			Values1: "a" Length:1 Position:0, "777777" Length:6 Position:1, 
-
-Password: 777684777063928
-			Pattern1: Mobile/
-			Values1: "777684777063928" Length:15 Position:0, 
-
-Password: alaska1
-			Pattern1: Location/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Pattern4: Undetected/Name/Undetected/
-			Values1: "alaska" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values2: "alaska" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values3: "a" Length:1 Position:0, "laska" Length:5 Position:1, "1" Length:1 Position:6, 
-			Values4: "a" Length:1 Position:0, "lask" Length:4 Position:1, "a1" Length:2 Position:5, 
-
-Password: money4
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "money" Length:5 Position:0, "4" Length:1 Position:5, 
-			Values2: "mone" Length:4 Position:0, "y4" Length:2 Position:4, 
-			Values3: "m" Length:1 Position:0, "oney" Length:4 Position:1, "4" Length:1 Position:5, 
-
-Password: 0801ab1984
-			Pattern1: Mobile/Undetected/DOB/
-			Values1: "0801" Length:4 Position:0, "ab" Length:2 Position:4, "1984" Length:4 Position:6, 
-
-Password: tilahu56
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "tila" Length:4 Position:0, "hu56" Length:4 Position:4, 
-			Values2: "tila" Length:4 Position:0, "hu56" Length:4 Position:4, 
-			Values3: "t" Length:1 Position:0, "ilah" Length:4 Position:1, "u56" Length:3 Position:5, 
-
-Password: alya05+love
-			Pattern1: Name/Undetected/Common1/
-			Pattern2: Common2/Undetected/
-			Values1: "alya" Length:4 Position:0, "05+" Length:3 Position:4, "love" Length:4 Position:7, 
-			Values2: "alya" Length:4 Position:0, "05+love" Length:7 Position:4, 
-
-Password: adam123
-			Pattern1: Common1/Undetected/
-			Values1: "adam" Length:4 Position:0, "123" Length:3 Position:4, 
-
-Password: алина810
-			Pattern1: Undetected/
-			Values1: "алина810" Length:13 Position:0, 
-
-Password: linkedin2245
-			Pattern1: Common1/Mobile/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "linkedin" Length:8 Position:0, "2245" Length:4 Position:8, 
-			Values2: "linke" Length:5 Position:0, "din2245" Length:7 Position:5, 
-			Values3: "link" Length:4 Position:0, "edin" Length:4 Position:4, "2245" Length:4 Position:8, 
-
-Password: 3yubvb
-			Pattern1: Undetected/
-			Values1: "3yubvb" Length:6 Position:0, 
-
-Password: family97
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Pattern4: Undetected/Name/Undetected/
-			Values1: "family" Length:6 Position:0, "97" Length:2 Position:6, 
-			Values2: "f" Length:1 Position:0, "amily" Length:5 Position:1, "97" Length:2 Position:6, 
-			Values3: "f" Length:1 Position:0, "amil" Length:4 Position:1, "y97" Length:3 Position:5, 
-			Values4: "fa" Length:2 Position:0, "mily" Length:4 Position:2, "97" Length:2 Position:6, 
-
-Password: azzurri08
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "azzurri" Length:7 Position:0, "08" Length:2 Position:7, 
-			Values2: "az" Length:2 Position:0, "zurri" Length:5 Position:2, "08" Length:2 Position:7, 
-
-Password: ab0911016767
-			Pattern1: email_Name/
-			Pattern2: Undetected/Mobile/
-			Values1: "ab0911016767" Length:12 Position:0, 
-			Values2: "ab" Length:2 Position:0, "0911016767" Length:10 Position:2, 
-
-Password: myspace1
-			Pattern1: Common1/Undetected/
-			Values1: "myspace" Length:7 Position:0, "1" Length:1 Position:7, 
-
-Password: michelle1
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Pattern4: Name/Undetected/Name/Undetected/
-			Pattern5: Location/Undetected/Name/Undetected/
-			Pattern6: Name/Undetected/Name/Undetected/
-			Pattern7: Name/Undetected/Name/Undetected/
-			Pattern8: Undetected/Name/Undetected/
-			Values1: "michelle" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values2: "michelle" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values3: "michell" Length:7 Position:0, "e1" Length:2 Position:7, 
-			Values4: "michel" Length:6 Position:0, "m" Length:1 Position:0, "ichelle" Length:7 Position:1, "le1" Length:3 Position:6, 
-			Values5: "michel" Length:6 Position:0, "mi" Length:2 Position:0, "chelle" Length:6 Position:2, "le1" Length:3 Position:6, 
-			Values6: "miche" Length:5 Position:0, "mi" Length:2 Position:0, "chell" Length:5 Position:2, "lle1" Length:4 Position:5, 
-			Values7: "mich" Length:4 Position:0, "mic" Length:3 Position:0, "helle" Length:5 Position:3, "elle1" Length:5 Position:4, 
-			Values8: "mich" Length:4 Position:0, "elle" Length:4 Position:4, "1" Length:1 Position:8, 
-
-Password: dag31a7
-			Pattern1: Common1/Undetected/
-			Values1: "dag" Length:3 Position:0, "31a7" Length:4 Position:3, 
-
-Password: 
-			Pattern1: Undetected/
-			Values1: "" Length:0 Position:0, 
-
-Password: ajb123
-			Pattern1: Undetected/
-			Values1: "ajb123" Length:6 Position:0, 
-
-Password: 117811
-			Pattern1: Mobile/
-			Values1: "117811" Length:6 Position:0, 
-
-Password: taralynn
-			Pattern1: Name/
-			Pattern2: Name/Undetected/
-			Pattern3: Common1/Undetected/Name/Undetected/
-			Pattern4: Name/Undetected/Name/Undetected/
-			Pattern5: Undetected/Name/Name/Undetected/
-			Pattern6: Undetected/Name/Undetected/
-			Pattern7: Undetected/Name/
-			Pattern8: Undetected/Name/Undetected/
-			Pattern9: Undetected/Name/
-			Values1: "taralynn" Length:8 Position:0, 
-			Values2: "taralyn" Length:7 Position:0, "n" Length:1 Position:7, 
-			Values3: "taral" Length:5 Position:0, "t" Length:1 Position:0, "aralynn" Length:7 Position:1, "ynn" Length:3 Position:5, 
-			Values4: "tara" Length:4 Position:0, "t" Length:1 Position:0, "aralyn" Length:6 Position:1, "lynn" Length:4 Position:4, 
-			Values5: "ta" Length:2 Position:0, "araly" Length:5 Position:1, "ralynn" Length:6 Position:2, "nn" Length:2 Position:6, 
-			Values6: "ta" Length:2 Position:0, "ralyn" Length:5 Position:2, "n" Length:1 Position:7, 
-			Values7: "tar" Length:3 Position:0, "alynn" Length:5 Position:3, 
-			Values8: "tar" Length:3 Position:0, "alyn" Length:4 Position:3, "n" Length:1 Position:7, 
-			Values9: "tara" Length:4 Position:0, "lynn" Length:4 Position:4, 
-
-Password: redskin1
-			Pattern1: Common1/Undetected/
-			Values1: "redskin" Length:7 Position:0, "1" Length:1 Position:7, 
-
-Password: adb1109
-			Pattern1: Undetected/Mobile/
-			Values1: "adb" Length:3 Position:0, "1109" Length:4 Position:3, 
-
-Password: apple1
-			Pattern1: Location/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Values1: "apple" Length:5 Position:0, "1" Length:1 Position:5, 
-			Values2: "apple" Length:5 Position:0, "1" Length:1 Position:5, 
-			Values3: "appl" Length:4 Position:0, "e1" Length:2 Position:4, 
-
-Password: vijayanand123
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Name/Undetected/
-			Pattern4: Name/Undetected/Name/Undetected/
-			Pattern5: Name/Undetected/Name/Undetected/
-			Pattern6: Undetected/Name/Name/Undetected/
-			Pattern7: Undetected/Name/Name/Undetected/
-			Pattern8: Undetected/Location/Undetected/
-			Pattern9: Undetected/Name/Name/Undetected/
-			Pattern10: Undetected/Location/Undetected/
-			Pattern11: Undetected/Name/Undetected/
-			Values1: "vijayan" Length:7 Position:0, "and123" Length:6 Position:7, 
-			Values2: "vijayan" Length:7 Position:0, "and123" Length:6 Position:7, 
-			Values3: "vijaya" Length:6 Position:0, "nand" Length:4 Position:6, "123" Length:3 Position:10, 
-			Values4: "vijay" Length:5 Position:0, "vi" Length:2 Position:0, "jayana" Length:6 Position:2, "anand123" Length:8 Position:5, 
-			Values5: "vija" Length:4 Position:0, "vi" Length:2 Position:0, "jayan" Length:5 Position:2, "yanand123" Length:9 Position:4, 
-			Values6: "vij" Length:3 Position:0, "jaya" Length:4 Position:2, "ayana" Length:5 Position:3, "nand123" Length:7 Position:6, 
-			Values7: "vija" Length:4 Position:0, "ayan" Length:4 Position:3, "yanan" Length:5 Position:4, "and123" Length:6 Position:7, 
-			Values8: "vija" Length:4 Position:0, "yanan" Length:5 Position:4, "d123" Length:4 Position:9, 
-			Values9: "vijay" Length:5 Position:0, "yana" Length:4 Position:4, "anand" Length:5 Position:5, "nd123" Length:5 Position:8, 
-			Values10: "vijay" Length:5 Position:0, "anand" Length:5 Position:5, "123" Length:3 Position:10, 
-			Values11: "vijay" Length:5 Position:0, "anan" Length:4 Position:5, "d123" Length:4 Position:9, 
-
-Password: pinkfl0yd
-			Pattern1: Common1/Undetected/
-			Values1: "pink" Length:4 Position:0, "fl0yd" Length:5 Position:4, 
-
-Password: ab111990
-			Pattern1: Undetected/Mobile/
-			Pattern2: Undetected/DOB/
-			Values1: "ab" Length:2 Position:0, "111990" Length:6 Position:2, 
-			Values2: "ab11" Length:4 Position:0, "1990" Length:4 Position:4, 
-
-Password: scarface1
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "scarface" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values2: "scarface" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values3: "sc" Length:2 Position:0, "arfa" Length:4 Position:2, "ce1" Length:3 Position:6, 
-
-Password: 6rv8c1
-			Pattern1: Undetected/
-			Values1: "6rv8c1" Length:6 Position:0, 
-
-Password: 6rv8c1
-			Pattern1: Undetected/
-			Values1: "6rv8c1" Length:6 Position:0, 
-
-Password: ab0mw1
-			Pattern1: Undetected/
-			Values1: "ab0mw1" Length:6 Position:0, 
-
-Password: ab0mw1
-			Pattern1: Undetected/
-			Values1: "ab0mw1" Length:6 Position:0, 
-
-Password: peewee1
-			Pattern1: Common1/Undetected/
-			Values1: "peewee" Length:6 Position:0, "1" Length:1 Position:6, 
-
-Password: catdog
-			Pattern1: Common1/Undetected/
-			Values1: "catd" Length:4 Position:0, "og" Length:2 Position:4, 
-
-Password: superman12
-			Pattern1: Common1/Undetected/
-			Pattern2: Location/Undetected/Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Pattern4: Undetected/Name/Undetected/
-			Pattern5: Undetected/Name/Undetected/
-			Values1: "superman" Length:8 Position:0, "12" Length:2 Position:8, 
-			Values2: "super" Length:5 Position:0, "su" Length:2 Position:0, "perman" Length:6 Position:2, "man12" Length:5 Position:5, 
-			Values3: "su" Length:2 Position:0, "perma" Length:5 Position:2, "n12" Length:3 Position:7, 
-			Values4: "sup" Length:3 Position:0, "erman" Length:5 Position:3, "12" Length:2 Position:8, 
-			Values5: "sup" Length:3 Position:0, "erma" Length:4 Position:3, "n12" Length:3 Position:7, 
-
-Password: sabin88
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "sabin" Length:5 Position:0, "88" Length:2 Position:5, 
-			Values2: "sabi" Length:4 Position:0, "n88" Length:3 Position:4, 
-			Values3: "s" Length:1 Position:0, "abin" Length:4 Position:1, "88" Length:2 Position:5, 
-
-Password: asdfghjkl
-			Pattern1: Common1/Undetected/
-			Values1: "asdfg" Length:5 Position:0, "hjkl" Length:4 Position:5, 
-
-Password: radio
-			Pattern1: Common1/
-			Pattern2: Name/Undetected/
-			Values1: "radio" Length:5 Position:0, 
-			Values2: "radi" Length:4 Position:0, "o" Length:1 Position:4, 
-
-Password: iloveyou12
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "iloveyou" Length:8 Position:0, "12" Length:2 Position:8, 
-			Values2: "i" Length:1 Position:0, "lovey" Length:5 Position:1, "ou12" Length:4 Position:6, 
-			Values3: "il" Length:2 Position:0, "ovey" Length:4 Position:2, "ou12" Length:4 Position:6, 
-
-Password: armida1
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "armida" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values2: "armida" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values3: "ar" Length:2 Position:0, "mida" Length:4 Position:2, "1" Length:1 Position:6, 
-
-Password: 47domo
-			Pattern1: Undetected/Common1/
-			Values1: "47" Length:2 Position:0, "domo" Length:4 Position:2, 
-
-Password: above10
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "above" Length:5 Position:0, "10" Length:2 Position:5, 
-			Values2: "a" Length:1 Position:0, "bove" Length:4 Position:1, "10" Length:2 Position:5, 
-
-Password: vaduece2
-			Pattern1: Undetected/Common1/Undetected/
-			Values1: "va" Length:2 Position:0, "duece" Length:5 Position:2, "2" Length:1 Position:7, 
-
-Password: 1baseball
-			Pattern1: Undetected/Common1/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "1" Length:1 Position:0, "baseball" Length:8 Position:1, 
-			Values2: "1ba" Length:3 Position:0, "seba" Length:4 Position:3, "ll" Length:2 Position:7, 
-
-Password: ddiew238
-			Pattern1: Common1/Undetected/
-			Values1: "ddie" Length:4 Position:0, "w238" Length:4 Position:4, 
-
-Password: solja12345
-			Pattern1: Undetected/Common1/Name/Undetected/Mobile/
-			Values1: "solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-
-Password: ananan
-			Pattern1: Name/Undetected/
-			Pattern2: Name/Undetected/Location/Undetected/
-			Pattern3: Undetected/Common1/Undetected/
-			Values1: "anana" Length:5 Position:0, "n" Length:1 Position:5, 
-			Values2: "anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
-			Values3: "a" Length:1 Position:0, "nana" Length:4 Position:1, "n" Length:1 Position:5, 
-
-Password: ananan
-			Pattern1: Name/Undetected/
-			Pattern2: Name/Undetected/Location/Undetected/
-			Pattern3: Undetected/Common1/Undetected/
-			Values1: "anana" Length:5 Position:0, "n" Length:1 Position:5, 
-			Values2: "anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
-			Values3: "a" Length:1 Position:0, "nana" Length:4 Position:1, "n" Length:1 Position:5, 
-
-Password: sunyata
-			Pattern1: Common1/
-			Pattern2: Name/Undetected/
-			Values1: "sunyata" Length:7 Position:0, 
-			Values2: "sunya" Length:5 Position:0, "ta" Length:2 Position:5, 
-
-Password: sunyata?
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Values1: "sunyata" Length:7 Position:0, "?" Length:1 Position:7, 
-			Values2: "sunya" Length:5 Position:0, "ta?" Length:3 Position:5, 
-
-Password: 135677840699
-			Pattern1: Mobile/
-			Values1: "135677840699" Length:12 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: 100442
-			Pattern1: Mobile/
-			Values1: "100442" Length:6 Position:0, 
-
-Password: august5198
-			Pattern1: Common1/Mobile/
-			Pattern2: Name/Undetected/
-			Values1: "august" Length:6 Position:0, "5198" Length:4 Position:6, 
-			Values2: "augus" Length:5 Position:0, "t5198" Length:5 Position:5, 
-
-Password: fktyf272102
-			Pattern1: Undetected/Mobile/
-			Values1: "fktyf" Length:5 Position:0, "272102" Length:6 Position:5, 
-
-Password: qwertyqwer
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "qwerty" Length:6 Position:0, "qwer" Length:4 Position:6, 
-			Values2: "q" Length:1 Position:0, "wert" Length:4 Position:1, "yqwer" Length:5 Position:5, 
-
-Password: dmajor07
-			Pattern1: Undetected/Common1/Undetected/
-			Values1: "d" Length:1 Position:0, "major" Length:5 Position:1, "07" Length:2 Position:6, 
-
-Password: ericsson
-			Pattern1: Name/
-			Pattern2: Common1/
-			Pattern3: Name/Undetected/
-			Values1: "ericsson" Length:8 Position:0, 
-			Values2: "ericsson" Length:8 Position:0, 
-			Values3: "eric" Length:4 Position:0, "sson" Length:4 Position:4, 
-
-Password: piggyp1
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Values1: "piggy" Length:5 Position:0, "p1" Length:2 Position:5, 
-			Values2: "pigg" Length:4 Position:0, "yp1" Length:3 Position:4, 
-			Values3: "p" Length:1 Position:0, "iggy" Length:4 Position:1, "p1" Length:2 Position:5, 
-
-Password: 10121999
-			Pattern1: Mobile/
-			Pattern2: Undetected/DOB/
-			Values1: "10121999" Length:8 Position:0, 
-			Values2: "1012" Length:4 Position:0, "1999" Length:4 Position:4, 
-
-Password: stm6689
-			Pattern1: Undetected/Mobile/
-			Values1: "stm" Length:3 Position:0, "6689" Length:4 Position:3, 
-
-Password: catherine1
-			Pattern1: Name/Undetected/
-			Pattern2: Location/Undetected/
-			Pattern3: Common1/Undetected/
-			Pattern4: Name/Undetected/
-			Pattern5: Name/Undetected/Name/Undetected/
-			Pattern6: Name/Undetected/Name/Name/Undetected/
-			Pattern7: Name/Undetected/Name/Undetected/
-			Pattern8: Undetected/Name/Name/Undetected/
-			Pattern9: Undetected/Name/Undetected/
-			Pattern10: Undetected/Name/Undetected/
-			Values1: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
-			Values2: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
-			Values3: "catherine" Length:9 Position:0, "1" Length:1 Position:9, 
-			Values4: "catherin" Length:8 Position:0, "e1" Length:2 Position:8, 
-			Values5: "cather" Length:6 Position:0, "c" Length:1 Position:0, "atherine" Length:8 Position:1, "ine1" Length:4 Position:6, 
-			Values6: "cathe" Length:5 Position:0, "ca" Length:2 Position:0, "ather" Length:5 Position:1, "therine" Length:7 Position:2, "rine1" Length:5 Position:5, 
-			Values7: "cath" Length:4 Position:0, "ca" Length:2 Position:0, "therin" Length:6 Position:2, "erine1" Length:6 Position:4, 
-			Values8: "cath" Length:4 Position:0, "heri" Length:4 Position:3, "erine" Length:5 Position:4, "ne1" Length:3 Position:7, 
-			Values9: "cath" Length:4 Position:0, "erin" Length:4 Position:4, "e1" Length:2 Position:8, 
-			Values10: "cathe" Length:5 Position:0, "rine" Length:4 Position:5, "1" Length:1 Position:9, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 101767
-			Pattern1: Mobile/
-			Values1: "101767" Length:6 Position:0, 
-
-Password: 
-			Pattern1: Undetected/
-			Values1: "" Length:0 Position:0, 
-
-Password: loudoun83
-			Pattern1: Common1/Undetected/
-			Values1: "loudoun" Length:7 Position:0, "83" Length:2 Position:7, 
-
-Password: 510rider
-			Pattern1: Undetected/Common1/
-			Values1: "510" Length:3 Position:0, "rider" Length:5 Position:3, 
-
-Password: softball11
-			Pattern1: Common1/Undetected/
-			Values1: "softball" Length:8 Position:0, "11" Length:2 Position:8, 
-
-Password: gate11
-			Pattern1: Common1/Undetected/
-			Values1: "gate" Length:4 Position:0, "11" Length:2 Position:4, 
-
-Password: headers1
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Pattern3: Undetected/Name/Undetected/
-			Pattern4: Undetected/Name/Undetected/
-			Pattern5: Undetected/Name/Undetected/
-			Values1: "headers" Length:7 Position:0, "1" Length:1 Position:7, 
-			Values2: "heade" Length:5 Position:0, "rs1" Length:3 Position:5, 
-			Values3: "h" Length:1 Position:0, "eader" Length:5 Position:1, "s1" Length:2 Position:6, 
-			Values4: "h" Length:1 Position:0, "eade" Length:4 Position:1, "rs1" Length:3 Position:5, 
-			Values5: "he" Length:2 Position:0, "ader" Length:4 Position:2, "s1" Length:2 Position:6, 
-
-Password: poop74
-			Pattern1: Common1/Undetected/
-			Values1: "poop" Length:4 Position:0, "74" Length:2 Position:4, 
-
-Password: bpnc312
-			Pattern1: Undetected/
-			Values1: "bpnc312" Length:7 Position:0, 
-
-Password: bloodz5
-			Pattern1: Common1/Undetected/
-			Values1: "blood" Length:5 Position:0, "z5" Length:2 Position:5, 
-
-Password: alisha789
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Pattern4: Name/Undetected/Name/Undetected/
-			Pattern5: Undetected/Name/Undetected/
-			Pattern6: Undetected/Name/Undetected/
-			Values1: "alisha" Length:6 Position:0, "789" Length:3 Position:6, 
-			Values2: "alisha" Length:6 Position:0, "789" Length:3 Position:6, 
-			Values3: "alish" Length:5 Position:0, "a789" Length:4 Position:5, 
-			Values4: "alis" Length:4 Position:0, "a" Length:1 Position:0, "lisha" Length:5 Position:1, "ha789" Length:5 Position:4, 
-			Values5: "a" Length:1 Position:0, "lish" Length:4 Position:1, "a789" Length:4 Position:5, 
-			Values6: "al" Length:2 Position:0, "isha" Length:4 Position:2, "789" Length:3 Position:6, 
-
-Password: va53712
-			Pattern1: Undetected/Mobile/
-			Values1: "va" Length:2 Position:0, "53712" Length:5 Position:2, 
-
-Password: tight.
-			Pattern1: Common1/Undetected/
-			Pattern2: Name/Undetected/
-			Values1: "tight" Length:5 Position:0, "." Length:1 Position:5, 
-			Values2: "tigh" Length:4 Position:0, "t." Length:2 Position:4, 
-
-Password: applepie12
-			Pattern1: Location/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Values1: "apple" Length:5 Position:0, "pie12" Length:5 Position:5, 
-			Values2: "apple" Length:5 Position:0, "pie12" Length:5 Position:5, 
-			Values3: "appl" Length:4 Position:0, "epie12" Length:6 Position:4, 
-
-Password: shyne36
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Values1: "shyne" Length:5 Position:0, "36" Length:2 Position:5, 
-			Values2: "shyne" Length:5 Position:0, "36" Length:2 Position:5, 
-
-Password: arnieb1955
-			Pattern1: Name/Undetected/DOB/
-			Pattern2: Common1/Undetected/Mobile/
-			Pattern3: Name/Undetected/
-			Values1: "arnie" Length:5 Position:0, "b" Length:1 Position:5, "1955" Length:4 Position:6, 
-			Values2: "arnie" Length:5 Position:0, "b" Length:1 Position:5, "1955" Length:4 Position:6, 
-			Values3: "arni" Length:4 Position:0, "eb1955" Length:6 Position:4, 
-
-Password: 123456789
-			Pattern1: Mobile/
-			Values1: "123456789" Length:9 Position:0, 
-
-Password: rgbjikm
-			Pattern1: Undetected/
-			Values1: "rgbjikm" Length:7 Position:0, 
-
-Password: fcm2611
-			Pattern1: Undetected/Mobile/
-			Values1: "fcm" Length:3 Position:0, "2611" Length:4 Position:3, 
-
-Password: carolina1
-			Pattern1: Name/Undetected/
-			Pattern2: Location/Undetected/
-			Pattern3: Common1/Undetected/
-			Pattern4: Name/Undetected/
-			Pattern5: Name/Undetected/
-			Pattern6: Location/Undetected/
-			Pattern7: Name/Undetected/Name/Undetected/
-			Pattern8: Undetected/Name/Name/Undetected/
-			Pattern9: Undetected/Name/Undetected/
-			Pattern10: Undetected/Name/Undetected/
-			Values1: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values2: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values3: "carolina" Length:8 Position:0, "1" Length:1 Position:8, 
-			Values4: "carolin" Length:7 Position:0, "a1" Length:2 Position:7, 
-			Values5: "caroli" Length:6 Position:0, "na1" Length:3 Position:6, 
-			Values6: "carol" Length:5 Position:0, "ina1" Length:4 Position:5, 
-			Values7: "caro" Length:4 Position:0, "ca" Length:2 Position:0, "rolin" Length:5 Position:2, "lina1" Length:5 Position:4, 
-			Values8: "car" Length:3 Position:0, "arol" Length:4 Position:1, "olina" Length:5 Position:3, "ina1" Length:4 Position:5, 
-			Values9: "car" Length:3 Position:0, "olin" Length:4 Position:3, "a1" Length:2 Position:7, 
-			Values10: "caro" Length:4 Position:0, "lina" Length:4 Position:4, "1" Length:1 Position:8, 
-
-Password: laker8
-			Pattern1: Common1/Undetected/
-			Pattern2: Undetected/Name/Undetected/
-			Values1: "laker" Length:5 Position:0, "8" Length:1 Position:5, 
-			Values2: "l" Length:1 Position:0, "aker" Length:4 Position:1, "8" Length:1 Position:5, 
-
-Password: fenton1
-			Pattern1: Name/Undetected/
-			Pattern2: Common1/Undetected/
-			Pattern3: Name/Undetected/
-			Values1: "fenton" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values2: "fenton" Length:6 Position:0, "1" Length:1 Position:6, 
-			Values3: "fent" Length:4 Position:0, "on1" Length:3 Position:4, 
-
-Password: rain01234
-			Pattern1: Common1/Undetected/Mobile/Undetected/
-			Values1: "rain" Length:4 Position:0, "rain" Length:4 Position:0, "01234" Length:5 Position:4, "01234" Length:5 Position:4, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: aurore1985
-			Pattern1: Name/DOB/
-			Pattern2: Common1/Mobile/
-			Values1: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-			Values2: "aurore" Length:6 Position:0, "1985" Length:4 Position:6, 
-
-Password: minena1
-			Pattern1: Undetected/Name/Undetected/
-			Pattern2: Undetected/Common1/Undetected/
-			Values1: "mi" Length:2 Position:0, "nena" Length:4 Position:2, "1" Length:1 Position:6, 
-			Values2: "mi" Length:2 Position:0, "nena" Length:4 Position:2, "1" Length:1 Position:6, 
 
