@@ -7,7 +7,13 @@ var worker1; var worker2;
 
 function startWork1(){
 	worker1 = new Worker('./worker1.js')
-
+	var threadNumber = document.getElementById('thread_input').value;
+	if(threadNumber>=2){
+		worker1.postMessage(threadNumber);
+	}else{
+		threadNumber = 2;
+		worker1.postMessage(threadNumber);
+	}
 	worker1.onmessage = function(event) {
 		console.log("worker1 : ", event.data);
 		worker1.terminate();

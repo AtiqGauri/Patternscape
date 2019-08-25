@@ -1,8 +1,8 @@
 version: 1.0.0
 files:
   - url: PasswordTool-Setup-1.0.0.exe
-    sha512: k71Ebxc/7DNY7qc/wS/0p8KhhT/IlGBZ2GHnRvr0lcBMsEoRR2vYMxsGaUGBPgo0bq6IZQ53t+uQaNVPOeoClQ==
-    size: 47751396
+    sha512: oI/lTAeQDrONzev9CyGbAEj2bJGy2Bz8GM+iKraq4DzvQiWhxqAd/+isOI/66ySffztrDGqJzc4+P+Lvr+29yw==
+    size: 47751628
 path: PasswordTool-Setup-1.0.0.exe
-sha512: k71Ebxc/7DNY7qc/wS/0p8KhhT/IlGBZ2GHnRvr0lcBMsEoRR2vYMxsGaUGBPgo0bq6IZQ53t+uQaNVPOeoClQ==
-releaseDate: '2019-08-17T14:14:15.237Z'
+sha512: oI/lTAeQDrONzev9CyGbAEj2bJGy2Bz8GM+iKraq4DzvQiWhxqAd/+isOI/66ySffztrDGqJzc4+P+Lvr+29yw==
+releaseDate: '2019-08-25T17:28:05.826Z'

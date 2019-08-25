@@ -4,6 +4,7 @@ body{
 	color: white;
 	font-family:'IBM Plex Serif', serif;
 	margin:10px;
+  z-index: -1;
 }
 svg{
 	width:100%;
@@ -20,7 +21,6 @@ span{
 
 .button {
 	background-color: #A9A9A9;
-  	border: none;
   	border-radius: 8px;
   	border: 2px solid #ED0A3F;
   	cursor: pointer;
@@ -34,6 +34,7 @@ span{
 	text-decoration: none;
  	 	-webkit-transition-duration: 0.4s; /* Safari */
   	transition-duration: 0.4s;
+  	z-index: +1;
 }
 .button:hover {
  	background-color: #ED0A3F;
@@ -48,3 +49,22 @@ span{
 .row {
  	display: flex;
 }
+
+input {
+    width: 50px;
+    padding: 5px 5px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: #6b6b6a;
+    color: lighten(#6b6b6a, 50%);
+    &:hover {
+        background-color: darken(#6b6b6a, 5%);
+        color: lighten(#6b6b6a, 10%);
+    }
+    &:focus {
+        background-color: darken(#6b6b6a, 10%);
+        color: lighten(#6b6b6a, 20%);
+    }
+}
+
