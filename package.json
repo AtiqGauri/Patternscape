@@ -34,5 +34,9 @@
     "electron": "^6.0.0",
     "electron-builder": "^21.1.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dexie": "^2.0.4",
+    "dexie-export-import": "^1.0.0-beta.14",
+    "stream-to-blob": "^2.0.0"
+  }
 }
