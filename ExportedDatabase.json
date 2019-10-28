@@ -2,12 +2,12 @@
   "formatName": "dexie",
   "formatVersion": 1,
   "data": {
-    "databaseName": "Patterns",
+    "databaseName": "PasswordTool",
     "databaseVersion": 1,
     "tables": [
       {
         "name": "Patterns",
-        "schema": "pattern,address",
+        "schema": "pattern,address,popularity",
         "rowCount": 2
       }
     ],
@@ -17,11 +17,13 @@
       "rows": [
         {
           "pattern": "Common/Name/Location",
-          "address": "data/Stats/Pattern Data/common.txt"
+          "address": "data/Stats/Pattern Data/common.txt",
+          "popularity": 51
         },
         {
           "pattern": "DOB/Name/Location",
-          "address": "data/Stats/Pattern Data/Name.txt"
+          "address": "data/Stats/Pattern Data/Name.txt",
+          "popularity": 5
         }
       ]
     }]
