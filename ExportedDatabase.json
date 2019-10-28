@@ -1,0 +1,29 @@
+{
+  "formatName": "dexie",
+  "formatVersion": 1,
+  "data": {
+    "databaseName": "Patterns",
+    "databaseVersion": 1,
+    "tables": [
+      {
+        "name": "Patterns",
+        "schema": "pattern,address",
+        "rowCount": 2
+      }
+    ],
+    "data": [{
+      "tableName": "Patterns",
+      "inbound": true,
+      "rows": [
+        {
+          "pattern": "Common/Name/Location",
+          "address": "data/Stats/Pattern Data/common.txt"
+        },
+        {
+          "pattern": "DOB/Name/Location",
+          "address": "data/Stats/Pattern Data/Name.txt"
+        }
+      ]
+    }]
+  }
+}
