@@ -1,14 +1,10 @@
-var Dexie = require('dexie');
+const {database} = require('./database.js');
 
 console.log('Database worker has started');
 
-var db = new Dexie("Patterns");
 
-db.version(1).stores({
-    Patterns: 'pattern,address'
-})
 
-db.open().catch(function(error){
+database.open().catch(function(error){
     console.log("ERROR: "+ error);
 });
 
@@ -16,8 +12,8 @@ function say_added(){
     console.log("Data record is added");
 }
 
-db.Patterns.put({pattern: "Common/Name/Location", address:"data/Stats/Pattern Data/common.txt"}).then(say_added)
-db.Patterns.put({pattern: "DOB/Name/Location", address:"data/Stats/Pattern Data/Name.txt"}).then(say_added)
+database.Patterns.put({pattern: "Common/Name/Location", address:"data/Stats/Pattern Data/common.txt", popularity:51}).then(say_added)
+database.Patterns.put({pattern: "DOB/Name/Location", address:"data/Stats/Pattern Data/Name.txt",popularity:5}).then(say_added)
 
 function show_data(data){
     console.log(data[0].address);
@@ -26,7 +22,7 @@ function show_data(data){
 var acknowledgement = "DONE";
 
 async function get_data(){
-    var result = await db.Patterns.where('pattern').equals('DOB/Name/Location').toArray()
+    var result = await database.Patterns.where('pattern').equals('DOB/Name/Location').toArray()
     show_data(result);
     postMessage(acknowledgement);
 }

@@ -1,13 +1,8 @@
-var Dexie = require('dexie');
+const {database} = require('./database.js');
 require('dexie-export-import');
 const toBlob = require('stream-to-blob');
 var fileSystem = require('fs');
 
-
-var database = new Dexie("Patterns")
-database.version(1).stores({
-    Patterns:'pattern, address'
-})
 
 var export_database = async function export_database(){
     console.log("Exporting Database");
