@@ -11,7 +11,7 @@ database.open().catch(function(error){
 console.log('Database worker is started');
 
 async function test_database_operation(){
-    var result = await database.Patterns.where('pattern').equals('Mobile/Name/Undetected/').toArray()
+    var result = await database.Patterns.where('pattern').equals('This/Is/Just/For/Test/').toArray()
     postMessage(workerAcknowledgement);
 }
 
