@@ -7,9 +7,9 @@ function database_worker_client(){
     worker = new Worker('./databaseWorker.js')
 
     worker.onmessage = function(event){
-        console.log("worker : ", event.data);
+        console.log("Database worker process is ", event.data);
         worker.terminate();
-        console.log("worker is done working ");
+        //console.log("worker is done working ");
     };
 
     worker.onerror = function (event){
