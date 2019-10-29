@@ -9,7 +9,7 @@ var export_database = async function export_database(){
     try{
       const blob = await database.export({prettyJson: true});
       const text = await new Response(blob).text();
-      fileSystem.writeFile("ExportedDatabase.json", text, function(error){
+      fileSystem.writeFile("data/Stats/ExportedDatabase.json", text, function(error){
         if(error){
           console.log(error);
         }
@@ -23,13 +23,14 @@ var export_database = async function export_database(){
 
 var import_database = async function import_database(){
     console.log("Importing Database");
-    const stream = fileSystem.createReadStream("ExportedDatabase.json");
+    const stream = fileSystem.createReadStream("data/Stats/ExportedDatabase.json");
     const blob = await toBlob(stream);
     try{
         await database.import(blob);
     }catch(error){
-        console.error(''+error);
+        console.log('IMPORT ERROR: '+ error );
     }
+    console.log("Imported");
 };
 
 
