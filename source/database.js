@@ -9,7 +9,7 @@ database.version(1).stores({
 database.open().catch(function(error){
     console.log("ERROR: "+ error);
 });
-
+//
 module.exports = {
     database    
 }
