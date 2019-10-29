@@ -1,30 +1,47 @@
 const {database} = require('./database.js');
-
-console.log('Database worker has started');
-
-
+const fileSystem = require('fs');
+const readline = require('readline');
+const stream = require('stream');
+const workerAcknowledgement = "DONE";
 
 database.open().catch(function(error){
-    console.log("ERROR: "+ error);
+    console.error("ERROR: "+ error);
 });
 
-function say_added(){
-    console.log("Data record is added");
+console.log('Database worker is started');
+
+async function test_database_operation(){
+    var result = await database.Patterns.where('pattern').equals('Mobile/Name/Undetected/').toArray()
+    postMessage(workerAcknowledgement);
 }
 
-database.Patterns.put({pattern: "Common/Name/Location", address:"data/Stats/Pattern Data/common.txt", popularity:51}).then(say_added)
-database.Patterns.put({pattern: "DOB/Name/Location", address:"data/Stats/Pattern Data/Name.txt",popularity:5}).then(say_added)
+var instream = fileSystem.createReadStream('data/Stats/Patterns.txt');
+var outstream = new stream;
+var readInterface = readline.createInterface(instream, outstream);
+var patternList = [];
+var i=0;var splitter;
 
-function show_data(data){
-    console.log(data[0].address);
-}
+readInterface.on('line', function(line) {
+    // process line here
+    splitter = line.split('<|>');
+    patternList[i] = {
+        pattern: splitter[0],
+        address: splitter[1],
+        popularity: splitter[2]
+    }
+    i++;
+});
 
-var acknowledgement = "DONE";
-
-async function get_data(){
-    var result = await database.Patterns.where('pattern').equals('DOB/Name/Location').toArray()
-    show_data(result);
-    postMessage(acknowledgement);
-}
-
-get_data();
+readInterface.on('close', function() {
+    // do something on finish here
+    
+    database.transaction('rw', database.Patterns, () => {
+        for (const obj of patternList) {
+            database.Patterns.add(obj)
+            i++;
+        } 
+        test_database_operation();
+    }).catch(function (e) {
+        console.error("ERROR: "+ e);
+    });
+});
