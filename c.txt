@@ -1,0 +1,68 @@
+const {database} = require('.database.js');
+var fileSystem = require('fs');
+const readline = require('readline');
+
+
+console.log('Database worker has started');
+
+
+
+database.open().catch(function(error){
+    console.log(ERROR + error);
+});
+
+function say_added(){
+    console.log(Data record is added);
+}
+
+const readInterface = readline.createInterface({
+    input fileSystem.createReadStream('dataStatsPatterns.txt'),
+    output process.stdout,
+    console false
+});
+
+var patternList = [];
+var splitter;
+var i =0;
+readInterface.on('line', function(line) {
+    splitter = line.split('');
+    patternList[i] = {
+        pattern splitter[0],
+        address splitter[1],
+        popularity splitter[2]
+    }
+    i++;
+});
+
+console.log(patternList);
+
+database.Patterns.put({pattern CommonNameLocation, addressdataStatsPattern Datacommon.txt, popularity51}).then(console.log('asdasd'))
+
+database.transaction(rw, database.Patterns, () = {
+    console.log(Transactions );
+    database.Patterns.bulkAdd(patternList);
+    for (const obj of patternList) {
+        database.Patterns.put(obj).then(console.log(obj.pattern))
+    }
+    database.Patterns.put({pattern CommonNameLocation, addressdataStatsPattern Datacommon.txt, popularity51}).then(console.log('asd'))
+}).catch(function (e) {
+     console.error(ERROR  + e);
+});
+
+
+database.Patterns.put({pattern CommonNameLocation, addressdataStatsPattern Datacommon.txt, popularity51}).then(say_added)
+database.Patterns.put({pattern DOBNameLocation, addressdataStatsPattern DataName.txt,popularity5}).then(say_added)
+
+function show_data(data){
+    console.log(data[0].address);
+}
+
+var acknowledgement = DONE;
+
+async function get_data(){
+    var result = await database.Patterns.where('pattern').equals('DOBNameLocation').toArray()
+    show_data(result);
+    postMessage(acknowledgement);
+}
+
+get_data();
