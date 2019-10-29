@@ -18,30 +18,23 @@ async function test_database_operation(){
 var instream = fileSystem.createReadStream('data/Stats/Patterns.txt');
 var outstream = new stream;
 var readInterface = readline.createInterface(instream, outstream);
-var patternList = [];
-var i=0;var splitter;
+var splitter;
 
-readInterface.on('line', function(line) {
-    // process line here
-    splitter = line.split('<|>');
-    patternList[i] = {
-        pattern: splitter[0],
-        address: splitter[1],
-        popularity: splitter[2]
-    }
-    i++;
+database.transaction('rw', database.Patterns, () => {
+    readInterface.on('line', function(line) {
+        splitter = line.split('<|>');
+        database.Patterns.add({
+            pattern: splitter[0],
+            address: splitter[1],
+            popularity: splitter[2]
+        }).catch(function (e) {
+            console.log(e.message);
+        });
+    });
+}).catch(function (e) {
+    console.error("ERROR: "+ e);
 });
 
 readInterface.on('close', function() {
-    // do something on finish here
-    
-    database.transaction('rw', database.Patterns, () => {
-        for (const obj of patternList) {
-            database.Patterns.add(obj)
-            i++;
-        } 
-        test_database_operation();
-    }).catch(function (e) {
-        console.error("ERROR: "+ e);
-    });
+    test_database_operation();
 });
