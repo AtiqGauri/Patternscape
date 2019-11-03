@@ -1,7 +1,5 @@
 var importExportDB = require("./importExportDatabase");
 
-
-
 var worker;
 function database_worker_client(){
     worker = new Worker('./databaseWorker.js')
