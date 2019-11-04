@@ -6,12 +6,10 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
       <meta name="HandheldFriendly" content="true">
       <title>Hello World!</title>
-      <link rel="stylesheet" type="text/css" href="style.css" />
-      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="style.css" />  
+	  <script src="./databaseClient.js" type="text/javascript"></script> 
   </head>
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:100&display=swap" rel="stylesheet">
-  <script src="./client.js" type="text/javascript"></script>
-  <script src="./databaseClient.js" type="text/javascript"></script>
   <body>
 	<!-- App Header/Title -->
     <section id="appHeader">
@@ -25,12 +23,12 @@
 		<h2 class="headingText">Analyze Passwords & Emails...</h2>
 		<div class="interactionBar">
 		  <h3 class="barText" id="textAnalyze">Enter number of threads: </h3>
-		  <input class="threadInput" type="text" name="analyzeThreads" placeholder="2-8">
-		  <button class="buttons" id="startAnalyze" type="button" onclick="console.log('Hello world!')">Start</button>
+		  <input class="threadInput" type="text" id="analyzeThreads" placeholder="2-8">
+		  <button class="buttons" id="startAnalyze" type="button" onclick="startWork1()">Start</button>
 		  <button class="buttons" id="stopAnalyze" type="button" onclick="console.log('Hello world!')">Stop</button>
 		  <button class="buttons" id="inputAnalyze" type="button" onclick="console.log('Hello world!')">Input</button>
 		  <button class="buttons" id="outputAnalyze" type="button" onclick="console.log('Hello world!')">Output</button>
-		  <h3 class="sizedText" id="statusAnalyze">Process Status</h3>
+		  <h3 class="sizedText" id="statusAnalyze" type="text">Process Status</h3>
 		</div>
 	  </section>
   
@@ -40,7 +38,7 @@
 		<div class="interactionBar">
 		  <h3 class="barText" id="textStats">Enter number of threads: </h3>
 		  <input class="threadInput" type="text" name="statsThreads" placeholder="2-8">
-		  <button class="buttons" id="startStats" type="button" onclick="console.log('Hello world!')">Start</button>
+		  <button class="buttons" id="startStats" type="button" onclick="startWork2()">Start</button>
 		  <button class="buttons" id="stopStats" type="button" onclick="console.log('Hello world!')">Stop</button>
 		  <button class="buttons" id="inputStats" type="button" onclick="console.log('Hello world!')">Input</button>
 		  <button class="buttons" id="outputStats" type="button" onclick="console.log('Hello world!')">Output</button>
@@ -52,7 +50,7 @@
 	  <section class="sections">
 		<h2 class="headingText">Add Stats to Database...</h2>
 		<div class="interactionBar">
-		  <button class="buttons" id="startDatabase" type="button" onclick="console.log('Hello world!')">Start</button>
+		  <button class="buttons" id="startDatabase" type="button" onclick="database_worker_client()">Start</button>
 		  <h3 class="sizedText" id="statusDatabase">Process Status</h3>
 		</div>
 	  </section>
@@ -63,7 +61,11 @@
 		<div class="interactionBar">
 		  <h3 class="sizedText" id="textPattern">Enter pattern here</h3>
 		  <h3 class="barText" id="patternHint">* Name, email, common word, location, mobile or website </h3>
-		  <input class="patternSearch" id="patternBar" type="text" name="patternInput" placeholder="pattern">
+		  <form autocomplete="off" action="/action_page.php">
+		  <div class="autocomplete" style="width:300px;">
+		  	<input class="patternSearch" id="patternBar" type="text" name="patternInput" placeholder="pattern">
+		  </div>
+		  </form>
 		  <button class="buttons" id="patternSubmit" type="button" onclick="console.log('Hello world!')">Submit</button>
 		</div>
 	  </section>
@@ -92,6 +94,8 @@
 	  </section>
   
 	  <!-- You can also require other files to run in this process -->
+	  <script src="./client.js" type="text/javascript"></script>
+	  <script src="./ui.js"></script>
 	  <script src="./renderer.js"></script>
   </body>
 </html>

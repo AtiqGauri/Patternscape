@@ -1,0 +1,2 @@
+meteacher1<|>"mete" Length:4 Position:0, "me" Length:2 Position:0, "teacher" Length:7 Position:2, "acher1" Length:6 Position:4, 
+cavaletto2<|>"cava" Length:4 Position:0, "ca" Length:2 Position:0, "valet" Length:5 Position:2, "letto2" Length:6 Position:4, 

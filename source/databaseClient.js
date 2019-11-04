@@ -7,6 +7,7 @@ function database_worker_client(){
     worker.onmessage = function(event){
         console.log("Database worker process is ", event.data);
         worker.terminate();
+        document.getElementById('statusDatabase').innerHTML = (event.data);
         //console.log("worker is done working ");
     };
 

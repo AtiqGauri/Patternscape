@@ -1,5 +1,3 @@
-const h1 = document.querySelector("h1");
-var svg = document.querySelector("svg");
 console.log('make a worker: ', 'worker1.js')
 console.log('make a worker: ', 'worker2.js')
 var worker1; var worker2;
@@ -7,7 +5,7 @@ var worker1; var worker2;
 
 function startWork1(){
 	worker1 = new Worker('./worker1.js')
-	var threadNumber = document.getElementById('thread_input').value;
+	var threadNumber = document.getElementById('analyzeThreads').value;
 	if(threadNumber>=2){
 		worker1.postMessage(threadNumber);
 	}else{
@@ -16,15 +14,10 @@ function startWork1(){
 	}
 	worker1.onmessage = function(event) {
 		console.log("worker1 : ", event.data);
-		worker1.terminate();
-		h1.innerHTML = (
-			'<p style="text-align:center"> Calculations are completed </p>'
-		);
-		//svg.setAttribute("viewBox","0 0 1000 400");
-		document.getElementById("instruct").style.fontSize = "35px"
-		document.getElementById("instruct").innerHTML = 'OUTPUT: ';
+		worker1.terminate();  
+		document.getElementById('statusAnalyze').innerHTML = ('Completed');
 		//This function is defined in renderer.js to list all files in Output folder 
-		listOutput();
+		//listOutput();
 	};
 
 	worker1.onerror = function (event) {
