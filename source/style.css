@@ -156,6 +156,53 @@
     color: #FFFFFF;
 }
 
+.autocomplete {
+    display: inline-block;
+}
+
+.autocomplete-items {
+    position: absolute;
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 76%;
+    left: 5%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.autocomplete-items div {
+    
+    padding: 3.5%;
+    padding-left: 5%;
+    width: 230%;
+    
+    cursor: pointer;
+    background-color: #22007C; 
+    border-bottom: 1px solid #22007C; 
+    font-weight: bold;
+    line-height: 29px;
+    border-radius: 45px;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+    color: black;
+    background-color: white;
+}
+   
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+    color: black !important;
+    background-color: white !important; 
+}
+
+
+
 /*------------------------  ID --------------------------*/
 
 

@@ -1,1 +1,0 @@
-podrqsnic<|>"podrq" Length:5 Position:0, "pod" Length:3 Position:0, "rqsnic" Length:6 Position:3, "snic" Length:4 Position:5, 
