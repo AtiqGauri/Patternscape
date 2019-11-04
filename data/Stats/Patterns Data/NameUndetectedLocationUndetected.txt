@@ -1,3 +1,0 @@
-ananan<|>"anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
-ananan<|>"anan" Length:4 Position:0, "a" Length:1 Position:0, "nanan" Length:5 Position:1, "an" Length:2 Position:4, 
-lemahabang<|>"lema" Length:4 Position:0, "le" Length:2 Position:0, "mahaban" Length:7 Position:2, "habang" Length:6 Position:4, 

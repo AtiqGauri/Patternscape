@@ -1,2 +1,0 @@
-michelle1<|>"michel" Length:6 Position:0, "mi" Length:2 Position:0, "chelle" Length:6 Position:2, "le1" Length:3 Position:6, 
-superman12<|>"super" Length:5 Position:0, "su" Length:2 Position:0, "perman" Length:6 Position:2, "man12" Length:5 Position:5, 

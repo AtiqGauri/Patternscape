@@ -1,5 +1,0 @@
-rain01234<|>"rain" Length:4 Position:0, "rain" Length:4 Position:0, "01234" Length:5 Position:4, "01234" Length:5 Position:4, 
-abcd123456<|>"abcd" Length:4 Position:0, "abcd" Length:4 Position:0, "123456" Length:6 Position:4, "123456" Length:6 Position:4, 
-abc123456<|>"abc" Length:3 Position:0, "abc" Length:3 Position:0, "123456" Length:6 Position:3, "123456" Length:6 Position:3, 
-dad14523<|>"dad" Length:3 Position:0, "dad" Length:3 Position:0, "14523" Length:5 Position:3, "14523" Length:5 Position:3, 
-keka03132<|>"keka" Length:4 Position:0, "keka" Length:4 Position:0, "03132" Length:5 Position:4, "03132" Length:5 Position:4, 

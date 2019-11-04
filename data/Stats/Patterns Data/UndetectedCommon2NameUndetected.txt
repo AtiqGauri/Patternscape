@@ -1,5 +1,0 @@
-1yodaninja<|>"1y" Length:2 Position:0, "yoda" Length:4 Position:1, "odani" Length:5 Position:2, "ninja" Length:5 Position:5, 
-1yodaninja<|>"1y" Length:2 Position:0, "yoda" Length:4 Position:1, "odani" Length:5 Position:2, "ninja" Length:5 Position:5, 
-1yodaninja<|>"1y" Length:2 Position:0, "yoda" Length:4 Position:1, "odani" Length:5 Position:2, "ninja" Length:5 Position:5, 
-1yodaninja<|>"1y" Length:2 Position:0, "yoda" Length:4 Position:1, "odani" Length:5 Position:2, "ninja" Length:5 Position:5, 
-1redrubi<|>"1red" Length:4 Position:0, "red" Length:3 Position:1, "rubi" Length:4 Position:4, "rubi" Length:4 Position:4, 
