@@ -253,8 +253,9 @@
 }
 
 #statusDatabase{
-    position: relative;
-    top: 27%;
+    position: absolute;
+    left: 50%;
+    top: 63%;
 }
 
 /*---------  Pattern and its Data ---------*/
@@ -271,15 +272,16 @@
 }
 
 #patternBar{
-    position: relative;
-    top: 10%;
+    position: absolute;
+    top: 55%;
+    left: 5%;
     width: 60%;
 }
 
 #patternSubmit{
-    position: relative;
-    top: 5px;
-    left: 5%;
+    position: absolute;
+    top: 57%;
+    left: 70%;
     width: 15%;
 }
 
