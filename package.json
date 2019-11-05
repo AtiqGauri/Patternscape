@@ -37,6 +37,7 @@
   "dependencies": {
     "dexie": "^2.0.4",
     "dexie-export-import": "^1.0.0-beta.14",
+    "n-readlines": "^1.0.0",
     "stream-to-blob": "^2.0.0"
   }
 }
