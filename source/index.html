@@ -28,10 +28,10 @@
 		<div class="interactionBar">
 		  <h3 class="barText" id="textAnalyze">Enter number of threads: </h3>
 		  <input class="threadInput" type="text" id="analyzeThreads" placeholder="2-8">
-		  <button class="buttons" id="startAnalyze" type="button" onclick="startWork1()">Start</button>
-		  <button class="buttons" id="stopAnalyze" type="button" onclick="console.log('Hello world!')">Stop</button>
-		  <button class="buttons" id="inputAnalyze" type="button" onclick="console.log('Hello world!')">Input</button>
-		  <button class="buttons" id="outputAnalyze" type="button" onclick="console.log('Hello world!')">Output</button>
+		  <button class="buttons" id="startAnalyze" type="button" onclick="analyze_passwords_emails()">Start</button>
+		  <button class="buttons" id="stopAnalyze" type="button" onclick="stop_analyze_passwords_emails()">Stop</button>
+		  <button class="buttons" id="inputAnalyze" type="button" onclick="input_of_anlyzing()">Input</button>
+		  <button class="buttons" id="outputAnalyze" type="button" onclick="output_of_anlyzing()">Output</button>
 		  <h3 class="sizedText" id="statusAnalyze" type="text">Process Status</h3>
 		</div>
 	  </section>
@@ -42,10 +42,10 @@
 		<div class="interactionBar">
 		  <h3 class="barText" id="textStats">Enter number of threads: </h3>
 		  <input class="threadInput" type="text" name="statsThreads" placeholder="2-8">
-		  <button class="buttons" id="startStats" type="button" onclick="startWork2()">Start</button>
-		  <button class="buttons" id="stopStats" type="button" onclick="console.log('Hello world!')">Stop</button>
-		  <button class="buttons" id="inputStats" type="button" onclick="console.log('Hello world!')">Input</button>
-		  <button class="buttons" id="outputStats" type="button" onclick="console.log('Hello world!')">Output</button>
+		  <button class="buttons" id="startStats" type="button" onclick="generate_statistics()">Start</button>
+		  <button class="buttons" id="stopStats" type="button" onclick="stop_generate_statistics()">Stop</button>
+		  <button class="buttons" id="inputStats" type="button" onclick="input_of_stats_generator()">Input</button>
+		  <button class="buttons" id="outputStats" type="button" onclick="output_of_stats_generator()">Output</button>
 		  <h3 class="sizedText" id="statusStats">Process Status</h3>
 		</div>
 	  </section>
@@ -65,12 +65,12 @@
 		<div class="interactionBar">
 		  <h3 class="sizedText" id="textPattern">Enter pattern here</h3>
 		  <h3 class="barText" id="patternHint">* Name, email, common word, location, mobile or website </h3>
-		  <form autocomplete="off" action="/action_page.php">
+		  <form autocomplete="off" onsubmit="return false">
 		  <div class="autocomplete" style="width:300px;">
 		  	<input class="patternSearch" id="patternBar" type="text" name="patternInput" placeholder="pattern">
 		  </div>
+		  <button class="buttons" id="patternSubmit" onclick="pattern_lookup();">Submit</button>
 		  </form>
-		  <button class="buttons" id="patternSubmit" type="button" onclick="console.log('Hello world!')">Submit</button>
 		</div>
 	  </section>
   
@@ -94,7 +94,7 @@
 		  <input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
 		  <button class="buttons" id="patternGenerate" type="button" onclick="console.log('Hello world!')">Generate</button>
 		  <h3 class="sizedText" id="generatedPass">"Generated Password"</h3>
-		</div>  
+		</div>
 	  </section>
   
 	  <!-- You can also require other files to run in this process -->

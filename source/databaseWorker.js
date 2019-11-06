@@ -1,6 +1,5 @@
 const {database} = require('./database.js');
 const lineByLine = require('n-readlines');
-const workerAcknowledgement = "DONE";
 var duplicates=0, addedRecords=0, splitter;
 
 database.open().catch(function(error){
