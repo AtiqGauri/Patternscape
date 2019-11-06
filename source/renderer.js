@@ -1,22 +1,67 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
-//const { hello } 
-//var myModule = require("../t-addon");
-
-
-//var myModule = require('electron').remote.require('./build/resources/predictor-addon')
-//const h1 = document.querySelector("h1");
-//h1.innerHTML = (
-//			'<p style="text-align:center"> This is C++ Module: ' +
-//			myModule.hello() +
-//			'</p>'
-//	);
 
 const path = require('path');
-const fs = require('fs');
 const shell = require('electron').shell;
 
+function input_of_anlyzing(){
+	
+	//If you are developing app use below code and comment others
+	shell.openItem(path.join(__dirname, '..','data', 'Input'));
+	
+	//Production app should use below code and comment the above one
+	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
+	
+	//alter sound should be played finally in all conditions
+	shell.beep();
+}
+
+function output_of_anlyzing(){
+	
+	//If you are developing app use below code and comment others
+	shell.openItem(path.join(__dirname, '..','data', 'Output'));
+	
+	//Production app should use below code and comment the above one
+	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+	
+	//alter sound should be played finally in all conditions
+	shell.beep();
+}
+
+function input_of_stats_generator(){
+	
+	//If you are developing app use below code and comment others
+	shell.openItem(path.join(__dirname, '..','data', 'Output'));
+	
+	//Production app should use below code and comment the above one
+	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+	
+	//alter sound should be played finally in all conditions
+	shell.beep();
+}
+
+function output_of_stats_generator(){
+	
+	//If you are developing app use below code and comment others
+	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
+	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+
+	//Production app should use below code and comment the above one
+	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
+	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
+	
+	//alter sound should be played finally in all conditions
+	shell.beep();
+}
+
+function pattern_lookup(){
+	//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+	var input = document.getElementById("patternBar").value;
+	console.log(input);
+}
+
+/*
 function listOutput(){
   var files = fs.readdirSync('./data/Output/');
   var docFrag = document.createDocumentFragment();
@@ -36,10 +81,5 @@ function listOutput(){
   }
   list.appendChild(docFrag);
 }
+*/
 
-function newWindow(id){
-  shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output',id));
-}
-
-
-//shell.openItem(path.join(__dirname, '../../../data/Output/'+id));

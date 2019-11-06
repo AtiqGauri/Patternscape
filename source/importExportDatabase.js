@@ -102,26 +102,26 @@ async function try_persist_without_promting_user() {
       return "prompt";
     }
     return "never";
-  }
+}
   
   
-  var init_storage_persistence = async function init_storage_persistence() {
-    console.log("persisting data");
-    const persist = await try_persist_without_promting_user();
-    switch (persist) {
-      case "never":
-        return "Not possible to persist storage";
-      case "persisted":
-        return "Successfully persisted storage silently";
-      case "prompt":
-        return "Not persisted, but we may prompt user when we want to.";
-    }
+var init_storage_persistence = async function init_storage_persistence() {
+  console.log("persisting data");
+  const persist = await try_persist_without_promting_user();
+  switch (persist) {
+    case "never":
+      return "Not possible to persist storage";
+    case "persisted":
+      return "Successfully persisted storage silently";
+    case "prompt":
+      return "Not persisted, but we may prompt user when we want to.";
   }
+}
 
-  module.exports = {
-      export_database,
-      import_database,
-      init_storage_persistence,
-      is_storage_persisted,
-      show_estimated_quota,
-  }
+module.exports = {
+    export_database,
+    import_database,
+    init_storage_persistence,
+    is_storage_persisted,
+    show_estimated_quota,
+}

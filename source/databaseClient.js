@@ -53,3 +53,9 @@ function database_storage_qouta(){
         console.log('Available storage : '+value.quota + ' Used : ' + value.usage);
     });
 }
+
+function pattern_lookup(){
+	//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+	var input = document.getElementById("patternBar").value;
+	console.log(input);
+}
