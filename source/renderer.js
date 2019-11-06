@@ -8,66 +8,66 @@ const { get_address_of_pattern_file } = require('./database.js');
 
 function input_of_anlyzing(){
 	
-	//If you are developing app use below code and comment others
+	//*DEVELOPMENT* If you are developing app use below code and comment others
 	shell.openItem(path.join(__dirname, '..','data', 'Input'));
 	
-	//Production app should use below code and comment the above one
+	//*PRODUCTION* Production app should use below code and comment the above one
 	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
 	
-	//alter sound should be played finally in all conditions
+	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function output_of_anlyzing(){
 	
-	//If you are developing app use below code and comment others
+	//*DEVELOPMENT* If you are developing app use below code and comment others
 	shell.openItem(path.join(__dirname, '..','data', 'Output'));
 	
-	//Production app should use below code and comment the above one
+	//*PRODUCTION* Production app should use below code and comment the above one
 	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
 	
-	//alter sound should be played finally in all conditions
+	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function input_of_stats_generator(){
 	
-	//If you are developing app use below code and comment others
+	//*DEVELOPMENT* If you are developing app use below code and comment others
 	shell.openItem(path.join(__dirname, '..','data', 'Output'));
 	
-	//Production app should use below code and comment the above one
+	//*PRODUCTION* Production app should use below code and comment the above one
 	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
 	
-	//alter sound should be played finally in all conditions
+	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function output_of_stats_generator(){
 	
-	//If you are developing app use below code and comment others
+	//*DEVELOPMENT* If you are developing app use below code and comment others
 	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
 	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
 
-	//Production app should use below code and comment the above one
+	//*PRODUCTION* Production app should use below code and comment the above one
 	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
 	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
 	
-	//alter sound should be played finally in all conditions
+	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function pattern_lookup(){
-	//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+	
 	var input = document.getElementById("patternBar").value;
 	get_address_of_pattern_file(input).then(function(result) {
 
 		for (i = 0; i < result.length; i++) {
 			
-			//If you are developing app use below code and comment others
+			//*DEVELOPMENT* If you are developing app use below code and comment others
 			shell.openItem(path.join(__dirname, '..',result[i]));
 			
-			//Production app should use below code and comment the above one
-			//shell.openItem(path.join(__dirname, '..', '..', '..', result[i])));
+			//*PRODUCTION* Production app should use below code and comment the above one
+			//shell.openItem(path.join(__dirname, '..', '..', '..', result[i]));
 		}
 	});
 }
