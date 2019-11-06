@@ -4,6 +4,7 @@
 
 const path = require('path');
 const shell = require('electron').shell;
+const { get_address_of_pattern_file } = require('./database.js');
 
 function input_of_anlyzing(){
 	
@@ -58,7 +59,17 @@ function output_of_stats_generator(){
 function pattern_lookup(){
 	//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
 	var input = document.getElementById("patternBar").value;
-	console.log(input);
+	get_address_of_pattern_file(input).then(function(result) {
+
+		for (i = 0; i < result.length; i++) {
+			
+			//If you are developing app use below code and comment others
+			shell.openItem(path.join(__dirname, '..',result[i]));
+			
+			//Production app should use below code and comment the above one
+			//shell.openItem(path.join(__dirname, '..', '..', '..', result[i])));
+		}
+	});
 }
 
 /*

@@ -19,6 +19,16 @@ async function starts_with_ignore_case(str) {
     return arr;
 }
 
+async function get_address_of_pattern_file(str) {
+    var arr = [];
+    await database.table('Patterns').where('pattern').equalsIgnoreCase(str)
+                     .each(function (p) {
+                        arr.push(p.address);
+                     });
+    return arr;
+}
+
+
 async function equals_any_of(str1, str2, str3) {
     var arr =[];
     await database.table('Patterns').where('pattern').anyOf(str1, str2, str3)
@@ -60,5 +70,6 @@ async function logical_AND(str) {
 //
 module.exports = {
     database,
-    starts_with_ignore_case 
+    starts_with_ignore_case,
+    get_address_of_pattern_file
 }
