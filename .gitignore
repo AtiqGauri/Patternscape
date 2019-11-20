@@ -1,0 +1,8 @@
+# node.js modules
+node_modules/**/*
+
+# Platform dependent build forder
+dist/**/*
+
+#redundent package-lock.json file
+package-lock.json

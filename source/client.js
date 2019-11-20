@@ -1,30 +1,37 @@
-//const shell = require('electron').shell;
 console.log('make a worker: ', 'worker1.js')
 console.log('make a worker: ', 'worker2.js')
 var worker1; var worker2;
+var bAnalyzer = true;
 
 
 function analyze_passwords_emails(){
-	worker1 = new Worker('./worker1.js')
-	var threadNumber = document.getElementById('analyzeThreads').value;
-	if(threadNumber>=2){
-		worker1.postMessage(threadNumber);
-	}else{
-		threadNumber = 2;
-		worker1.postMessage(threadNumber);
-	}
-	worker1.onmessage = function(event) {
-		console.log("worker1 : ", event.data);
-		worker1.terminate();  
-		document.getElementById('statusAnalyze').innerHTML = ('Completed');
-		shell.beep();
-		//This function is defined in renderer.js to list all files in Output folder 
-		output_of_anlyzing();
-	};
+	if(bAnalyzer){
+		bAnalyzer = false;
+		worker1 = new Worker('./worker1.js')
+		
+		var threadNumber = document.getElementById('analyzeThreads').value;
 
-	worker1.onerror = function (event) {
-        console.log(event.message, event);
-	};
+		if(threadNumber>=2){
+			worker1.postMessage(threadNumber);
+		}else{
+			threadNumber = 2;
+			worker1.postMessage(threadNumber);
+		}
+
+		worker1.onmessage = function(event) {
+			console.log("worker1 : ", event.data);
+			worker1.terminate();  
+			document.getElementById('statusAnalyze').innerHTML = ('Completed');
+			shell.beep();
+			bAnalyzer = true;
+			//This function is defined in renderer.js to list all files in Output folder 
+			output_of_anlyzing();
+		};
+
+		worker1.onerror = function (event) {
+	        console.log(event.message, event);
+		};
+	}
 }
 
 function stop_analyze_passwords_emails(){

@@ -6,52 +6,55 @@ const path = require('path');
 const shell = require('electron').shell;
 const { get_address_of_pattern_file } = require('./database.js');
 
+//*DEVELOPMENT or PRODUCTION* If you are developing the app use then true else false
+const isDevMode = true;
+
 function input_of_anlyzing(){
 	
-	//*DEVELOPMENT* If you are developing app use below code and comment others
-	shell.openItem(path.join(__dirname, '..','data', 'Input'));
-	
-	//*PRODUCTION* Production app should use below code and comment the above one
-	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
-	
+	if(isDevMode){
+		shell.openItem(path.join(__dirname, '..','data', 'Input'));
+	} else {
+		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
+	}
+
 	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function output_of_anlyzing(){
 	
-	//*DEVELOPMENT* If you are developing app use below code and comment others
-	shell.openItem(path.join(__dirname, '..','data', 'Output'));
-	
-	//*PRODUCTION* Production app should use below code and comment the above one
-	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
-	
+	if(isDevMode){
+		shell.openItem(path.join(__dirname, '..','data', 'Output'));
+	} else {
+		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+	}
+
 	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function input_of_stats_generator(){
 	
-	//*DEVELOPMENT* If you are developing app use below code and comment others
-	shell.openItem(path.join(__dirname, '..','data', 'Output'));
-	
-	//*PRODUCTION* Production app should use below code and comment the above one
-	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
-	
+	if(isDevMode){
+		shell.openItem(path.join(__dirname, '..','data', 'Output'));
+	} else {
+		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+	}
+
 	//alert sound should be played finally in all conditions
 	shell.beep();
 }
 
 function output_of_stats_generator(){
 	
-	//*DEVELOPMENT* If you are developing app use below code and comment others
-	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
-	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+	if(isDevMode){
+		shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
+		shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+	} else {
+		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
+		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
+	}
 
-	//*PRODUCTION* Production app should use below code and comment the above one
-	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
-	//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
-	
 	//alert sound should be played finally in all conditions
 	shell.beep();
 }
@@ -63,11 +66,13 @@ function pattern_lookup(){
 
 		for (i = 0; i < result.length; i++) {
 			
-			//*DEVELOPMENT* If you are developing app use below code and comment others
-			shell.openItem(path.join(__dirname, '..',result[i]));
-			
-			//*PRODUCTION* Production app should use below code and comment the above one
-			//shell.openItem(path.join(__dirname, '..', '..', '..', result[i]));
+			if(isDevMode){
+				shell.openItem(path.join(__dirname, '..',result[i]));
+			} else {
+				shell.openItem(path.join(__dirname, '..', '..', '..', result[i]));
+			}
+			//alert sound should be played finally in all conditions
+			shell.beep();
 		}
 	});
 }
