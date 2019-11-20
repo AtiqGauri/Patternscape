@@ -1,8 +1,8 @@
 # node.js modules
-node_modules/**/*
+node_modules/
 
 # Platform dependent build forder
-dist/**/*
+dist/
 
 #redundent package-lock.json file
 package-lock.json
