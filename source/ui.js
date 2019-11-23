@@ -27,15 +27,21 @@ function autocomplete(inp) {
                 
                 //create a DIV element for each matching element:
                 b = document.createElement("DIV");
+                
                 //make the matching letters bold:
-                b.innerHTML = "<strong>" + dbArray[i].substr(0, val.length) + "</strong>";
-                b.innerHTML += dbArray[i].substr(val.length);
+                b.innerHTML = "<strong>" + dbArray[i].pattern.substr(0, val.length) +"</strong>";
+                b.innerHTML += dbArray[i].pattern.substr(val.length);
+                //b.innerHTML += dbArray[i].pattern.substr(val.length) + "    Popularity: " +dbArray[i].popularity;
+
                 //insert a input field that will hold the current array item's value:
-                b.innerHTML += "<input type='hidden' value='" + dbArray[i] + "'>";
+                b.innerHTML += "<input type='hidden' value='" + dbArray[i].pattern + "'>";
+                
                 //execute a function when someone clicks on the item value (DIV element):
                 b.addEventListener("click", function(e) {
+                    
                     //insert the value for the autocomplete text field:
                     inp.value = this.getElementsByTagName("input")[0].value;
+                    
                     //close the list of autocompleted values,
                     //or any other open lists of autocompleted values:
                     closeAllLists();

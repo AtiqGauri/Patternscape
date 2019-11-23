@@ -14,10 +14,23 @@ async function starts_with_ignore_case(str) {
     var arr = [];
     await database.table('Patterns').where('pattern').startsWithIgnoreCase(str)
                      .each(function (p) {
-                        arr.push(p.pattern);
+                        arr.push(p);
                      });
+    arr.sort (function (a,b) { return b.popularity - a.popularity; });
+    /**var arr = [];
+    var temp  = [];
+    await database.table('Patterns').where('pattern').startsWithIgnoreCase(str)
+                     .each(function (p) {
+                        arr.push(p);
+                     });
+    arr.sort (function (a,b) { return b.popularity - a.popularity; });
+    for (let index = 0; index < arr.length; index++) {
+        temp.push(arr[index].pattern);
+    }
+    return temp; */
     return arr;
 }
+
 
 async function get_address_of_pattern_file(str) {
     var arr = [];
