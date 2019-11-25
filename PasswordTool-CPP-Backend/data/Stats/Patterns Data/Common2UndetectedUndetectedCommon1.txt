@@ -1,7 +1,0 @@
-bumfluff1<|>"bum" Length:3 Position:0, "bum" Length:3 Position:0, "fluff1" Length:6 Position:3, "fluff" Length:5 Position:3, 
-ilikeplaygame753<|>"ilike" Length:5 Position:0, "ilike" Length:5 Position:0, "playgame753" Length:11 Position:5, "playgame" Length:8 Position:5, 
-theknife22<|>"the" Length:3 Position:0, "the" Length:3 Position:0, "knife22" Length:7 Position:3, "knife" Length:5 Position:3, 
-bumfluff1<|>"bum" Length:3 Position:0, "bum" Length:3 Position:0, "fluff1" Length:6 Position:3, "fluff" Length:5 Position:3, 
-theknife2<|>"the" Length:3 Position:0, "the" Length:3 Position:0, "knife2" Length:6 Position:3, "knife" Length:5 Position:3, 
-ashbust85<|>"ash" Length:3 Position:0, "ash" Length:3 Position:0, "bust85" Length:6 Position:3, "bust" Length:4 Position:3, 
-ashbust85<|>"ash" Length:3 Position:0, "ash" Length:3 Position:0, "bust85" Length:6 Position:3, "bust" Length:4 Position:3, 

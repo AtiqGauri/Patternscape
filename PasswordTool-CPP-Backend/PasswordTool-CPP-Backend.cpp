@@ -1,6 +1,18 @@
 #include <iostream>
 #include"APILayer.h"
 
+/*
+************************************
+PROJECT SETTINGS
+************************************
+1. Project -> Project Properties -> C/C++ -> Language -> C++ Language Standard -> std:c++latest
+
+2. Set Project in Release mode
+
+3. Set Arch to 64x (optional)
+*/
+
+
 int main()
 {
 

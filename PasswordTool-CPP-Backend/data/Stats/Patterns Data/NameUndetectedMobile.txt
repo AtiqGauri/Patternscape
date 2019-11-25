@@ -1,4 +1,0 @@
-petete2006<|>"pete" Length:4 Position:0, "te" Length:2 Position:4, "2006" Length:4 Position:6, 
-abass1989<|>"abas" Length:4 Position:0, "s" Length:1 Position:4, "1989" Length:4 Position:5, 
-iamsk2468<|>"iams" Length:4 Position:0, "k" Length:1 Position:4, "2468" Length:4 Position:5, 
-arakis1234<|>"araki" Length:5 Position:0, "s" Length:1 Position:5, "1234" Length:4 Position:6, 
