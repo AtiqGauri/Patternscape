@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<title>Atiq</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+      <meta name="HandheldFriendly" content="true">
+      <title>Hello World!</title>
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="style.css" />  
+	  <script src="./databaseClient.js" type="text/javascript"></script> 
+  </head>
+  <body>
+
+	<script>
+		//delete_database();
+	</script>
+	<!-- App Header/Title -->
+    <section id="appHeader">
+		<h1 id="headerText">Password Tool</h1>
+	  </section>
+	  
+  
+  
+	  <!-- Analyze Password and Emails -->
+	  <section class="sections" id="AnalyzeDiv">
+		<h2 class="headingText">Analyze Passwords & Emails...</h2>
+		<div class="interactionBar">
+		  <h3 class="barText" id="textAnalyze">Enter number of threads: </h3>
+		  <input class="threadInput" type="text" id="analyzeThreads" placeholder="2-8">
+		  <button class="buttons" id="startAnalyze" type="button" onclick="analyze_passwords_emails()">Start</button>
+		  <button class="buttons" id="stopAnalyze" type="button" onclick="stop_analyze_passwords_emails()">Stop</button>
+		  <button class="buttons" id="inputAnalyze" type="button" onclick="input_of_anlyzing()">Input</button>
+		  <button class="buttons" id="outputAnalyze" type="button" onclick="output_of_anlyzing()">Output</button>
+		  <h3 class="sizedText" id="statusAnalyze" type="text">Process Status</h3>
+		</div>
+	  </section>
+  
+	  <!-- Statistics Generator -->
+	  <section class="sections">
+		<h2 class="headingText">Statistics Generator...</h2>
+		<div class="interactionBar">
+		  <h3 class="barText" id="textStats">Enter number of threads: </h3>
+		  <input class="threadInput" type="text" name="statsThreads" placeholder="2-8">
+		  <button class="buttons" id="startStats" type="button" onclick="generate_statistics()">Start</button>
+		  <button class="buttons" id="stopStats" type="button" onclick="stop_generate_statistics()">Stop</button>
+		  <button class="buttons" id="inputStats" type="button" onclick="input_of_stats_generator()">Input</button>
+		  <button class="buttons" id="outputStats" type="button" onclick="output_of_stats_generator()">Output</button>
+		  <h3 class="sizedText" id="statusStats">Process Status</h3>
+		</div>
+	  </section>
+  
+	  <!-- Add Stats to Database -->
+	  <section class="sections">
+		<h2 class="headingText">Add Stats to Database...</h2>
+		<div class="interactionBar">
+		  <button class="buttons" id="startDatabase" type="button" onclick="database_worker_client()">Start</button>
+		  <h3 class="sizedText" id="statusDatabase">Process Status</h3>
+		</div>
+	  </section>
+  
+	  <!-- Pattern and its Data -->
+	  <section class="sections">
+		<h2 class="headingText">Pattern and its Data...</h2>
+		<div class="interactionBar">
+		  <h3 class="sizedText" id="textPattern">Enter pattern here</h3>
+		  <h3 class="barText" id="patternHint">* Name, email, common word, location, mobile or website </h3>
+		  <form autocomplete="off" onsubmit="return false">
+		  <div class="autocomplete" style="width:300px;">
+		  	<input class="patternSearch" id="patternBar" type="text" name="patternInput" placeholder="pattern">
+		  </div>
+		  <button class="buttons" id="patternSubmit" onclick="pattern_lookup();">Submit</button>
+		  </form>
+		</div>
+	  </section>
+  
+	  <!-- Target User Pattern Generation -->
+	  <section class="sections">
+		<h2 class="headingText">Target User Pattern Generation...</h2>
+		<div id="targetUserBar">
+		  <h3 class="sizedText" id="emailField">Email</h3>
+		  <input class="targetInput" id="emailBar" type="text" name="emailInput">
+		  <h3 class="sizedText" id="nameField">Name</h3>
+		  <input class="targetInput" id="nameBar" type="text" name="nameInput">
+		  <h3 class="sizedText" id="locationField">Location</h3>
+		  <input class="targetInput" id="locationBar" type="text" name="locationInput">
+		  <h3 class="sizedText" id="passwordField">Password</h3>
+		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
+		  <h3 class="sizedText" id="dobField">DOB</h3>
+		  <input class="targetInput" id="dobBar" type="text" name="dobInput">
+		  <h3 class="sizedText" id="mobileField">Mobile</h3>
+		  <input class="targetInput" id="mobileBar" type="text" name="mobileInput">
+		  <h3 class="sizedText" id="generateHint">Select Pattern Here</h3>
+		  <input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
+		  <button class="buttons" id="patternGenerate" type="button" onclick="console.log('Hello world!')">Generate</button>
+		  <h3 class="sizedText" id="generatedPass">"Generated Password"</h3>
+		</div>
+	  </section>
+  
+	  <!-- You can also require other files to run in this process -->
+	  <script src="./client.js" type="text/javascript"></script>
+	  <script src="./ui.js"></script>
+	  <script src="./renderer.js"></script>
+  </body>
+</html>
