@@ -1,0 +1,8 @@
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 
+katzeliger<|>"katz" Length:4 Position:0, "kat" Length:3 Position:0, "zeliger" Length:7 Position:3, "zelig" Length:5 Position:3, "elige" Length:5 Position:4, 

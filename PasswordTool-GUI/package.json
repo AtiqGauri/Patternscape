@@ -1,0 +1,45 @@
+{
+  "name": "PasswordTool",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "source/main.js",
+  "scripts": {
+    "preinstall": "(npm install cpy@^7.3.0 --save-dev && node copyCppFiles.js && npm install ../PasswordTool-Native-Addon --no-save)",
+    "postinstall": "(node copyNativeAddon.js && install-app-deps)",
+    "start": "electron ./",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.atiqgauri",
+    "files": [
+      "source/**/*",
+      "preload.js"
+    ],
+    "extraFiles": [
+      "data/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "highestAvailable",
+      "icon": "source/flip-h.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true
+    }
+  },
+  "author": "Atiq",
+  "devDependencies": {
+    "cpy": "^7.3.0",
+    "electron": "^6.0.0",
+    "electron-builder": "^21.1.5"
+  },
+  "dependencies": {
+    "dexie": "^2.0.4",
+    "dexie-export-import": "^1.0.0-beta.14",
+    "n-readlines": "^1.0.0",
+    "stream-to-blob": "^2.0.0"
+  }
+}

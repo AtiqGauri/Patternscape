@@ -1,0 +1,8 @@
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 
+aherr1993<|>"a" Length:1 Position:0, "herr" Length:4 Position:1, "1993" Length:4 Position:5, 

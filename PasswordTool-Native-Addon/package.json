@@ -1,0 +1,21 @@
+{
+  "name": "addon",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "install": "cmake-js compile"
+  },
+  "cmake-js": {
+    "runtime": "electron",
+    "runtimeVersion": "6.0.0",
+    "arch": "x64"
+  },
+  "devDependencies": {
+    "cmake-js": "^5.3.1"
+  },
+  "dependencies": {
+    "node-addon-api": "^1.7.1"
+  }
+}

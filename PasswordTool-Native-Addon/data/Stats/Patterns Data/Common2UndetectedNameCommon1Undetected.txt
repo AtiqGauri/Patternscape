@@ -1,0 +1,8 @@
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
+lemahabang<|>"lema" Length:4 Position:0, "lema" Length:4 Position:0, "maha" Length:4 Position:2, "habang" Length:6 Position:4, "habang" Length:6 Position:4, 
