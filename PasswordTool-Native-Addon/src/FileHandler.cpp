@@ -3,7 +3,7 @@
 
 void FileHandler::get_files_recursive(deque<string>& fileNames, string directoryPath) {
 	/*
-		Using experimental::filesystem::recursive_directory_iterator to get names of all the files
+		Using filesystem::recursive_directory_iterator to get names of all the files
 		present in directoryPath and SUBFOLDERS.
 		lastly saving all these functions in a deque(fileNames)
 	*/
@@ -29,7 +29,7 @@ void FileHandler::get_files_recursive(deque<string>& fileNames, string directory
 
 void FileHandler::get_files_recursive(vector<string>& fileNames, string directoryPath) {
 	/*
-		Using experimental::filesystem::recursive_directory_iterator to get names of all the files
+		Using filesystem::recursive_directory_iterator to get names of all the files
 		present in directoryPath and SUBFOLDERS.
 		lastly saving all these functions in a vector(fileNames)
 	*/
@@ -55,6 +55,7 @@ void FileHandler::read_file(deque<string>& fileContent, string filePath) {
 	*/
 	string str;
 	ifstream input(filePath);
+
 	if (!input.is_open()) {
 		cout << "File not found " << filePath << "\n";
 	}
@@ -135,9 +136,6 @@ void FileHandler::write_and_append_file(vector<string>& fileContent, string file
 	/*
 		Using Of ofstream to open a file(filePath) and append a vector(fileContent) in it
 	*/
-	/*
-		Using Of ofstream to open a file(filePath) and append a deque(fileContent) in it
-	*/
 	ofstream appendFile(filePath, ios::app);
 	if (!appendFile.is_open()) {
 		FileHandler::write_file(fileContent, filePath);
@@ -153,9 +151,10 @@ void FileHandler::resize_all_files(string directoryPath) {
 	/*
 		Here we are taking a path of directory(directoryPath) and resizing all its content
 		in samll files.The length/size of small files is hardcoded.
-		Step 1 while loop iterate on number of files in that directory
+		Step 1 while loop to iterate on number of files in that directory
 		Step 2 every file is sent to resize_file function with a deque of vectors of strings
-		Step 3 we get deque of small vectors of strings and make them individual files with another for loop
+		Step 3 then we get deque of small vecotrs(vector of small vectors) of strings and make 
+			   them individual files with another for loop.
 	*/
 	deque<string> allFilesPaths;
 	get_files_recursive(allFilesPaths, directoryPath);
@@ -187,11 +186,11 @@ void FileHandler::resize_all_files(string directoryPath) {
 
 void FileHandler::resize_file(deque<vector<string>>& resizedContent, vector<string> tempVector) {
 	/*
-		This function is only called by resize_all_files().
-		It resize a bigger file into smaller file.The length/size of small files is hardcoded.
+		This is a helper function for resize_all_files() function.
+		It resize a bigger file into multiple smaller files(The length/size of small files is hardcoded).
 		Step 1. it checks if size of file content is bigger than desired number.
-		Step 2. then starts while loop which pieces them in smaller content vectors and place these vectors in deque
-		Step 3. if file is smaller than lesser than desired size than just pass it normally in single vector
+		Step 2. then starts while loop which divide them in smaller vectors and place these vectors in a deque
+		Step 3. if file is smaller than desired size than just pass it normally in single vector
 	*/
 	vector<string> temp;
 	vector<string>::iterator it = tempVector.begin();
