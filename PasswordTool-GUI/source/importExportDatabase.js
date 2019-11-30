@@ -1,9 +1,23 @@
+//require database script
 const {database} = require('./database.js');
+
+//require package to export import database
 require('dexie-export-import');
+
+//require package to convert stream into a blob
 const toBlob = require('stream-to-blob');
+
+//require fs package to handle file manipulation
 var fileSystem = require('fs');
 
-
+/**
+ * Function to export database to a json file
+ * Json file will be stored at data/Stats/ExportedDatabase.json
+ * Step 1. make a blob of database data
+ * Step 2. convert blob into a readable text form
+ * Step 3. write normal text into json file
+ * Step 4. acknowledgment
+ */
 var export_database = async function export_database(){
     console.log("Exporting Database");
     try{
@@ -20,7 +34,14 @@ var export_database = async function export_database(){
     console.log("Exported");
 };
 
-
+/**
+ * Function to import database
+ * database will be imported from json file located at data/Stats/ExportedDatabase.json
+ * Step 1. make a stream of file data
+ * Step 2. convert stream into a package
+ * Step 3. try to add blob into database
+ * Step 4. acknowledgment
+ */
 var import_database = async function import_database(){
     console.log("Importing Database");
     const stream = fileSystem.createReadStream("data/Stats/ExportedDatabase.json");
@@ -104,7 +125,9 @@ async function try_persist_without_promting_user() {
     return "never";
 }
   
-  
+/**
+ * function to pass status of persisting data operation
+ */
 var init_storage_persistence = async function init_storage_persistence() {
   console.log("persisting data");
   const persist = await try_persist_without_promting_user();

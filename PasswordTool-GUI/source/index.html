@@ -23,6 +23,7 @@
   
   
 	  <!-- Analyze Password and Emails -->
+	  <!-- This will detect patterns out of raw emails and passwords -->
 	  <section class="sections" id="AnalyzeDiv">
 		<h2 class="headingText">Analyze Passwords & Emails...</h2>
 		<div class="interactionBar">
@@ -30,13 +31,14 @@
 		  <input class="threadInput" type="text" id="analyzeThreads" placeholder="2-8">
 		  <button class="buttons" id="startAnalyze" type="button" onclick="analyze_passwords_emails()">Start</button>
 		  <button class="buttons" id="stopAnalyze" type="button" onclick="stop_analyze_passwords_emails()">Stop</button>
-		  <button class="buttons" id="inputAnalyze" type="button" onclick="input_of_anlyzing()">Input</button>
-		  <button class="buttons" id="outputAnalyze" type="button" onclick="output_of_anlyzing()">Output</button>
+		  <button class="buttons" id="inputAnalyze" type="button" onclick="input_of_analyzing()">Input</button>
+		  <button class="buttons" id="outputAnalyze" type="button" onclick="output_of_analyzing()">Output</button>
 		  <h3 class="sizedText" id="statusAnalyze" type="text">Process Status</h3>
 		</div>
 	  </section>
   
 	  <!-- Statistics Generator -->
+	  <!-- This will categories all the patterns with their popularity and datafile address -->
 	  <section class="sections">
 		<h2 class="headingText">Statistics Generator...</h2>
 		<div class="interactionBar">
@@ -51,6 +53,7 @@
 	  </section>
   
 	  <!-- Add Stats to Database -->
+	  <!-- This will add processed pattern stats into database -->
 	  <section class="sections">
 		<h2 class="headingText">Add Stats to Database...</h2>
 		<div class="interactionBar">
@@ -60,6 +63,7 @@
 	  </section>
   
 	  <!-- Pattern and its Data -->
+	  <!-- Here we can find patterns and data related to it -->
 	  <section class="sections">
 		<h2 class="headingText">Pattern and its Data...</h2>
 		<div class="interactionBar">
@@ -75,6 +79,7 @@
 	  </section>
   
 	  <!-- Target User Pattern Generation -->
+	  <!-- Here a suggested password will be generated based on given information and choosed pattern -->
 	  <section class="sections">
 		<h2 class="headingText">Target User Pattern Generation...</h2>
 		<div id="targetUserBar">
@@ -98,8 +103,11 @@
 	  </section>
   
 	  <!-- You can also require other files to run in this process -->
+	  <!-- client.js will call and respond to web workers -->
 	  <script src="./client.js" type="text/javascript"></script>
+	  <!-- ui.js will handle autocomplete feature to find patterns -->
 	  <script src="./ui.js"></script>
+	  <!-- renderer.js will handle system call like opening default text editor -->
 	  <script src="./renderer.js"></script>
   </body>
 </html>

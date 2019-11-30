@@ -2,14 +2,26 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+
+//require path package to handle file addresses
 const path = require('path');
+
+//require shell to open default application like text editor with a datafile in it
 const shell = require('electron').shell;
+
+//require database script
 const { get_address_of_pattern_file } = require('./database.js');
 
+//**** IMPORTANT ****
 //*DEVELOPMENT or PRODUCTION* If you are developing the app use then true else false
+//otherwise app can crash
 const isDevMode = true;
 
-function input_of_anlyzing(){
+
+/**
+ * Function to open input folder of analyzation process
+ */
+function input_of_analyzing(){
 	
 	if(isDevMode){
 		shell.openItem(path.join(__dirname, '..','data', 'Input'));
@@ -21,7 +33,10 @@ function input_of_anlyzing(){
 	shell.beep();
 }
 
-function output_of_anlyzing(){
+/**
+ * Function to open output folder of analyzation process
+ */
+function output_of_analyzing(){
 	
 	if(isDevMode){
 		shell.openItem(path.join(__dirname, '..','data', 'Output'));
@@ -33,6 +48,11 @@ function output_of_anlyzing(){
 	shell.beep();
 }
 
+
+/**
+ * Function to open input folder of stats generator.
+ * Which happens to be output folder of analyzation process.
+ */
 function input_of_stats_generator(){
 	
 	if(isDevMode){
@@ -45,6 +65,11 @@ function input_of_stats_generator(){
 	shell.beep();
 }
 
+
+/**
+ * Function to open output folder of Stats generator and pattern 
+ * category file in default text editor.
+ */
 function output_of_stats_generator(){
 	
 	if(isDevMode){
@@ -59,6 +84,11 @@ function output_of_stats_generator(){
 	shell.beep();
 }
 
+/**
+ * Function to open pattern data file. This function
+ * makes a database query to get address of selected pattern
+ * and open it in default text editor.
+ */
 function pattern_lookup(){
 	
 	var input = document.getElementById("patternBar").value;
