@@ -45,6 +45,7 @@ PasswordTool-Native-Addon/package-lock.json
 [Rr]eleases/
 x64/
 x86/
+.vscode/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
