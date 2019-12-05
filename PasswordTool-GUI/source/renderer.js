@@ -127,7 +127,7 @@ function target_user_pattern(){
         
         if(email.indexOf("@") != -1 && email.indexOf(".") != -1){
             //Reflect process is started 
-            document.getElementById("generatedPass").innerHTML = ('Generating passwords');
+            document.getElementById("generatedPass").innerHTML = ('<p style="color:yellow;">Generating passwords</p>');
             
             var targetData = [];
 
@@ -184,6 +184,9 @@ function target_user_pattern(){
 					generatedPasswords.push({original:tempStr, generated:passwordPatterns[i].pattern});
 				}
 				
+				//acknowledge success
+				document.getElementById("generatedPass").innerHTML = ('<p style="color:green;">Generated</p>');
+
 				//open a new window to display generated passwords and patterns
 				let passwordsWindow = window.open('', 'Generated_Passwords');
 				passwordsWindow.document.write(JSON.stringify(generatedPasswords));
@@ -193,13 +196,13 @@ function target_user_pattern(){
 			temp.length =0;
 			return;
         }else{
-			//Reflect invalid email
-            document.getElementById("generatedPass").innerHTML = ('Enter a valid Email');
+			//Warn: invalid email
+            document.getElementById("generatedPass").innerHTML = ('<p style="color:red;">Enter a valid Email</p>');
             return;
         }
     }else{
-        //Warn to enter required fields
-		document.getElementById("generatedPass").innerHTML = ('* Complete Required Fields');
+        //Warn: enter required fields
+		document.getElementById("generatedPass").innerHTML = ('<p style="color:red;">* Complete Required Fields</p>');
 		return;
     }
 }
