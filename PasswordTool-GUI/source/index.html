@@ -83,23 +83,30 @@
 	  <section class="sections">
 		<h2 class="headingText">Target User Pattern Generation...</h2>
 		<div id="targetUserBar">
-		  <h3 class="sizedText" id="emailField">Email</h3>
+		  <h3 class="sizedText" id="emailField">* Email</h3>
 		  <input class="targetInput" id="emailBar" type="text" name="emailInput">
 		  <h3 class="sizedText" id="nameField">Name</h3>
 		  <input class="targetInput" id="nameBar" type="text" name="nameInput">
 		  <h3 class="sizedText" id="locationField">Location</h3>
 		  <input class="targetInput" id="locationBar" type="text" name="locationInput">
-		  <h3 class="sizedText" id="passwordField">Password</h3>
-		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
 		  <h3 class="sizedText" id="dobField">DOB</h3>
 		  <input class="targetInput" id="dobBar" type="text" name="dobInput">
 		  <h3 class="sizedText" id="mobileField">Mobile</h3>
 		  <input class="targetInput" id="mobileBar" type="text" name="mobileInput">
-		  <h3 class="sizedText" id="generateHint">Select Pattern Here</h3>
-		  <input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
-		  <button class="buttons" id="patternGenerate" type="button" onclick="console.log('Hello world!')">Generate</button>
+		  <h3 class="sizedText" id="generateHint">Select Pattern</h3>
+		  <div class="autocomplete" style="width:300px;">
+			<input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
+		  </div>
+		  <button class="buttons" id="patternGenerate" type="button" onclick="target_user_pattern()">Generate</button>
 		  <h3 class="sizedText" id="generatedPass">"Generated Password"</h3>
 		</div>
+	  </section>
+
+
+	  <section class="sections">
+		  <h2 class="headingText"></h2>
+		  <div class="interactionBar">
+		  </div>
 	  </section>
   
 	  <!-- You can also require other files to run in this process -->

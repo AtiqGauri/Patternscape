@@ -1,10 +1,9 @@
 const { starts_with_ignore_case } = require('./database.js');
 
-
 function autocomplete(inp) {
     
-    //the autocomplete function takes two arguments,
-    //the text field element and an array of possible autocompleted values:
+    //the autocomplete function takes one arguments,
+    //the text field element
     var currentFocus;
     
     //execute a function when someone writes in the text field:
@@ -112,15 +111,15 @@ function autocomplete(inp) {
             x[i].classList.remove("autocomplete-active");
         }
     }
-    function closeAllLists(elmnt) {
+    function closeAllLists(element) {
 
         //close all autocomplete lists in the document,
         //except the one passed as an argument:
         var x = document.getElementsByClassName("autocomplete-items");
         for (var i = 0; i < x.length; i++) {
-        if (elmnt != x[i] && elmnt != inp) {
-            x[i].parentNode.removeChild(x[i]);
-        }
+            if (element != x[i] && element != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
         }
     }
     //execute a function when someone clicks in the document:
@@ -131,3 +130,4 @@ function autocomplete(inp) {
 
 //initiate the autocomplete function
 autocomplete(document.getElementById("patternBar"));
+autocomplete(document.getElementById("selectBar"));

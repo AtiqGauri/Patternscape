@@ -32,17 +32,6 @@ async function starts_with_ignore_case(partialPattern) {
     
     //sort array with popularity in descending order 
     matchedPatterns.sort (function (a,b) { return b.popularity - a.popularity; });
-    /**var arr = [];
-    var temp  = [];
-    await database.table('Patterns').where('pattern').startsWithIgnoreCase(str)
-                     .each(function (p) {
-                        arr.push(p);
-                     });
-    arr.sort (function (a,b) { return b.popularity - a.popularity; });
-    for (let index = 0; index < arr.length; index++) {
-        temp.push(arr[index].pattern);
-    }
-    return temp; */
     return matchedPatterns;
 }
 
@@ -66,23 +55,26 @@ async function get_address_of_pattern_file(patternString) {
 }
 
 /**
- * Function to find given patterns (up to 3) in database  
- * @param {string} pattern1 
- * @param {string} pattern2 
- * @param {string} pattern3 
+ * Function to find patterns start with any of strings in database
+ * and returns patterns which are matching with those strings
+ * @param {string array} targetDataArray array of string (email, name, etc )
  */
-async function equals_any_of(pattern1, pattern2, pattern3) {
+async function equals_any_of(targetDataArray) {
     
     //array to store matched patterns
     var matchedPatterns =[];
     
-    //async call to database to find anyone given pattern in database
-    await database.table('Patterns').where('pattern').anyOf(pattern1, pattern2, pattern3)
+    //async call to database to find patterns starting with any of given strings
+    await database.table('Patterns').where('pattern').startsWithAnyOfIgnoreCase(targetDataArray)
                      .each(function (value) {
-                        matchedPatterns.push(value.pattern);
+                        matchedPatterns.push(value);
                      });
-
-    return matchedPatterns;
+    
+    //sort resulting array with popularity in descending order 
+    matchedPatterns.sort (function (a,b) { return b.popularity - a.popularity; });
+    
+    //return 99 most popular patterns
+    return matchedPatterns.slice(0, 99);
 }
 
 //export members
