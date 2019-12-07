@@ -85,6 +85,8 @@
 		<div id="targetUserBar">
 		  <h3 class="sizedText" id="emailField">* Email</h3>
 		  <input class="targetInput" id="emailBar" type="text" name="emailInput">
+		  <h3 class="sizedText" id="passwordField">Password</h3>
+		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
 		  <h3 class="sizedText" id="nameField">Name</h3>
 		  <input class="targetInput" id="nameBar" type="text" name="nameInput">
 		  <h3 class="sizedText" id="locationField">Location</h3>
@@ -98,15 +100,24 @@
 			<input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
 		  </div>
 		  <button class="buttons" id="patternGenerate" type="button" onclick="target_user_pattern()">Generate</button>
-		  <h3 class="sizedText" id="generatedPass">"Process Status"</h3>
+		  <h3 class="sizedText" id="generatedPass">Process Status</h3>
 		</div>
 	  </section>
 
 
+	  <!-- Detect pattern in a password and email(optional) -->
+	  <!-- this will process single user password and email without input and all -->
+	  <!-- IMPORTANT this doesn't add detected pattern to database yet(may be changed in future) -->
 	  <section class="sections">
-		  <h2 class="headingText"></h2>
-		  <div class="interactionBar">
-		  </div>
+		<h2 class="headingText">Detect pattern in single password...</h2>
+		<div id="targetPasswordBar">
+		  <h3 class="sizedText" id="targetEmailField">Email</h3>
+		  <input class="targetInput" id="targetEmailBar" type="text">
+		  <h3 class="sizedText" id="targetPasswordField">* Password</h3>
+		  <input class="targetInput" id="targetPasswordInput" type="text">
+		  <button class="buttons" id="targetPasswordStart" type="button" onclick="target_password_patterns()">detect</button>
+		  <h3 class="sizedText" id="statusPassword">Process Status</h3>
+		</div>
 	  </section>
   
 	  <!-- You can also require other files to run in this process -->

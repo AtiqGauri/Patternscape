@@ -439,3 +439,51 @@
     left: 5.5%;
     top: 85%;
 }
+
+
+
+/*---------  Target Password ---------*/
+
+
+#targetPasswordBar{
+    width: 95%;
+    height: 300px;
+    background: #04052E;
+    border-radius: 45px;
+}
+
+#targetEmailField{
+    position: absolute;
+    left: 6.5%;
+    top: 30%;
+}
+
+#targetEmailBar{
+    position: absolute;
+    left: 5.5%;
+    top: 42%;
+}
+
+#targetPasswordField{
+    position: absolute;
+    left: 35%;
+    top: 30%;
+}
+
+#targetPasswordInput{
+    position: absolute;
+    left: 34%;
+    top: 42%;
+}
+
+#targetPasswordStart{
+    position: absolute;
+    left: 60%;
+    top: 42%;
+}
+
+#statusPassword{
+    position: absolute;
+    top: 70%;
+    left: 7%;
+}

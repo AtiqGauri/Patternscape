@@ -227,3 +227,13 @@ function replaceAll(targetString, findString, replaceString) {
 function escapeRegExp(targetString) {
     return targetString.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
+
+
+function process_single_password(detectedData){
+	
+	//open a new window to display generated passwords and patterns
+	let targetPasswordWindow = window.open('', 'Processed_Password');
+	targetPasswordWindow.document.write(detectedData);
+	
+
+}
