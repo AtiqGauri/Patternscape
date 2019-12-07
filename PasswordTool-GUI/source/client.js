@@ -116,28 +116,26 @@ function stop_generate_statistics(){
 	document.getElementById('statusStats').innerHTML = ('<p style="color:red;">Stopped</p>');
 }
 
-
-function target_password_patterns(){
+/**
+ * Function to process a single password and generate/display patterns out of it.
+ * @param {string} password patterns are gonna be detected by processing this password 
+ * @param {string} email email for the password(optional) (default=*****@*****.com)
+ * This uses a web work to process asynchronously.
+ * when finished it will call renderer.js file function to display resulting patterns
+ */
+function target_password_patterns(password, email){
+	//check if same process is not running in background then start this
 	if(bTarget){
+		//process started in background
 		bTarget = false;
 
-		var password = document.getElementById("targetPasswordInput").value;
-		var email = document.getElementById("targetEmailBar").value;
-
-		if(password==''){
-			document.getElementById("statusPassword").innerHTML = ('<p style="color:red;">* Complete Required Fields</p>');
-			bTarget = true;
-			return;
-		}
-		if(email == ''){
-			email = "";
-		}
-
+		//reflect that process has started
 		document.getElementById("statusPassword").innerHTML = ('<p style="color:yellow;">Processing</p>');
 
 		//Initialize web worker
 		targetPasswordWorker = new Worker('targetPasswordWorker.js');
 
+		//pass arguments to web worker
 		targetPasswordWorker.postMessage({p:password, e:email});
 
 		//listen to webworker signals
@@ -150,8 +148,10 @@ function target_password_patterns(){
 			document.getElementById("statusPassword").innerHTML = ('<p style="color:Green;">Completed</p>');
 			shell.beep();
 
+			//now user is free to process again
 			bTarget = true;
-			//console.log(detectedData);
+			
+			//call renderer.js function to display resulting patterns
 			process_single_password(event.data);
 		};
 
@@ -162,6 +162,10 @@ function target_password_patterns(){
 	}
 }
 
+
+/**
+ * stop target password process if required
+ */
 function stop_target_password(){
 	//terminate webworker
 	targetPasswordWorker.terminate();
