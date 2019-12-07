@@ -1,8 +1,0 @@
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 
-20111997<|>"2011" Length:4 Position:0, "1997" Length:4 Position:4, 

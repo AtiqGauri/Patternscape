@@ -35,6 +35,20 @@ namespace AddonAPI {
 	Napi::Number analyze_data_wrapped(const Napi::CallbackInfo& info);
 
 
+	/*
+		c++ backend api function to process a single user password and email 
+		(detect patterns out of a single password)
+	*/
+  	std::string target_password_api(string password, string email="");
+  	
+	/*
+		Wrapper for target_password_api() function. This wrapper is required to convert
+		c++ datatypes into javascirpt form.
+		This will check if passed arguments is a string.
+	*/
+	Napi::String target_password_wrapped(const Napi::CallbackInfo& info);
+
+
 	//Export API
   	Napi::Object Init(Napi::Env env, Napi::Object exports);
   	NODE_API_MODULE(taddon, Init)
