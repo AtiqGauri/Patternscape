@@ -1,0 +1,75 @@
+body{
+    background-color: black;
+}
+
+#passwordString {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+
+    padding-left: 20px;
+
+    color: white;
+}
+
+#generatedPatterns {
+    display: grid;
+    grid-template-columns: max-content auto;
+    margin: 20px;
+    margin-right: 100px;
+    color: white;
+}
+
+ul{
+    margin: 35px;
+}
+
+li {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    grid-column-start: auto;
+    width: fit-content;
+
+    color: #37EFBA;
+    padding: 20px;
+    margin: 25px;
+    border-radius: 12px;
+    background-color: #04052E;
+
+    
+}
+
+li:before {
+    content: '\2022';
+    color: #F5085E;
+    padding-right: 0.5em;
+}
+
+dt {
+    font-size: 25px;
+    
+    padding: 10px;
+    padding-left: 15px;
+    margin: 4px;
+    border-radius: 18px;
+    width: auto;
+    color: #F2D184;
+    background-color: black;
+}
+
+dd {
+    font-size: 23px;
+    overflow: hidden;
+    margin-top: 3px;
+    margin-bottom: 30px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 40px;
+    border-radius: 25px;
+    width: fit-content;
+    color: #F5085E;
+    background-color: #04052E;
+}

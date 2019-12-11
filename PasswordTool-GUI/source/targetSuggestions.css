@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+}
+
+#suggestionList {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+
+    margin: 20px;
+    margin-right: 60px;
+    color: white;
+}
+
+li{
+    margin: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #193872;
+}
+
+dt {
+    font-size: 27px;
+    padding: 10px;
+    padding-left: 15px;
+    margin: 8px;
+    border-radius: 18px;
+    color: #04052E;
+    background-color: #F5085E;
+}
+
+dd {
+    font-size: 23px;
+    overflow: hidden;
+    padding: 10px;
+    padding-right: 40px;
+    padding-left: 15px;
+    border-radius: 25px;
+    width: min-content;
+
+    color: black;
+    background-color: #F2D184;
+}

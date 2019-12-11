@@ -28,7 +28,7 @@ void Patterns::pattern(string password) {
 		for (size_t j = 0; j < splittedResults[i].size(); j++)
 		{
 			finalOutputString += splittedResults[i][j].key;
-			value_pattern += "\"" + splittedResults[i][j].value + "\"" + " Length:" + to_string(splittedResults[i][j].len) + " Position:" + to_string(splittedResults[i][j].loc) + ", ";
+			value_pattern += "\"" + splittedResults[i][j].value + "\"" + "<|>" + " Length:" + to_string(splittedResults[i][j].len) + " Position:" + to_string(splittedResults[i][j].loc) + "<|>";
 		}
 		//finalOutputString += "<|>Password: " + password + value_pattern + "\n";
 		finalOutputString += "<|>" + password + value_pattern + "\n";

@@ -6,6 +6,8 @@
 //require path package to handle file addresses
 const path = require('path');
 
+const { BrowserWindow } = require('electron').remote;
+
 //require shell to open default application like text editor with a datafile in it
 const shell = require('electron').shell;
 
@@ -75,10 +77,15 @@ function output_of_stats_generator(){
 	
 	if(isDevMode){
 		shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
-		shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+		//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+		categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+		categoryWindow.loadFile('./source/patternsCategories.html');
+
 	} else {
 		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
-		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
+		//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
+		categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+		categoryWindow.loadFile('./source/patternsCategories.html');
 	}
 
 	//alert sound should be played finally in all conditions
@@ -92,15 +99,29 @@ function output_of_stats_generator(){
  */
 function pattern_lookup(){
 	
+	//get value of pattern entered by user
 	var input = document.getElementById("patternBar").value;
-	get_address_of_pattern_file(input).then(function(result) {
 
+	//create a widow to show pattern data
+	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data",webPreferences: {nodeIntegration: true,}});
+	patternDataWindow.loadFile('./source/patternData.html');
+
+	get_address_of_pattern_file(input).then(function(result) {
+		var fileAddress;
 		for (i = 0; i < result.length; i++) {
 			
 			if(isDevMode){
-				shell.openItem(path.join(__dirname, '..',result[i]));
+				//shell.openItem(path.join(__dirname, '..',result[i]));
+				fileAddress = result[i];
+				//pass pattern file address and pattern string
+				patternDataWindow.webContents.on('did-finish-load', () => {
+					patternDataWindow.webContents.send('message', input, fileAddress);
+				});
 			} else {
-				shell.openItem(path.join(__dirname, '..', '..', '..', result[i]));
+				//pass pattern file address and pattern string
+				patternDataWindow.webContents.on('did-finish-load', () => {
+					patternDataWindow.webContents.send('message', input, fileAddress);
+				});
 			}
 			//alert sound should be played finally in all conditions
 			shell.beep();
@@ -160,7 +181,7 @@ function target_user_pattern(){
             //get mobile value
 			targetData.push({value:document.getElementById("mobileBar").value, type:'Mobile'});
 
-            //collect data entries which have been given and remove empty ones
+            //collect data entries which have been given, then remove empty ones
             var temp = [];
             for(var i=0; i<targetData.length; i++){
                 if(targetData[i].value!=''){
@@ -197,10 +218,14 @@ function target_user_pattern(){
 				
 				//acknowledge success
 				document.getElementById("generatedPass").innerHTML = ('<p style="color:green;">Generated</p>');
-
-				//open a new window to display generated passwords and patterns
-				let passwordsWindow = window.open('', 'Generated_Passwords');
-				passwordsWindow.document.write(JSON.stringify(generatedPasswords));
+				
+				//create a window to display suggested patterns
+				suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+				suggestionsWindow.loadFile('./source/targetSuggestions.html');
+				//pass suggested patterns array to that window
+				suggestionsWindow.webContents.on('did-finish-load', () => {
+					suggestionsWindow.webContents.send('message', generatedPasswords);
+				});
 			});
 			
 			//clear array
@@ -279,9 +304,11 @@ function catch_target_password(){
  */
 function process_single_password(detectedData){
 	
-	//open a new window to display generated passwords and patterns
-	let targetPasswordWindow = window.open('', 'Processed_Password');
-	targetPasswordWindow.document.write(detectedData);
-	
-
+	//create a window to display suggested patterns
+	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+	targetPasswordWindow.loadFile('./source/targetPattern.html');
+	//pass suggested patterns array to that window
+	targetPasswordWindow.webContents.on('did-finish-load', () => {
+		targetPasswordWindow.webContents.send('message', detectedData);
+	});
 }

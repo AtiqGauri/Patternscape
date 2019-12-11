@@ -263,26 +263,48 @@ namespace APILayer {
 
 	/*
 		Function to detect pattern in a single record of password and email(optional)
-
+		arguments:
+			targetPassword- patterns gonna be detected in this password
+			targetEmail- email attached to that password(optional)(default=*****@*****.com)
+		Step 1. first check if email has a value if not then use default value
+		Step 2. create a temporary vector to store email:password
+		Step 3. then pass it to main_process() function and retrive output
+		Step 4. clear and shrink all container
+		Step 5. return output
 	*/
 	string process_target(string targetPassword, string targetEmail = "") {		
+
+		//if email is empty then set default value
 		if (targetEmail == "") {
 			targetEmail = "*****@*****.com";
 		}
+		//temp vector to store email:password
 		vector<string> tempVector;
 		tempVector.push_back(targetEmail + ":" + targetPassword);
+		
+		//store vector into a file to process it
 		FileHandler::write_file(tempVector, "data/Temp/singlePassword.txt");
+		
+		//pass it to main process
 		APILayer::main_program(1, "data/Temp/", "data/Temp/");
+		
+		//clear vector
 		tempVector.clear();
+
+		//read output file then delete it
 		string filePath = "data/Temp/0output.txt", resultString = "";
 		FileHandler::read_file(tempVector, filePath);
 		if (remove(filePath.c_str()) != 0) {
 			cout << "Error deleting file" + filePath + "\n";
 		}
+		
+		//delete input vector containing file
 		filePath = "data/Temp/singlePassword.txt";
 		if (remove(filePath.c_str()) != 0) {
 			cout << "Error deleting file" + filePath + "\n";
 		}
+
+		//return file output value as a string
 		for (int i = 0; i < tempVector.size(); i++) {
 			resultString += tempVector[i];
 		}
