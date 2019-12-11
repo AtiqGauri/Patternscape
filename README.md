@@ -2,7 +2,7 @@
 
 Electron app running multithreaded c++ code to collect patterns out of raw data.</br>
 </br>
-**Windows 64bit:**   [Setup](https://drive.google.com/file/d/1l8vwlbVxPF-4hgAzKIASuAlUof3qvtXo/view?usp=sharing)
+**Windows 64bit:**   [Setup](https://drive.google.com/open?id=1KeHOjy6dHFLBVYW480uDbpvUEBFhRTKq)
 </br>
 </br>
 

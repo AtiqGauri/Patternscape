@@ -33,10 +33,10 @@ ipc.on('message', (event, patternString, fileAddress) => {
     
     //initialize n-readlines with data file address
     //double if statement to avoid path error because of asar packaging of electron app
-    if(fs.existsSync(path.join(__dirname, '..', '..', '..', fileAddress))){
-        var liner = new lineByLine(path.join(__dirname, '..', '..', '..', fileAddress));
-    }else if(fs.existsSync(path.join(__dirname, '..', fileAddress))){
-        var liner = new lineByLine(path.join(__dirname, '..', fileAddress));
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..', fileAddress))){
+        var liner = new lineByLine(path.join(__dirname, '..', '..', '..', '..', fileAddress));
+    }else if(fs.existsSync(path.join(__dirname, '..', '..', fileAddress))){
+        var liner = new lineByLine(path.join(__dirname, '..', '..', fileAddress));
     }else{
         console.error(fileAddress + ' file doesn\'t exist');
     }

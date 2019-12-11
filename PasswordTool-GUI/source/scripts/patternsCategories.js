@@ -7,10 +7,10 @@ const lineByLine = require('n-readlines');
 
 //initialize n-readlines with data file address
 //double if statement to avoid path error because of asar packaging of electron app
-if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'))){   
-    var liner = new lineByLine(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
-}else if(fs.existsSync(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'))){
-    var liner = new lineByLine(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
+if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..','data', 'Stats', 'Patterns.txt'))){   
+    var liner = new lineByLine(path.join(__dirname, '..', '..', '..', '..','data', 'Stats', 'Patterns.txt'));
+}else if(fs.existsSync(path.join(__dirname, '..', '..','data', 'Stats', 'Patterns.txt'))){
+    var liner = new lineByLine(path.join(__dirname, '..', '..','data', 'Stats', 'Patterns.txt'));
 }else{
     console.error('data/Stats/Pattern.txt file doesn\'t exist');
 }

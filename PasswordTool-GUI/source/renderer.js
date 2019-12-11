@@ -87,11 +87,18 @@ function input_of_stats_generator(){
  * category file in default text editor.
  */
 function output_of_stats_generator(){
-
-	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
 	
+	//double if statement to avoid path error because of asar packaging of electron app
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'))){
+        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
+    }else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'))){
+        shell.openItem(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'));
+    }else{
+		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
+    }
+
 	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-	categoryWindow.loadFile('./source/patternsCategories.html');
+	categoryWindow.loadFile('./source/htmls/patternsCategories.html');
 
 	//alert sound should be played finally in all conditions
 	shell.beep();
@@ -109,7 +116,7 @@ function pattern_lookup(){
 
 	//create a widow to show pattern data
 	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data",webPreferences: {nodeIntegration: true,}});
-	patternDataWindow.loadFile('./source/patternData.html');
+	patternDataWindow.loadFile('./source/htmls/patternData.html');
 
 	get_address_of_pattern_file(input).then(function(result) {
 		var fileAddress;
@@ -220,7 +227,7 @@ function target_user_pattern(){
 				
 				//create a window to display suggested patterns
 				suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-				suggestionsWindow.loadFile('./source/targetSuggestions.html');
+				suggestionsWindow.loadFile('./source/htmls/targetSuggestions.html');
 				//pass suggested patterns array to that window
 				suggestionsWindow.webContents.on('did-finish-load', () => {
 					suggestionsWindow.webContents.send('message', generatedPasswords);
@@ -305,7 +312,7 @@ function process_single_password(detectedData){
 	
 	//create a window to display suggested patterns
 	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-	targetPasswordWindow.loadFile('./source/targetPattern.html');
+	targetPasswordWindow.loadFile('./source/htmls/targetPattern.html');
 	//pass suggested patterns array to that window
 	targetPasswordWindow.webContents.on('did-finish-load', () => {
 		targetPasswordWindow.webContents.send('message', detectedData);
