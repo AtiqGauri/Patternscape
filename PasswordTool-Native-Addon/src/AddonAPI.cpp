@@ -9,8 +9,11 @@ std::string AddonAPI::stats_generator_api(int numberOfThreads){
 		@ param { int } numberOfThreads Number of threads for parallel execution.
 	*/
 	//check if number of threads are out of boundaries
-	if(numberOfThreads > 8 || numberOfThreads < 2){
+	if(numberOfThreads < 2){
 		numberOfThreads = 2;
+	}
+	if(numberOfThreads > 4){
+		numberOfThreads = 4;
 	}
 	//call backend
 	APILayer::pattern_stats(numberOfThreads);
@@ -51,9 +54,13 @@ int AddonAPI::analyze_data_api(int numberOfThreads){
 	*/
 	
 	//check if number of threads are out of boundaries
-	if(numberOfThreads > 8 || numberOfThreads < 2){
+	if(numberOfThreads < 2){
 		numberOfThreads = 2;
 	}
+	if(numberOfThreads > 8){
+		numberOfThreads = 6;
+	}
+
 	//call C++ backend
 	APILayer::main_program(numberOfThreads);
   	//acknowledgment 
@@ -84,6 +91,54 @@ Napi::Number AddonAPI::analyze_data_wrapped(const Napi::CallbackInfo& info){
 }
 
 
+std::string AddonAPI::target_password_api(string password, string email){
+	/*
+		Function to call target process of c++ backend.
+		To detect pattern out of single password and email.
+		@ param { string } password string this is required 
+		@ param { string } email string this is optional 
+	*/
+
+	string resultString;
+
+	//call backend
+	if(email!=""){
+		resultString = APILayer::process_target(password, email);
+	}else{
+		resultString = APILayer::process_target(password);
+	}
+	
+	//result
+  	return resultString;
+}
+
+Napi::String AddonAPI::target_password_wrapped(const Napi::CallbackInfo& info)
+{	
+	/*
+		Wrapper for target_password_api() function. This wrapper is required to convert
+		c++ datatypes into javascirpt form.
+		This will check if passed arguments is a string.
+	*/
+
+	//next-generation-api(Napi) operations
+	Napi::Env env = info.Env();
+
+	//check if there is both arguments and they are strings.
+	if(info.Length()<2 || !info[0].IsString() || !info[1].IsString()){
+		Napi::TypeError::New(env, "String expected").ThrowAsJavaScriptException();
+	}
+
+	//convert c++ datatype to javascripts
+	Napi::String first = info[0].As<Napi::String>();
+	Napi::String second = info[1].As<Napi::String>();
+
+	//get c++ function return value and return it in javascript
+	Napi::String returnValue = Napi::String::New(env, AddonAPI::target_password_api(first.Utf8Value(), second.Utf8Value()));
+
+	return returnValue;
+}
+
+
 
 //Export API function
 Napi::Object AddonAPI::Init(Napi::Env env, Napi::Object exports) 
@@ -92,6 +147,8 @@ Napi::Object AddonAPI::Init(Napi::Env env, Napi::Object exports)
 	exports.Set("stats_generator_api", Napi::Function::New(env, AddonAPI::stats_generator_wrapped));
 	//export analyze function
 	exports.Set("analyze_data_api", Napi::Function::New(env, AddonAPI::analyze_data_wrapped));
+	//export target password function
+	exports.Set("target_password_api", Napi::Function::New(env, AddonAPI::target_password_wrapped));
 
 	return exports;
 }

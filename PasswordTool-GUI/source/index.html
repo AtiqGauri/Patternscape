@@ -83,22 +83,40 @@
 	  <section class="sections">
 		<h2 class="headingText">Target User Pattern Generation...</h2>
 		<div id="targetUserBar">
-		  <h3 class="sizedText" id="emailField">Email</h3>
+		  <h3 class="sizedText" id="emailField">* Email</h3>
 		  <input class="targetInput" id="emailBar" type="text" name="emailInput">
+		  <h3 class="sizedText" id="passwordField">Password</h3>
+		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
 		  <h3 class="sizedText" id="nameField">Name</h3>
 		  <input class="targetInput" id="nameBar" type="text" name="nameInput">
 		  <h3 class="sizedText" id="locationField">Location</h3>
 		  <input class="targetInput" id="locationBar" type="text" name="locationInput">
-		  <h3 class="sizedText" id="passwordField">Password</h3>
-		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
 		  <h3 class="sizedText" id="dobField">DOB</h3>
 		  <input class="targetInput" id="dobBar" type="text" name="dobInput">
 		  <h3 class="sizedText" id="mobileField">Mobile</h3>
 		  <input class="targetInput" id="mobileBar" type="text" name="mobileInput">
-		  <h3 class="sizedText" id="generateHint">Select Pattern Here</h3>
-		  <input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
-		  <button class="buttons" id="patternGenerate" type="button" onclick="console.log('Hello world!')">Generate</button>
-		  <h3 class="sizedText" id="generatedPass">"Generated Password"</h3>
+		  <h3 class="sizedText" id="generateHint">Select Pattern</h3>
+		  <div class="autocomplete" style="width:300px;">
+			<input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
+		  </div>
+		  <button class="buttons" id="patternGenerate" type="button" onclick="target_user_pattern()">Generate</button>
+		  <h3 class="sizedText" id="generatedPass">Process Status</h3>
+		</div>
+	  </section>
+
+
+	  <!-- Detect pattern in a password and email(optional) -->
+	  <!-- this will process single user password and email without input and all -->
+	  <!-- IMPORTANT this doesn't add detected pattern to database yet(may be changed in future) -->
+	  <section class="sections">
+		<h2 class="headingText">Detect pattern in single password...</h2>
+		<div id="targetPasswordBar">
+		  <h3 class="sizedText" id="targetEmailField">Email</h3>
+		  <input class="targetInput" id="targetEmailBar" type="text">
+		  <h3 class="sizedText" id="targetPasswordField">* Password</h3>
+		  <input class="targetInput" id="targetPasswordInput" type="text">
+		  <button class="buttons" id="targetPasswordStart" type="button" onclick="catch_target_password()">detect</button>
+		  <h3 class="sizedText" id="statusPassword">Process Status</h3>
 		</div>
 	  </section>
   

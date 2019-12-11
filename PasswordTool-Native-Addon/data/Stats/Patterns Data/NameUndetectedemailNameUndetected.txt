@@ -1,8 +1,0 @@
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 
-brett1ab&bs2<|>"brett" Length:5 Position:0, "1" Length:1 Position:5, "ab&bs" Length:5 Position:6, "2" Length:1 Position:11, 

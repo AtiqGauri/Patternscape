@@ -1,8 +1,0 @@
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 
-solja12345<|>"solja" Length:5 Position:0, "sol" Length:3 Position:0, "olja" Length:4 Position:1, "ja12345" Length:7 Position:3, "12345" Length:5 Position:5, 

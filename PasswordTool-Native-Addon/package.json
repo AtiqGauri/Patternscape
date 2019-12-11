@@ -4,13 +4,13 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "scriptsComments":{
+  "scriptsComments": {
     "install": "this will trigger CMakeList.txt from there c++ backend compilation will start"
   },
   "scripts": {
     "install": "cmake-js compile"
   },
-  "cmake-jsComments":{
+  "cmake-jsComments": {
     "runtime": "select a runtime framework here(electron)",
     "runtimeVersion": "select electron version here",
     "arch": "select targeted platform architecture here "

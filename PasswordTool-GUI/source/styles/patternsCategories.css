@@ -1,0 +1,53 @@
+#header{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+
+    color: #04052E;
+}
+
+table {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    width: 100%;
+    border-collapse: separate;
+    table-layout:fixed;
+}
+
+th {
+    padding: 8px;
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid #FCBD34;
+    background-color: #FCBD34;
+    color: #292826;
+    text-align: left;
+    white-space:normal;
+    overflow: auto;
+}
+
+td {
+    padding: 8px;
+    padding-left: 20px;
+    height: 50px;    
+    border: 1px solid #dddddd;
+    border: #F9D342;
+    white-space:normal;
+    text-align: left;
+    overflow: auto;
+}
+
+
+tr:nth-child(even) {
+    color: white;
+    background-color: #04052E;
+}
+
+tr:nth-child(odd) {
+    color: black;
+    background-color: #F1F1F2;
+    font-weight: bold;
+}

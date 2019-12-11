@@ -9,6 +9,9 @@ var worker;
  */
 function database_worker_client(){
 
+    //reflect that process is started
+    document.getElementById('statusDatabase').innerHTML = ('<p style="color:yellow;">Processing</p>');
+
     //initialize web worker
     worker = new Worker('./databaseWorker.js')
 

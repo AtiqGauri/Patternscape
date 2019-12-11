@@ -1,8 +1,0 @@
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 
-superwohnung.<|>"super" Length:5 Position:0, "super" Length:5 Position:0, "wohnung." Length:8 Position:5, "wohnung" Length:7 Position:5, 

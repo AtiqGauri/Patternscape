@@ -6,6 +6,7 @@
 #include<vector>
 #include<deque>
 #include<fstream>
+#include<algorithm>
 #include<chrono>
 #include<thread>
 //Custom Headers
@@ -41,8 +42,10 @@ namespace APILayer {
 		FileHandler::resize_all_files(directoryPath);
 	}
 
+
+
 	/*
-			Here Every thread will process data and send out to Resources::results
+			Here Every thread will process data and send output to Resources::results
 			Step 1. data will be lower cased
 			Step 2. email front part, website and password will be extracted from raw data
 			Step 3. While loop will iterate over every password one by one
@@ -78,15 +81,16 @@ namespace APILayer {
 	
 	/*
 			Here Everything will be executed. It starts from importing input then process and lastly output
-			Step 1. first threads will be declared according to numberOFThreads value (predefined to 2)
-			Step 2. files will be readed and resized which are located in Input folder
-			Step 3. resources will be read to respective vectors in Resources.h
-			Step 4. while loop will iterate over all the files available in Input folder
-			Step 5. every file will be read and gets distributed equally in number of threads
-			Step 6. all thread(thread_process()) will run concurrently and sends ouput to Resources::results vector
-			Step 7. memory gets released for next file
+			Step 1. first threads will be declared according to numberOFThreads value (default: 4)
+			Step 2. Input and Ouput folder can be specified (optional) 
+			Step 3. files will be read and resized which are located in Input folder
+			Step 4. resources will be read to respective vectors in Resources.h
+			Step 5. while loop will iterate over all the files available in Input folder
+			Step 6. every file will be read and gets distributed equally in number of threads
+			Step 7. all thread(thread_process()) will run concurrently and sends ouput to Resources::results vector
+			Step 8. memory gets released for next file
 	*/
-	void main_program(int numberOfThreads=1) {
+	void main_program(int numberOfThreads=4, string inputFolderPath= "data/Input/", string outputFolderPath="data/Output/") {
 		//threads and objects declaration
 		static const unsigned int totalThreads = numberOfThreads;
 		//Creating objects for thread safe executing data processing
@@ -100,12 +104,12 @@ namespace APILayer {
 
 		//Reading all resource files
 		deque<string> filePaths;
-		FileHandler::get_files_recursive(filePaths, "data/Input/");
+		FileHandler::get_files_recursive(filePaths, inputFolderPath);
 		deque<string>::iterator file = filePaths.begin();
 		Resources::read_resources();
 		//Resource collected
 		auto stop = time_stamp();
-		cout << "Resources Read in:  "; time_elasped(start, stop);
+		cout << "Read Resources and files name in:  "; time_elasped(start, stop);
 		
 
 		//process files
@@ -116,26 +120,44 @@ namespace APILayer {
 			cout << "\n" << "File: " << *file << " \n";
 
 			//process Data
+			//read file data (*file is file address)
 			Resources::read_raw_data_list(*file);
+			
+			//if file has no data then move to next
 			if (Resources::rawDataList.size() == 0) {
 				file++;
 				continue;
 			}
+
+			//divide file content into equal parts(threadNumber) to parocess
+			//them in multiple threads
 			for (unsigned int i = 0; i < totalThreads; i++) {
 				begint = (i * Resources::rawDataList.size()) / totalThreads;
 				endt = (i + (size_t)1) * Resources::rawDataList.size() / totalThreads;
 				compareThreadObj[i].rawData.reserve(Resources::rawDataList.size() / totalThreads);
 				compareThreadObj[i].rawData.insert(compareThreadObj[i].rawData.begin(), Resources::rawDataList.begin() + begint, Resources::rawDataList.begin() + endt);
+				
+				//process data chunks in multiple threads
 				threads.push_back(thread(&APILayer::thread_process, ref(compareThreadObj[i]), ref(patternThreadObj[i])));
 			}
+
+			//join threads to main thread
 			for (unsigned int j = 0; j < totalThreads; j++) {
 				threads[j].join();
 			}
+
+			//clear thread vector for next iteration
 			threads.clear();
-			FileHandler::write_file(Resources::results, "data/Output/" + to_string(fileCounter) + "output.txt");
+			
+			//write output in a file 
+			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + "output.txt");
+			
+			//clear and shrink memory 
 			Resources::rawDataList.clear(); Resources::rawDataList.shrink_to_fit();
 			Resources::results.clear(); Resources::results.shrink_to_fit();
 			//Processed
+
+			//increase file name counter and file address iterator
 			fileCounter++;
 			file++;
 		}
@@ -237,6 +259,57 @@ namespace APILayer {
 			//Clear and Shrink all the containers 
 			threads.shrink_to_fit();
 		}
-	}	
+	}
+
+	/*
+		Function to detect pattern in a single record of password and email(optional)
+		arguments:
+			targetPassword- patterns gonna be detected in this password
+			targetEmail- email attached to that password(optional)(default=*****@*****.com)
+		Step 1. first check if email has a value if not then use default value
+		Step 2. create a temporary vector to store email:password
+		Step 3. then pass it to main_process() function and retrive output
+		Step 4. clear and shrink all container
+		Step 5. return output
+	*/
+	string process_target(string targetPassword, string targetEmail = "") {		
+
+		//if email is empty then set default value
+		if (targetEmail == "") {
+			targetEmail = "*****@*****.com";
+		}
+		//temp vector to store email:password
+		vector<string> tempVector;
+		tempVector.push_back(targetEmail + ":" + targetPassword);
+		
+		//store vector into a file to process it
+		FileHandler::write_file(tempVector, "data/Temp/singlePassword.txt");
+		
+		//pass it to main process
+		APILayer::main_program(1, "data/Temp/", "data/Temp/");
+		
+		//clear vector
+		tempVector.clear();
+
+		//read output file then delete it
+		string filePath = "data/Temp/0output.txt", resultString = "";
+		FileHandler::read_file(tempVector, filePath);
+		if (remove(filePath.c_str()) != 0) {
+			cout << "Error deleting file" + filePath + "\n";
+		}
+		
+		//delete input vector containing file
+		filePath = "data/Temp/singlePassword.txt";
+		if (remove(filePath.c_str()) != 0) {
+			cout << "Error deleting file" + filePath + "\n";
+		}
+
+		//return file output value as a string
+		for (int i = 0; i < tempVector.size(); i++) {
+			resultString += tempVector[i];
+		}
+		return resultString;
+	}
+
 }
 #endif // !APILAYER_H
