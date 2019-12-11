@@ -6,10 +6,14 @@
 //require path package to handle file addresses
 const path = require('path');
 
+//import BrowserWindow to create child windows
 const { BrowserWindow } = require('electron').remote;
 
 //require shell to open default application like text editor with a datafile in it
 const shell = require('electron').shell;
+
+//require file system
+const fs = require('fs');
 
 //require database script
 const { get_address_of_pattern_file } = require('./database.js');
@@ -26,11 +30,14 @@ const isDevMode = true;
  */
 function input_of_analyzing(){
 	
-	if(isDevMode){
-		shell.openItem(path.join(__dirname, '..','data', 'Input'));
-	} else {
-		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
-	}
+	//double if statement to avoid path error because of asar packaging of electron app
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Input'))){
+        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
+    }else if(fs.existsSync(path.join(__dirname, '..','data', 'Input'))){
+        shell.openItem(path.join(__dirname, '..','data', 'Input'));
+    }else{
+        console.error('data/Input/ folder doesn\'t exist');
+    }
 
 	//alert sound should be played finally in all conditions
 	shell.beep();
@@ -41,11 +48,14 @@ function input_of_analyzing(){
  */
 function output_of_analyzing(){
 	
-	if(isDevMode){
-		shell.openItem(path.join(__dirname, '..','data', 'Output'));
-	} else {
-		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
-	}
+	//double if statement to avoid path error because of asar packaging of electron app
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Output'))){
+        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+    }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
+        shell.openItem(path.join(__dirname, '..','data', 'Output'));
+    }else{
+        console.error('data/Output/ folder doesn\'t exist');
+    }
 
 	//alert sound should be played finally in all conditions
 	shell.beep();
@@ -57,12 +67,15 @@ function output_of_analyzing(){
  * Which happens to be output folder of analyzation process.
  */
 function input_of_stats_generator(){
-	
-	if(isDevMode){
-		shell.openItem(path.join(__dirname, '..','data', 'Output'));
-	} else {
-		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
-	}
+
+	//double if statement to avoid path error because of asar packaging of electron app
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Output'))){
+        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+    }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
+        shell.openItem(path.join(__dirname, '..','data', 'Output'));
+    }else{
+        console.error('data/Output/ folder doesn\'t exist');
+    }
 
 	//alert sound should be played finally in all conditions
 	shell.beep();
@@ -74,19 +87,11 @@ function input_of_stats_generator(){
  * category file in default text editor.
  */
 function output_of_stats_generator(){
-	
-	if(isDevMode){
-		shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
-		//shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns.txt'));
-		categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-		categoryWindow.loadFile('./source/patternsCategories.html');
 
-	} else {
-		shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
-		//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns.txt'));
-		categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-		categoryWindow.loadFile('./source/patternsCategories.html');
-	}
+	shell.openItem(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'));
+	
+	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+	categoryWindow.loadFile('./source/patternsCategories.html');
 
 	//alert sound should be played finally in all conditions
 	shell.beep();
@@ -110,19 +115,13 @@ function pattern_lookup(){
 		var fileAddress;
 		for (i = 0; i < result.length; i++) {
 			
-			if(isDevMode){
-				//shell.openItem(path.join(__dirname, '..',result[i]));
-				fileAddress = result[i];
-				//pass pattern file address and pattern string
-				patternDataWindow.webContents.on('did-finish-load', () => {
-					patternDataWindow.webContents.send('message', input, fileAddress);
-				});
-			} else {
-				//pass pattern file address and pattern string
-				patternDataWindow.webContents.on('did-finish-load', () => {
-					patternDataWindow.webContents.send('message', input, fileAddress);
-				});
-			}
+			//shell.openItem(path.join(__dirname, '..',result[i]));
+			fileAddress = result[i];
+			//pass pattern file address and pattern string
+			patternDataWindow.webContents.on('did-finish-load', () => {
+				patternDataWindow.webContents.send('message', input, fileAddress);
+			});
+			
 			//alert sound should be played finally in all conditions
 			shell.beep();
 		}
