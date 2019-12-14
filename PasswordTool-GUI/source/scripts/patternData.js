@@ -73,8 +73,8 @@ ipc.on('message', (event, patternString, fileAddress) => {
             dd.innerHTML = splitter[1 + (i*2) + 1];
             
             //append elements to their parents
-            dt.appendChild(dd);
             ul.appendChild(dt);
+            ul.appendChild(dd);
         }
         li.appendChild(ul);
         ulContainer.appendChild(li);

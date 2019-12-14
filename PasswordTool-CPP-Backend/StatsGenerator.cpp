@@ -1,6 +1,7 @@
 #include "StatsGenerator.h"
 #include"Resources.h"
 #include"FileHandler.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -40,10 +41,10 @@ void StatsGenerator::load_stored_patterns(deque<string>& storedPatterns) {
 	size_t foundAddress, foundPopularity;
 	while (it != storedPatterns.end()) {
 
-		foundAddress = it->find("<|>");
+		foundAddress = it->find(Constants::outputDelimiter);
 		if (foundAddress != string::npos) {
 
-			foundPopularity = it->find("<|>", foundAddress + 3);
+			foundPopularity = it->find(Constants::outputDelimiter, foundAddress + 3);
 
 			tempStruct.address = it->substr(foundAddress +3 , foundPopularity - (foundAddress+3));
 			tempStruct.data = fileContent;
@@ -90,7 +91,7 @@ void StatsGenerator::patterns_classifier(string filePath) {
 		
 		//Find first delimiter/divider(<|>) in string which is a pattern for that string data
 		size_t foundValue;
-		foundValue = str1.find("<|>");
+		foundValue = str1.find(Constants::outputDelimiter);
 		if (foundValue != std::string::npos) {
 			
 			str2 = str1.substr(0, foundValue);
@@ -213,7 +214,7 @@ void StatsGenerator::write_pattern_statstics_files() {
 
 				mapIt->second.address = mapIt->first;
 				mapIt->second.address.erase(std::remove_if(mapIt->second.address.begin(), mapIt->second.address.end(), &is_bad_charactor), mapIt->second.address.end());
-				mapIt->second.address = "data/Stats/Patterns Data/" + mapIt->second.address + ".txt";
+				mapIt->second.address = Constants::patternDataFolderAddress + mapIt->second.address + Constants::txtExtension;
 				FileHandler::write_and_append_file(mapIt->second.data, mapIt->second.address);
 				mapIt->second.popularity += mapIt->second.data.size();
 				mapIt->second.data.clear(); mapIt->second.data.shrink_to_fit();
@@ -238,10 +239,10 @@ void StatsGenerator::write_key_patterns() {
 
 	mapIt = Resources::typesOfPatternsMap.begin();
 	while (mapIt != Resources::typesOfPatternsMap.end()) {
-		patternAndAddresses.push_back(mapIt->first + "<|>" +  mapIt->second.address + "<|>" + to_string(mapIt->second.popularity));
+		patternAndAddresses.push_back(mapIt->first + Constants::outputDelimiter +  mapIt->second.address + Constants::outputDelimiter + to_string(mapIt->second.popularity));
 		mapIt++;
 	}
-	FileHandler::write_file(patternAndAddresses, "data/Stats/Patterns.txt");
+	FileHandler::write_file(patternAndAddresses, Constants::patternCategoriesFileAddress);
 	
 	//Clear and shrink containers
 	Resources::typesOfPatternsMap.clear(); Resources::typesOfPatternsMap.rehash(0);

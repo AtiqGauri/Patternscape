@@ -1,4 +1,5 @@
 #include "FileHandler.h"
+#include "Constants.h"
 
 
 void FileHandler::get_files_recursive(deque<string>& fileNames, string directoryPath) {
@@ -9,7 +10,7 @@ void FileHandler::get_files_recursive(deque<string>& fileNames, string directory
 	*/
 	size_t findErrorFile;
 	for (const auto& entry : filesystem::recursive_directory_iterator(directoryPath)) {
-		findErrorFile = entry.path().string().find("Error Log");
+		findErrorFile = entry.path().string().find(Constants::errorLogFileName);
 		if (findErrorFile == string::npos) {
 			fileNames.push_back(entry.path().string());
 		}
@@ -35,7 +36,7 @@ void FileHandler::get_files_recursive(vector<string>& fileNames, string director
 	*/
 	size_t findErrorFile;
 	for (const auto& entry : filesystem::recursive_directory_iterator(directoryPath)) {
-		findErrorFile = entry.path().string().find("Error Log");
+		findErrorFile = entry.path().string().find(Constants::errorLogFileName);
 		if (findErrorFile == string::npos) {
 			fileNames.push_back(entry.path().string());
 		}
@@ -160,7 +161,7 @@ void FileHandler::resize_all_files(string directoryPath) {
 	get_files_recursive(allFilesPaths, directoryPath);
 	vector<string> randomData;
 	string str;
-	int fileCounter = 1;
+	long long int fileCounter = 1;
 	deque<vector<string>> resizedDataFiles;
 	deque<string>::iterator it = allFilesPaths.begin();
 	while (it != allFilesPaths.end()) {
@@ -176,7 +177,7 @@ void FileHandler::resize_all_files(string directoryPath) {
 		resize_file(resizedDataFiles, randomData);
 		randomData.clear(); randomData.shrink_to_fit();
 		for (int i = 0; i < resizedDataFiles.size(); i++) {
-			write_file(resizedDataFiles[i], "data/Input/resizedFile" + to_string(fileCounter) + ".txt");
+			write_file(resizedDataFiles[i], Constants::resizedFileName + to_string(fileCounter) + Constants::txtExtension);
 			fileCounter++;
 		}
 		resizedDataFiles.clear(); resizedDataFiles.shrink_to_fit();
@@ -194,9 +195,9 @@ void FileHandler::resize_file(deque<vector<string>>& resizedContent, vector<stri
 	*/
 	vector<string> temp;
 	vector<string>::iterator it = tempVector.begin();
-	if ((float(tempVector.size()) / 100000) > 1.0f) {
+	if ((float(tempVector.size()) / Constants::resizedFileSize) > 1.0f) {
 		int count = 0;
-		while (count != 100000) {
+		while (count != Constants::resizedFileSize) {
 			temp.push_back(*it);
 			count++;
 			it++;

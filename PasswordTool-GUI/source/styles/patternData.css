@@ -1,10 +1,14 @@
+body {
+    background-color: black;
+}
+
 #patternText{
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 35px;
 
-    color: #04052E;
+    color: white;
 }
 
 #popularityText{
@@ -13,7 +17,7 @@
     font-weight: bold;
     font-size: 35px;
 
-    color: #04052E;
+    color: white;
 }
 
 li {
@@ -26,7 +30,6 @@ li {
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
-    background: #04052E;
     background-color: #04052E;
 }
 
@@ -51,6 +54,7 @@ dd {
     overflow: hidden;
     padding: 4px;
     padding-left: 10px;
+    margin-bottom: 35px;
     border-radius: 10px;
     color: #F5085E;
     background-color: #04052E;

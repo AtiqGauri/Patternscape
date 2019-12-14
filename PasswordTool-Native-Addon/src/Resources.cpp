@@ -1,4 +1,5 @@
 #include "Resources.h"
+#include "Constants.h"
 
 
 //Static Variable Initialization
@@ -19,23 +20,23 @@ void Resources::read_resources() {
 		Every list is stored in respective vector.
 	*/
 	//reading common name datalist
-	Resources::namesList.reserve(187706);
-	FileHandler::read_file(Resources::namesList, "data/datafiles/names.txt");
+	Resources::namesList.reserve(Constants::nameListFileSize);
+	FileHandler::read_file(Resources::namesList, Constants::nameListFileAddress);
 	//reading possible DOB combinations datalist
-	Resources::dobsList.reserve(287281);
-	FileHandler::read_file(Resources::dobsList, "data/datafiles/dobs.txt");
+	Resources::dobsList.reserve(Constants::dobListFileSize);
+	FileHandler::read_file(Resources::dobsList, Constants::dobListFileAddress);
 	//reading common locations datalist
-	Resources::locationsList.reserve(39202);
-	FileHandler::read_file(Resources::locationsList, "data/datafiles/locations.txt");
+	Resources::locationsList.reserve(Constants::locationListFileSize);
+	FileHandler::read_file(Resources::locationsList, Constants::locationListFileAddress);
 	//reading common words datalist
-	Resources::commonsList.reserve(369646);
-	FileHandler::read_file(Resources::commonsList, "data/datafiles/Commons.txt");
+	Resources::commonsList.reserve(Constants::commonListFileSize);
+	FileHandler::read_file(Resources::commonsList, Constants::commonListFileAddress);
 }
 
 void Resources::read_raw_data_list(string path) {
 	/*
 		This function will read small set of raw data to process it
 	*/
-	Resources::rawDataList.reserve(100000);
+	Resources::rawDataList.reserve(Constants::resizedFileSize);
 	FileHandler::read_file(Resources::rawDataList, path);
 }

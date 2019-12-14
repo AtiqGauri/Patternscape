@@ -16,6 +16,7 @@
 #include"Patterns.h"
 #include"DataCleanser.h"
 #include"StatsGenerator.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -57,7 +58,7 @@ namespace APILayer {
 	void thread_process(Comparison& compareThreadObj, Patterns& patternThreadObj) {
 		vector<string>::iterator rawIt;
 		compareThreadObj.lower_case_raw_data();
-		compareThreadObj.extract_email_and_password(":");
+		compareThreadObj.extract_email_and_password(Constants::inputDelimiter);
 		compareThreadObj.extract_email_names_and_websites();
 		rawIt = compareThreadObj.passwordsList.begin();
 		while (rawIt != compareThreadObj.passwordsList.end())
@@ -90,7 +91,7 @@ namespace APILayer {
 			Step 7. all thread(thread_process()) will run concurrently and sends ouput to Resources::results vector
 			Step 8. memory gets released for next file
 	*/
-	void main_program(int numberOfThreads=4, string inputFolderPath= "data/Input/", string outputFolderPath="data/Output/") {
+	void main_program(int numberOfThreads=4, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
 		//threads and objects declaration
 		static const unsigned int totalThreads = numberOfThreads;
 		//Creating objects for thread safe executing data processing
@@ -99,7 +100,7 @@ namespace APILayer {
 		size_t begint = 0, endt = 0;
 
 		//Resizing all the files in Input folder to size(100,000 lines per file)
-		FileHandler::resize_all_files("data/Input/");
+		FileHandler::resize_all_files(Constants::inputFolderAddress);
 		auto start = time_stamp();
 
 		//Reading all resource files
@@ -150,7 +151,7 @@ namespace APILayer {
 			threads.clear();
 			
 			//write output in a file 
-			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + "output.txt");
+			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + Constants::outputFileName);
 			
 			//clear and shrink memory 
 			Resources::rawDataList.clear(); Resources::rawDataList.shrink_to_fit();
@@ -174,12 +175,12 @@ namespace APILayer {
 	void pattern_stats(int numberOfThreads = 2) {
 		//Get the PATHS of all the files which are going to processed
 		deque<string> filePaths;
-		FileHandler::get_files_recursive(filePaths, "data/Output/");
+		FileHandler::get_files_recursive(filePaths, Constants::outputFolderAddress);
 		deque<string>::iterator file;
 
 		//Load PATHS of previously generated files(stats or types of pattern)
 		deque<string> listOfPatterns;
-		FileHandler::read_file(listOfPatterns, "data/Stats/Patterns.txt");
+		FileHandler::read_file(listOfPatterns, Constants::patternCategoriesFileAddress);
 		if (listOfPatterns.size() > 0) {
 			StatsGenerator::load_stored_patterns(listOfPatterns);
 		}
@@ -276,30 +277,30 @@ namespace APILayer {
 
 		//if email is empty then set default value
 		if (targetEmail == "") {
-			targetEmail = "*****@*****.com";
+			targetEmail = Constants::defaultEmailString;
 		}
 		//temp vector to store email:password
 		vector<string> tempVector;
-		tempVector.push_back(targetEmail + ":" + targetPassword);
+		tempVector.push_back(targetEmail + Constants::inputDelimiter + targetPassword);
 		
 		//store vector into a file to process it
-		FileHandler::write_file(tempVector, "data/Temp/singlePassword.txt");
+		FileHandler::write_file(tempVector, Constants::singleTargetFileAddress);
 		
 		//pass it to main process
-		APILayer::main_program(1, "data/Temp/", "data/Temp/");
+		APILayer::main_program(1, Constants::tempFolderAddress, Constants::tempFolderAddress);
 		
 		//clear vector
 		tempVector.clear();
 
 		//read output file then delete it
-		string filePath = "data/Temp/0output.txt", resultString = "";
+		string filePath = Constants::tempFolderAddress + "0output.txt", resultString = "";
 		FileHandler::read_file(tempVector, filePath);
 		if (remove(filePath.c_str()) != 0) {
 			cout << "Error deleting file" + filePath + "\n";
 		}
 		
 		//delete input vector containing file
-		filePath = "data/Temp/singlePassword.txt";
+		filePath = Constants::singleTargetFileAddress;
 		if (remove(filePath.c_str()) != 0) {
 			cout << "Error deleting file" + filePath + "\n";
 		}
