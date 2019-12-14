@@ -1,4 +1,5 @@
 #include "Patterns.h"
+#include "Constants.h"
 
 void Patterns::pattern(string password) {
 	/*
@@ -24,14 +25,14 @@ void Patterns::pattern(string password) {
 	{
 		//finalOutputString += "Pattern: ";
 		//value_pattern = "<|>Values: ";
-		value_pattern = "<|>";
+		value_pattern = Constants::outputDelimiter;
 		for (size_t j = 0; j < splittedResults[i].size(); j++)
 		{
 			finalOutputString += splittedResults[i][j].key;
-			value_pattern += "\"" + splittedResults[i][j].value + "\"" + "<|>" + " Length:" + to_string(splittedResults[i][j].len) + " Position:" + to_string(splittedResults[i][j].loc) + "<|>";
+			value_pattern += "\"" + splittedResults[i][j].value + "\"" + Constants::outputDelimiter + Constants::outputLengthDelimiter + to_string(splittedResults[i][j].len) + Constants::outputPositionDelimiter + to_string(splittedResults[i][j].loc) + Constants::outputDelimiter;
 		}
 		//finalOutputString += "<|>Password: " + password + value_pattern + "\n";
-		finalOutputString += "<|>" + password + value_pattern + "\n";
+		finalOutputString += Constants::outputDelimiter + password + value_pattern + "\n";
 	}
 	//To remove extra newline form the end of loop
 	finalOutputString.pop_back();
@@ -107,7 +108,7 @@ void Patterns::divide_patterns(vector<Resources::patternStructure>& patternVecto
 	}
 	else
 	{
-		patternVector.push_back({ "Undetected/", password, int(password.length()), 0 });
+		patternVector.push_back({ Constants::undetectedTag, password, int(password.length()), 0 });
 		splittedResults.push_back(patternVector);
 	}
 }
@@ -130,15 +131,15 @@ void Patterns::undetected(string password) {
 		for (size_t i = 0; i < splittedResults.size(); i++) {
 			int x_i_size = (int)splittedResults[i].size();
 			if (splittedResults[i][0].loc != 0) {
-				x_i_temp.push_back({ "Undetected/", password.substr(0, splittedResults[i][0].loc), splittedResults[i][0].loc, 0 });
+				x_i_temp.push_back({ Constants::undetectedTag, password.substr(0, splittedResults[i][0].loc), splittedResults[i][0].loc, 0 });
 			}
 			for (int j = 0; j < x_i_size - 1; j++) {
 				if ((splittedResults[i][j + (size_t)1].loc - (splittedResults[i][j].loc + splittedResults[i][j].len - 1) - 1) > 0) {
-					x_i_temp.push_back({ "Undetected/", password.substr(((size_t)splittedResults[i][j].loc + (size_t)splittedResults[i][j].len), ((size_t)splittedResults[i][j + (size_t)1].loc - ((size_t)splittedResults[i][j].loc + (size_t)splittedResults[i][j].len - (size_t)1) - (size_t)1)), (splittedResults[i][j + (size_t)1].loc - (splittedResults[i][j].loc + splittedResults[i][j].len - 1) - 1), (splittedResults[i][j].loc + splittedResults[i][j].len) });
+					x_i_temp.push_back({ Constants::undetectedTag, password.substr(((size_t)splittedResults[i][j].loc + (size_t)splittedResults[i][j].len), ((size_t)splittedResults[i][j + (size_t)1].loc - ((size_t)splittedResults[i][j].loc + (size_t)splittedResults[i][j].len - (size_t)1) - (size_t)1)), (splittedResults[i][j + (size_t)1].loc - (splittedResults[i][j].loc + splittedResults[i][j].len - 1) - 1), (splittedResults[i][j].loc + splittedResults[i][j].len) });
 				}
 			}
 			if ((splittedResults[i][x_i_size - (size_t)1].loc + splittedResults[i][x_i_size - (size_t)1].len) != p_size) {
-				x_i_temp.push_back({ "Undetected/", password.substr(((size_t)splittedResults[i][x_i_size - (size_t)1].loc + (size_t)splittedResults[i][x_i_size - (size_t)1].len), (p_size - ((size_t)splittedResults[i][x_i_size - (size_t)1].loc + (size_t)splittedResults[i][x_i_size - (size_t)1].len))), (p_size - (splittedResults[i][x_i_size - (size_t)1].loc + splittedResults[i][x_i_size - (size_t)1].len)), (splittedResults[i][x_i_size - (size_t)1].loc + splittedResults[i][x_i_size - (size_t)1].len) });
+				x_i_temp.push_back({ Constants::undetectedTag, password.substr(((size_t)splittedResults[i][x_i_size - (size_t)1].loc + (size_t)splittedResults[i][x_i_size - (size_t)1].len), (p_size - ((size_t)splittedResults[i][x_i_size - (size_t)1].loc + (size_t)splittedResults[i][x_i_size - (size_t)1].len))), (p_size - (splittedResults[i][x_i_size - (size_t)1].loc + splittedResults[i][x_i_size - (size_t)1].len)), (splittedResults[i][x_i_size - (size_t)1].loc + splittedResults[i][x_i_size - (size_t)1].len) });
 			}
 			splittedResults[i].insert(splittedResults[i].end(), x_i_temp.begin(), x_i_temp.end());
 			x_i_temp.clear(); x_i_temp.shrink_to_fit();

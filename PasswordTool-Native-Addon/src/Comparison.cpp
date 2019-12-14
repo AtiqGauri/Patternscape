@@ -1,4 +1,5 @@
 #include "Comparison.h"
+#include "Constants.h"
 
 void Comparison::load_data(vector<string>::iterator beginIt, vector<string>::iterator endIt, int reserveSize) {
 	/*
@@ -75,7 +76,7 @@ void Comparison::name_list_comparison(string password) {
 	while (it != Resources::namesList.end()) {
 		size_t found = password.find(*it);
 		if (found != string::npos) {
-			results.push_back({ "Name/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::nameListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
 	}
@@ -91,7 +92,7 @@ void Comparison::email_name_list_comparison(string password, vector<string>::ite
 	string temp = emailNamesList.at(distance(passwordsList.begin(), password_it));
 	size_t found = password.find(temp);
 	if (found != string::npos) {
-		results.push_back({ "email_Name/", temp, static_cast<int>(temp.length()), static_cast<int>(found) });
+		results.push_back({ Constants::emailNameTag, temp, static_cast<int>(temp.length()), static_cast<int>(found) });
 	}
 }
 
@@ -105,7 +106,7 @@ void Comparison::website_list_comparison(string password, vector<string>::iterat
 	string temp = websitesList.at(distance(passwordsList.begin(), password_it));
 	size_t found = password.find(temp);
 	if (found != string::npos) {
-		results.push_back({ "Website/", temp, static_cast<int>(temp.length()), static_cast<int>(found) });
+		results.push_back({ Constants::websiteTag, temp, static_cast<int>(temp.length()), static_cast<int>(found) });
 	}
 }
 
@@ -120,7 +121,7 @@ void Comparison::dob_list_comparison(string password) {
 	while (it != Resources::dobsList.end()) {
 		size_t found = password.find(*it);
 		if (found != string::npos) {
-			results.push_back({ "DOB/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::dobListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
 	}
@@ -139,7 +140,7 @@ void Comparison::location_list_comparison(string password) {
 	while (it != Resources::locationsList.end()) {
 		size_t found = password.find(*it);
 		if (found != string::npos) {
-			results.push_back({ "Location/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::locationListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
 	}
@@ -168,12 +169,12 @@ void Comparison::mobile_number_comparison(string password) {
 					//int j = 0;
 					for (int j = (i + (size_t)3); j < passLen; j++) {
 						if (isdigit(password[j]) == 0) {
-							results.push_back({ "Mobile/", password.substr(i, j - (size_t)i), (j - i), i });
+							results.push_back({ Constants::mobileListTag, password.substr(i, j - (size_t)i), (j - i), i });
 							flag = true;
 							break;
 						}
 						else if (isdigit(password[j]) != 0 && (j + (size_t)1) == passLen) {
-							results.push_back({ "Mobile/", password.substr(i, passLen), (j - i + 1), i });
+							results.push_back({ Constants::mobileListTag, password.substr(i, passLen), (j - i + 1), i });
 							flag = true;
 							break;
 						}
@@ -213,7 +214,7 @@ void Comparison::common_word_list_comparison(string password) {
 	while (it != Resources::commonsList.end()) {
 		size_t found = password.find(*it);
 		if (found != string::npos && !flag1) {
-			results.push_back({ "Common1/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::common1ListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 			rawS1 = password.substr(0, found);
 			rawS2 = password.substr(found + it->length(), password.length() - 1);
 			found = string::npos;
@@ -221,13 +222,13 @@ void Comparison::common_word_list_comparison(string password) {
 		}
 		found = rawS1.find(*it);
 		if (found != string::npos && (flag1 && !flag2)) {
-			results.push_back({ "Common2/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::common2ListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 			found = string::npos;
 			flag2 = true;
 		}
 		found = rawS2.find(*it);
 		if ((found != string::npos && flag1) && (flag2 && !flag3)) {
-			results.push_back({ "Common3/", *it, static_cast<int>(it->length()), static_cast<int>(found) });
+			results.push_back({ Constants::common3ListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 			flag3 = true;
 		}
 		it++;

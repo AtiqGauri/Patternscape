@@ -31,7 +31,7 @@ function autocomplete(inp) {
         //make call to database
         starts_with_ignore_case(val).then(function(result) {
             
-            dbArray = result;
+            dbArray = result.slice(0,20);
             for (i = 0; i < dbArray.length; i++) {
                 
                 //create a DIV element for each matching element:
