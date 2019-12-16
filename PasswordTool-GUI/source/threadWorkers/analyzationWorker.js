@@ -1,6 +1,6 @@
 
 //require native C++ addon 
-const testAddon = require('./tool-addon/addon.node');
+const testAddon = require('../tool-addon/addon.node');
 
 //function to communicate with main thread
 onmessage = function(e) {

@@ -19,7 +19,7 @@ function analyze_passwords_emails(){
 		document.getElementById('statusAnalyze').innerHTML = ('<p style="color:yellow;">Processing</p>');
 
 		//initalizing web worker
-		worker1 = new Worker('./worker1.js')
+		worker1 = new Worker('threadWorkers/analyzationWorker.js')
 		
 		//get user given thread number from GUI
 		var threadNumber = document.getElementById('analyzeThreads').value;
@@ -78,7 +78,7 @@ function generate_statistics(){
 	document.getElementById('statusStats').innerHTML = ('<p style="color:yellow;">Processing</p>');
 	
 	//Initialize web worker
-	worker2 = new Worker('./worker2.js')
+	worker2 = new Worker('threadWorkers/statisticsWorker.js')
 
 	//listen to webworker signals
 	worker2.onmessage = function(event) {
@@ -133,7 +133,7 @@ function target_password_patterns(password, email){
 		document.getElementById("statusPassword").innerHTML = ('<p style="color:yellow;">Processing</p>');
 
 		//Initialize web worker
-		targetPasswordWorker = new Worker('targetPasswordWorker.js');
+		targetPasswordWorker = new Worker('threadWorkers/targetPasswordWorker.js');
 
 		//pass arguments to web worker
 		targetPasswordWorker.postMessage({p:password, e:email});

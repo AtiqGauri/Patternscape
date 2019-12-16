@@ -1,5 +1,5 @@
 //require database import export script 
-var importExportDB = require("./importExportDatabase");
+var importExportDB = require("./scripts/importExportDatabase.js");
 
 //declare a web worker
 var worker;
@@ -13,13 +13,12 @@ function database_worker_client(){
     document.getElementById('statusDatabase').innerHTML = ('<p style="color:yellow;">Processing</p>');
 
     //initialize web worker
-    worker = new Worker('./databaseWorker.js')
+    worker = new Worker('threadWorkers/databaseWorker.js')
 
     //listen to webworker signals
     worker.onmessage = function(event){
 
-        //print web worker acknowledgment then terminate it
-        console.log("Database worker process is ", event.data);
+        //terminate worker
         worker.terminate();
         
         //reflect status to GUI
@@ -59,7 +58,7 @@ function delete_database(){
     window.indexedDB.databases().then((r) => {
         for (var i = 0; i < r.length; i++) window.indexedDB.deleteDatabase(r[i].name);
     }).then(() => {
-        alert('Deleted database');
+        console.log('Deleted database');
     });
 }
 
