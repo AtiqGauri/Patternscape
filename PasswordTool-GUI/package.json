@@ -44,7 +44,7 @@
     "win": {
       "target": "nsis",
       "requestedExecutionLevel": "highestAvailable",
-      "icon": "source/flip-h.ico"
+      "icon": "source/assets/flip-h.ico"
     },
     "nsis": {
       "oneClick": false,

@@ -16,13 +16,7 @@ const shell = require('electron').shell;
 const fs = require('fs');
 
 //require database script
-const { get_address_of_pattern_file } = require('./database.js');
-const { equals_any_of } = require('./database.js');
-
-//**** IMPORTANT ****
-//*DEVELOPMENT or PRODUCTION* If you are developing the app use then true else false
-//otherwise app can crash
-const isDevMode = true;
+const { equals_any_of, get_address_of_pattern_file } = require('./scripts/database.js');
 
 
 /**

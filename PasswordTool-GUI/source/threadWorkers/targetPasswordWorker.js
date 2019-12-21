@@ -1,5 +1,5 @@
 //require native C++ addon 
-const testAddon = require('./tool-addon/addon.node');
+const testAddon = require('../tool-addon/addon.node');
 
 //this will catch arguments(password and email(optional)) sent by
 onmessage = function(passedData) {

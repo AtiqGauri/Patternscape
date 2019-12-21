@@ -1,4 +1,4 @@
-const { starts_with_ignore_case } = require('./database.js');
+const { starts_with_ignore_case } = require('./scripts/database.js');
 
 function autocomplete(inp) {
     

@@ -5,15 +5,16 @@
 	<title>Atiq</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
       <meta name="HandheldFriendly" content="true">
-      <title>Hello World!</title>
-	  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+      <title>Hello World!</title> 
 	  <link rel="stylesheet" type="text/css" href="style.css" />  
-	  <script src="./databaseClient.js" type="text/javascript"></script> 
+	  <script src="./scripts/databaseClient.js" type="text/javascript"></script> 
   </head>
   <body>
 
 	<script>
 		//delete_database();
+		//database_export_client();
+		//database_import_client();
 	</script>
 	<!-- App Header/Title -->
     <section id="appHeader">
@@ -122,9 +123,9 @@
   
 	  <!-- You can also require other files to run in this process -->
 	  <!-- client.js will call and respond to web workers -->
-	  <script src="./client.js" type="text/javascript"></script>
+	  <script src="./scripts/workerClient.js" type="text/javascript"></script>
 	  <!-- ui.js will handle autocomplete feature to find patterns -->
-	  <script src="./ui.js"></script>
+	  <script src="./scripts/autoComplete.js"></script>
 	  <!-- renderer.js will handle system call like opening default text editor -->
 	  <script src="./renderer.js"></script>
   </body>
