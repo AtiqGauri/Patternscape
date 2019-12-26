@@ -15,6 +15,9 @@ using namespace std;
 class Comparison
 {
 public:
+	vector<string> passwordSubStrings;
+	vector<Resources::patternStructure> results1;
+
 	vector<string> passwordsList;//vector to store passwords of single files
 	vector<string> emailsList;//vector to store emails of single files
 	vector<string> emailNamesList;//vector to store email_names extracted from emails vector

@@ -1,6 +1,8 @@
 #include "Comparison.h"
 #include "Constants.h"
 
+DataCleanser dataCleanser;
+
 void Comparison::load_data(vector<string>::iterator beginIt, vector<string>::iterator endIt, int reserveSize) {
 	/*
 		Here data will be loaded into a vector according to reserveSize value
@@ -72,6 +74,7 @@ void Comparison::name_list_comparison(string password) {
 		Step 2. while loop will check if any name exists in password string
 		Step 3. if so then result will be added with location, length, tag and content
 	*/
+	/*
 	auto it = Resources::namesList.begin();
 	while (it != Resources::namesList.end()) {
 		size_t found = password.find(*it);
@@ -79,6 +82,14 @@ void Comparison::name_list_comparison(string password) {
 			results.push_back({ Constants::nameListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
+	}
+	*/
+	dataCleanser.all_sub_strings(passwordSubStrings, password);
+	for (int i = 0; i < passwordSubStrings.size(); i++) {
+		if (Resources::namesList1.find(passwordSubStrings[i]) != Resources::namesList1.end()) {
+			results.push_back({ Constants::nameListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			//n2Results.push_back({ Constants::nameListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+		}
 	}
 }
 
@@ -117,6 +128,7 @@ void Comparison::dob_list_comparison(string password) {
 		Step 2. while loop will check if any dob exists in password string
 		Step 3. if so then result will be added with location, length, tag and content
 	*/
+	/*
 	vector<string>::iterator it = Resources::dobsList.begin();
 	while (it != Resources::dobsList.end()) {
 		size_t found = password.find(*it);
@@ -124,6 +136,13 @@ void Comparison::dob_list_comparison(string password) {
 			results.push_back({ Constants::dobListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
+	}
+	*/
+	for (int i = 0; i < passwordSubStrings.size(); i++) {
+		if (Resources::dobsList1.find(passwordSubStrings[i]) != Resources::dobsList1.end()) {
+			results.push_back({ Constants::dobListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			//n2Results.push_back({ Constants::nameListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+		}
 	}
 }
 
@@ -136,6 +155,7 @@ void Comparison::location_list_comparison(string password) {
 		Step 2. while loop will check if any location exists in password string
 		Step 3. if so then result will be added with location, length, tag and content
 	*/
+	/*
 	vector<string>::iterator it = Resources::locationsList.begin();
 	while (it != Resources::locationsList.end()) {
 		size_t found = password.find(*it);
@@ -143,6 +163,13 @@ void Comparison::location_list_comparison(string password) {
 			results.push_back({ Constants::locationListTag, *it, static_cast<int>(it->length()), static_cast<int>(found) });
 		}
 		it++;
+	}
+	*/
+	for (int i = 0; i < passwordSubStrings.size(); i++) {
+		if (Resources::locationsList1.find(passwordSubStrings[i]) != Resources::locationsList1 .end()) {
+			results.push_back({ Constants::locationListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			//n2Results.push_back({ Constants::nameListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+		}
 	}
 }
 
@@ -163,17 +190,17 @@ void Comparison::mobile_number_comparison(string password) {
 	size_t passLen = password.length();
 	bool flag = false;
 	for (int i = 0; i < passLen; i++) {
-		if (isdigit(password[i]) != 0) {
+		if (dataCleanser.is_digit(password[i])) {
 			if ((i + (size_t)3) < passLen) {
-				if (isdigit(password[i + (size_t)3]) != 0 && isdigit(password[i + (size_t)1]) != 0 && isdigit(password[i + (size_t)2]) != 0) {
+				if (dataCleanser.is_digit(password[i + (size_t)3]) && dataCleanser.is_digit(password[i + (size_t)1]) && dataCleanser.is_digit(password[i + (size_t)2])) {
 					//int j = 0;
 					for (int j = (i + (size_t)3); j < passLen; j++) {
-						if (isdigit(password[j]) == 0) {
+						if (!dataCleanser.is_digit(password[j])) {
 							results.push_back({ Constants::mobileListTag, password.substr(i, j - (size_t)i), (j - i), i });
 							flag = true;
 							break;
 						}
-						else if (isdigit(password[j]) != 0 && (j + (size_t)1) == passLen) {
+						else if (dataCleanser.is_digit(password[j]) && (j + (size_t)1) == passLen) {
 							results.push_back({ Constants::mobileListTag, password.substr(i, passLen), (j - i + 1), i });
 							flag = true;
 							break;
@@ -208,6 +235,7 @@ void Comparison::common_word_list_comparison(string password) {
 		Step 3. maximum 3 common words will be find in a single password string (using if statments)
 		Step 3. if so then result will be added with location, length, tag and content
 	*/
+	/*
 	vector<string>::iterator it = Resources::commonsList.begin();
 	string rawS1, rawS2;
 	bool flag1 = false, flag2 = false, flag3 = false;
@@ -232,6 +260,27 @@ void Comparison::common_word_list_comparison(string password) {
 			flag3 = true;
 		}
 		it++;
+	}
+	flag1 = false; flag2 = false; flag3 = false;
+	*/
+
+	bool flag1 = false, flag2 = false, flag3 = false;
+	for (int i = 0; i < passwordSubStrings.size(); i++) {
+		if (!flag1 && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) {
+			results.push_back({ Constants::common1ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag1 = true;
+			continue;
+		}
+		if ((!flag2 && flag1) && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) {
+			results.push_back({ Constants::common2ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag2 = true;
+			continue;
+		}
+		if ((!flag3 && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) && (flag2 && flag1)) {
+			results.push_back({ Constants::common3ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag3 = true;
+			break;
+		}
 	}
 	flag1 = false; flag2 = false; flag3 = false;
 }

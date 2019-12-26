@@ -6,6 +6,7 @@
 #include<deque>
 #include<string>
 #include<unordered_map>
+#include<unordered_set>
 #include "FileHandler.h"
 
 using namespace std;
@@ -13,6 +14,12 @@ using namespace std;
 class Resources
 {
 public:
+	static unordered_set<string> namesList1;
+	static unordered_set<string> dobsList1;
+	static unordered_set<string> locationsList1;
+	static unordered_set<string> commonsList1;
+
+
 	static vector<string> mobilesList;//vector to store all mobile number lists
 	static vector<string> namesList;//vecor to store all common name lists
 	static vector<string> dobsList;//vector to store all DOB combinations
