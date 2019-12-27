@@ -17,7 +17,7 @@ int main()
 {
 
 	auto start = APILayer::time_stamp();
-	APILayer::main_program(6);
+	APILayer::main_program(4);
 	//APILayer::pattern_stats(2);
 	//string str = APILayer::process_target("iloveapeksha@9814", "");
 	//cout << "\n" << str << "\n";

@@ -264,6 +264,32 @@ void Comparison::common_word_list_comparison(string password) {
 	flag1 = false; flag2 = false; flag3 = false;
 	*/
 
+
+	bool flag1 = false, flag2 = false, flag3 = false;
+	int i=0;
+	while (i<passwordSubStrings.size()) {
+		if (!flag1 && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) {
+			results.push_back({ Constants::common1ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag1 = true;
+			i++;
+			continue;
+		}
+		if ((!flag2 && flag1) && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) {
+			results.push_back({ Constants::common2ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag2 = true;
+			i++;
+			continue;
+		}
+		if ((!flag3 && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) && (flag2 && flag1)) {
+			results.push_back({ Constants::common3ListTag, passwordSubStrings[i], static_cast<int>(passwordSubStrings[i].size()), static_cast<int>(password.find(passwordSubStrings[i])) });
+			flag3 = true;
+			i++;
+			break;
+		}
+		i++;
+	}
+	flag1 = false; flag2 = false; flag3 = false;
+	/*
 	bool flag1 = false, flag2 = false, flag3 = false;
 	for (int i = 0; i < passwordSubStrings.size(); i++) {
 		if (!flag1 && Resources::commonsList1.find(passwordSubStrings[i]) != Resources::commonsList1.end()) {
@@ -283,6 +309,7 @@ void Comparison::common_word_list_comparison(string password) {
 		}
 	}
 	flag1 = false; flag2 = false; flag3 = false;
+	*/
 }
 
 void Comparison::clear_and_shrink() {
