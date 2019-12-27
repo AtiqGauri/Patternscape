@@ -1,6 +1,11 @@
 #include "Resources.h"
 #include "Constants.h"
 
+unordered_set<string> Resources::namesList1;
+unordered_set<string> Resources::dobsList1;
+unordered_set<string> Resources::locationsList1;
+unordered_set<string> Resources::commonsList1;
+
 
 //Static Variable Initialization
 vector<string> Resources::mobilesList;//vector to store all mobile number lists
@@ -19,6 +24,20 @@ void Resources::read_resources() {
 		  location names, common english words.
 		Every list is stored in respective vector.
 	*/
+	//reading common name datalist
+	Resources::namesList1.reserve(Constants::nameListFileSize);
+	FileHandler::read_file(Resources::namesList1, Constants::nameListFileAddress);
+	//reading possible DOB combinations datalist
+	Resources::dobsList1.reserve(Constants::dobListFileSize);
+	FileHandler::read_file(Resources::dobsList1, Constants::dobListFileAddress);
+	//reading common locations datalist
+	Resources::locationsList1.reserve(Constants::locationListFileSize);
+	FileHandler::read_file(Resources::locationsList1, Constants::locationListFileAddress);
+	//reading common words datalist
+	Resources::commonsList1.reserve(Constants::commonListFileSize);
+	FileHandler::read_file(Resources::commonsList1, Constants::commonListFileAddress);
+
+
 	//reading common name datalist
 	Resources::namesList.reserve(Constants::nameListFileSize);
 	FileHandler::read_file(Resources::namesList, Constants::nameListFileAddress);

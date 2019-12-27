@@ -87,6 +87,21 @@ void FileHandler::read_file(vector<string>& fileContent, string filePath) {
 	input.close();
 }
 
+void FileHandler::read_file(unordered_set<string>& fileContent, string filePath) {
+	string str;
+	ifstream input(filePath);
+	if (!input.is_open()) {
+		cout << "File not found " << filePath << "\n";
+	}
+	else
+	{
+		while (getline(input, str)) {
+			fileContent.insert(str);
+		}
+	}
+	input.close();
+}
+
 void FileHandler::write_file(deque<string>& fileContent, string filePath) {
 	/*
 		Using Of ofstream to open a file(filePath) and writing a deque(fileContent) in it
