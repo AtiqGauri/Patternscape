@@ -9,14 +9,14 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
-    title: "Atiq",
+    width: 1920, height: 1080,
+    minWidth: 1280, minHeight:800,
+    title: "PasswordTool",
     webPreferences: {
       nativeWindowOpen: true,
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
-      //webSecurity: false,
+      webSecurity: false,
       //contextIsolation: false,
       //allowRunningInsecureContent: true,
       //experimentalFeatures: true,
@@ -25,6 +25,8 @@ function createWindow () {
       //preload: path.join(__dirname, 'preload.js')
     }
   })
+
+  mainWindow.maximize();
 
   // and load the index.html of the app.
   mainWindow.loadFile('source/index.html')
@@ -39,6 +41,11 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  //Solution for iframe error in electron (without this you will get error saying refused to open url)
+  mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
+    callback({responseHeaders: Object.fromEntries(Object.entries(details.responseHeaders).filter(header => !/x-frame-options/i.test(header[0])))});
+  });
 }
 
 // This method will be called when Electron has finished

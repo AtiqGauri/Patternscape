@@ -9,9 +9,6 @@ var worker;
  */
 function database_worker_client(){
 
-    //reflect that process is started
-    document.getElementById('statusDatabase').innerHTML = ('<p style="color:yellow;">Processing</p>');
-
     //initialize web worker
     worker = new Worker('threadWorkers/databaseWorker.js')
 
@@ -22,7 +19,7 @@ function database_worker_client(){
         worker.terminate();
         
         //reflect status to GUI
-        document.getElementById('statusDatabase').innerHTML = (event.data);
+        //document.getElementById('statusDatabase').innerHTML = (event.data);
     };
 
     //handle exception or error thrown by web worker
@@ -49,17 +46,32 @@ function database_import_client(){
     importExportDB.import_database();
 }
 
+
 /**
  * Function to delete database.
  * use this carefully or export data before deleting database.
  */
 function delete_database(){
-    //WARNING: THIS WILL DELETE ALL THE DATABASES IN INDEXED_DB
-    window.indexedDB.databases().then((r) => {
-        for (var i = 0; i < r.length; i++) window.indexedDB.deleteDatabase(r[i].name);
-    }).then(() => {
-        console.log('Deleted database');
-    });
+    var element = document.getElementById("deleteIconWrapperID");
+    
+    var classes = element.className.split(" ");
+    var i = classes.indexOf("deleteIconActive");
+
+    if (i >= 0){
+        /* 
+        //WARNING: THIS WILL DELETE ALL THE DATABASES IN INDEXED_DB
+        window.indexedDB.databases().then((r) => {
+            for (var i = 0; i < r.length; i++) window.indexedDB.deleteDatabase(r[i].name);
+        }).then(() => {
+            console.log('Database is deleted');
+        });
+        */
+        console.log("deleted Database"); 
+    }
+    else{
+        console.log("Check caution button to delete database");
+    }
+    
 }
 
 /**

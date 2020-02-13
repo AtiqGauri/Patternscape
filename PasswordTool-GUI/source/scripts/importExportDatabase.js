@@ -1,5 +1,5 @@
 //require database script
-const {database} = require('./database.js');
+const {database} = require('./databaseInit.js');
 
 //require package to export import database
 require('dexie-export-import');
@@ -23,13 +23,14 @@ var export_database = async function export_database(){
     try{
       const blob = await database.export({prettyJson: true});
       const text = await new Response(blob).text();
-      fileSystem.writeFile("data/Stats/ExportedDatabase.json", text, function(error){
+      fileSystem.writeFile("data/Database/ExportedDatabase.json", text, function(error){
         if(error){
           console.log(error);
         }
       });
     }catch(error){
         console.error(''+error);
+        return;
     }
     console.log("Exported");
 };
@@ -44,7 +45,7 @@ var export_database = async function export_database(){
  */
 var import_database = async function import_database(){
     console.log("Importing Database");
-    const stream = fileSystem.createReadStream("data/Stats/ExportedDatabase.json");
+    const stream = fileSystem.createReadStream("data/Database/ExportedDatabase.json");
     const blob = await toBlob(stream);
     try{
         await database.import(blob);

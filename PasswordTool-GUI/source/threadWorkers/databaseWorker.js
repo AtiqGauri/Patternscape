@@ -1,5 +1,5 @@
 //require database script
-const {database} = require('../scripts/database.js');
+const {database} = require('../scripts/databaseInit.js');
 
 //require n-readlines to read huge file line by line without excessive use of memory 
 const lineByLine = require('n-readlines');

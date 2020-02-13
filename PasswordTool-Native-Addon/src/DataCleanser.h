@@ -20,6 +20,10 @@ public:
 		Takes a vector of strings and lower case all the strings present in it.
 	*/
 	static void lower_case(vector<string>& rawDataVector);
+
+	void all_sub_strings(vector<string>& subStrings, string mainString);
+
+	bool is_digit(char something);
 };
 
 #endif // !DATACLEANSER_H

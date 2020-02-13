@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <unordered_set>
 
 using namespace std;
 
@@ -41,6 +42,8 @@ public:
 		Using ifstream to open a file(filePath) and reading its content in vector(fileContent)
 	*/
 	static void read_file(vector<string>& fileContent, string filePath);
+
+	static void read_file(unordered_set<string>& fileContent, string filePath);
 
 	/*
 		Using Of ofstream to open a file(filePath) and writing a deque(fileContent) in it

@@ -1,0 +1,171 @@
+.autocomplete {
+    margin-left: 15%;
+    margin-top: 6%;
+    width: 70%;
+    transition: 0.8s;
+}
+
+
+.searchBarContainer {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  -ms-transform: translateX(-45%);
+  transform: translate(-45%);
+  width: 40%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.searchBarContainer.focused {
+  width: 75%;
+  top: 10%;
+  margin-right: 50%;
+  transition: 1s;
+}
+
+.patternSearchBar {
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #F2F2F2;
+    background-image: url("../assets/icons/search-icon.svg");
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    border-color: #f9a825;
+    color: #AE1100;
+    padding: 12px 20px 12px 40px;
+    box-shadow: 0 18px 70px 0 #ffaf7b;
+    box-shadow: -20px -20px 70px rgba(255, 255, 255, 1),
+              12px 12px 30px rgba(0, 0, 0, 0.4);
+    transition: width 10s ease, top 0.4s ease, border-color 0.5s ease;
+
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 100%;
+    letter-spacing: 1.5px;
+
+    user-select: none;
+    outline: none;
+}
+
+
+.searchBarContainer.focused .patternSearchBar {
+    border-color: #f9a825;
+}
+
+.homeImage {
+    position: absolute;
+    top: 32%;
+    left: 12%;
+    width: 40%;
+    margin-left: 15%;
+    height: 20%;
+    transition: 0.5s;
+    user-select: none;
+    z-index: 1;
+}
+
+.searchBarContainer.focused+.homeImage {
+    top: 1%;
+    left: -1.5%;
+    width: 20%;
+    height: 10%;
+    transition: 0.8s ease;
+} 
+
+.autocomplete-items {
+    width: 100%;
+    position: relative;
+    border: 2px solid #E0E2E7;
+    border-top: none;
+    border-bottom: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    z-index: 99;
+
+    font-family: Montserrat;
+    font-weight: 900;
+    /*position the autocomplete items to be the same width as the container:*/
+}
+  
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    color: #AE1100;
+    background-color: #F2F2F2; 
+    border-bottom: 1px solid #F2F2F2; 
+}
+  
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+    background-color: #6A9BD8; 
+    color: white;
+}
+  
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+    background-color: #6A9BD8 !important; 
+    color: white !important; 
+}
+
+.homeSubmit{
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    background-color: #F2F2F2;
+    color: #AE1100;
+    cursor: pointer;
+    border: solid transparent;
+    border-radius: 4px;
+    padding: 0.6%;
+    font-size: 100%;
+    box-shadow: -20px -20px 70px rgba(255, 255, 255, 1),
+              2px 12px 30px rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+
+    font-family: Montserrat;
+    font-weight: 900;
+
+    z-index: 1;
+    user-select: none;
+}
+
+
+.homeSubmit:hover{
+    background-color: #6A9BD8;
+    color: #EBF5FC;
+}
+
+.searchBarContainer.focused~.homeSubmit{
+    top: 10%;
+    left: 87.5%;
+    transition: 1s ease;
+}
+
+.homeDecor1{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    height: 20%;
+
+    z-index: 0;
+    user-select: none;
+}
+
+.homeDecor2{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 60%;
+
+    z-index: 0;
+    user-select: none;
+}

@@ -1,0 +1,124 @@
+.documentsContentContainer{
+    position: absolute;
+    height: 96%;
+    width: 98%;
+    top: 2%;
+    left: 1%;
+    box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    user-select: none;
+    z-index: 1;
+}
+
+.documentHead{
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    color: #0C2450;
+    font-family: Montserrat;
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.2vh;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+}
+
+.document1{
+    position: absolute;
+    padding: 2% 3% 2% 3%;
+    top: 12%;
+    left: 10%;
+    text-align: center;
+    border-radius: 11px;
+    border: 2px solid #0C2450;
+    color: #0C2450;
+    font-family: Montserrat;
+    font-style: light;
+    font-size: 2.5vh;
+    font-weight: 600;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+}
+.document1:hover{
+    background-color: #0C2450;
+    color: #F2F2F2;
+}
+
+.document2{
+    position: absolute;
+    padding: 2% 3% 2% 3%;
+    top: 30%;
+    left: 10%;
+    text-align: center;
+    border-radius: 11px;
+    border: 2px solid #0C2450;
+    color: #0C2450;
+    font-family: Montserrat;
+    font-style: light;
+    font-size: 2.5vh;
+    font-weight: 600;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+}
+.document2:hover{
+    background-color: #0C2450;
+    color: #F2F2F2;
+}
+
+.document3{
+    position: absolute;
+    padding: 2% 3% 2% 3%;
+    top: 48%;
+    left: 10%;
+    text-align: center;
+    border-radius: 11px;
+    border: 2px solid #0C2450;
+    color: #0C2450;
+    font-family: Montserrat;
+    font-style: light;
+    font-size: 2.5vh;
+    font-weight: 600;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+}
+.document3:hover{
+    background-color: #0C2450;
+    color: #F2F2F2;
+}
+
+.documentFrame{
+    position: absolute;
+    height: 96%;
+    width: 98%;
+    top: 2%;
+    left: 1%;
+    border: none;
+    background-color: #F2F2F2;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    z-index: 2;
+}
+
+#documentBackButton{
+    display: none;
+    position: absolute;
+    padding: 1%;
+    height: 13%;
+    width: 9%;
+    bottom: 5%;
+    right: 6%;
+    border-radius: 11px;
+    background-color: #F2F2F2;
+    color: white;
+    user-select: none;
+    z-index: 3;
+}
+#documentBackButton:hover{
+    background-color: #f9a825;
+}
+.backIcon{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+}

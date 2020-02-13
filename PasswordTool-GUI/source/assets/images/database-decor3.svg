@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="231px" height="251px" viewBox="0 0 231 251" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <path d="M0 79C0 35.3695 35.3695 0 79 0C122.63 0 158 35.3695 158 79C158 122.63 122.63 158 79 158C35.3695 158 0 122.63 0 79Z" transform="translate(40.97778 58.94247)" id="Circle" fill="#4C4A66" stroke="none" />
+  <path d="M0 0L24 0L24 43L0 43L0 0Z" transform="translate(83.97778 199.9425)" id="Rectangle" fill="#4C4A66" stroke="none" />
+  <path d="M0 0L24 0L24 43L0 43L0 0Z" transform="translate(131.9778 199.9425)" id="Rectangle" fill="#4C4A66" stroke="none" />
+  <path d="M0 7.5C0 3.35786 8.9543 0 20 0C31.0457 0 40 3.35786 40 7.5C40 11.6421 31.0457 15 20 15C8.9543 15 0 11.6421 0 7.5Z" transform="translate(83.97778 235.9425)" id="Ellipse" fill="#4C4A66" stroke="none" />
+  <path d="M0 7.5C0 3.35786 8.9543 0 20 0C31.0457 0 40 3.35786 40 7.5C40 11.6421 31.0457 15 20 15C8.9543 15 0 11.6421 0 7.5Z" transform="translate(131.9778 234.9425)" id="Ellipse" fill="#4C4A66" stroke="none" />
+  <path d="M0 27C0 12.0883 12.0883 0 27 0C41.9117 0 54 12.0883 54 27C54 41.9117 41.9117 54 27 54C12.0883 54 0 41.9117 0 27Z" transform="translate(94.97778 90.94247)" id="Circle" fill="#EEEEEE" stroke="none" />
+  <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" transform="translate(112.9778 108.9425)" id="Circle" fill="#4C4A66" stroke="none" />
+  <path d="M0 64.4748C-6.37888 35.9072 14.0118 7.04083 45.544 0C77.0762 -7.04083 107.809 10.41 114.188 38.9776C120.567 67.5452 99.6694 78.0814 68.1372 85.1223C36.6051 92.1631 6.37891 93.0423 0 64.4748L0 64.4748Z" transform="translate(43.34509 0)" id="Shape" fill="#6C63FF" stroke="none" />
+  <path d="M0 12.4003C0 5.55179 17.6848 0 39.5 0C61.3152 0 79 5.55179 79 12.4003C79 19.2488 61.3152 24.8005 39.5 24.8005C17.6848 24.8005 0 19.2488 0 12.4003Z" transform="matrix(0.9193335 -0.3934792 0.3934792 0.9193335 148 114.9286)" id="Ellipse" fill="#4C4A66" stroke="none" />
+  <path d="M0 12.4003C0 5.55179 17.6848 0 39.5 0C61.3152 0 79 5.55179 79 12.4003C79 19.2488 61.3152 24.8005 39.5 24.8005C17.6848 24.8005 0 19.2488 0 12.4003Z" transform="matrix(0.9193335 -0.3934792 0.3934792 0.9193335 0 167.9286)" id="Ellipse" fill="#4C4A66" stroke="none" />
+  <path d="M85 5C85 12.732 65.0914 28 43 28C20.9086 28 0 13.732 0 6C0 -1.73199 20.9086 0 43 0C65.0914 0 85 -2.73199 85 5L85 5Z" transform="translate(80.97778 155.9425)" id="Shape" fill="#EEEEEE" stroke="none" />
+</svg>

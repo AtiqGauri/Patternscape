@@ -1,498 +1,172 @@
-/* montserrat-regular - latin */
+/****************CSS HEADER START********************/
+html, body{margin:0px; padding:0px;}
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat Regular'), local('Montserrat-Regular'),
-         url('assets/fonts/montserrat-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('assets/fonts/montserrat-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
+    font-family: "Montserrat";
+    src: url(assets/fonts/Montserrat-Thin.ttf) format("truetype");
+    src: url(assets/fonts/Montserrat-Bold.ttf) format("truetype");
+    src: url(assets/fonts/Montserrat-Light.ttf) format("truetype");
+    src: url(assets/fonts/Montserrat-Medium.ttf) format("truetype");
+    src: url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
-
-/*------------------------  HEADER --------------------------*/
-
-#appHeader {
-    position: sticky;
-    width: 100%;;
-    height: 75px;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    z-index: 10;
-
-    background: #04052E;
-    border-radius: 0px 0px 26px 26px;
-}
-
-#headerText {
-    position: relative;
-    left: 2.23%;
-    right: 39.96%;
-    top: 0%;
-    bottom: 34.38%;
-
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 59px;
-
-    color: #FFFFFF;
-}
-
-/*------------------------  CLASS --------------------------*/
-
-.sections{
-    padding: 50px;
-    position: relative;
-}
-
-.headingText{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 44px;
-    color: #04052E;
-}
-
-.interactionBar{
-    width: 95%;
-    height: 162px;
-    background: #04052E;
-    border-radius: 45px;
-}
-
-.barText{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 29px;
-
-    color: #FFFFFF;
-}
-
-.threadInput{
-    position: relative;
-    bottom: 15px;
-    left: 22%;
-    right: 43%;
-    width: 2%;
-    padding: 0.5%;
-    padding-left: 0.8%;
-    background: #22007C;
-    border-radius: 45px;
+body {
+    background-color: black;
     color: white;
-    visibility: visible;
+    font-family: "Lato", sans-serif;
+}
+/****************HEADER END********************/
+
+/****************NAV and MAIN START********************/
+.mainContainer{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 1fr;
+    background-color: #F2F2F2;
 }
 
-::placeholder {
-    color: grey;
+.navTab{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2F2;
+    border-top-right-radius: 45px;
+    box-shadow:5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.buttons{    
-    width: 12%;
-    padding: 0.2%;
-    background-color: #22007C;
-    border-radius: 45px;
-
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 44px;
-
-    color: #FFFFFF;
-}
-
-.sizedText{
+.navTab div{
     position: relative;
-    top: 13%;
-    left: 70%;
-    
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 44px;
-
-    color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 15px;
+    height: 12vh;
+    width: 11.5vh;
+    margin-top: 40%;
+    box-shadow: -12px -12px 13px rgba(255, 255, 255, 1),
+              12px 15px 13px rgba(0, 0, 0, 0.1);
 }
 
-.patternSearch{
-    position: relative;
-    top: 35px;
-    left: 3%;
-    padding: 1%;
-    padding-left: 2%;
+.navTab div:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.navTab div.active{
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1),
+              inset 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    background: #22007C;
-    border-radius: 45px;
+.navIcons{
+    position: absolute;
+    background-color: transparent;
     color: white;
-    visibility: visible;
+    height: 39;
+    width: 44%;
+    top: 19%;
+    left: 29%;
+    user-select: none;
 }
 
-.targetInput{    
-    width: 20%;
-    padding: 0.2%;
-    background-color: #22007C;
-    border-radius: 45px;
-    padding: 0.4%;
-    padding-left: 1.5%;
+.navLabels{
+    position: absolute;
+    left: 25%;
+    bottom: 11%;
+    font-size: 2vh;
+    color: #6A9BD8;
+    user-select: none;
 
     font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 44px;
-
-    color: #FFFFFF;
+    font-weight: 600;
 }
 
-.autocomplete {
-    display: inline-block;
-}
-
-.autocomplete-items {
-    position: absolute;
-    font-weight: bold;
-    font-size: 25px;
-    color: white;
-    z-index: 99;
-    /*position the autocomplete items to be the same width as the container:*/
-    top: 76%;
-    left: 5%;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.autocomplete-items div {
-    
-    padding: 3.5%;
-    padding-left: 5%;
-    width: 230%;
-    
-    cursor: pointer;
-    background-color: #22007C; 
-    border-bottom: 1px solid #22007C; 
-    font-weight: bold;
-    line-height: 29px;
-    border-radius: 45px;
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-    color: black;
-    background-color: white;
-}
-   
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-    color: black !important;
-    background-color: white !important; 
-}
-
-
-
-/*------------------------  ID --------------------------*/
-
-
-
-/*---------  Analyze Data ---------*/
-
-#textAnalyze{
+#databaseLabel{
     position: relative;
-    left: 3%;
-    right: 63.36%;
-    top: 17.9%;
-    bottom: 62.35%;
-}
-
-#startAnalyze{
-    position: relative;
-    top: 60px;
-    right: 10px;
-}
-
-#stopAnalyze{
-    position: relative;
-    top: 60px;
-    left: 40px;
-}
-
-#inputAnalyze{
-    position: relative;
-    top: 0%;
-    left: 35%;
-}
-
-#outputAnalyze{
-    position: relative;
-    top: 0%;
-    left: 40%;
-}
-
-#statusAnalyze{
-    position: relative;
-    top: 13%;
-    left: 70%;
-}
-
-
-
-/*---------  Stats Generator ---------*/
-
-#textStats{
-    position: relative;
-    left: 3%;
-    right: 63.36%;
-    top: 17.9%;
-    bottom: 62.35%; 
-}
-
-#startStats{
-    position: relative;
-    top: 60px;
-    right: 10px;
-}
-
-#stopStats{
-    position: relative;
-    top: 60px;
-    left: 40px;
-}
-
-#inputStats{
-    position: relative;
-    top: 0%;
-    left: 35%;
-}
-
-#outputStats{
-    position: relative;
-    top: 0%;
-    left: 40%;
-}
-
-#statusStats{
-    position: relative;
-    top: 13%;
-    left: 70%;
-}
-
-
-
-/*---------  Add Stats to Database ---------*/
-
-#startDatabase{
-    position: relative;
-    top: 90px;
-    left: 3.1%;
-}
-
-#statusDatabase{
-    position: absolute;
-    left: 50%;
-    top: 63%;
-}
-
-/*---------  Pattern and its Data ---------*/
-
-#textPattern{
-    position: relative;
-    left: 3%;
-}
-
-#patternHint{
-    position: relative;
-    bottom: 18px;
-    left: 35%;
-}
-
-#patternBar{
-    position: absolute;
-    top: 55%;
-    left: 5%;
-    width: 60%;
-}
-
-#patternSubmit{
-    position: absolute;
-    top: 57%;
-    left: 70%;
-    width: 15%;
-}
-
-
-/*---------  Target User Pattern ---------*/
-
-#targetUserBar{
-    width: 95%;
-    height: 650px;
-    background: #04052E;
-    border-radius: 45px;
-}
-
-#emailField{
-    position: absolute;
-    left: 5.5%;
-    top: 18%;
-}
-
-#emailBar{
-    position: absolute;
-    left: 5%;
-    top: 25%;
-}
-
-#nameField{
-    position: absolute;
-    left: 35.5%;
-    top: 18%;
-}
-
-#nameBar{
-    position: absolute;
-    left: 34.5%;
-    top: 25%;
-}
-
-#locationField{
-    position: absolute;
-    left: 65.5%;
-    top: 18%;
-}
-
-#locationBar{
-    position: absolute;
-    left: 64.8%;
-    top: 25%;
-}
-
-#passwordField{
-    position: absolute;
-    left: 5.5%;
-    top: 40%;
-}
-
-#passwordBar{
-    position: absolute;
-    left: 5%;
-    top: 47%;
-}
-
-#dobField{
-    position: absolute;
-    left: 35.5%;
-    top: 40%;
-}
-
-#dobBar{
-    position: absolute;
-    left: 34.5%;
-    top: 47%;
-}
-
-#mobileField{
-    position: absolute;
-    left: 64.8%;
-    top: 40%;
-}
-
-#mobileBar{
-    position: absolute;
-    left: 64.8%;
-    top: 47%;
-}
-
-#generateHint{
-    position: absolute;
-    left: 5.5%;
-    top: 65%;
-}
-
-#selectBar{
-    position: absolute;
-    left: 5%;
-    top: 73%;
-    width: 60%;
-}
-
-#patternGenerate{
-    position: absolute;
-    left: 70%;
-    top: 74%;
-    width: 15%;
-}
-
-#generatedPass{
-    position: absolute;
-    left: 5.5%;
-    top: 85%;
-}
-
-
-
-/*---------  Target Password ---------*/
-
-
-#targetPasswordBar{
-    width: 95%;
-    height: 300px;
-    background: #04052E;
-    border-radius: 45px;
-}
-
-#targetEmailField{
-    position: absolute;
-    left: 6.5%;
-    top: 30%;
-}
-
-#targetEmailBar{
-    position: absolute;
-    left: 5.5%;
-    top: 42%;
-}
-
-#targetPasswordField{
-    position: absolute;
-    left: 35%;
-    top: 30%;
-}
-
-#targetPasswordInput{
-    position: absolute;
-    left: 34%;
-    top: 42%;
-}
-
-#targetPasswordStart{
-    position: absolute;
-    left: 60%;
-    top: 42%;
-}
-
-#statusPassword{
-    position: absolute;
     top: 70%;
     left: 7%;
+    letter-spacing: 0.5px;
+}
+
+#homeLabel{
+    color: #ff6584;
+    letter-spacing: 0.5px;
+}
+
+#targetLabel{
+    color: #24C981;
+    letter-spacing: 0.5px;
+}
+
+#processLabel{
+    position: relative;
+    top: 66%;
+    left: 15%;
+    letter-spacing: 1px;
+    color: #f9a825;
+}
+
+#documentLabel {
+    position: relative;
+    left: 7%;
+    top: 75%;
+    color: #66657A;
+    font-size: 1.7vh;
+}
+
+.tabContentArea{
+    position:relative;
+    background-color: transparent;
+}
+/****************NAV and MAIN END********************/
+
+
+/****************HOME TAB START********************/
+.homeContent{
+    font-size: 2vh;
+}
+/****************HOME TAB END********************/
+
+
+/****************DATABASE TAB START********************/
+.databaseContent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/****************DATABASE TAB END********************/
+
+
+/****************PROCESS TAB START********************/
+.processContent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/****************PROCESS TAB END********************/
+
+
+/****************DOCUMENTS TAB START********************/
+.documentContent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/****************DOCUMENTS TAB END********************/
+
+
+
+.progressAnimation{
+    display: none;
+    position: relative;
+    left: 35%;
+    top: 15%;
+    height: 80%;
+    width: 20%;
+    
+    user-select: none;
+    z-index: 10;
+}
+
+.gegga{
+    background-size: 500px 500px;
 }

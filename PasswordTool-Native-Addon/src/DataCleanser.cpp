@@ -27,3 +27,27 @@ void DataCleanser::lower_case(vector<string>& rawDataVector) {
 	}
 
 }
+
+
+void DataCleanser::all_sub_strings(vector<string>& subStrings, string mainString) {
+	subStrings.clear();
+	int len = mainString.length();
+	if (len < 3) {
+		cout << mainString << " string length should not be smaller than 3" << endl;
+		return;
+	}
+	else {
+		for (int i = 0; i < len; i++) {
+			for (int j = 3; j <= len - i; j++) {
+				subStrings.push_back(mainString.substr(i, j));
+			}
+		}
+	}
+}
+
+bool DataCleanser::is_digit(char something) {
+	if (int(something) > 47 && int(something) < 58) {
+		return true;
+	}
+	return false;
+}

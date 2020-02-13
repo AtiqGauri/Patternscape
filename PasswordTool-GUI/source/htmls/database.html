@@ -1,0 +1,109 @@
+<link rel="stylesheet" type="text/css" href="styles/database.css">
+
+
+<div class="databaseTabContainer">
+    <section class="databaseUpperBox">
+        <div class="databaseButtons">
+            <div class="impDB dbTabLinks" onclick="openOperations(event, 'importDB')" id="impDB">Import Processed Data</div>
+            <div class="impDownDB dbTabLinks" onclick="openOperations(event, 'importDownDB')" id="impDownDB">Import Downloaded Database</div>
+            <div class="expDB dbTabLinks" onclick="openOperations(event, 'exportDB')" id="expDB">Export Stored Database</div>
+        </div>
+        <div class="databaseOperation">
+            <div id="importDB" class="dbTabContent">
+              <p class="impDataHeading">Import Data which has been processed</p>
+              <p class="impDataText">
+                * If process gets interrupted because of any reason,</br>
+                then whole transaction will be rolled back and you </br>
+                will need to import it again.
+              </p>
+              <div class="importDbButtons">
+                <div class="importDbStart" onclick="database_worker_client()">Import</div>
+                <div class="importDbStop" onclick="">Stop</div>
+              </div>
+              <div class="importDbResult">
+                <p class="importDbAdded">Newly added records: 14223649</p>
+                <p class="importDbDuplicates">Duplicates( ignored ): 555544</p>
+                <p class="importDbTotal">Total Records: 44411154778</p>
+              </div>
+              <div class="impDbFolder">
+                <label class="impInputFolder" onclick="output_of_stats_generator()">DATABASE INPUT FOLDER</label>
+              </div>
+            </div>
+            <div id="importDownDB" class="importDownDBClass dbTabContent">
+              <div class="impDownTextBox">
+                <p class="impDownTextHead">Import Backup/Downloaded Database</p>
+                <p class="impDownText">
+                  * You can import our provided database here.</br>
+                  * First download it then copy-paste inside database input folder.</br>
+                  * Local exported database can be imported automatically,</br>
+                  just click import start button (must be in JSON).</br>
+                </p>
+              </div>
+              <div class="impDownButtons">
+                <div class="importDownStart" onclick="database_import_client()">Import</div>
+                <div class="importDownStop" onclick="">Stop</div>
+              </div>
+              <div class="impDownDD">
+                <p class="impDownInputText">Copy Paste Downloaded Database into this folder</p>
+                <label class="impDownInputFolder" onclick="database_import_export_folder()">DATABASE INPUT FOLDER</label>
+              </div>
+              <div class="impDownResults">
+                <div class="impDownResultsDiv">
+                  <p class="impDownAdded">Newly added records: 14223649</p>
+                  <p class="impDownDuplicates">Duplicates( ignored ): 555544</p>
+                  <p class="impDownTotal">Total Records: 44411154778</p>
+                </div>
+              </div>
+            </div>
+            <div id="exportDB" class="exportDBClass dbTabContent">
+              <div class="exportDBTextBox">
+                <p class="exportDBTextHead">Export Database for Backup Purpose</p>
+                <p class="exportDBText">
+                  * This will export database in JSON files.</br>
+                  * Exported database can be found in database export folder.</br>
+                  * This must be whole database transaction else will be rolled back.</br>
+                </p>
+              </div>
+              <div class="exportDBButtons">
+                <div class="exportDBStart" onclick="database_export_client()">Export</div>
+                <div class="exportDBStop" onclick="">Stop</div>
+              </div>
+              <div class="expResults">
+                <div class="expResultsDiv">
+                  <p class="expTotal">Exported Records: 44411154778</p>
+                </div>
+              </div>
+              <div class="expFolderDiv">
+                <label class="expFolder" onclick="database_import_export_folder()">DATABASE EXPORT FOLDER</label>
+              </div>
+            </div>
+        </div>
+    </section>
+    <section class="databaseLowerBox">
+        <div class="dataPersistance">
+          <div class="persistanceText">
+            <p class="persistanceWarning">
+              OS deletes app database, after consuming</br>
+              available quota, to avoid that always persist</br>
+               data after importing.
+            </p>
+            <p class="availableQuota">Available Quota: 54132</p>
+          </div>    
+          <div class="persistanceButton" id="persistDataButton" onclick="persistDatabase(); persist_database();">PERSIST DATABASE</div>
+        </div>
+        <div class="dataDeletion">
+            <div class="deleteWarning">
+              <div class="deleteIconWrapper" id="deleteIconWrapperID" onclick="databaseDeleteCheckbox()">
+                <img class="deleteIcon" src="assets/icons/delete.svg">
+              </div>
+              <p class="deleteWarningText">
+                CAUTION!</br>You won't be able to rollback.</br>
+                Check cross button to delete database.
+              </p>
+            </div>
+            <div class="deleteButton" onclick="delete_database()">DELETE DATABASE</div>
+        </div>
+    </section>
+    <script>
+  </script>
+</div>
