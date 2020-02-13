@@ -16,7 +16,7 @@ const shell = require('electron').shell;
 const fs = require('fs');
 
 //require database script
-const { equals_any_of, get_address_of_pattern_file } = require('./scripts/database.js');
+const { equals_any_of, get_address_of_pattern_file } = require('./scripts/databaseInit.js');
 
 
 /**
@@ -26,9 +26,9 @@ function input_of_analyzing(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Input'))){
-        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Input'));
+        shell.openExternal(path.join(__dirname, '..', '..', '..','data', 'Input'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Input'))){
-        shell.openItem(path.join(__dirname, '..','data', 'Input'));
+        shell.openExternal(path.join(__dirname, '..','data', 'Input'));
     }else{
         console.error('data/Input/ folder doesn\'t exist');
     }
@@ -44,9 +44,9 @@ function output_of_analyzing(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Output'))){
-        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+        shell.openExternal(path.join(__dirname, '..', '..', '..','data', 'Output'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
-        shell.openItem(path.join(__dirname, '..','data', 'Output'));
+        shell.openExternal(path.join(__dirname, '..','data', 'Output'));
     }else{
         console.error('data/Output/ folder doesn\'t exist');
     }
@@ -64,9 +64,9 @@ function input_of_stats_generator(){
 
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Output'))){
-        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Output'));
+        shell.openExternal(path.join(__dirname, '..', '..', '..','data', 'Output'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
-        shell.openItem(path.join(__dirname, '..','data', 'Output'));
+        shell.openExternal(path.join(__dirname, '..','data', 'Output'));
     }else{
         console.error('data/Output/ folder doesn\'t exist');
     }
@@ -84,9 +84,9 @@ function output_of_stats_generator(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'))){
-        shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
+        shell.openExternal(path.join(__dirname, '..', '..', '..','data', 'Stats', 'Patterns Data'));
     }else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'))){
-        shell.openItem(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'));
+        shell.openExternal(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'));
     }else{
 		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
     }
@@ -99,6 +99,28 @@ function output_of_stats_generator(){
 }
 
 /**
+ * Function to open import export database folder 
+ * 
+ */
+function database_import_export_folder(){
+	
+	//double if statement to avoid path error because of asar packaging of electron app
+    if(fs.existsSync(path.join(__dirname, '..', '..', '..','data', 'Database'))){
+		//shell.openItem(path.join(__dirname, '..', '..', '..','data', 'Database'));
+		shell.openExternal(path.join(__dirname, '..', '..', '..','data', 'Database'));
+    }else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Database'))){
+		//shell.openItem(path.join(__dirname, '..', 'data', 'Database'));
+		shell.openExternal(path.join(__dirname, '..', 'data', 'Database'));
+    }else{
+		console.error('data/Database/ folder doesn\'t exist');
+    }
+
+	//alert sound should be played finally in all conditions
+	shell.beep();
+}
+
+
+/**
  * Function to open pattern data file. This function
  * makes a database query to get address of selected pattern
  * and open it in default text editor.
@@ -106,7 +128,7 @@ function output_of_stats_generator(){
 function pattern_lookup(){
 	
 	//get value of pattern entered by user
-	var input = document.getElementById("patternBar").value;
+	var input = document.getElementById("patternSearchInput").value;
 
 	//create a widow to show pattern data
 	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data",webPreferences: {nodeIntegration: true,}});
@@ -142,9 +164,9 @@ function pattern_lookup(){
 function target_user_pattern(){
 	
 	//capture email given by user
-	const email = document.getElementById("emailBar").value;
+	const email = document.getElementById("targetEmail").value;
 	//capture password given by user
-	const password = document.getElementById("passwordBar").value;
+	const password = document.getElementById("targetPassword").value;
 	
 	//if email field is empty then warn user
 	if(email != ''){
@@ -158,9 +180,7 @@ function target_user_pattern(){
 				target_password_patterns(password, email);
 			}
 
-			//Reflect process is started 
-            document.getElementById("generatedPass").innerHTML = ('<p style="color:yellow;">Generating passwords</p>');
-            
+			
             var targetData = [];
 
             //extract email name
@@ -170,16 +190,16 @@ function target_user_pattern(){
             targetData.push({value:email.substring(email.indexOf("@")+1, email.indexOf(".")), type:'Website'});
 
             //get name value
-			targetData.push({value:document.getElementById("nameBar").value, type:'Name'});
+			targetData.push({value:document.getElementById("targetName").value, type:'Name'});
 
             //get location value
-			targetData.push({value:document.getElementById("locationBar").value, type:'Location'});
+			targetData.push({value:document.getElementById("targetLocation").value, type:'Location'});
 
             //get dob value
-			targetData.push({value:document.getElementById("dobBar").value, type:'DOB'});
+			targetData.push({value:document.getElementById("targetDob").value, type:'DOB'});
 
             //get mobile value
-			targetData.push({value:document.getElementById("mobileBar").value, type:'Mobile'});
+			targetData.push({value:document.getElementById("targetMobile").value, type:'Mobile'});
 
             //collect data entries which have been given, then remove empty ones
             var temp = [];
@@ -201,8 +221,8 @@ function target_user_pattern(){
 				var tempStr;
 				
 				//add pattern selected by user
-				if(document.getElementById("selectBar").value != ''){
-					passwordPatterns.unshift({pattern:document.getElementById("selectBar").value, address:'', popularity:''});
+				if(document.getElementById("patternSearchInput").value != ''){
+					passwordPatterns.unshift({pattern:document.getElementById("patternSearchInput").value, address:'', popularity:''});
 				}
 
 
@@ -216,9 +236,8 @@ function target_user_pattern(){
 					generatedPasswords.push({original:tempStr, generated:passwordPatterns[i].pattern});
 				}
 				
-				//acknowledge success
-				document.getElementById("generatedPass").innerHTML = ('<p style="color:green;">Generated</p>');
-				
+				document.getElementById("patternSearchInput").value = '';
+
 				//create a window to display suggested patterns
 				suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
 				suggestionsWindow.loadFile('./source/htmls/targetSuggestions.html');
@@ -233,12 +252,12 @@ function target_user_pattern(){
 			return;
         }else{
 			//Warn: invalid email
-            document.getElementById("generatedPass").innerHTML = ('<p style="color:red;">Enter a valid Email</p>');
+            console.log("invalid email");
             return;
         }
     }else{
         //Warn: enter required fields
-		document.getElementById("generatedPass").innerHTML = ('<p style="color:red;">* Complete Required Fields</p>');
+		console.log("Enter required fields");
 		return;
     }
 }
@@ -272,13 +291,14 @@ function escapeRegExp(targetString) {
 function catch_target_password(){
 
 	//get password value
-	var password = document.getElementById("targetPasswordInput").value;
+	var password = document.getElementById("singleUserPassword").value;
 	//get email value
-	var email = document.getElementById("targetEmailBar").value;
+	var email = document.getElementById("singleUserEmail").value;
 
 	//if password is empty then warn user
 	if(password==''){
-		document.getElementById("statusPassword").innerHTML = ('<p style="color:red;">* Complete Required Fields</p>');
+		//show that this wrong enter password
+		console.log("Password is required");
 		return;
 	}
 
@@ -288,7 +308,8 @@ function catch_target_password(){
 
 		//if email is invalid then warn user
 	}else if(email.indexOf("@") == -1 || email.indexOf(".") == -1){
-		document.getElementById("statusPassword").innerHTML = ('<p style="color:red;">Enter a valid email</p>');
+		//show that email is invalid
+		console.log("invalid email");
 		return;
 	}
 

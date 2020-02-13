@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="styles/target.css">
+
+<div class="targetContentContainer">
+    <p class="targetHead">Target any specific user:</p>
+    <p class="targetText">
+        * First fill all the information about user.</br>
+        * Some field are required denoted with * .</br>
+        * Optionally you can choose specific pattern.</br>
+        * Finally press "Target" button to get results.</br>
+    </p>
+    <input class="targetEmail targetInputs" type="email" placeholder=" " id="targetEmail">
+    <label class="targetEmailLabel targetLabels">*Email</label>
+    <input class="targetPassword targetInputs" type="text" placeholder=" " id="targetPassword">
+    <label class="targetPasswordLabel targetLabels">*Password</label>
+    <input class="targetName targetInputs" type="text" placeholder=" " id="targetName">
+    <label class="targetNameLabel targetLabels">Name</label>
+    <input class="targetLocation targetInputs" type="text" placeholder=" " id="targetLocation">
+    <label class="targetLocationLabel targetLabels">Location</label>
+    <input class="targetMobile targetInputs" type="number" placeholder=" " id="targetMobile">
+    <label class="targetMobileLabel targetLabels">Mobile</label>
+    <input class="targetDob targetInputs" type="date" placeholder=" " id="targetDob">
+    <label class="targetDobLabel targetLabels">DOB</label>
+    <div class="getPattern" onclick="getTargetPattern();"  id="getPattern">Select Pattern(Optional)</div>
+    <div class="targetSubmit" onclick="target_user_pattern()">Target</div>
+</div>

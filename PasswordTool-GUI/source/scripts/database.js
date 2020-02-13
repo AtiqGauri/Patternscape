@@ -1,86 +1,37 @@
-//require dexie package to create IndexedDB database for our app
-var Dexie = require('dexie');
-
-//initialize database 
-var database = new Dexie("PasswordTool");
-
-//initialize database schema
-database.version(1).stores({
-    Patterns: 'pattern,address,popularity'
-})
-
-//check if database is opened successfully (async process)
-database.open().catch(function(error){
-    console.log("ERROR: "+ error);
-});
-
-/**
- * Function to lookup/find pattern in database 
- * @param {string} partialPattern partial pattern string entered in GUI for pattern search
- */
-async function starts_with_ignore_case(partialPattern) {
-    
-    //array to store matched patterns
-    var matchedPatterns = [];
-
-    //async call to database with ignored cases
-    await database.table('Patterns').where('pattern').startsWithIgnoreCase(partialPattern)
-                     .each(function (value) {
-                        //push matched patterns
-                        matchedPatterns.push(value);
-                     });
-    
-    //sort array with popularity in descending order 
-    matchedPatterns.sort (function (a,b) { return b.popularity - a.popularity; });
-    return matchedPatterns;
+function openOperations(evt, tabName) {
+    var i, dbTabContent, dbTabLinks;
+    dbTabContent = document.getElementsByClassName("dbTabContent");
+    for (i = 0; i < dbTabContent.length; i++) {
+        dbTabContent[i].style.display = "none";
+    }
+    dbTabLinks = document.getElementsByClassName("dbTabLinks");
+    for (i = 0; i < dbTabLinks.length; i++) {
+        dbTabLinks[i].className = dbTabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
-/**
- * Function to get addresses of patterns stored in database
- * @param {string} patternString
- */
-async function get_address_of_pattern_file(patternString) {
+function databaseDeleteCheckbox() {
+  var element = document.getElementById("deleteIconWrapperID");
+  if (element.classList) { 
+    element.classList.toggle("deleteIconActive");
     
-    //array to store matched patterns
-    var matchedPatterns = [];
-    
-    //async call to database with ignored cases
-    await database.table('Patterns').where('pattern').equalsIgnoreCase(patternString)
-                     .each(function (value) {
-                        //push matched patterns
-                        matchedPatterns.push(value.address);
-                     });
+  } else {
+    var classes = element.className.split(" ");
+    var i = classes.indexOf("deleteIconActive");
 
-    return matchedPatterns;
+    if (i >= 0) 
+      classes.splice(i, 1);
+    else 
+      classes.push("deleteIconActive");
+      element.className = classes.join(" "); 
+  }
 }
 
-/**
- * Function to find patterns start with any of strings in database
- * and returns patterns which are matching with those strings
- * @param {string array} targetDataArray array of string (email, name, etc )
- */
-async function equals_any_of(targetDataArray) {
-    
-    //array to store matched patterns
-    var matchedPatterns =[];
-    
-    //async call to database to find patterns starting with any of given strings
-    await database.table('Patterns').where('pattern').startsWithAnyOfIgnoreCase(targetDataArray)
-                     .each(function (value) {
-                        matchedPatterns.push(value);
-                     });
-    
-    //sort resulting array with popularity in descending order 
-    matchedPatterns.sort (function (a,b) { return b.popularity - a.popularity; });
-    
-    //return 99 most popular patterns
-    return matchedPatterns.slice(0, 99);
-}
+function persistDatabase(){
+  var element = document.getElementById("persistDataButton");
 
-//export members
-module.exports = {
-    database,
-    starts_with_ignore_case,
-    get_address_of_pattern_file,
-    equals_any_of
+  element.style.backgroundColor = "#4CBB17"
+  element.style.color = "white";
 }

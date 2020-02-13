@@ -2,131 +2,75 @@
 <html>
   <head>
     <meta charset="UTF-8">
-	<title>Atiq</title>
+	<title>PasswordTool</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
       <meta name="HandheldFriendly" content="true">
-      <title>Hello World!</title> 
 	  <link rel="stylesheet" type="text/css" href="style.css" />  
 	  <script src="./scripts/databaseClient.js" type="text/javascript"></script> 
   </head>
   <body>
-
-	<script>
-		//delete_database();
-		//database_export_client();
-		//database_import_client();
-	</script>
-	<!-- App Header/Title -->
-    <section id="appHeader">
-		<h1 id="headerText">Password Tool</h1>
-	  </section>
-	  
-  
-  
-	  <!-- Analyze Password and Emails -->
-	  <!-- This will detect patterns out of raw emails and passwords -->
-	  <section class="sections" id="AnalyzeDiv">
-		<h2 class="headingText">Analyze Passwords & Emails...</h2>
-		<div class="interactionBar">
-		  <h3 class="barText" id="textAnalyze">Enter number of threads: </h3>
-		  <input class="threadInput" type="text" id="analyzeThreads" placeholder="2-8">
-		  <button class="buttons" id="startAnalyze" type="button" onclick="analyze_passwords_emails()">Start</button>
-		  <button class="buttons" id="stopAnalyze" type="button" onclick="stop_analyze_passwords_emails()">Stop</button>
-		  <button class="buttons" id="inputAnalyze" type="button" onclick="input_of_analyzing()">Input</button>
-		  <button class="buttons" id="outputAnalyze" type="button" onclick="output_of_analyzing()">Output</button>
-		  <h3 class="sizedText" id="statusAnalyze" type="text">Process Status</h3>
-		</div>
-	  </section>
-  
-	  <!-- Statistics Generator -->
-	  <!-- This will categories all the patterns with their popularity and datafile address -->
-	  <section class="sections">
-		<h2 class="headingText">Statistics Generator...</h2>
-		<div class="interactionBar">
-		  <h3 class="barText" id="textStats">Enter number of threads: </h3>
-		  <input class="threadInput" type="text" name="statsThreads" placeholder="2-8">
-		  <button class="buttons" id="startStats" type="button" onclick="generate_statistics()">Start</button>
-		  <button class="buttons" id="stopStats" type="button" onclick="stop_generate_statistics()">Stop</button>
-		  <button class="buttons" id="inputStats" type="button" onclick="input_of_stats_generator()">Input</button>
-		  <button class="buttons" id="outputStats" type="button" onclick="output_of_stats_generator()">Output</button>
-		  <h3 class="sizedText" id="statusStats">Process Status</h3>
-		</div>
-	  </section>
-  
-	  <!-- Add Stats to Database -->
-	  <!-- This will add processed pattern stats into database -->
-	  <section class="sections">
-		<h2 class="headingText">Add Stats to Database...</h2>
-		<div class="interactionBar">
-		  <button class="buttons" id="startDatabase" type="button" onclick="database_worker_client()">Start</button>
-		  <h3 class="sizedText" id="statusDatabase">Process Status</h3>
-		</div>
-	  </section>
-  
-	  <!-- Pattern and its Data -->
-	  <!-- Here we can find patterns and data related to it -->
-	  <section class="sections">
-		<h2 class="headingText">Pattern and its Data...</h2>
-		<div class="interactionBar">
-		  <h3 class="sizedText" id="textPattern">Enter pattern here</h3>
-		  <h3 class="barText" id="patternHint">* Name, email, common word, location, mobile or website </h3>
-		  <form autocomplete="off" onsubmit="return false">
-		  <div class="autocomplete" style="width:300px;">
-		  	<input class="patternSearch" id="patternBar" type="text" name="patternInput" placeholder="pattern">
+	<main class="mainContainer">
+		<section class="navTab">
+		  <div class="tabLinks" id="targetTabButton" onclick="openTabs(event, 'targetTab')">
+			<img class="navIcons" src="assets/icons/target.svg">
+			<label class="navLabels" id="targetLabel">Target</label>
 		  </div>
-		  <button class="buttons" id="patternSubmit" onclick="pattern_lookup();">Submit</button>
-		  </form>
-		</div>
-	  </section>
-  
-	  <!-- Target User Pattern Generation -->
-	  <!-- Here a suggested password will be generated based on given information and choosed pattern -->
-	  <section class="sections">
-		<h2 class="headingText">Target User Pattern Generation...</h2>
-		<div id="targetUserBar">
-		  <h3 class="sizedText" id="emailField">* Email</h3>
-		  <input class="targetInput" id="emailBar" type="text" name="emailInput">
-		  <h3 class="sizedText" id="passwordField">Password</h3>
-		  <input class="targetInput" id="passwordBar" type="text" name="passwordInput">
-		  <h3 class="sizedText" id="nameField">Name</h3>
-		  <input class="targetInput" id="nameBar" type="text" name="nameInput">
-		  <h3 class="sizedText" id="locationField">Location</h3>
-		  <input class="targetInput" id="locationBar" type="text" name="locationInput">
-		  <h3 class="sizedText" id="dobField">DOB</h3>
-		  <input class="targetInput" id="dobBar" type="text" name="dobInput">
-		  <h3 class="sizedText" id="mobileField">Mobile</h3>
-		  <input class="targetInput" id="mobileBar" type="text" name="mobileInput">
-		  <h3 class="sizedText" id="generateHint">Select Pattern</h3>
-		  <div class="autocomplete" style="width:300px;">
-			<input class="patternSearch" id="selectBar" type="text" name="selectedPattern" placeholder="pattern">
+		  <div class="tabLinks" id="processTabButton" onclick="openTabs(event, 'processTab')">
+			<img class="navIcons" src="assets/icons/process.svg">
+			<label class="navLabels" id="processLabel">Process</label>
 		  </div>
-		  <button class="buttons" id="patternGenerate" type="button" onclick="target_user_pattern()">Generate</button>
-		  <h3 class="sizedText" id="generatedPass">Process Status</h3>
-		</div>
-	  </section>
-
-
-	  <!-- Detect pattern in a password and email(optional) -->
-	  <!-- this will process single user password and email without input and all -->
-	  <!-- IMPORTANT this doesn't add detected pattern to database yet(may be changed in future) -->
-	  <section class="sections">
-		<h2 class="headingText">Detect pattern in single password...</h2>
-		<div id="targetPasswordBar">
-		  <h3 class="sizedText" id="targetEmailField">Email</h3>
-		  <input class="targetInput" id="targetEmailBar" type="text">
-		  <h3 class="sizedText" id="targetPasswordField">* Password</h3>
-		  <input class="targetInput" id="targetPasswordInput" type="text">
-		  <button class="buttons" id="targetPasswordStart" type="button" onclick="catch_target_password()">detect</button>
-		  <h3 class="sizedText" id="statusPassword">Process Status</h3>
-		</div>
-	  </section>
-  
-	  <!-- You can also require other files to run in this process -->
-	  <!-- client.js will call and respond to web workers -->
-	  <script src="./scripts/workerClient.js" type="text/javascript"></script>
-	  <!-- ui.js will handle autocomplete feature to find patterns -->
-	  <script src="./scripts/autoComplete.js"></script>
+		  <div class="tabLinks" id="homeTabButton" onclick="openTabs(event, 'homeTab')">
+			<img class="navIcons" src="assets/icons/home.svg">
+			<label class="navLabels" id="homeLabel">Home</label>
+		  </div>
+		  <div class="tabLinks" id="databaseTabButton" onclick="openTabs(event, 'databaseTab')">
+			<img class="navIcons" src="assets/icons/database.svg">
+			<label class="navLabels" id="databaseLabel">Database</label>
+		  </div>
+		  <div class="tabLinks" id="documentsTabButton" onclick="openTabs(event, 'documentTab')">
+			<img class="navIcons" src="assets/icons/documents.svg">
+			<label class="navLabels" id="documentLabel">Documents</label>
+		  </div>
+		</section>
+		<section class="tabContentArea">
+		  <div id="targetTab" class="tabContent targetContent">
+			<includeme src="htmls/target.html"></includeme>
+		  </div>
+		  <div id="processTab" class="tabContent processContent">
+			<includeme src="htmls/process.html"></includeme>
+		  </div>
+		  <div id="homeTab" class="tabContent homeContent">
+			<includeme src="htmls/home.html"></includeme>
+		  </div>
+		  <div id="databaseTab" class="tabContent databaseContent">
+			<includeme src="htmls/database.html"></includeme>
+		  </div>
+		  <div id="documentTab" class="tabContent documentContent">
+			<includeme src="htmls/documents.html"></includeme>
+		  </div>
+		  <includeme src="./assets/images/animationSVG.html"></includeme>
+		</section>
+	  </main>
 	  <!-- renderer.js will handle system call like opening default text editor -->
 	  <script src="./renderer.js"></script>
+	  <script src="./scripts/databaseClient.js"></script>
+	  <script src="scripts/tabs.js"></script>
+    <script src="scripts/includeme.min.js" type="text/javascript"></script>
+    <script src="scripts/target.js"></script>
+    <script src="scripts/process.js"></script>
+    <script src="scripts/home.js"></script>
+    <script src="scripts/database.js"></script>
+    <script src="scripts/documents.js"></script>
+    <script>
+      document.addEventListener('includemeCompleted', function (e) {
+          console.log('All external HTML files have been loaded!');
+		  autocomplete(document.getElementById("patternSearchInput"));
+		  document.getElementById("impDB").click();
+          document.getElementById("processDefaultOpen").click();
+          process_thread_selection();
+          process_change_button();
+          get_back_button();
+      });
+    </script>
   </body>
 </html>

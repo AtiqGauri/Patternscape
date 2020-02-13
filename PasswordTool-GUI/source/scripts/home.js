@@ -1,11 +1,18 @@
-const { starts_with_ignore_case } = require('./scripts/database.js');
+const { starts_with_ignore_case } = require('./scripts/databaseInit.js');
 
 function autocomplete(inp) {
     
     //the autocomplete function takes one arguments,
     //the text field element
     var currentFocus;
-    
+    inp.addEventListener("focus", function(e) {
+        this.parentNode.setAttribute("class", "searchBarContainer focused");
+    });
+    inp.addEventListener("blur", function(e) {
+        setTimeout(() => { this.parentNode.setAttribute("class", "searchBarContainer") }, 200);
+    });
+
+
     //execute a function when someone writes in the text field:
     inp.addEventListener("input", function(e) {
         
@@ -129,5 +136,4 @@ function autocomplete(inp) {
 }
 
 //initiate the autocomplete function
-autocomplete(document.getElementById("patternBar"));
-autocomplete(document.getElementById("selectBar"));
+//autocomplete(document.getElementById("patternBar"));

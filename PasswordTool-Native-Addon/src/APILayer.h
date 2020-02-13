@@ -91,7 +91,7 @@ namespace APILayer {
 			Step 7. all thread(thread_process()) will run concurrently and sends ouput to Resources::results vector
 			Step 8. memory gets released for next file
 	*/
-	void main_program(int numberOfThreads=4, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
+	void main_program(int numberOfThreads=2, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
 		//threads and objects declaration
 		static const unsigned int totalThreads = numberOfThreads;
 		//Creating objects for thread safe executing data processing
@@ -129,26 +129,33 @@ namespace APILayer {
 				file++;
 				continue;
 			}
-
-			//divide file content into equal parts(threadNumber) to parocess
-			//them in multiple threads
-			for (unsigned int i = 0; i < totalThreads; i++) {
-				begint = (i * Resources::rawDataList.size()) / totalThreads;
-				endt = (i + (size_t)1) * Resources::rawDataList.size() / totalThreads;
-				compareThreadObj[i].rawData.reserve(Resources::rawDataList.size() / totalThreads);
-				compareThreadObj[i].rawData.insert(compareThreadObj[i].rawData.begin(), Resources::rawDataList.begin() + begint, Resources::rawDataList.begin() + endt);
-				
-				//process data chunks in multiple threads
-				threads.push_back(thread(&APILayer::thread_process, ref(compareThreadObj[i]), ref(patternThreadObj[i])));
+			if (Resources::rawDataList.size()<20000) {
+				Comparison compareObj; Patterns patternObj;
+				compareObj.rawData.insert(compareObj.rawData.begin(), Resources::rawDataList.begin(), Resources::rawDataList.end());
+				thread_process(compareObj, patternObj);
 			}
+			else
+			{
+				//divide file content into equal parts(threadNumber) to parocess
+				//them in multiple threads
+				for (unsigned int i = 0; i < totalThreads; i++) {
+					begint = (i * Resources::rawDataList.size()) / totalThreads;
+					endt = (i + (size_t)1) * Resources::rawDataList.size() / totalThreads;
+					compareThreadObj[i].rawData.reserve(Resources::rawDataList.size() / totalThreads);
+					compareThreadObj[i].rawData.insert(compareThreadObj[i].rawData.begin(), Resources::rawDataList.begin() + begint, Resources::rawDataList.begin() + endt);
 
-			//join threads to main thread
-			for (unsigned int j = 0; j < totalThreads; j++) {
-				threads[j].join();
+					//process data chunks in multiple threads
+					threads.push_back(thread(&APILayer::thread_process, ref(compareThreadObj[i]), ref(patternThreadObj[i])));
+				}
+
+				//join threads to main thread
+				for (unsigned int j = 0; j < totalThreads; j++) {
+					threads[j].join();
+				}
+
+				//clear thread vector for next iteration
+				threads.clear();
 			}
-
-			//clear thread vector for next iteration
-			threads.clear();
 			
 			//write output in a file 
 			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + Constants::outputFileName);

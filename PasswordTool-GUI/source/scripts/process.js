@@ -1,9 +1,80 @@
+function openProcessTabs(evt, tabName) {
+    var i, processTabContent, processTabLinks;
+    processTabContent = document.getElementsByClassName("processTabContent");
+    for (i = 0; i < processTabContent.length; i++) {
+        processTabContent[i].style.display = "none";
+    }
+    processTabLinks = document.getElementsByClassName("processTabLinks");
+    for (i = 0; i < processTabLinks.length; i++) {
+        processTabLinks[i].className = processTabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function process_thread_selection(){
+    var elem = document.querySelector('input[type="range"]');
+    var rangeValue = function(){
+    var newValue = elem.value;
+    var target = document.getElementById("valueLabel");
+    target.innerHTML = newValue;
+    }
+    elem.addEventListener("input", rangeValue);
+}
+
+var analyseOrStats = false;
+function changeAnalyseToStats(){
+    var arrowClass = document.getElementById("changeUserTypes");
+    var analyseElement = document.getElementById("processRawData");
+    var statElement = document.getElementById("statsGeneration");
+
+    if(analyseOrStats==true){
+        analyseOrStats=false;
+    }else{
+        analyseOrStats= true;
+    }
+
+    if(analyseOrStats!=true){
+        arrowClass.style.backgroundColor = "#78126A";
+        analyseElement.style.display = "block";
+        statElement.style.display = "none";
+    }else{
+        arrowClass.style.backgroundColor = "#E86135";
+        statElement.style.display = "block";
+        analyseElement.style.display = "none";
+
+    }
+}
+
+function process_change_button(){
+    document.getElementById("changeUserTypes").onmouseover = function() {
+        if(analyseOrStats!=true){
+            this.style.backgroundColor = "#E86135";
+        }else{
+            this.style.backgroundColor = "#78126A";
+        }
+    }
+    document.getElementById("changeUserTypes").onmouseout = function() {
+        if(analyseOrStats!=true){
+            this.style.backgroundColor = "#78126A";
+        }else{
+            this.style.backgroundColor = "#E86135";
+        }
+    }
+}
+
+
+
 //variable for web workers
 var worker1; var worker2; var targetPasswordWorker;
 //variables to check worker status
 var bAnalyzer = true;
 var bTarget = true;
 
+
+/**********************************************************************************************
+ * Analyze process worker functionality
+ **********************************************************************************************/
 /**
  * Function to call C++ addon api into a separate thread
  * This function will detect patterns out of raw email and passwords
@@ -15,14 +86,11 @@ function analyze_passwords_emails(){
 	if(bAnalyzer){
 		bAnalyzer = false;
 		
-		//reflect that process is started
-		document.getElementById('statusAnalyze').innerHTML = ('<p style="color:yellow;">Processing</p>');
-
 		//initalizing web worker
 		worker1 = new Worker('threadWorkers/analyzationWorker.js')
 		
 		//get user given thread number from GUI
-		var threadNumber = document.getElementById('analyzeThreads').value;
+		var threadNumber = document.getElementById('threadSelectorInput').value;
 		
 		//pass thread number to web worker
 		worker1.postMessage(threadNumber);
@@ -34,8 +102,6 @@ function analyze_passwords_emails(){
 			console.log("worker1 : ", event.data);
 			worker1.terminate();  
 
-			//update process status in GUI and make alert sound
-			document.getElementById('statusAnalyze').innerHTML = ('<p style="color:Green;">Completed</p>');
 			shell.beep();
 			
 			//set process status variable
@@ -43,6 +109,11 @@ function analyze_passwords_emails(){
 
 			//This function is defined in renderer.js to list all files in Output folder 
 			output_of_analyzing();
+
+			setTimeout(function(){ 
+				//direct user to generate stats after 2 seconds
+				document.getElementById("changeUserTypes").click();
+			}, 2000);
 		};
 
 		//handle exception or error thrown by web worker
@@ -56,26 +127,26 @@ function analyze_passwords_emails(){
  * stop analyzation process if required
  */
 function stop_analyze_passwords_emails(){
-	
-	//terminate webworker
-	worker1.terminate();
 
-	//set it to undefined
-	worker1 = undefined;
+    if(worker1!=undefined){
+        //terminate webworker
+        worker1.terminate();
 
-	//reflect status in GUI
-	document.getElementById('statusAnalyze').innerHTML = ('<p style="color:red;">Stopped</p>');
+        //set it to undefined
+        worker1 = undefined;
+    }
 }
 
+
+/**********************************************************************************************
+ * statistics process worker functionality
+ **********************************************************************************************/
 /**
  * Function to call C++ addon api into a separate thread
  * This function will categories all the patterns and their respective datafiles.
  * Then it will store all categorized pattern into a single file with their datafile addresses and popularity.
  */
 function generate_statistics(){
-	
-	//reflect that process is started
-	document.getElementById('statusStats').innerHTML = ('<p style="color:yellow;">Processing</p>');
 	
 	//Initialize web worker
 	worker2 = new Worker('threadWorkers/statisticsWorker.js')
@@ -87,12 +158,16 @@ function generate_statistics(){
 		console.log("worker2 : ", event.data);
 		worker2.terminate();
 
-		//update process status in GUI and make alert sound
-		document.getElementById('statusStats').innerHTML = ('<p style="color:Green;">Completed</p>');
 		shell.beep();
 
 		//This function is defined in renderer.js to list all files in Output folder 
 		output_of_stats_generator();
+
+		//direct user to import data window after 3 seconds
+		setTimeout(function(){ 
+			document.getElementById("databaseTabButton").click();
+			document.getElementById("impDB").click();
+		}, 3000);
 	};
 
 	//handle exception or error thrown by web worker
@@ -106,16 +181,19 @@ function generate_statistics(){
  */
 function stop_generate_statistics(){
 	
-	//terminate webworker
-	worker2.terminate();
+    if(worker2!=undefined){
+        //terminate webworker
+        worker2.terminate();
 
-	//set it to undefined
-	worker2 = undefined;
-
-	//reflect status in GUI
-	document.getElementById('statusStats').innerHTML = ('<p style="color:red;">Stopped</p>');
+        //set it to undefined
+        worker2 = undefined;
+    }
 }
 
+
+/**********************************************************************************************
+ * single user target worker functionality
+ **********************************************************************************************/
 /**
  * Function to process a single password and generate/display patterns out of it.
  * @param {string} password patterns are gonna be detected by processing this password 
@@ -129,9 +207,6 @@ function target_password_patterns(password, email){
 		//process started in background
 		bTarget = false;
 
-		//reflect that process has started
-		document.getElementById("statusPassword").innerHTML = ('<p style="color:yellow;">Processing</p>');
-
 		//Initialize web worker
 		targetPasswordWorker = new Worker('threadWorkers/targetPasswordWorker.js');
 
@@ -144,8 +219,7 @@ function target_password_patterns(password, email){
 			//print web worker acknowledgment then terminate it
 			targetPasswordWorker.terminate();
 
-			//update process status in GUI and make alert sound
-			document.getElementById("statusPassword").innerHTML = ('<p style="color:Green;">Completed</p>');
+			//update process status, make alert sound
 			shell.beep();
 
 			//now user is free to process again

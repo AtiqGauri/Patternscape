@@ -1,0 +1,653 @@
+p {
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/*******************DATABASE TAB STRUCTURE START*********************/
+.databaseTabContainer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+}
+
+
+.databaseUpperBox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.databaseButtons{
+    position: absolute;
+    height: 14%;
+    width: 98%;
+    top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: transparent;
+}
+
+.databaseButtons div{
+    padding: 0.8%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    width: fit-content;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    border-radius: 10px;
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 255), 12px 12px 30px rgba(0, 0, 0, 0.15);
+    
+    background-color: transparent;
+
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 2.3vh;
+    user-select: none;
+}
+
+.databaseButtons div:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.databaseButtons div.active{
+    
+    box-shadow: inset -6px -6px 8px rgb(255, 255, 255),
+                    inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.databaseOperation{
+    position: absolute;
+    height: 80%;
+    width: 98%;
+    bottom: 2%;
+    color: black;
+    background-color: transparent;
+    
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.databaseLowerBox{
+    position: relative;
+    display: flex;
+}
+
+/*******************DATABASE TAB STRUCTURE END*********************/
+
+
+/******************IMPORT DATABASE START**********************/
+.impDB{
+    color: #B94955;
+}
+#importDB{
+    position: absolute;
+    margin-left: 2%;
+    margin-top: 3%;
+    padding: 1.5%;
+    width: fit-content;
+
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 4.4vh;
+    user-select: none;
+}
+.impDataText{
+    margin-left: 2%;
+    margin-top: 3%;
+    font-size: 2vh;
+    word-spacing: 2px;
+    line-height: 1.5;
+}
+.impDataHeading{
+    color: #B94955;
+}
+.impDataText{
+    color: grey;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.importDbButtons{
+    margin-top: 7%;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    color: #B94955;
+
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 2.5vh;
+    user-select: none;
+}
+
+.importDbStart{
+    position: absolute;
+    padding: 2%;
+    text-align: center;
+    
+    width: 18%;
+    top: 100%;
+    left: 3%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.importDbStart:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.importDbStop{
+    position: absolute;
+    padding: 2%;
+    text-align: center;
+    
+    width: 18%;
+    top: 100%;
+    left: 30%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.importDbStop:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.importDbResult{
+    display: none;
+    position: absolute;
+    padding: 1%;
+    width: 60%;
+    left: 90%;
+    top: 50%;
+    text-align: center;
+
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 75%;
+    user-select: none;
+}
+.importDbAdded{
+    color: #4CBB17;
+}
+.importDbDuplicates{
+    color: #AE1100;
+}
+.importDbTotal{
+    color: #6A9BD8;
+}
+
+.impDbFolder{
+    position: absolute;
+    background-color: transparent;
+    left: 99.3%;
+    top: 105%;
+    width: 50%;
+    height: 50%;
+    font-style: light;
+    font-weight: 900;
+    font-size: 1vh;
+}
+.impInputFolder{
+    position: absolute;
+    margin-top: 3.5%;
+    margin-left: 37%;
+    padding: 7.6%;
+    width: 73.5%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: #B94955;
+    border-color: grey;
+}
+.impInputFolder:hover{
+    background-color: #B94955;
+    color: #F2F2F2;
+}
+/******************IMPORT DATABASE END**********************/
+
+
+/******************IMPORT DOWNLOADED DATABASE START*********************/
+.impDownDB{
+    color: #5A81AE;
+}
+
+.importDownDBClass{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat;
+    user-select: none;
+}
+
+.impDownTextBox{
+    position: absolute;
+    margin-top: 4%;
+    background-color: transparent;
+    padding-left: 2%;
+    width: 50%;
+    height: 50%;
+}
+.impDownTextHead{
+    margin-bottom: 2%;
+    color: #5A81AE;
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.4vh;
+}
+.impDownText{
+    padding-left: 1%;
+    color: grey;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-style: light;
+    font-size: 2vh;
+}
+
+.impDownButtons{
+    position: absolute;
+    background-color: transparent;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    color: #5A81AE;
+    left: 0%;
+    bottom: 0%;
+    width: 50%;
+    height: 50%;
+    font-weight: 600;
+    font-size: 2.5vh;
+}
+.importDownStart{
+    position: absolute;
+    padding: 2.3%;
+    text-align: center;
+    
+    width: 20%;
+    top: 30%;
+    left: 7%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.importDownStart:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.importDownStop{
+    position: absolute;
+    padding: 2.3%;
+    text-align: center;
+    
+    width: 20%;
+    top: 30%;
+    left: 37%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.importDownStop:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.impDownResults{
+    position: absolute;
+    background-color: transparent;
+    right: 0%;
+    top: 0%;
+    width: 50%;
+    height: 50%;
+    font-style: light;
+    font-weight: 900;
+    font-size: 2.7vh;
+    user-select: text;
+}
+.impDownResultsDiv{
+    display: none;
+    position: relative;
+    padding: 2%;
+    text-align: center;
+    width: 65%;
+    height: 80%;
+    top: 5%;
+    left: 20%;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.impDownAdded{
+    color: #4CBB17;
+    text-shadow: 0.1px 0.1px 1px rgb(147, 180, 131);
+}
+.impDownDuplicates{
+    color: #AE1100; 
+    text-shadow: 0.1px 0.1px 1px rgb(163, 127, 123);
+}
+.impDownTotal{
+    color: #6A9BD8;
+    text-shadow: 0.1px 0.1px 1px rgb(177, 194, 214);
+}
+
+.impDownDD{
+    position: absolute;
+    background-color: transparent;
+    right: 0%;
+    bottom: 0%;
+    width: 50%;
+    height: 50%;
+    font-style: light;
+    font-weight: 900;
+}
+.impDownInputText{
+    margin-top: 5%;
+    margin-left: 22%;
+    font-size: 2vh;
+    color: #969695;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+.impDownInputFolder{
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 30%;
+    padding: 4%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: #5A81AE;
+    border-color: grey;
+}
+.impDownInputFolder:hover{
+    background-color: #5A81AE;
+    color: #F2F2F2;
+}
+/******************IMPORT DOWNLOADED DATABASE END**********************/
+
+
+/******************EXPORT DATABASE START*********************/
+.expDB{
+    color: #499371;
+}
+
+.exportDBClass{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat;
+    user-select: none;
+}
+.exportDBTextBox{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 0%;
+    left: 0%;
+    background-color: transparent;
+}
+.exportDBTextHead{
+    margin-top: 9%;
+    margin-left: 4%;
+    color: #499371;
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.4vh;
+}
+.exportDBText{
+    margin-top: 3%;
+    margin-left: 5%;
+    color: grey;
+    white-space: nowrap;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-style: light;
+    font-size: 2vh;
+}
+
+.exportDBButtons{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 50%;
+    width: 50%;
+    color: #499371;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    font-weight: 600;
+    font-size: 2.5vh;
+    text-shadow: 0.1px 0.1px 1px grey;
+    background-color: transparent;
+}
+.exportDBStart{
+    position: absolute;
+    padding: 2.3%;
+    text-align: center;
+    
+    width: 20%;
+    top: 30%;
+    left: 7%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.exportDBStart:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.exportDBStop{
+    position: absolute;
+    padding: 2.3%;
+    text-align: center;
+    
+    width: 20%;
+    top: 30%;
+    left: 37%;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.exportDBStop:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.expResults{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    height: 50%;
+    width: 50%;
+    background-color: transparent;
+    font-style: light;
+    font-weight: 900;
+    font-size: 2.7vh;
+    user-select: text;
+}
+.expResultsDiv{
+    display: none;
+    position: absolute;
+    top:20%;
+    left: 20%;
+    width: 70%;
+    height: 45%;
+    padding: 2%;
+    text-align: center;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.expTotal{
+    position: relative;
+    top: 34%;
+    color: #6A9BD8;
+}
+
+.expFolderDiv{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    height: 50%;
+    width: 50%;
+    background-color: transparent;
+}
+.expFolder{
+    position: absolute;
+    top: 34%;
+    left: 30%;
+    padding: 4%;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: #499371;
+    border-color: grey;
+    font-style: light;
+    font-weight: 900;
+    font-size: 2.5vh;
+}
+.expFolder:hover{
+    background-color: #499371;
+    color: #F2F2F2;
+}
+/******************EXPORT DATABASE END**********************/
+
+
+/******************DELETE DATABASE START*********************/
+.dataDeletion{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    text-shadow: 0.1px 0.1px 1px black;
+    user-select: none;
+}
+
+.deleteWarning{
+    padding: 3%;
+    position: relative;
+    background-color: #F2F2F2;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    font-family: Montserrat;
+
+}
+
+.deleteIconWrapper{
+    position: relative;
+    height: 10vh;
+    width: 10vh;
+    margin-right: 4%;
+    border-radius: 10px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+}
+
+.deleteIconActive{
+    background-color: #f9a825;
+}
+
+.deleteIcon{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+}
+
+
+.deleteWarningText{
+    font-size: 2vh;
+    color: grey;
+    word-spacing: 2px;
+    line-height: 1.4;
+}
+
+.deleteButton{
+    margin-top: 3%;
+    padding: 2%;
+    width: 59.5%;
+    text-align: center;
+    background-color: #F2F2F2;
+    
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    letter-spacing: 1px;
+    word-spacing: 6px;
+    font-family: Montserrat;
+    letter-spacing: 1.2px;
+    word-spacing: 3px;
+    font-weight: 900;
+    font-size: 2vh;
+    color: grey;
+}
+.deleteButton:hover{
+    background-color: #AE1100;
+    color: white;
+}
+/******************DELETE DATABASE END**********************/
+
+
+/******************PERSIST DATABASE START*********************/
+.dataPersistance{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    font-family: Montserrat;
+    text-shadow: 0.1px 0.1px 1px black;
+    user-select: none;
+}
+
+.persistanceText{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 56%;
+    word-spacing: 2px;
+    line-height: 1.4;
+
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    font-weight: 500;
+    font-size: 2vh;
+    color: grey;
+}
+
+.availableQuota{
+    margin-top: 1%;
+    font-weight: 900;
+    text-shadow: 0.1px 0.1px 1px gainsboro;
+    color: #499371;
+}
+
+.persistanceButton{
+    margin-top: 3%;
+    padding: 2%;
+    width: 62%;
+    text-align: center;
+    background-color: #F2F2F2;
+
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    font-size: 2vh;
+    letter-spacing: 1px;
+    word-spacing: 6px;
+    color: grey;
+}
+.persistanceButton:hover{
+    background-color: #4CBB17;
+    color: white;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+/******************PERSIST DATABASE END*********************/
