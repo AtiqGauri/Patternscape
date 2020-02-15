@@ -8,6 +8,7 @@ var worker;
  * Function to import data processed by backend (stats) into app database
  */
 function database_worker_client(){
+    document.getElementById("progressAnimation").style.display = "block";
 
     //initialize web worker
     worker = new Worker('threadWorkers/databaseWorker.js')
@@ -18,8 +19,26 @@ function database_worker_client(){
         //terminate worker
         worker.terminate();
         
-        //reflect status to GUI
-        //document.getElementById('statusDatabase').innerHTML = (event.data);
+        console.log(event.data);
+
+        var newlyAdded = document.getElementById("importDbAdded");
+        var duplicates = document.getElementById("importDbDuplicates");
+        var totalRecords = document.getElementById("importDbTotal");
+        importExportDB.get_database_count().then(function(total) {
+            //reflect status to GUI
+            results = document.getElementById("importDbResult");
+            newlyAdded.innerHTML = 'Newly added records: ' + event.data.substring(0, event.data.indexOf(","));
+            duplicates.innerHTML = 'Duplicates( ignored ): ' + event.data.substring(event.data.indexOf(",") + 1);
+            totalRecords.innerHTML = 'Total Records: ' + total;
+            
+            document.getElementById("progressAnimation").style.display = "none";
+            
+            results.style.display = "block";
+            //hide results after certain seconds
+            setTimeout(function(){ 
+                results.style.display = "none";
+            }, 6000);
+        });
     };
 
     //handle exception or error thrown by web worker
@@ -33,8 +52,23 @@ function database_worker_client(){
  * check importExportDatabase.js script for working process
  */
 function database_export_client(){
+    document.getElementById("progressAnimation").style.display = "block";
     //call export function to import export script
     importExportDB.export_database();
+    var totalRecords = document.getElementById("expTotal");
+    importExportDB.get_database_count().then(function(total) {
+        //reflect status to GUI
+        results = document.getElementById("expResultsDiv");
+        totalRecords.innerHTML = 'Exported Records: ' + total;
+        
+        document.getElementById("progressAnimation").style.display = "none";
+        
+        results.style.display = "block";
+        //hide results after certain seconds
+        setTimeout(function(){ 
+            results.style.display = "none";
+        }, 6000);
+    });
 }
 
 /**
@@ -42,8 +76,30 @@ function database_export_client(){
  * check importExportDatabase.js script for working process
  */
 function database_import_client(){
-    //call import function to import export script
-    importExportDB.import_database();
+    document.getElementById("progressAnimation").style.display = "block";
+    
+    var newlyAdded = document.getElementById("impDownAdded");
+    var duplicates = document.getElementById("impDownDuplicates");
+    var totalRecords = document.getElementById("impDownTotal");
+    //reflect status to GUI
+    results = document.getElementById("impDownResultsDiv");
+
+    importExportDB.get_database_count().then(function(total1) {
+        console.log(total1);
+        //call import function to import export script
+        importExportDB.get_database_count().then(function(total2){
+            newlyAdded.innerHTML = 'Newly added records: ' + (total2-total1);
+            totalRecords.innerHTML = 'Total Records: ' + total2;
+            
+            document.getElementById("progressAnimation").style.display = "none";
+            
+            results.style.display = "block";
+            //hide results after certain seconds
+            setTimeout(function(){ 
+                results.style.display = "none";
+            }, 6000);
+        });
+    });
 }
 
 

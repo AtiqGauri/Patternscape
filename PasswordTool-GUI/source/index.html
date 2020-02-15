@@ -48,7 +48,7 @@
 		  <div id="documentTab" class="tabContent documentContent">
 			<includeme src="htmls/documents.html"></includeme>
 		  </div>
-		  <includeme src="./assets/images/animationSVG.html"></includeme>
+		  <includeme src="assets/images/animationSVG.html"></includeme>
 		</section>
 	  </main>
 	  <!-- renderer.js will handle system call like opening default text editor -->
@@ -65,7 +65,7 @@
       document.addEventListener('includemeCompleted', function (e) {
           console.log('All external HTML files have been loaded!');
 		  autocomplete(document.getElementById("patternSearchInput"));
-		  document.getElementById("impDB").click();
+		  document.getElementById("expDB").click();
           document.getElementById("processDefaultOpen").click();
           process_thread_selection();
           process_change_button();

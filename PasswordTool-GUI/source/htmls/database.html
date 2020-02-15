@@ -20,10 +20,10 @@
                 <div class="importDbStart" onclick="database_worker_client()">Import</div>
                 <div class="importDbStop" onclick="">Stop</div>
               </div>
-              <div class="importDbResult">
-                <p class="importDbAdded">Newly added records: 14223649</p>
-                <p class="importDbDuplicates">Duplicates( ignored ): 555544</p>
-                <p class="importDbTotal">Total Records: 44411154778</p>
+              <div class="importDbResult" id="importDbResult">
+                <p class="importDbAdded" id="importDbAdded">Newly added records: 14223649</p>
+                <p class="importDbDuplicates" id="importDbDuplicates">Duplicates( ignored ): 555544</p>
+                <p class="importDbTotal" id="importDbTotal">Total Records: 44411154778</p>
               </div>
               <div class="impDbFolder">
                 <label class="impInputFolder" onclick="output_of_stats_generator()">DATABASE INPUT FOLDER</label>
@@ -48,10 +48,10 @@
                 <label class="impDownInputFolder" onclick="database_import_export_folder()">DATABASE INPUT FOLDER</label>
               </div>
               <div class="impDownResults">
-                <div class="impDownResultsDiv">
-                  <p class="impDownAdded">Newly added records: 14223649</p>
-                  <p class="impDownDuplicates">Duplicates( ignored ): 555544</p>
-                  <p class="impDownTotal">Total Records: 44411154778</p>
+                <div class="impDownResultsDiv" id="impDownResultsDiv">
+                  <p class="impDownAdded" id="impDownAdded">Newly added records: 14223649</p>
+                  <!--<p class="impDownDuplicates" id="impDownDuplicates">Duplicates( ignored ): 555544</p>-->
+                  <p class="impDownTotal" id="impDownTotal">Total Records: 44411154778</p>
                 </div>
               </div>
             </div>
@@ -69,8 +69,8 @@
                 <div class="exportDBStop" onclick="">Stop</div>
               </div>
               <div class="expResults">
-                <div class="expResultsDiv">
-                  <p class="expTotal">Exported Records: 44411154778</p>
+                <div class="expResultsDiv" id="expResultsDiv">
+                  <p class="expTotal" id="expTotal">Exported Records: 44411154778</p>
                 </div>
               </div>
               <div class="expFolderDiv">

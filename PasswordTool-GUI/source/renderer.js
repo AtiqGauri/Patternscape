@@ -149,6 +149,7 @@ function pattern_lookup(){
 			shell.beep();
 		}
 	});
+	document.getElementById("patternSearchInput").value = '';
 }
 
 /**

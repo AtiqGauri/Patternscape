@@ -47,7 +47,7 @@ database.transaction('rw', database.Patterns, async () => {
   }
 }).then(function(){
   //pass successful and unsuccessful records number to main thread.
-  postMessage("Duplicates " + duplicates.toString() + " Added " + addedRecords.toString());//use when you are using a web worker
+  postMessage(addedRecords.toString() + "," + duplicates.toString());//use when you are using a web worker
 }).catch(error => {
   console.error(error);
 });

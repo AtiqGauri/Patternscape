@@ -16,7 +16,7 @@ function createWindow () {
       nativeWindowOpen: true,
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
-      webSecurity: false,
+      //webSecurity: false,
       //contextIsolation: false,
       //allowRunningInsecureContent: true,
       //experimentalFeatures: true,

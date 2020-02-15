@@ -6,12 +6,14 @@
             * Here you can get patterns detected in a single password.</br>
         </p>
         <div class="singleUserInput">
-            <input class="singleUserEmail" type="email" placeholder=" " id="singleUserEmail">
-            <label class="singleUserEmailLabel">Email (Optional)</label>
-            <input class="singleUserPassword" type="text" placeholder=" " id="singleUserPassword">
-            <label class="singleUserPasswordLabel">*Password</label>
+            <form id="singleUserForm">
+                <input class="singleUserEmail" type="email" placeholder=" " id="singleUserEmail">
+                <label class="singleUserEmailLabel">Email (Optional)</label>
+                <input class="singleUserPassword" type="text" placeholder=" " id="singleUserPassword" required>
+                <label class="singleUserPasswordLabel">*Password</label>
+            </form>
         </div>
-        <div class="singleUserSubmit" onclick="catch_target_password()">Detect Patterns</div>
+        <div class="singleUserSubmit" onclick="singleUserForm()">Detect Patterns</div>
         <iframe class="singleUserOutput" src="htmls/singlePasswordPatterns.html"></iframe>
     </div>
     <div class="multiUserTab processTabContent" id="multiUserTabID">

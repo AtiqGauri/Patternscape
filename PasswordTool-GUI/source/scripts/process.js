@@ -63,7 +63,19 @@ function process_change_button(){
     }
 }
 
-
+function singleUserForm(){
+	targetForm = document.getElementById("singleUserForm");
+    // Form is invalid!
+    if (!targetForm.checkValidity()) {
+        // Create the temporary button, click and remove it
+        var tmpSubmit = document.createElement('button');
+        targetForm.appendChild(tmpSubmit);
+        tmpSubmit.click();
+        targetForm.removeChild(tmpSubmit);
+    }else{
+        catch_target_password();
+    }
+}
 
 //variable for web workers
 var worker1; var worker2; var targetPasswordWorker;
@@ -81,6 +93,7 @@ var bTarget = true;
  * check out documentation or c++ code for more information
  */
 function analyze_passwords_emails(){
+	document.getElementById("progressAnimation").style.display = "block";
 	
 	//if process is not executing already
 	if(bAnalyzer){
@@ -107,6 +120,7 @@ function analyze_passwords_emails(){
 			//set process status variable
 			bAnalyzer = true;
 
+			document.getElementById("progressAnimation").style.display = "none";
 			//This function is defined in renderer.js to list all files in Output folder 
 			output_of_analyzing();
 
@@ -147,7 +161,8 @@ function stop_analyze_passwords_emails(){
  * Then it will store all categorized pattern into a single file with their datafile addresses and popularity.
  */
 function generate_statistics(){
-	
+	document.getElementById("progressAnimation").style.display = "block";
+
 	//Initialize web worker
 	worker2 = new Worker('threadWorkers/statisticsWorker.js')
 
@@ -160,6 +175,7 @@ function generate_statistics(){
 
 		shell.beep();
 
+		document.getElementById("progressAnimation").style.display = "none";
 		//This function is defined in renderer.js to list all files in Output folder 
 		output_of_stats_generator();
 
