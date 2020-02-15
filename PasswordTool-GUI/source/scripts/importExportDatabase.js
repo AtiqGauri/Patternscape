@@ -45,6 +45,7 @@ var export_database = async function export_database(){
  */
 var import_database = async function import_database(){
     console.log("Importing Database");
+    var lineCount = 0;
     const stream = fileSystem.createReadStream("data/Database/ExportedDatabase.json");
     const blob = await toBlob(stream);
     try{
@@ -142,10 +143,15 @@ var init_storage_persistence = async function init_storage_persistence() {
   }
 }
 
+async function get_database_count(){
+  return await database.table('Patterns').count();
+}
+
 module.exports = {
     export_database,
     import_database,
     init_storage_persistence,
     is_storage_persisted,
     show_estimated_quota,
+    get_database_count,
 }

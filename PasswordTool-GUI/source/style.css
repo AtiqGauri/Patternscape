@@ -152,21 +152,3 @@ body {
     height: 100%;
 }
 /****************DOCUMENTS TAB END********************/
-
-
-
-.progressAnimation{
-    display: none;
-    position: relative;
-    left: 35%;
-    top: 15%;
-    height: 80%;
-    width: 20%;
-    
-    user-select: none;
-    z-index: 10;
-}
-
-.gegga{
-    background-size: 500px 500px;
-}

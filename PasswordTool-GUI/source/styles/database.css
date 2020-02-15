@@ -161,16 +161,18 @@ p {
 .importDbResult{
     display: none;
     position: absolute;
-    padding: 1%;
-    width: 60%;
-    left: 90%;
-    top: 50%;
+    padding: 3% 4% 3% 4%;
+    width: fit-content;
+    left: 105%;
+    top: 5%;
     text-align: center;
 
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     font-family: Montserrat;
     font-weight: 600;
     font-size: 75%;
+    line-height: 1.5;
+    letter-spacing: 1px;
     user-select: none;
 }
 .importDbAdded{
@@ -299,13 +301,14 @@ p {
 .impDownResults{
     position: absolute;
     background-color: transparent;
-    right: 0%;
-    top: 0%;
-    width: 50%;
-    height: 50%;
+    left: 42%;
+    top: 10%;
+    width: 60%;
     font-style: light;
     font-weight: 900;
-    font-size: 2.7vh;
+    font-size: 3vh;
+    line-height: 1.5;
+    letter-spacing: 1px;
     user-select: text;
 }
 .impDownResultsDiv{

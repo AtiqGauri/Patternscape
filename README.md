@@ -15,4 +15,4 @@ npm start
 ```
 
 
-<img src="Screenshot.png">
+<img src="screenshot.gif">
