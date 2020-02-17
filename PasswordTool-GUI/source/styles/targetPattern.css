@@ -1,84 +1,79 @@
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat Regular'), local('Montserrat-Regular'),
-         url('../assets/fonts/montserrat-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../assets/fonts/montserrat-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+html, body{margin:0px; padding:0px;
+    background-color: #F2F2F2;
 }
-
-body{
-    background-color: black;
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Thin.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Bold.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Medium.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 #passwordString {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 5vh;
 
-    padding-left: 20px;
-
-    color: white;
+    padding-left: 2.7vh;
+    
+    color: #B94955;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
 }
 
 #generatedPatterns {
     display: grid;
-    grid-template-columns: max-content auto;
-    margin: 20px;
-    margin-right: 100px;
+    grid-template-columns: auto auto;
+    grid-column-gap: 2vh;
+    margin: 2.7vh;
     color: white;
 }
 
 ul{
-    margin: 35px;
+    margin: 4vh;
 }
 
 li {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 3.5vh;
     grid-column-start: auto;
     width: fit-content;
 
-    color: #37EFBA;
-    padding: 20px;
-    margin: 25px;
-    border-radius: 12px;
-    background-color: #04052E;
-
-    
-}
-
-li:before {
-    content: '\2022';
-    color: #F5085E;
-    padding-right: 0.5em;
+    color: #24C981;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    padding: 3.5vh 3.7vh 3.5vh 3.7vh;
+    margin: 3vh;
+    border-radius: 11px;
+    background-color: #f2f2f2;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 dt {
-    font-size: 25px;
+    font-size: 3vh;
     
-    padding: 10px;
-    padding-left: 15px;
-    margin: 4px;
-    border-radius: 18px;
+    padding: 1.5vh;
+    padding-left: 2vh;
+    margin: 0.4vh;
+    border-radius: 11px;
     width: auto;
-    color: #F2D184;
-    background-color: black;
+    color: #f9a825;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 dd {
-    font-size: 23px;
+    font-size: 2.7vh;
     overflow: hidden;
-    margin-top: 3px;
-    margin-bottom: 30px;
-    padding: 6px;
-    padding-left: 10px;
-    padding-right: 40px;
-    border-radius: 25px;
+    margin-top: 0.3vh;
+    margin-bottom: 3.5vh;
+    padding: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 4vh;
+    border-radius: 3vh;
     width: fit-content;
-    color: #F5085E;
-    background-color: #04052E;
+    color: grey;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
 }

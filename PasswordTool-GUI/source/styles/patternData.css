@@ -1,32 +1,39 @@
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat Regular'), local('Montserrat-Regular'),
-         url('../assets/fonts/montserrat-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../assets/fonts/montserrat-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+html, body{margin:0px; padding:0px;
+    background-color: #F2F2F2;
 }
-
-body {
-    background-color: black;
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Thin.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Bold.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Medium.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 #patternText{
+    padding-left: 5%;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: light;
     font-size: 35px;
-
-    color: white;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: grey;
+    text-shadow: 1px 1px rgba(255, 255, 255, 1);
 }
 
 #popularityText{
+    padding-left: 5%;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: light;
     font-size: 35px;
-
-    color: white;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: #B94955;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
 }
 
 li {
@@ -35,36 +42,33 @@ li {
     font-weight: bold;
     font-size: 30px;
 
-    color: white;
+    color: #5A81AE;
     padding: 20px;
-    margin: 20px;
-    border-radius: 20px;
-    background-color: #04052E;
-}
-
-li:before {
-    content: '\2022';
-    color: #F5085E;
-    padding-right: 0.5em;
+    margin: 40px;
+    border-radius: 11px;
+    background-color: #F2F2F2;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 dt {
     font-size: 27px;
     padding: 10px;
-    padding-left: 15px;
+    padding-left: 20px;
     margin: 8px;
+    width: 93%;
     border-radius: 15px;
     color: #FF6416;
-    background-color: #240A3A;
+    background-color: #F2F2F2;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 dd {
     font-size: 23px;
     overflow: hidden;
     padding: 4px;
-    padding-left: 10px;
     margin-bottom: 35px;
     border-radius: 10px;
-    color: #F5085E;
-    background-color: #04052E;
+    color: grey;
+    text-shadow: 1px 1px rgba(255, 255, 255, 1);
+    background-color: #F2F2F2;
 }

@@ -1,32 +1,32 @@
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat Regular'), local('Montserrat-Regular'),
-         url('../assets/fonts/montserrat-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../assets/fonts/montserrat-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+html, body{margin:0px; padding:0px;
+    background-color: #F2F2F2;
 }
-
-body{
-    background-color: black;
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Thin.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Bold.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Medium.ttf) format("truetype");
+    src: url(../assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 #suggestionList {
     font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
+    font-style: light;
+    font-weight: 600;
     font-size: 35px;
 
     margin: 20px;
     margin-right: 60px;
-    color: white;
+    color: #F2F2F2;
 }
 
 li{
     margin: 25px;
     padding: 20px;
     border-radius: 12px;
-    background-color: #193872;
+    background-color: #F2F2F2;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 dt {
@@ -34,9 +34,10 @@ dt {
     padding: 10px;
     padding-left: 15px;
     margin: 8px;
-    border-radius: 18px;
-    color: #04052E;
-    background-color: #F5085E;
+    border-radius: 11px;
+    color: #5A81AE;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 dd {
@@ -45,9 +46,16 @@ dd {
     padding: 10px;
     padding-right: 40px;
     padding-left: 15px;
-    border-radius: 25px;
+    border-radius: 11px;
     width: min-content;
 
+    color: #F2D184;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+dd:hover{
+    background-color: rgb(238, 184, 59);
     color: black;
-    background-color: #F2D184;
+    box-shadow: -2px -2px 3px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }

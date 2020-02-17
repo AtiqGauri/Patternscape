@@ -55,6 +55,8 @@ ipc.on('message', (event, patternString, fileAddress) => {
         
         //reflect password
         li.innerHTML = 'Password: ' + splitter[0];
+        li.style.padding = "2% 0% 2% 3%";
+        li.style.textShadow = "1px 1px 1px rgba(255, 255, 255, 1)";
         
         //Create ul element, this will contain all the detected parts of password.
         ul = document.createElement('ul');
