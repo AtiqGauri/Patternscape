@@ -49,10 +49,13 @@ while(line = liner.next()){
 
     //enter pattern data
     pattern.innerHTML = splitter[0];
+    pattern.style.color = '#B94955';
     //enter popularity data
     popularity.innerHTML = splitter[2];
+    popularity.style.color = '#5A81AE';
     //enter address data
     address.innerHTML = splitter[1];
+    address.style.color = '#f9a825';
     
     //append row into table element
     table.appendChild(tr);
