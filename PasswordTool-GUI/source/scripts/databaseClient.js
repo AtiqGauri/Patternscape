@@ -171,6 +171,6 @@ function database_storage_quota(){
 
     //pass information
     data.then(function(value){
-        console.log('Available storage : '+value.quota + ' Used : ' + value.usage);
+        document.getElementById("availableQuota").innerHTML = 'Using ' + (value.usage / value.quota * 100).toFixed(4)  + '% of Available Quota';
     });
 }

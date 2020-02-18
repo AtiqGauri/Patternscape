@@ -55,22 +55,24 @@
 	  <script src="./renderer.js"></script>
 	  <script src="./scripts/databaseClient.js"></script>
 	  <script src="scripts/tabs.js"></script>
-    <script src="scripts/includeme.min.js" type="text/javascript"></script>
-    <script src="scripts/target.js"></script>
-    <script src="scripts/process.js"></script>
-    <script src="scripts/home.js"></script>
-    <script src="scripts/database.js"></script>
-    <script src="scripts/documents.js"></script>
-    <script>
-      document.addEventListener('includemeCompleted', function (e) {
-          console.log('All external HTML files have been loaded!');
-		  autocomplete(document.getElementById("patternSearchInput"));
-		  document.getElementById("expDB").click();
-          document.getElementById("processDefaultOpen").click();
-          process_thread_selection();
-          process_change_button();
-          get_back_button();
-      });
-    </script>
+	  <script src="scripts/includeme.min.js" type="text/javascript"></script>
+	  <script src="scripts/target.js"></script>
+	  <script src="scripts/process.js"></script>
+	  <script src="scripts/home.js"></script>
+	  <script src="scripts/database.js"></script>
+	  <script src="scripts/documents.js"></script>
+	  <script src="scripts/targetPattern.js"></script>
+	  <script>
+		document.addEventListener('includemeCompleted', function (e) {
+			console.log('All external HTML files have been loaded!');
+			autocomplete(document.getElementById("patternSearchInput"));
+			document.getElementById("expDB").click();
+			document.getElementById("processDefaultOpen").click();
+			process_thread_selection();
+			process_change_button();
+			get_back_button();
+			database_storage_quota();
+		});
+	  </script>
   </body>
 </html>

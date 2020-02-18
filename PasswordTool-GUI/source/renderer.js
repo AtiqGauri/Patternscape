@@ -296,24 +296,10 @@ function catch_target_password(){
 	//get email value
 	var email = document.getElementById("singleUserEmail").value;
 
-	//if password is empty then warn user
-	if(password==''){
-		//show that this wrong enter password
-		console.log("Password is required");
-		return;
-	}
-
 	//if email is empty 
 	if(email == ''){
 		email = "";
-
-		//if email is invalid then warn user
-	}else if(email.indexOf("@") == -1 || email.indexOf(".") == -1){
-		//show that email is invalid
-		console.log("invalid email");
-		return;
 	}
-
 	//when check is passed then call function to process password and generate patterns
 	target_password_patterns(password, email);
 }
@@ -325,7 +311,6 @@ function catch_target_password(){
  * @param {string} detectedData resulted patterns based on password entered by user 
  */
 function process_single_password(detectedData){
-	
 	//create a window to display suggested patterns
 	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
 	targetPasswordWindow.loadFile('./source/htmls/targetPattern.html');
@@ -333,4 +318,5 @@ function process_single_password(detectedData){
 	targetPasswordWindow.webContents.on('did-finish-load', () => {
 		targetPasswordWindow.webContents.send('message', detectedData);
 	});
+
 }
