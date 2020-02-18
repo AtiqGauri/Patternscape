@@ -14,7 +14,10 @@
             </form>
         </div>
         <div class="singleUserSubmit" onclick="singleUserForm()">Detect Patterns</div>
-        <iframe class="singleUserOutput" src="htmls/singlePasswordPatterns.html"></iframe>
+        <!--
+            <webview class="singleUserOutput" src = "htmls/targetPattern.html" id="singleUserOutput" nodeintegration></webview>
+            <iframe class="singleUserOutput" src="htmls/singlePasswordPatterns.html"></iframe>
+        -->
     </div>
     <div class="multiUserTab processTabContent" id="multiUserTabID">
         <div class="processRawData" id="processRawData">
@@ -28,7 +31,7 @@
                 * If you want stop process press "Stop" button.</br>
                 * You can check output in "Processed Data" folder.</br>
                 * After That you need to create statistics of this processed data.</br>
-                * To perform stats generation you will be taken next tab soon...</br>
+                * To perform stats generation you will be taken to next tab soon...</br>
             </p>
             <div class="analyzeStart" onclick="analyze_passwords_emails()">Analyse</div>
             <div class="analyzeStop" onclick="stop_analyze_passwords_emails()">Stop</div>
@@ -42,8 +45,10 @@
             <p class="statsText">
                 * Here we generate statistics auto of analyzed data.</br>
                 * Input will be automatically taken from previous analyzation(if any).</br>
+                * Alternatively add your own stats in "Processed Data" folder. </br>
+                * Data should be in required format else will be ignored.</br>
                 * Press "Statistics" button to start stat generation.</br>
-                * If you want stop process press "Stop" button.</br>
+                * If you want to stop process press "Stop" button.</br>
                 * Finally you can check output in "Generated Stats" folder.</br>
             </p>
             <div class="statsStart" onclick="generate_statistics()">Statistics</div>
@@ -60,7 +65,7 @@
             <img class="arrowIcon" src="assets/icons/arrow.svg">
         </div>
     </div>
-    <div class="multipleProcessButton processTabLinks" onclick="openProcessTabs(event, 'multiUserTabID')"  id="processDefaultOpen">
+    <div class="multipleProcessButton processTabLinks" onclick="openProcessTabs(event, 'multiUserTabID')" id="processDefaultOpen">
         <img class="multiUserIcon" src="assets/icons/process-multiuser.svg"> 
     </div>
     <div class="singleUserButton processTabLinks" onclick="openProcessTabs(event, 'singleUserTabID')">

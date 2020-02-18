@@ -1,5 +1,5 @@
 //to communicate with parent window
-const require = parent.require;
+//const require = parent.require;
 const ipc = require('electron').ipcRenderer;
 
 //require h1 element to reflect password 
