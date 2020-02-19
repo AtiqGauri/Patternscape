@@ -11,7 +11,7 @@
 
 .documentHead{
     position: absolute;
-    top: 2%;
+    top: 10%;
     left: 5%;
     color: #0C2450;
     font-family: Montserrat;
@@ -22,14 +22,13 @@
     word-spacing: 2.5px;
 }
 
-.document1{
+.documents{
     position: absolute;
-    padding: 2% 3% 2% 3%;
-    top: 12%;
-    left: 10%;
-    text-align: center;
+    padding: 1.5% 0% 1.5% 3%;
+    width: 80%;
+    text-align: left;
     border-radius: 11px;
-    border: 2px solid #0C2450;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     color: #0C2450;
     font-family: Montserrat;
     font-style: light;
@@ -37,6 +36,11 @@
     font-weight: 600;
     letter-spacing: 1px;
     word-spacing: 2.5px;
+}
+
+.document1{
+    top: 23%;
+    left: 7%;
 }
 .document1:hover{
     background-color: #0C2450;
@@ -44,20 +48,8 @@
 }
 
 .document2{
-    position: absolute;
-    padding: 2% 3% 2% 3%;
-    top: 30%;
-    left: 10%;
-    text-align: center;
-    border-radius: 11px;
-    border: 2px solid #0C2450;
-    color: #0C2450;
-    font-family: Montserrat;
-    font-style: light;
-    font-size: 2.5vh;
-    font-weight: 600;
-    letter-spacing: 1px;
-    word-spacing: 2.5px;
+    top: 35%;
+    left: 7%;
 }
 .document2:hover{
     background-color: #0C2450;
@@ -65,22 +57,30 @@
 }
 
 .document3{
-    position: absolute;
-    padding: 2% 3% 2% 3%;
-    top: 48%;
-    left: 10%;
-    text-align: center;
-    border-radius: 11px;
-    border: 2px solid #0C2450;
-    color: #0C2450;
-    font-family: Montserrat;
-    font-style: light;
-    font-size: 2.5vh;
-    font-weight: 600;
-    letter-spacing: 1px;
-    word-spacing: 2.5px;
+    top: 47%;
+    left: 7%;
+    
 }
 .document3:hover{
+    background-color: #0C2450;
+    color: #F2F2F2;
+}
+
+.document4{
+    top: 59%;
+    left: 7%;
+}
+.document4:hover{
+    background-color: #0C2450;
+    color: #F2F2F2;
+}
+
+.document5{
+    top: 71%;
+    left: 7%;
+    
+}
+.document5:hover{
     background-color: #0C2450;
     color: #F2F2F2;
 }

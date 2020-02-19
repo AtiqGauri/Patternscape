@@ -3,11 +3,7 @@ html, body{margin:0px; padding:0px;
 }
 @font-face {
     font-family: "Montserrat";
-    src: url(../assets/fonts/Montserrat-Thin.ttf) format("truetype");
-    src: url(../assets/fonts/Montserrat-Bold.ttf) format("truetype");
     src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
-    src: url(../assets/fonts/Montserrat-Medium.ttf) format("truetype");
-    src: url(../assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 #suggestionList {
