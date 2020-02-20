@@ -163,14 +163,14 @@ p {
     position: absolute;
     padding: 3% 4% 3% 4%;
     width: fit-content;
-    left: 105%;
+    left: 116%;
     top: 5%;
     text-align: center;
-
+    border-radius: 11px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     font-family: Montserrat;
     font-weight: 600;
-    font-size: 75%;
+    font-size: 60%;
     line-height: 1.5;
     letter-spacing: 1px;
     user-select: none;
@@ -313,13 +313,16 @@ p {
 }
 .impDownResultsDiv{
     display: none;
+    margin-right: 0% !important;
     position: relative;
-    padding: 2%;
+    padding: 2% 4% 2% 4%;
     text-align: center;
-    width: 65%;
+    width: fit-content;
+    max-width: 65%;
     height: 80%;
     top: 5%;
-    left: 20%;
+    left: 35%;
+    border-radius: 11px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .impDownAdded{
@@ -472,18 +475,21 @@ p {
 .expResultsDiv{
     display: none;
     position: absolute;
-    top:20%;
-    left: 20%;
-    width: 70%;
-    height: 45%;
-    padding: 2%;
+    top:28%;
+    left: 33%;
+    width: fit-content;
+    max-width: 70%;
+    height: 30%;
+    max-height: 45%;
+    padding: 0% 4% 1% 4% !important;
     text-align: center;
+    border-radius: 11px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .expTotal{
     position: relative;
     top: 34%;
-    color: #6A9BD8;
+    color: #499371;
 }
 
 .expFolderDiv{
@@ -654,3 +660,66 @@ p {
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 /******************PERSIST DATABASE END*********************/
+
+
+/****************ALERTS START*****************/
+.databaseImportAlert{
+    margin-top: 20vh;
+    margin-left: 55vw;
+    width: 25vw !important;
+    padding: 2vh 4vh 2vh 4vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+
+.databaseDownloadAlert{
+    margin-top: 18vh;
+    margin-left: 57.5vw;
+    width: 25vw !important;
+    padding: 2vh 4vh 2vh 4vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+
+.databaseExportAlert{
+    margin-top: 18vh;
+    margin-left: 57.5vw;
+    width: 25vw !important;
+    padding: 2vh 4vh 2vh 4vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+
+.databasePersistAlert{
+    margin-top: 71vh;
+    margin-right: 36.8vw;
+    width: 25vw !important;
+    padding: 4vh 5vh 4vh 5vh !important;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+.databaseDeleteAlert{
+    margin-top: 71vh;
+    margin-left: 54vw;
+    width: 25vw !important;
+    padding: 4vh 5vh 4vh 5vh !important;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    text-shadow: none;
+    user-select: none;
+}
+/****************ALERTS END*****************/

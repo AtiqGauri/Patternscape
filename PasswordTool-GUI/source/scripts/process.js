@@ -124,10 +124,8 @@ function analyze_passwords_emails(){
 			//This function is defined in renderer.js to list all files in Output folder 
 			output_of_analyzing();
 
-			setTimeout(function(){ 
-				//direct user to generate stats after 2 seconds
-				document.getElementById("changeUserTypes").click();
-			}, 2000);
+			//direct user to generate stats after 4 seconds
+			moving_forward_to_stats();
 		};
 
 		//handle exception or error thrown by web worker
@@ -179,11 +177,8 @@ function generate_statistics(){
 		//This function is defined in renderer.js to list all files in Output folder 
 		output_of_stats_generator();
 
-		//direct user to import data window after 3 seconds
-		setTimeout(function(){ 
-			document.getElementById("databaseTabButton").click();
-			document.getElementById("impDB").click();
-		}, 3000);
+		//direct user to import data window
+		moving_forward_to_importDB();
 	};
 
 	//handle exception or error thrown by web worker

@@ -1,0 +1,656 @@
+{
+  "formatName": "dexie",
+  "formatVersion": 1,
+  "data": {
+    "databaseName": "PasswordTool",
+    "databaseVersion": 1,
+    "tables": [
+      {
+        "name": "Patterns",
+        "schema": "pattern,address,popularity",
+        "rowCount": 127
+      }
+    ],
+    "data": [{
+      "tableName": "Patterns",
+      "inbound": true,
+      "rows": [
+        {
+          "pattern": "Common1/",
+          "address": "data/Stats/Patterns Data/Common1.txt",
+          "popularity": "7\r"
+        },
+        {
+          "pattern": "Common1/Common2/",
+          "address": "data/Stats/Patterns Data/Common1Common2.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Common2/DOB/",
+          "address": "data/Stats/Patterns Data/Common1Common2DOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Common2/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1Common2Undetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Common3/",
+          "address": "data/Stats/Patterns Data/Common1Common3.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1Common3Undetected.txt",
+          "popularity": "7\r"
+        },
+        {
+          "pattern": "Common1/Name/",
+          "address": "data/Stats/Patterns Data/Common1Name.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1NameUndetected.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Common1/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1Undetected.txt",
+          "popularity": "253\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Common2/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedCommon2.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Common2/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedCommon2Undetected.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Common3/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedCommon3NameUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedCommon3Undetected.txt",
+          "popularity": "14\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Common3/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedCommon3UndetectedMobile.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/DOB/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedDOBUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedLocationUndetected.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedMobile.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedMobileUndetected.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedNameNameUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedNameUndetected.txt",
+          "popularity": "69\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Name/Undetected/Location/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedNameUndetectedLocation.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Name/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedNameUndetectedName.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Undetected/Common3/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedUndetectedCommon3.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Undetected/Location/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedUndetectedLocation.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common1/Undetected/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/Common1UndetectedUndetectedName.txt",
+          "popularity": "8\r"
+        },
+        {
+          "pattern": "Common2/",
+          "address": "data/Stats/Patterns Data/Common2.txt",
+          "popularity": "6\r"
+        },
+        {
+          "pattern": "Common2/DOB/",
+          "address": "data/Stats/Patterns Data/Common2DOB.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common2/Mobile/",
+          "address": "data/Stats/Patterns Data/Common2Mobile.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Common2/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2NameUndetected.txt",
+          "popularity": "8\r"
+        },
+        {
+          "pattern": "Common2/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2Undetected.txt",
+          "popularity": "236\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedCommon3Undetected.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedLocationUndetected.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedMobile.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedMobileUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedName.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedNameNameUndetected.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedNameUndetected.txt",
+          "popularity": "21\r"
+        },
+        {
+          "pattern": "Common2/Undetected/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/Common2UndetectedUndetectedName.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Common3/",
+          "address": "data/Stats/Patterns Data/Common3.txt",
+          "popularity": "10\r"
+        },
+        {
+          "pattern": "Common3/Mobile/",
+          "address": "data/Stats/Patterns Data/Common3Mobile.txt",
+          "popularity": "12\r"
+        },
+        {
+          "pattern": "Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/Common3Undetected.txt",
+          "popularity": "127\r"
+        },
+        {
+          "pattern": "Common3/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/Common3UndetectedDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Common3/Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/Common3UndetectedNameUndetected.txt",
+          "popularity": "8\r"
+        },
+        {
+          "pattern": "DOB/DOB/",
+          "address": "data/Stats/Patterns Data/DOBDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "DOB/DOB/Undetected/",
+          "address": "data/Stats/Patterns Data/DOBDOBUndetected.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "DOB/Undetected/",
+          "address": "data/Stats/Patterns Data/DOBUndetected.txt",
+          "popularity": "15\r"
+        },
+        {
+          "pattern": "DOB/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/DOBUndetectedDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "DOB/Undetected/DOB/Undetected/",
+          "address": "data/Stats/Patterns Data/DOBUndetectedDOBUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "DOB/Undetected/Undetected/Common3/",
+          "address": "data/Stats/Patterns Data/DOBUndetectedUndetectedCommon3.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Location/",
+          "address": "data/Stats/Patterns Data/Location.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Location/Location/",
+          "address": "data/Stats/Patterns Data/LocationLocation.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Location/Mobile/",
+          "address": "data/Stats/Patterns Data/LocationMobile.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Location/Undetected/",
+          "address": "data/Stats/Patterns Data/LocationUndetected.txt",
+          "popularity": "41\r"
+        },
+        {
+          "pattern": "Location/Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/LocationUndetectedNameUndetected.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Mobile/",
+          "address": "data/Stats/Patterns Data/Mobile.txt",
+          "popularity": "211\r"
+        },
+        {
+          "pattern": "Mobile/Common1/",
+          "address": "data/Stats/Patterns Data/MobileCommon1.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Mobile/Common1/Undetected/",
+          "address": "data/Stats/Patterns Data/MobileCommon1Undetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Mobile/Name/",
+          "address": "data/Stats/Patterns Data/MobileName.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Mobile/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/MobileNameUndetected.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/MobileUndetected.txt",
+          "popularity": "50\r"
+        },
+        {
+          "pattern": "Mobile/Undetected/Common1/Undetected/",
+          "address": "data/Stats/Patterns Data/MobileUndetectedCommon1Undetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Mobile/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/MobileUndetectedDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Mobile/Undetected/Undetected/Common2/",
+          "address": "data/Stats/Patterns Data/MobileUndetectedUndetectedCommon2.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Mobile/email_Name/",
+          "address": "data/Stats/Patterns Data/MobileemailName.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Name/",
+          "address": "data/Stats/Patterns Data/Name.txt",
+          "popularity": "9\r"
+        },
+        {
+          "pattern": "Name/DOB/",
+          "address": "data/Stats/Patterns Data/NameDOB.txt",
+          "popularity": "13\r"
+        },
+        {
+          "pattern": "Name/Mobile/",
+          "address": "data/Stats/Patterns Data/NameMobile.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Name/Name/",
+          "address": "data/Stats/Patterns Data/NameName.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/NameNameUndetected.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Name/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetected.txt",
+          "popularity": "285\r"
+        },
+        {
+          "pattern": "Name/Undetected/Common2/",
+          "address": "data/Stats/Patterns Data/NameUndetectedCommon2.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Name/Undetected/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetectedCommon3Undetected.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Name/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/NameUndetectedDOB.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Name/Undetected/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetectedLocationUndetected.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Name/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/NameUndetectedMobile.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Name/Undetected/Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetectedNameNameUndetected.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Name/Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetectedNameUndetected.txt",
+          "popularity": "38\r"
+        },
+        {
+          "pattern": "Name/Undetected/Name/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/NameUndetectedNameUndetectedName.txt",
+          "popularity": "2\r"
+        },
+        {
+          "pattern": "Name/Undetected/email_Name/Undetected/",
+          "address": "data/Stats/Patterns Data/NameUndetectedemailNameUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/",
+          "address": "data/Stats/Patterns Data/Undetected.txt",
+          "popularity": "98\r"
+        },
+        {
+          "pattern": "Undetected/Common1/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1.txt",
+          "popularity": "7\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1Common3Undetected.txt",
+          "popularity": "7\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1MobileUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1NameUndetected.txt",
+          "popularity": "12\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Name/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1NameUndetectedMobile.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1Undetected.txt",
+          "popularity": "79\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Undetected/Common2/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1UndetectedCommon2.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1UndetectedMobile.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1UndetectedName.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Undetected/Common1/Undetected/Name/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon1UndetectedNameName.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2.txt",
+          "popularity": "13\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2Common3Undetected.txt",
+          "popularity": "3\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2LocationUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2Name.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2NameNameUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2NameUndetected.txt",
+          "popularity": "6\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Name/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2NameUndetectedName.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2Undetected.txt",
+          "popularity": "86\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Undetected/Common3/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2UndetectedCommon3.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Undetected/Location/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2UndetectedLocation.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common2/Undetected/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon2UndetectedName.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Common3/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon3.txt",
+          "popularity": "16\r"
+        },
+        {
+          "pattern": "Undetected/Common3/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon3NameUndetected.txt",
+          "popularity": "7\r"
+        },
+        {
+          "pattern": "Undetected/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon3Undetected.txt",
+          "popularity": "135\r"
+        },
+        {
+          "pattern": "Undetected/Common3/Undetected/Name/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedCommon3UndetectedNameName.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/UndetectedDOB.txt",
+          "popularity": "37\r"
+        },
+        {
+          "pattern": "Undetected/DOB/Common1/",
+          "address": "data/Stats/Patterns Data/UndetectedDOBCommon1.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/DOB/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedDOBUndetected.txt",
+          "popularity": "27\r"
+        },
+        {
+          "pattern": "Undetected/Location/",
+          "address": "data/Stats/Patterns Data/UndetectedLocation.txt",
+          "popularity": "5\r"
+        },
+        {
+          "pattern": "Undetected/Location/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedLocationLocationUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Location/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedLocationUndetected.txt",
+          "popularity": "6\r"
+        },
+        {
+          "pattern": "Undetected/Location/Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/UndetectedLocationUndetectedMobile.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Mobile/",
+          "address": "data/Stats/Patterns Data/UndetectedMobile.txt",
+          "popularity": "99\r"
+        },
+        {
+          "pattern": "Undetected/Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedMobileUndetected.txt",
+          "popularity": "10\r"
+        },
+        {
+          "pattern": "Undetected/Mobile/Undetected/Common1/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedMobileUndetectedCommon1Undetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Mobile/Undetected/DOB/",
+          "address": "data/Stats/Patterns Data/UndetectedMobileUndetectedDOB.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Name/",
+          "address": "data/Stats/Patterns Data/UndetectedName.txt",
+          "popularity": "24\r"
+        },
+        {
+          "pattern": "Undetected/Name/Common2/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedNameCommon2Undetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Name/Common3/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedNameCommon3Undetected.txt",
+          "popularity": "4\r"
+        },
+        {
+          "pattern": "Undetected/Name/Mobile/",
+          "address": "data/Stats/Patterns Data/UndetectedNameMobile.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "Undetected/Name/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedNameNameUndetected.txt",
+          "popularity": "14\r"
+        },
+        {
+          "pattern": "Undetected/Name/Undetected/",
+          "address": "data/Stats/Patterns Data/UndetectedNameUndetected.txt",
+          "popularity": "156\r"
+        },
+        {
+          "pattern": "Undetected/email_Name/Undetected/Website/",
+          "address": "data/Stats/Patterns Data/UndetectedemailNameUndetectedWebsite.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "email_Name/",
+          "address": "data/Stats/Patterns Data/emailName.txt",
+          "popularity": "10\r"
+        },
+        {
+          "pattern": "email_Name/Undetected/",
+          "address": "data/Stats/Patterns Data/emailNameUndetected.txt",
+          "popularity": "1\r"
+        },
+        {
+          "pattern": "email_Name/Undetected/Mobile/Undetected/",
+          "address": "data/Stats/Patterns Data/emailNameUndetectedMobileUndetected.txt",
+          "popularity": "1\r"
+        }
+      ]
+    }]
+  }
+}
