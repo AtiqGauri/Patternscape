@@ -8,6 +8,7 @@ var worker;
  * Function to import data processed by backend (stats) into app database
  */
 function database_worker_client(){
+
     document.getElementById("progressAnimation").style.display = "block";
 
     //initialize web worker
@@ -33,11 +34,7 @@ function database_worker_client(){
             
             document.getElementById("progressAnimation").style.display = "none";
             
-            results.style.display = "block";
-            //hide results after certain seconds
-            setTimeout(function(){ 
-                results.style.display = "none";
-            }, 6000);
+            database_acknowledgment('importDB', 'Imported Successfully', 'success', 'databaseImportAlert', 'importDbResult');
         });
     };
 
@@ -57,17 +54,11 @@ function database_export_client(){
     importExportDB.export_database();
     var totalRecords = document.getElementById("expTotal");
     importExportDB.get_database_count().then(function(total) {
-        //reflect status to GUI
-        results = document.getElementById("expResultsDiv");
         totalRecords.innerHTML = 'Exported Records: ' + total;
         
         document.getElementById("progressAnimation").style.display = "none";
         
-        results.style.display = "block";
-        //hide results after certain seconds
-        setTimeout(function(){ 
-            results.style.display = "none";
-        }, 6000);
+        database_acknowledgment('exportDB', 'Exported Successfully', 'success', 'databaseExportAlert', 'expResultsDiv');
     });
 }
 
@@ -81,8 +72,6 @@ function database_import_client(){
     var newlyAdded = document.getElementById("impDownAdded");
     var duplicates = document.getElementById("impDownDuplicates");
     var totalRecords = document.getElementById("impDownTotal");
-    //reflect status to GUI
-    results = document.getElementById("impDownResultsDiv");
 
     importExportDB.get_database_count().then(function(total1) {
         console.log(total1);
@@ -93,11 +82,7 @@ function database_import_client(){
             
             document.getElementById("progressAnimation").style.display = "none";
             
-            results.style.display = "block";
-            //hide results after certain seconds
-            setTimeout(function(){ 
-                results.style.display = "none";
-            }, 6000);
+            database_acknowledgment('importDownDB', 'Imported Successfully', 'success', 'databaseDownloadAlert', 'impDownResultsDiv');
         });
     });
 }
@@ -122,10 +107,11 @@ function delete_database(){
             console.log('Database is deleted');
         });
         */
-        console.log("deleted Database"); 
+        database_acknowledgment('deleteIconWrapperID', 'DATABASE IS DELETED', 'error', 'databaseDeleteAlert', 'deleteIconWrapperID');
     }
     else{
         console.log("Check caution button to delete database");
+        database_acknowledgment('deleteIconWrapperID', 'Check caution button first to delete database', 'warning', 'databaseDeleteAlert', 'deleteIconWrapperID');
     }
     
 }
@@ -140,8 +126,8 @@ function persist_database(){
     var isPersisted = importExportDB.init_storage_persistence();
     
     //pass acknowledgment
-    isPersisted.then(function(value){
-        console.log(value);
+    isPersisted.then(function(){
+        database_acknowledgment('dataPersistance', 'Persisted Successfully', 'success', 'databasePersistAlert', 'persistDataButton');
     });
 }
 

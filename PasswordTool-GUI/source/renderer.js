@@ -18,7 +18,6 @@ const fs = require('fs');
 //require database script
 const { equals_any_of, get_address_of_pattern_file } = require('./scripts/databaseInit.js');
 
-
 /**
  * Function to open input folder of analyzation process
  */
@@ -129,6 +128,10 @@ function pattern_lookup(){
 	
 	//get value of pattern entered by user
 	var input = document.getElementById("patternSearchInput").value;
+	if(input==""){
+		home_pattern_error("Empty", "warning");
+		return;
+	}
 
 	//create a widow to show pattern data
 	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data",webPreferences: {nodeIntegration: true,}});

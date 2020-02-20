@@ -169,3 +169,19 @@
     z-index: 0;
     user-select: none;
 }
+
+
+
+/****************ALERTS START*****************/
+.centerErrorAlert{
+    margin-left: 15vh;
+    margin-top: 45vh;
+    
+    padding: 2vh 4vh 2vh 4vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+/****************ALERTS END*****************/

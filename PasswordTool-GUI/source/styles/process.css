@@ -515,3 +515,30 @@ input[type="range"]::-webkit-slider-thumb:active {
     color: #F2F2F2;
 }
 /*******************MULTI USER TAB END**********************/
+
+
+/*******************ALERTS START***************************/
+.processAnalyzeAlert{
+    width: 50vw !important;
+    margin-top: 20vh;
+    margin-left: 15vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.processStatsAlert{
+    width: 50vw !important;
+    margin-top: 20vh;
+    margin-left: 15vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+/*******************ALERTS END***************************/
