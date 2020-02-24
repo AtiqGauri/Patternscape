@@ -241,14 +241,20 @@ function target_user_pattern(){
 				}
 				
 				document.getElementById("patternSearchInput").value = '';
-
-				//create a window to display suggested patterns
-				suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
-				suggestionsWindow.loadFile('./source/htmls/targetSuggestions.html');
-				//pass suggested patterns array to that window
-				suggestionsWindow.webContents.on('did-finish-load', () => {
-					suggestionsWindow.webContents.send('message', generatedPasswords);
-				});
+				
+				setTimeout(function(){
+					//update process status, make alert sound
+					shell.beep();
+					//create a window to display suggested patterns
+					suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+					suggestionsWindow.loadFile('./source/htmls/targetSuggestions.html');
+					//pass suggested patterns array to that window
+					suggestionsWindow.webContents.on('did-finish-load', () => {
+						suggestionsWindow.webContents.send('message', generatedPasswords);
+					});
+				},1200);
+				//
+				target_alerts(cTarget='targetContentContainer', cTitle='Processing', cClass='targetAlerts', cTime=2000);
 			});
 			
 			//clear array

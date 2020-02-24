@@ -198,11 +198,13 @@ p {
 }
 .impInputFolder{
     position: absolute;
-    margin-top: 3.5%;
+    margin-top: 0%;
     margin-left: 37%;
-    padding: 7.6%;
-    width: 73.5%;
+    padding: 9%;
+    width: 81%;
     font-size: 2.5vh;
+    word-spacing: 2px;
+    letter-spacing: 1px;
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
@@ -363,6 +365,9 @@ p {
     margin-left: 30%;
     padding: 4%;
     font-size: 2.5vh;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
@@ -513,6 +518,9 @@ p {
     font-style: light;
     font-weight: 900;
     font-size: 2.5vh;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
 }
 .expFolder:hover{
     background-color: #499371;
@@ -698,7 +706,14 @@ p {
     letter-spacing: 1.5px;
     user-select: none;
 }
-
+.databaseErrorAlerts{
+    text-shadow: none !important;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: text;
+}
 .databasePersistAlert{
     margin-top: 71vh;
     margin-right: 36.8vw;
