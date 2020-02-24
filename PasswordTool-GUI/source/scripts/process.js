@@ -130,7 +130,10 @@ function analyze_passwords_emails(){
 
 		//handle exception or error thrown by web worker
 		worker1.onerror = function (event) {
-	        console.log(event.message, event);
+			console.log(event.message, event);
+			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">Error</b>', 
+			cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
+		 	cIcon='error', cTime='180000');
 		};
 	}
 }
@@ -139,14 +142,18 @@ function analyze_passwords_emails(){
  * stop analyzation process if required
  */
 function stop_analyze_passwords_emails(){
-
+	
+	document.getElementById("progressAnimation").style.display = "none";
     if(worker1!=undefined){
         //terminate webworker
-        worker1.terminate();
-
+		worker1.terminate();
         //set it to undefined
-        worker1 = undefined;
-    }
+		worker1 = undefined;
+		general_stop_alerts(cTarget='processRawData', cTitle='Stopped', cIcon='warning', cClass='processStopAlerts');
+	}else{
+		general_stop_alerts(cTarget='processRawData', cTitle='Empty', cIcon='info', cClass='processStopAlerts');
+	}
+
 }
 
 
@@ -183,7 +190,10 @@ function generate_statistics(){
 
 	//handle exception or error thrown by web worker
 	worker2.onerror = function (event) {
-        console.log(event.message, event);
+		console.log(event.message, event);
+		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Error</b>', 
+		cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
+		 cIcon='error', cTime='180000');
 	};
 }
 
@@ -192,13 +202,17 @@ function generate_statistics(){
  */
 function stop_generate_statistics(){
 	
+	document.getElementById("progressAnimation").style.display = "none";
     if(worker2!=undefined){
         //terminate webworker
         worker2.terminate();
 
         //set it to undefined
-        worker2 = undefined;
-    }
+		worker2 = undefined;
+		general_stop_alerts(cTarget='statsGeneration', cTitle='Stopped', cIcon='warning', cClass='processStopAlerts');
+	}else{
+		general_stop_alerts(cTarget='statsGeneration', cTitle='Empty', cIcon='info', cClass='processStopAlerts');
+	}
 }
 
 
@@ -229,20 +243,23 @@ function target_password_patterns(password, email){
 			
 			//print web worker acknowledgment then terminate it
 			targetPasswordWorker.terminate();
-
-			//update process status, make alert sound
-			shell.beep();
-
-			//now user is free to process again
-			bTarget = true;
 			
-			//call renderer.js function to display resulting patterns
-			process_single_password(event.data);
+			setTimeout(function(){
+				//update process status, make alert sound
+				shell.beep();
+				//call renderer.js function to display resulting patterns
+				process_single_password(event.data);
+
+				//now user is free to process again
+				bTarget = true;
+			},1200);
+			process_single_user_alerts(cTarget='singleUserTabID', cTitle='Processing', cClass='singleUserAlerts', cTime=1000);
 		};
 
 		//handle exception or error thrown by web worker
 		targetPasswordWorker.onerror = function (event) {
 			console.log(event.message, event);
+			analyze_stats_stop_alerts(cTarget='singleUserTabID', cTitle=event.message, cIcon='error', cClass='singleUserAlerts', cTime=2000, cProgress=true);
 		};
 	}
 }
@@ -252,12 +269,14 @@ function target_password_patterns(password, email){
  * stop target password process if required
  */
 function stop_target_password(){
-	//terminate webworker
-	targetPasswordWorker.terminate();
-
-	//set it to undefined
-	targetPasswordWorker = undefined;
-
-	//reflect status in GUI
-	document.getElementById('statusPassword').innerHTML = ('<p style="color:red;">Stopped</p>');
+	document.getElementById("progressAnimation").style.display = "none";
+    if(targetPasswordWorker!=undefined){
+        //terminate webworker
+		targetPasswordWorker.terminate();
+		//set it to undefined
+		targetPasswordWorker = undefined;
+		general_stop_alerts(cTarget='singleUserTabID', cTitle='Stopped', cIcon='warning', cClass='singleUserAlerts');
+	}else{
+		general_stop_alerts(cTarget='singleUserTabID', cTitle='Empty', cIcon='info', cClass='singleUserAlerts');
+	}
 }

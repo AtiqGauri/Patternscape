@@ -1,5 +1,6 @@
 //require database script
 const {database} = require('./databaseInit.js');
+const {database_error_alerts} = require('./alerts.js');
 
 //require package to export import database
 require('dexie-export-import');
@@ -19,20 +20,27 @@ var fileSystem = require('fs');
  * Step 4. acknowledgment
  */
 var export_database = async function export_database(){
-    console.log("Exporting Database");
+    var operationSuccess = true;
+    console.log("Exporting database");
     try{
       const blob = await database.export({prettyJson: true});
       const text = await new Response(blob).text();
       fileSystem.writeFile("data/Database/ExportedDatabase.json", text, function(error){
         if(error){
           console.log(error);
+          operationSuccess = false;
+          database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+          return operationSuccess;
         }
       });
     }catch(error){
         console.error(''+error);
-        return;
+        operationSuccess = false;
+        database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+        return operationSuccess;
     }
     console.log("Exported");
+    return operationSuccess;
 };
 
 /**
@@ -44,16 +52,24 @@ var export_database = async function export_database(){
  * Step 4. acknowledgment
  */
 var import_database = async function import_database(){
+    var operationSuccess = true;
     console.log("Importing Database");
-    var lineCount = 0;
-    const stream = fileSystem.createReadStream("data/Database/ExportedDatabase.json");
-    const blob = await toBlob(stream);
     try{
-        await database.import(blob);
+      const stream = fileSystem.createReadStream("data/Database/ExportedDatabase.json");
+      const blob = await toBlob(stream);
+      await database.import(blob);
     }catch(error){
+      if(error.name === "BulkError"){
         console.log('IMPORT ERROR: '+ error );
+      }else{
+        console.log('IMPORT ERROR: '+ error );
+        operationSuccess = false;
+        database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">Import Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
+        return operationSuccess;
+      }
     }
     console.log("Imported");
+    return operationSuccess;
 };
 
 
@@ -135,11 +151,11 @@ var init_storage_persistence = async function init_storage_persistence() {
   const persist = await try_persist_without_promting_user();
   switch (persist) {
     case "never":
-      return "Not possible to persist storage";
+      return "No space to persist database";
     case "persisted":
-      return "Successfully persisted storage silently";
+      return "Successfully persisted database silently";
     case "prompt":
-      return "Not persisted, but we may prompt user when we want to.";
+      return "Not persisted, but we may prompt user";
   }
 }
 

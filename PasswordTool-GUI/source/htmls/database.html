@@ -12,13 +12,14 @@
             <div id="importDB" class="dbTabContent">
               <p class="impDataHeading">Import Data which has been processed</p>
               <p class="impDataText">
-                * If process gets interrupted because of any reason,</br>
-                then whole transaction will be rolled back and you </br>
-                will need to import it again.
+                * Here you can import data which has been processed locally.</br>
+                * Input will be taken from stats generation process's output.</br>
+                * If you want to process more data head back to process window.</br>
+                * This must be a whole database transaction else will be rolled back.</br>
               </p>
               <div class="importDbButtons">
                 <div class="importDbStart" onclick="database_worker_client()">Import</div>
-                <div class="importDbStop" onclick="">Stop</div>
+                <div class="importDbStop" onclick="stop_database_import()">Stop</div>
               </div>
               <div class="importDbResult" id="importDbResult">
                 <p class="importDbAdded" id="importDbAdded">Newly added records: 14223649</p>
@@ -41,7 +42,7 @@
               </div>
               <div class="impDownButtons">
                 <div class="importDownStart" onclick="database_import_client()">Import</div>
-                <div class="importDownStop" onclick="">Stop</div>
+                <div class="importDownStop" onclick="stop_down_database_import()">Stop</div>
               </div>
               <div class="impDownDD">
                 <p class="impDownInputText">Copy Paste Downloaded Database into this folder</p>
@@ -61,12 +62,12 @@
                 <p class="exportDBText">
                   * This will export database in JSON files.</br>
                   * Exported database can be found in database export folder.</br>
-                  * This must be whole database transaction else will be rolled back.</br>
+                  * This must be a whole database transaction else will be rolled back.</br>
                 </p>
               </div>
               <div class="exportDBButtons">
                 <div class="exportDBStart" onclick="database_export_client()">Export</div>
-                <div class="exportDBStop" onclick="">Stop</div>
+                <div class="exportDBStop" onclick="stop_database_export()">Stop</div>
               </div>
               <div class="expResults">
                 <div class="expResultsDiv" id="expResultsDiv">

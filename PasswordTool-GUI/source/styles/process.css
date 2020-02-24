@@ -541,4 +541,24 @@ input[type="range"]::-webkit-slider-thumb:active {
     box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
     user-select: none;
 }
+
+.processStopAlerts{
+    margin-top: 2vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.singleUserAlerts{
+    margin-top: 50vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
 /*******************ALERTS END***************************/

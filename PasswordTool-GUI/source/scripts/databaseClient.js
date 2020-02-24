@@ -34,15 +34,34 @@ function database_worker_client(){
             
             document.getElementById("progressAnimation").style.display = "none";
             
-            database_acknowledgment('importDB', 'Imported Successfully', 'success', 'databaseImportAlert', 'importDbResult');
+            database_acknowledgment(cTarget='importDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseImportAlert', cResult='importDbResult');
         });
     };
 
     //handle exception or error thrown by web worker
     worker.onerror = function (event){
-        console.error(event.message, event);  
+        console.error(event.message, event);
+        database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml=event.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#B94955');
     };
 }
+
+/**
+ * stop database import process if required
+ */
+function stop_database_import(){
+    
+	document.getElementById("progressAnimation").style.display = "none";
+    if(worker!=undefined){
+        //terminate webworker
+		worker.terminate();
+        //set it to undefined
+		worker = undefined;
+		general_stop_alerts(cTarget='importDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
+	}else{
+		general_stop_alerts(cTarget='importDB', cTitle='Empty', cIcon='info', cClass='databaseImportAlert');
+	}
+}
+
 
 /**
  * Function to export database into a json file.
@@ -50,16 +69,28 @@ function database_worker_client(){
  */
 function database_export_client(){
     document.getElementById("progressAnimation").style.display = "block";
-    //call export function to import export script
-    importExportDB.export_database();
+    
     var totalRecords = document.getElementById("expTotal");
-    importExportDB.get_database_count().then(function(total) {
-        totalRecords.innerHTML = 'Exported Records: ' + total;
-        
+
+    //call export function to import export script
+    importExportDB.export_database().then((exportResult)=>{
         document.getElementById("progressAnimation").style.display = "none";
-        
-        database_acknowledgment('exportDB', 'Exported Successfully', 'success', 'databaseExportAlert', 'expResultsDiv');
+        if(exportResult){
+            importExportDB.get_database_count().then(function(total) {
+                totalRecords.innerHTML = 'Exported Records: ' + total;
+                database_acknowledgment(cTarget='exportDB', cTitle='Exported Successfully', cIcon='success', cClass='databaseExportAlert', cResult='expResultsDiv');
+            });
+        }
     });
+}
+/**
+ * stop database export process if required
+ */
+function stop_database_export(){
+    
+    document.getElementById("progressAnimation").style.display = "none";
+    
+    general_stop_alerts(cTarget='exportDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
 
 /**
@@ -76,15 +107,27 @@ function database_import_client(){
     importExportDB.get_database_count().then(function(total1) {
         console.log(total1);
         //call import function to import export script
-        importExportDB.get_database_count().then(function(total2){
-            newlyAdded.innerHTML = 'Newly added records: ' + (total2-total1);
-            totalRecords.innerHTML = 'Total Records: ' + total2;
-            
+        importExportDB.import_database().then((importResult)=>{
             document.getElementById("progressAnimation").style.display = "none";
-            
-            database_acknowledgment('importDownDB', 'Imported Successfully', 'success', 'databaseDownloadAlert', 'impDownResultsDiv');
+            if(importResult){
+                importExportDB.get_database_count().then(function(total2){
+                    newlyAdded.innerHTML = 'Newly added records: ' + (total2-total1);
+                    totalRecords.innerHTML = 'Total Records: ' + total2;
+                    database_acknowledgment(cTarget='importDownDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseDownloadAlert', cResult='impDownResultsDiv');
+                    document.getElementById('impDownResultsDiv').style.display = "block";     
+                });
+            }
         });
     });
+}
+/**
+ * stop downloaded database import process if required
+ */
+function stop_down_database_import(){
+    
+    document.getElementById("progressAnimation").style.display = "none";
+    
+    general_stop_alerts(cTarget='importDownDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
 
 
@@ -111,7 +154,7 @@ function delete_database(){
     }
     else{
         console.log("Check caution button to delete database");
-        database_acknowledgment('deleteIconWrapperID', 'Check caution button first to delete database', 'warning', 'databaseDeleteAlert', 'deleteIconWrapperID');
+        database_acknowledgment('deleteIconWrapperID', 'First check caution button to delete database', 'warning', 'databaseDeleteAlert', 'deleteIconWrapperID');
     }
     
 }
@@ -126,8 +169,8 @@ function persist_database(){
     var isPersisted = importExportDB.init_storage_persistence();
     
     //pass acknowledgment
-    isPersisted.then(function(){
-        database_acknowledgment('dataPersistance', 'Persisted Successfully', 'success', 'databasePersistAlert', 'persistDataButton');
+    isPersisted.then(function(result){
+        database_acknowledgment('dataPersistance', result, 'success', 'databasePersistAlert', 'persistDataButton');
     });
 }
 
