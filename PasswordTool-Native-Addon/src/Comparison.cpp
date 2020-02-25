@@ -27,7 +27,7 @@ void Comparison::extract_email_and_password(string delimiter) {
 		Step 1. for loop will iterate over rawdata one by one
 		Step 2. first we will find @ from there we will find delimiter. This is for avoiding
 				front part which can include ':' delimiter
-		Step 3. content before delimiter and after delimiter will be sperated on basis of locations
+		Step 3. content before delimiter and after delimiter will be separated on basis of locations
 	*/
 	size_t found, foundDelimeter;
 	emailsList.reserve(rawData.size());

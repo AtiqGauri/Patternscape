@@ -31,6 +31,11 @@ database.transaction('rw', database.Patterns, async () => {
     //split line as per delimiter
     splitter = line.toString().split('<|>');
     
+    //to check file strings are in correct format => "pattern<|>address<|>popularity"
+    if(splitter.length != 3){
+      continue;
+    }
+    
     //add records to database table
     await database.Patterns.add({
       pattern: splitter[0],

@@ -83,3 +83,20 @@ td::-webkit-scrollbar-thumb {
 .addressColumn{
     color: #f9a825;
 }
+
+
+body::-webkit-scrollbar {
+    width: auto;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    background: #F2F2F2;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(180, 179, 179);
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

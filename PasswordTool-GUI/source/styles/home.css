@@ -20,6 +20,7 @@
   flex-wrap: wrap;
   transition: 0.5s;
   z-index: 1;
+  outline: none;
 }
 
 .searchBarContainer.focused {
@@ -27,6 +28,7 @@
   top: 10%;
   margin-right: 50%;
   transition: 1s;
+  outline: none;
 }
 
 .patternSearchBar {
@@ -40,7 +42,7 @@
     background-image: url("../assets/icons/search-icon.svg");
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    border-color: #f9a825;
+    border-color: #FF8C10;
     color: #AE1100;
     padding: 12px 20px 12px 40px;
     box-shadow: 0 18px 70px 0 #ffaf7b;
@@ -59,7 +61,7 @@
 
 
 .searchBarContainer.focused .patternSearchBar {
-    border-color: #f9a825;
+    border-color: #AE1100;
 }
 
 .homeImage {
