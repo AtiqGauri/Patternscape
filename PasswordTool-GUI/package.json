@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "cpy": "^8.0.1",
-    "electron": "^6.0.0",
+    "electron": "^8.0.2",
     "electron-builder": "^22.3.2"
   },
   "dependenciesComments": {
