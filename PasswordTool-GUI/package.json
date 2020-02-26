@@ -11,7 +11,7 @@
     "dist": "package app"
   },
   "scripts": {
-    "preinstall": "(npm install cpy@^7.3.0 --save-dev && node copyCppFiles.js && npm install ../PasswordTool-Native-Addon --no-save)",
+    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node copyCppFiles.js && npm install ../PasswordTool-Native-Addon --no-save)",
     "postinstall": "(node copyNativeAddon.js && install-app-deps)",
     "start": "electron ./",
     "pack": "electron-builder --dir",
@@ -59,9 +59,9 @@
     "electron-builder": "app packager"
   },
   "devDependencies": {
-    "cpy": "^7.3.0",
-    "electron": "^6.0.0",
-    "electron-builder": "^21.1.5"
+    "cpy": "^8.0.1",
+    "electron": "^8.0.2",
+    "electron-builder": "^22.3.2"
   },
   "dependenciesComments": {
     "dexie": "database library",
@@ -71,9 +71,9 @@
   },
   "dependencies": {
     "dexie": "^2.0.4",
-    "dexie-export-import": "^1.0.0-beta.14",
+    "dexie-export-import": "^1.0.0-rc.1",
     "n-readlines": "^1.0.0",
     "stream-to-blob": "^2.0.0",
-    "sweetalert2": "^9.7.2"
+    "sweetalert2": "^9.8.2"
   }
 }

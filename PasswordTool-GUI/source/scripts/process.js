@@ -227,6 +227,9 @@ function stop_generate_statistics(){
  * when finished it will call renderer.js file function to display resulting patterns
  */
 function target_password_patterns(password, email){
+
+	document.getElementById("singleUserSubmit").disabled = true;
+
 	//check if same process is not running in background then start this
 	if(bTarget){
 		//process started in background
@@ -262,6 +265,7 @@ function target_password_patterns(password, email){
 			analyze_stats_stop_alerts(cTarget='singleUserTabID', cTitle=event.message, cIcon='error', cClass='singleUserAlerts', cTime=2000, cProgress=true);
 		};
 	}
+	document.getElementById("singleUserSubmit").disabled = false;
 }
 
 

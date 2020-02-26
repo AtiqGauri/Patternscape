@@ -31,9 +31,9 @@ namespace APILayer {
 	/*
 			Takes two timestamps and print amount of time spend
 	*/
-	void time_elasped(chrono::high_resolution_clock::time_point start, chrono::high_resolution_clock::time_point stop) {
-		std::chrono::duration<double> elasped = stop - start;
-		cout << elasped.count() << " Seconds\n";
+	void time_elapsed(chrono::high_resolution_clock::time_point start, chrono::high_resolution_clock::time_point stop) {
+		std::chrono::duration<double> elapsed = stop - start;
+		cout << elapsed.count() << " Seconds\n";
 	}
 
 	/*
@@ -110,7 +110,7 @@ namespace APILayer {
 		Resources::read_resources();
 		//Resource collected
 		auto stop = time_stamp();
-		cout << "Read Resources and files name in:  "; time_elasped(start, stop);
+		cout << "Read Resources and files name in:  "; time_elapsed(start, stop);
 		
 
 		//process files
@@ -171,7 +171,7 @@ namespace APILayer {
 		}
 		auto stop2 = time_stamp();
 		filePaths.clear(); filePaths.shrink_to_fit();
-		cout << "\nFiles Loop:  "; time_elasped(start2, stop2);
+		cout << "\nFiles Loop:  "; time_elapsed(start2, stop2);
 		//Processed
 	}
 
