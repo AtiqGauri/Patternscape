@@ -8,7 +8,28 @@
         <link rel="stylesheet" type="text/css" href="../styles/patternData.css"/>
     </head>
     <body>
-
+        <header id="titleBar">
+            <div id="dragRegion">
+                <div id="windowControls" class="windowControls">
+                    <div class="windowControlDiv" id="minWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/min.svg" id="minimizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="maxWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/max.svg" id="maximizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="restoreWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/mid.svg" id="restoreWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="closeWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/cross.svg" id="closeWindow" draggable="false">
+                    </div>
+                </div>
+                <div id="windowTitle">
+                    <span id="appHeaderName">Ongoing Project</span>
+                    <img class="appHeaderIcon" src="../assets/icons/app-icon.svg" id="appHeaderIcon" draggable="false">
+                </div>
+            </div>
+        </header>
         <!-- pattern string -->
         <h1 id='patternText'> Pattern:  </h1>
         <!-- popularity string -->

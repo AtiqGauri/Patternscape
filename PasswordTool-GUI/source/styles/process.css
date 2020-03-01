@@ -543,7 +543,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .processStopAlerts{
-    margin-top: 2vh;
+    margin-top: 5vh;
+    margin-left: 5vh;
     font-family: Montserrat;
     font-weight: bold;
     font-size: 2.5vh;

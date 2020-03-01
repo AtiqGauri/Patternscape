@@ -30,11 +30,6 @@ function handleWindowControls() {
         win.close();
     });
 
-    // Toggle maximize/restore buttons when maximization/unmaximization occurs
-    toggleMaxRestoreButtons();
-    win.on('maximize', toggleMaxRestoreButtons);
-    win.on('unmaximize', toggleMaxRestoreButtons);
-
     function toggleMaxRestoreButtons() {
         if (win.isMaximized()) {
 			//document.body.classList.add('maximized');
@@ -46,6 +41,11 @@ function handleWindowControls() {
 			document.getElementById('restoreWindowDiv').style.display = 'none';
         }
     }
+
+    // Toggle maximize/restore buttons when maximization/unmaximization occurs
+    toggleMaxRestoreButtons();
+    win.on('maximize', toggleMaxRestoreButtons);
+    win.on('unmaximize', toggleMaxRestoreButtons);
 }
 
 

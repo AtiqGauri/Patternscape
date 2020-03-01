@@ -160,6 +160,10 @@ function stop_analyze_passwords_emails(){
 		worker1.terminate();
         //set it to undefined
 		worker1 = undefined;
+
+		//set process status variable
+		bAnalyzer = true;
+		
 		general_stop_alerts(cTarget='processRawData', cTitle='Stopped', cIcon='warning', cClass='processStopAlerts');
 	}else{
 		general_stop_alerts(cTarget='processRawData', cTitle='Empty', cIcon='info', cClass='processStopAlerts');
@@ -246,14 +250,13 @@ function stop_generate_statistics(){
  * This uses a web work to process asynchronously.
  * when finished it will call renderer.js file function to display resulting patterns
  */
-function target_password_patterns(password, email){
-
-	document.getElementById("singleUserSubmit").disabled = true;
-	
+function target_password_patterns(password, email){	
 	//check if same process is not running in background then start this
 	if(bTarget){
 		//process started in background
 		bTarget = false;
+
+		document.getElementById("singleUserSubmit").disabled = true;
 
 		//Initialize web worker
 		targetPasswordWorker = new Worker('threadWorkers/targetPasswordWorker.js');
