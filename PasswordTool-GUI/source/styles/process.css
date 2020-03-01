@@ -82,12 +82,12 @@ p h1 h2 h3{
 .singleUserTab{
     position: absolute;
     background-color: transparent;
-    width: 96%;
+    width: 98%;
     height: 96%;
-    left: 2%;
+    left: 1%;
     top: 2%;
     bottom: 2%;
-    right: 2%;
+    right: 1%;
     font-family: Montserrat;
     font-style: light;
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
@@ -224,12 +224,12 @@ p h1 h2 h3{
 .multiUserTab{
     position: absolute;
     background-color: transparent;
-    width: 96%;
+    width: 98%;
     height: 96%;
-    left: 2%;
+    left: 1%;
     top: 2%;
     bottom: 2%;
-    right: 2%;
+    right: 1%;
 
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     font-family: Montserrat;
@@ -339,7 +339,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 .rawDataText{
     position: absolute;
     left: 2%;
-    margin-top: 2%;
+    margin-top: 1%;
     color: grey;
     font-weight: 900;
     font-style: light;
@@ -438,7 +438,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 .statsText{
     position: absolute;
     left: 2%;
-    margin-top: 2%;
+    margin-top: 1%;
     color: grey;
     font-weight: 900;
     font-style: light;
@@ -527,7 +527,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     letter-spacing: 1.5px;
     box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
-    user-select: none;
+    user-select: text;
 }
 
 .processStatsAlert{
@@ -539,7 +539,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     letter-spacing: 1.5px;
     box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
-    user-select: none;
+    user-select: text;
 }
 
 .processStopAlerts{
@@ -559,6 +559,6 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     letter-spacing: 1.5px;
     box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
-    user-select: none;
+    user-select: text;
 }
 /*******************ALERTS END***************************/

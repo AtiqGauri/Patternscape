@@ -18,6 +18,7 @@ const fs = require('fs');
 //require database script
 const { equals_any_of, get_address_of_pattern_file } = require('./scripts/databaseInit.js');
 
+
 /**
  * Function to open input folder of analyzation process
  */

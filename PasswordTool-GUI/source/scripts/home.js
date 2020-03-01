@@ -1,4 +1,6 @@
 const { starts_with_ignore_case } = require('./scripts/databaseInit.js');
+//require database import export script 
+var importExportDB = require("./scripts/importExportDatabase.js");
 //const { homePatternError } = require('./scripts/alerts.js');
 
 function autocomplete(inp) {
@@ -40,8 +42,15 @@ function autocomplete(inp) {
         starts_with_ignore_case(val).then(function(result) {
             dbArray = result.slice(0,20);
             if(dbArray.length==0){
-                home_pattern_error();
-                document.getElementById("patternSearchInput").value = "";
+                importExportDB.get_database_count().then(function(total) {
+                    if(total==0){
+                        home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Empty Database</b>', cHtml='<b>No pattern available to suggest<b>', cIcon='warning');
+                        document.getElementById("patternSearchInput").value = "";
+                    }else{
+                        home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error');
+                        document.getElementById("patternSearchInput").value = "";        
+                    }
+                });
                 return;
             }else{
                 alertComponent.close();

@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+	<!--BOILERPLATE AND LINKS-->
+	<meta charset="UTF-8">
 	<title>PasswordTool</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-      <meta name="HandheldFriendly" content="true">
-	  <link rel="stylesheet" type="text/css" href="style.css" />
-	  <script src="./scripts/databaseClient.js" type="text/javascript"></script> 
+	<meta name="HandheldFriendly" content="true">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="./scripts/databaseClient.js" type="text/javascript"></script>
+	<!---->
   </head>
+  <header id="titleBar">
+	<div id="dragRegion">
+		<div id="windowControls" class="windowControls">
+			<div class="windowControlDiv" id="minWindowDiv">
+				<img class="windowControlIcons" src="assets/icons/min.svg" id="minimizeWindow" draggable="false">
+			</div>
+			<div class="windowControlDiv" id="maxWindowDiv">
+				<img class="windowControlIcons" src="assets/icons/max.svg" id="maximizeWindow" draggable="false">
+			</div>
+			<div class="windowControlDiv" id="restoreWindowDiv">
+				<img class="windowControlIcons" src="assets/icons/mid.svg" id="restoreWindow" draggable="false">
+			</div>
+			<div class="windowControlDiv" id="closeWindowDiv">
+				<img class="windowControlIcons" src="assets/icons/cross.svg" id="closeWindow" draggable="false">
+			</div>
+		</div>
+		<div id="windowTitle">
+			<span id="appHeaderName">Ongoing Project</span>
+			<img class="appHeaderIcon" src="assets/icons/app-icon.svg" id="appHeaderIcon" draggable="false">
+		</div>
+	</div>
+  </header>
   <body>
 	<main class="mainContainer">
 		<section class="navTab">
 		  <div class="tabLinks" id="targetTabButton" onclick="openTabs(event, 'targetTab')">
-			<img class="navIcons" src="assets/icons/target.svg">
+			<img class="navIcons" src="assets/icons/target.svg" draggable="false">
 			<label class="navLabels" id="targetLabel">Target</label>
 		  </div>
 		  <div class="tabLinks" id="processTabButton" onclick="openTabs(event, 'processTab')">
-			<img class="navIcons" src="assets/icons/process.svg">
+			<img class="navIcons" src="assets/icons/process.svg" draggable="false">
 			<label class="navLabels" id="processLabel">Process</label>
 		  </div>
 		  <div class="tabLinks" id="homeTabButton" onclick="openTabs(event, 'homeTab')">
-			<img class="navIcons" src="assets/icons/home.svg">
+			<img class="navIcons" src="assets/icons/home.svg" draggable="false">
 			<label class="navLabels" id="homeLabel">Home</label>
 		  </div>
 		  <div class="tabLinks" id="databaseTabButton" onclick="openTabs(event, 'databaseTab')">
-			<img class="navIcons" src="assets/icons/database.svg">
+			<img class="navIcons" src="assets/icons/database.svg" draggable="false">
 			<label class="navLabels" id="databaseLabel">Database</label>
 		  </div>
 		  <div class="tabLinks" id="documentsTabButton" onclick="openTabs(event, 'documentTab')">
-			<img class="navIcons" src="assets/icons/documents.svg">
+			<img class="navIcons" src="assets/icons/documents.svg" draggable="false">
 			<label class="navLabels" id="documentLabel">Documents</label>
 		  </div>
 		</section>
@@ -52,6 +76,7 @@
 		</section>
 	  </main>
 	  <!-- renderer.js will handle system call like opening default text editor -->
+	  <script src="./preload.js"></script> 
 	  <script src="./renderer.js"></script>
 	  <script src="./scripts/databaseClient.js"></script>
 	  <script src="scripts/tabs.js"></script>

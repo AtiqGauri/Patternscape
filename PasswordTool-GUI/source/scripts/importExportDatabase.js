@@ -53,22 +53,31 @@ var export_database = async function export_database(){
  */
 var import_database = async function import_database(){
     var operationSuccess = true;
-    console.log("Importing Database");
-    try{
-      const stream = fileSystem.createReadStream("data/Database/ExportedDatabase.json");
-      const blob = await toBlob(stream);
-      await database.import(blob);
-    }catch(error){
-      if(error.name === "BulkError"){
-        console.log('IMPORT ERROR: '+ error );
-      }else{
-        console.log('IMPORT ERROR: '+ error );
-        operationSuccess = false;
-        database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">Import Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
-        return operationSuccess;
+    
+    var downloadedInputFiles = [];
+    fileSystem.readdirSync(__dirname + '/../../data/Database/').forEach(file => {
+      if(file != 'Error Log'){
+        downloadedInputFiles.push("data/Database/" + file);
+      }
+    });
+    for (let i = 0; i < downloadedInputFiles.length; i++) {
+      try{
+
+        const stream = fileSystem.createReadStream(downloadedInputFiles[i]);
+        const blob = await toBlob(stream);
+        await database.import(blob);
+
+      }catch(error){
+        if(error.name === "BulkError"){
+          console.log('IMPORT ERROR: '+ error.message);
+        }else{
+          console.log('IMPORT ERROR: '+ error );
+          operationSuccess = false;
+          database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">' + error.name + '</b>', cHtml='<b>'+error.message+'</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
+        }
       }
     }
-    console.log("Imported");
+    database_storage_quota();
     return operationSuccess;
 };
 

@@ -93,12 +93,22 @@ var bTarget = true;
  * check out documentation or c++ code for more information
  */
 function analyze_passwords_emails(){
-	document.getElementById("progressAnimation").style.display = "block";
 	
 	//if process is not executing already
 	if(bAnalyzer){
 		bAnalyzer = false;
+
+		document.getElementById("progressAnimation").style.display = "block";
 		
+		if(fs.readdirSync(__dirname + '/../data/Input/').length <= 1){
+			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
+		 	cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+			document.getElementById("progressAnimation").style.display = "none";
+			bAnalyzer = true;
+			return;
+		}
+
 		//initalizing web worker
 		worker1 = new Worker('threadWorkers/analyzationWorker.js')
 		
@@ -131,6 +141,7 @@ function analyze_passwords_emails(){
 		//handle exception or error thrown by web worker
 		worker1.onerror = function (event) {
 			console.log(event.message, event);
+			document.getElementById("progressAnimation").style.display = "none";
 			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">Error</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
 		 	cIcon='error', cTime='180000');
@@ -168,12 +179,20 @@ function stop_analyze_passwords_emails(){
 function generate_statistics(){
 	document.getElementById("progressAnimation").style.display = "block";
 
+	if(fs.readdirSync(__dirname + '/../data/Output/').length <= 1){
+		document.getElementById("progressAnimation").style.display = "none";
+		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
+		cHtml='<b style="margin: 0 4vw 0 1vw;"> First analyze files in analyzation section, then try again </b>',
+		 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+		return;
+	}
+
 	//Initialize web worker
 	worker2 = new Worker('threadWorkers/statisticsWorker.js')
 
 	//listen to webworker signals
 	worker2.onmessage = function(event) {
-		
+
 		//print web worker acknowledgment then terminate it
 		console.log("worker2 : ", event.data);
 		worker2.terminate();
@@ -191,6 +210,7 @@ function generate_statistics(){
 	//handle exception or error thrown by web worker
 	worker2.onerror = function (event) {
 		console.log(event.message, event);
+		document.getElementById("progressAnimation").style.display = "none";
 		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Error</b>', 
 		cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
 		 cIcon='error', cTime='180000');
@@ -229,7 +249,7 @@ function stop_generate_statistics(){
 function target_password_patterns(password, email){
 
 	document.getElementById("singleUserSubmit").disabled = true;
-
+	
 	//check if same process is not running in background then start this
 	if(bTarget){
 		//process started in background
@@ -262,6 +282,7 @@ function target_password_patterns(password, email){
 		//handle exception or error thrown by web worker
 		targetPasswordWorker.onerror = function (event) {
 			console.log(event.message, event);
+			document.getElementById("progressAnimation").style.display = "none";
 			analyze_stats_stop_alerts(cTarget='singleUserTabID', cTitle=event.message, cIcon='error', cClass='singleUserAlerts', cTime=2000, cProgress=true);
 		};
 	}

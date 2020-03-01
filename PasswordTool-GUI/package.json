@@ -1,7 +1,8 @@
 {
   "name": "PasswordTool",
+  "productName": "Password Tool",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "App to detect patterns in passwords",
   "main": "source/main.js",
   "scriptsComments": {
     "preinstall": "first install cpy package, then use it to copy updated C++ files in addon folder, then compile addon",
@@ -44,7 +45,31 @@
     "win": {
       "target": "nsis",
       "requestedExecutionLevel": "highestAvailable",
-      "icon": "source/assets/flip-h.ico"
+      "icon": "source/assets/icons/app-icon.png"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "source/assets/icons/app-icon.png",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    },
+    "linux": {
+      "category": "Development",
+      "desktop": {
+        "Comment": "App to detect patterns in passwords",
+        "Name": "Password Tool",
+        "StartupNotify": "true",
+        "Terminal": "false",
+        "Type": "Application",
+        "Categories": "Development;"
+      },
+      "executableName": "PasswordTool",
+      "maintainer": "gauriatiq@gmail.com",
+      "target": [
+        "AppImage"
+      ]
     },
     "nsis": {
       "oneClick": false,
@@ -52,7 +77,18 @@
       "runAfterFinish": true
     }
   },
-  "author": "Atiq",
+  "keywords": [
+    "Password tool",
+    "Password",
+    "Pattern",
+    "Security",
+    "Attack"
+  ],
+  "repository": "https://github.com/AtiqGauri/PasswordTool.git",
+  "author": {
+    "name": "Atiq Gauri",
+    "email": "gauriatiq@gmail.com"
+  },
   "devDependenciesComments": {
     "cpy": "To copy files",
     "electron": "framework",

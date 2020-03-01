@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -9,9 +9,13 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1920, height: 1080,
+    width: 1280, height: 720,
     minWidth: 1280, minHeight:800,
     title: "PasswordTool",
+    icon: 'source/asset/icons/app-icon.png',
+    autoHideMenuBar: true,
+    frame: false,
+    backgroundColor: '#F2F2F2',
     webPreferences: {
       nativeWindowOpen: true,
       nodeIntegration: true,
