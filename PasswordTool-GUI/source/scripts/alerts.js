@@ -24,11 +24,11 @@ function target_alerts(cTarget, cTitle, cClass, cTime=2000){
 /*****************TARGET END***********************/
 
 /*****************HOME STARTS***********************/
-function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cIcon='error'){
+function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error'){
     alertComponent.fire({
         title: cTitle,
         target: document.getElementById('homeTab'),
-        html: '<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>',
+        html: cHtml,
         customClass: 'centerErrorAlert',
         position: 'center',
         background: '#F2F2F2',
@@ -48,7 +48,7 @@ function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> In
 /*****************PROCESS STARTS***********************/
 function moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">Finished</b>', 
 cHtml='<b style="margin: 0 4vw 0 1vw;">Let\'s move to create statistics</b>',
- cIcon='success', cTime='4000'){
+ cIcon='success', cTime='4000', cConfirmButton=true, cCancelButton=true){
 
     alertComponent.fire({
         target: document.getElementById('processTab'),
@@ -60,10 +60,10 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Let\'s move to create statistics</b>',
         background: '#F2F2F2',
         icon: cIcon,
         focusCancel: true,
-        showConfirmButton: true,
+        showConfirmButton: cConfirmButton,
         confirmButtonText: 'Stay Here',
         confirmButtonColor: 'grey',
-        showCancelButton: true,
+        showCancelButton: cCancelButton,
         cancelButtonText: 'Move Forward',
         cancelButtonColor: '#78126A',
         timer: cTime,
@@ -84,7 +84,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Let\'s move to create statistics</b>',
 
 function moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Finished</b>', 
 cHtml='<b style="margin: 0 4vw 0 1vw;">Now import these statistics into database</b>',
- cIcon='success', cTime='180000'){
+ cIcon='success', cTime='180000', cConfirmButton=true, cCancelButton=true){
     alertComponent.fire({
         target: document.getElementById('statsGeneration'),
         title: cTitle,
@@ -95,10 +95,10 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Now import these statistics into database
         background: '#F2F2F2',
         icon: cIcon,
         focusCancel: true,
-        showConfirmButton: true,
+        showConfirmButton: cConfirmButton,
         confirmButtonText: 'Stay Here',
         confirmButtonColor: 'grey',
-        showCancelButton: true,
+        showCancelButton: cCancelButton,
         cancelButtonText: 'Move Forward',
         cancelButtonColor: '#E86135',
         timer: cTime,

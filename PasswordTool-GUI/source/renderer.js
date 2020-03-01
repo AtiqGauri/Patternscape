@@ -90,7 +90,8 @@ function output_of_stats_generator(){
 		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
     }
 
-	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
+	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	categoryWindow.loadFile('./source/htmls/patternsCategories.html');
 
 	//alert sound should be played finally in all conditions
@@ -134,7 +135,8 @@ function pattern_lookup(){
 	}
 
 	//create a widow to show pattern data
-	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data",webPreferences: {nodeIntegration: true,}});
+	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data", autoHideMenuBar: true, 
+	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	patternDataWindow.loadFile('./source/htmls/patternData.html');
 
 	get_address_of_pattern_file(input).then(function(result) {
@@ -246,7 +248,8 @@ function target_user_pattern(){
 					//update process status, make alert sound
 					shell.beep();
 					//create a window to display suggested patterns
-					suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+					suggestionsWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
+					frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 					suggestionsWindow.loadFile('./source/htmls/targetSuggestions.html');
 					//pass suggested patterns array to that window
 					suggestionsWindow.webContents.on('did-finish-load', () => {
@@ -321,7 +324,8 @@ function catch_target_password(){
  */
 function process_single_password(detectedData){
 	//create a window to display suggested patterns
-	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories",webPreferences: {nodeIntegration: true,}});
+	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
+	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	targetPasswordWindow.loadFile('./source/htmls/targetPattern.html');
 	//pass suggested patterns array to that window
 	targetPasswordWindow.webContents.on('did-finish-load', () => {

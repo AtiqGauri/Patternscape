@@ -43,7 +43,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     border-radius: 10px;
-    box-shadow: -10px -10px 10px rgba(255, 255, 255, 255), 12px 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 12px 12px 30px rgba(0, 0, 0, 0.15);
     
     background-color: transparent;
 
@@ -198,8 +198,8 @@ p {
 }
 .impInputFolder{
     position: absolute;
-    margin-top: 0%;
-    margin-left: 37%;
+    margin-top: -10%;
+    margin-left: 31%;
     padding: 9%;
     width: 81%;
     font-size: 2.5vh;
@@ -303,12 +303,12 @@ p {
 .impDownResults{
     position: absolute;
     background-color: transparent;
-    left: 42%;
+    left: 60%;
     top: 10%;
-    width: 60%;
+    width: 40%;
     font-style: light;
     font-weight: 900;
-    font-size: 3vh;
+    font-size: 2.7vh;
     line-height: 1.5;
     letter-spacing: 1px;
     user-select: text;
@@ -323,7 +323,7 @@ p {
     max-width: 65%;
     height: 80%;
     top: 5%;
-    left: 35%;
+    left: 14.5%;
     border-radius: 11px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
@@ -481,7 +481,7 @@ p {
     display: none;
     position: absolute;
     top:28%;
-    left: 33%;
+    left: 35%;
     width: fit-content;
     max-width: 70%;
     height: 30%;
@@ -673,7 +673,7 @@ p {
 /****************ALERTS START*****************/
 .databaseImportAlert{
     margin-top: 20vh;
-    margin-left: 55vw;
+    margin-left: 61vw;
     width: 25vw !important;
     padding: 2vh 4vh 2vh 4vh;
     font-family: Montserrat;
@@ -684,7 +684,7 @@ p {
 }
 
 .databaseDownloadAlert{
-    margin-top: 18vh;
+    margin-top: 20vh;
     margin-left: 57.5vw;
     width: 25vw !important;
     padding: 2vh 4vh 2vh 4vh;
@@ -696,8 +696,8 @@ p {
 }
 
 .databaseExportAlert{
-    margin-top: 18vh;
-    margin-left: 57.5vw;
+    margin-top: 21vh;
+    margin-left: 61vw;
     width: 25vw !important;
     padding: 2vh 4vh 2vh 4vh;
     font-family: Montserrat;

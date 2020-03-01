@@ -2,12 +2,34 @@
 <html>
     <head>
         <title> Target Patterns </title>
-            <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-            <meta name="HandheldFriendly" content="true">
-            <!-- CSS -->
-            <link rel="stylesheet" type="text/css" href="../styles/targetPattern.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="HandheldFriendly" content="true">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../styles/targetPattern.css"/>
     </head>
     <body>
+        <header id="titleBar">
+            <div id="dragRegion">
+                <div id="windowControls" class="windowControls">
+                    <div class="windowControlDiv" id="minWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/min.svg" id="minimizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="maxWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/max.svg" id="maximizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="restoreWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/mid.svg" id="restoreWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="closeWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/cross.svg" id="closeWindow" draggable="false">
+                    </div>
+                </div>
+                <div id="windowTitle">
+                    <span id="appHeaderName">Ongoing Project</span>
+                    <img class="appHeaderIcon" src="../assets/icons/app-icon.svg" id="appHeaderIcon" draggable="false">
+                </div>
+            </div>
+        </header>
         <!-- Password -->
         <h1 id="passwordString"></h1>
         

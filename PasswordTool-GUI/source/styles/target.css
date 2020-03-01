@@ -11,7 +11,7 @@
 /******************HEADER END***********************/
 .targetHead{
     position: absolute;
-    top: 5%;
+    top: 12%;
     left: 5%;
     color: #5E84AC;
     letter-spacing: 1px;
@@ -24,7 +24,7 @@
 }
 .targetText{
     position: absolute;
-    top: 12%;
+    top: 20%;
     left: 7%;
     color: grey;
     word-spacing: 2px;
@@ -34,7 +34,7 @@
     font-style: light;
     font-weight: 900;
     font-style: light;
-    font-size: 2.5vh;
+    font-size: 2.3vh;
 }
 
 
@@ -77,85 +77,85 @@
 }
 
 .targetEmail{
-    top: 38%;
+    top: 44%;
     left: 5%;
 }
 .targetEmailLabel{
-    top: 39%;
+    top: 45%;
     left: 6%;
 }
 .targetEmail:focus+.targetEmailLabel, .targetEmail:not(:placeholder-shown)+.targetEmailLabel{
-    top: 34%;
+    top: 41%;
     left: 6%;
     font-size: 2.5vh;
 }
 
 .targetPassword{
-    top: 38%;
+    top: 44%;
     left: 40%;
 }
 .targetPasswordLabel{
-    top: 39%;
+    top: 45%;
     left: 41%;
 }
 .targetPassword:focus+.targetPasswordLabel, .targetPassword:not(:placeholder-shown)+.targetPasswordLabel{
-    top: 34%;
+    top: 41%;
     left: 41%;
     font-size: 2.5vh;
 }
 
 .targetName{
-    top: 38%;
+    top: 44%;
     left: 73%;
 }
 .targetNameLabel{
-    top: 39%;
+    top: 45%;
     left: 74%;
 }
 .targetName:focus+.targetNameLabel, .targetName:not(:placeholder-shown)+.targetNameLabel{
-    top: 34%;
+    top: 41%;
     left: 74%;
     font-size: 2.5vh;
 }
 
 .targetLocation{
-    top: 54%;
+    top: 62%;
     left: 5%;
 }
 .targetLocationLabel{
-    top: 55%;
+    top: 63%;
     left: 6%;
 }
 .targetLocation:focus+.targetLocationLabel, .targetLocation:not(:placeholder-shown)+.targetLocationLabel{
-    top: 51%;
+    top: 57.7%;
     left: 6%;
     font-size: 2.5vh;
 }
 
 .targetMobile{
-    top: 54%;
+    top: 61%;
     left: 40%;
 }
 .targetMobileLabel{
-    top: 55%;
+    top: 62%;
     left: 41%;
 }
 .targetMobile:focus+.targetMobileLabel, .targetMobile:not(:placeholder-shown)+.targetMobileLabel{
-    top: 51%;
+    top: 57.7%;
     left: 41%;
     font-size: 2.5vh;
 }
 
 .targetDob{
-    top: 54%;
+    top: 63%;
     left: 73%;
 }
 .targetDobLabel{
-    top: 55%;
+    top: 64%;
     left: 74%;
 }
 .targetDob:focus+.targetDobLabel, .targetDob:not(:placeholder-shown)+.targetDobLabel{
-    top: 51%;
+    top: 60%;
     left: 74%;
     font-size: 2.5vh;
 }
@@ -165,7 +165,7 @@
     position: absolute;
     padding: 3% 4% 2% 4%;
     max-width: 58%;
-    bottom: 13%;
+    bottom: 7%;
     left: 5%;
     color: #5E84AC;
     overflow: scroll;
@@ -202,8 +202,8 @@
 
 .targetSubmit{
     position: absolute;
-    left: 73%;
-    bottom: 16.5%;
+    left: 74%;
+    bottom: 11%;
     padding: 1% 3% 1% 3%;
     color: #5E84AC;
     border-radius: 10px;

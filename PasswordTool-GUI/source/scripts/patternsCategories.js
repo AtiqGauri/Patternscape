@@ -5,6 +5,15 @@ const fs = require('fs');
 //require n-readlines to read huge file line by line without excessive use of memory 
 const lineByLine = require('n-readlines');
 
+// When document has loaded, initialized
+document.onreadystatechange = () => {
+    if (document.readyState == "complete") {
+        handleWindowControls();
+        platformWindowControl();
+    }
+};
+
+
 //initialize n-readlines with data file address
 //double if statement to avoid path error because of asar packaging of electron app
 if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..','data', 'Stats', 'Patterns.txt'))){   
@@ -59,4 +68,52 @@ while(line = liner.next()){
     
     //append row into table element
     table.appendChild(tr);
+}
+
+function handleWindowControls() {
+
+	let win = require('electron').remote.getCurrentWindow();
+	
+    // Make minimize/maximize/restore/close buttons work when they are clicked
+    document.getElementById('minWindowDiv').addEventListener("click", event => {
+        win.minimize();
+    });
+
+    document.getElementById('maxWindowDiv').addEventListener("click", event => {
+        win.maximize();
+    });
+
+    document.getElementById('restoreWindowDiv').addEventListener("click", event => {
+        win.unmaximize();
+    });
+
+    document.getElementById('closeWindowDiv').addEventListener("click", event => {
+        win.close();
+    });
+
+    function toggleMaxRestoreButtons() {
+        if (win.isMaximized()) {
+			//document.body.classList.add('maximized');
+			document.getElementById('maxWindowDiv').style.display = 'none';
+			document.getElementById('restoreWindowDiv').style.display = 'block';
+        } else {
+			//document.body.classList.remove('maximized');
+			document.getElementById('maxWindowDiv').style.display = 'block';
+			document.getElementById('restoreWindowDiv').style.display = 'none';
+        }
+    }
+
+    // Toggle maximize/restore buttons when maximization/unmaximization occurs
+    toggleMaxRestoreButtons();
+    win.on('maximize', toggleMaxRestoreButtons);
+    win.on('unmaximize', toggleMaxRestoreButtons);
+}
+
+
+function platformWindowControl(){
+    if(process.platform == 'darwin'){
+        document.getElementById("windowControls").classList.add("forMac");
+    }else{
+        document.getElementById("windowControls").classList.add("forElse");
+    }
 }

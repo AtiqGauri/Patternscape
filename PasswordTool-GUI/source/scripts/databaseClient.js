@@ -1,3 +1,5 @@
+//require database script
+var {database} = require('./scripts/databaseInit.js');
 //require database import export script 
 var importExportDB = require("./scripts/importExportDatabase.js");
 
@@ -11,6 +13,11 @@ function database_worker_client(){
 
     document.getElementById("progressAnimation").style.display = "block";
 
+    if(fs.readdirSync(__dirname + '/../data/Stats/Patterns Data/').length <= 1){
+        database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
+        document.getElementById("progressAnimation").style.display = "none";
+        return;
+    }
     //initialize web worker
     worker = new Worker('threadWorkers/databaseWorker.js')
 
@@ -35,6 +42,8 @@ function database_worker_client(){
             document.getElementById("progressAnimation").style.display = "none";
             
             database_acknowledgment(cTarget='importDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseImportAlert', cResult='importDbResult');
+            
+            database_storage_quota();
         });
     };
 
@@ -73,14 +82,20 @@ function database_export_client(){
     var totalRecords = document.getElementById("expTotal");
 
     //call export function to import export script
-    importExportDB.export_database().then((exportResult)=>{
-        document.getElementById("progressAnimation").style.display = "none";
-        if(exportResult){
-            importExportDB.get_database_count().then(function(total) {
+    importExportDB.get_database_count().then(function(total) {
+        if(total == 0){
+            document.getElementById("progressAnimation").style.display = "none";
+            database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Database is empty</b>', cHtml='<b>No records available to export</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#499371');
+            return;
+        }
+        
+        importExportDB.export_database().then((exportResult)=>{
+            document.getElementById("progressAnimation").style.display = "none";
+            if(exportResult){
                 totalRecords.innerHTML = 'Exported Records: ' + total;
                 database_acknowledgment(cTarget='exportDB', cTitle='Exported Successfully', cIcon='success', cClass='databaseExportAlert', cResult='expResultsDiv');
-            });
-        }
+            }
+        });
     });
 }
 /**
@@ -103,6 +118,12 @@ function database_import_client(){
     var newlyAdded = document.getElementById("impDownAdded");
     var duplicates = document.getElementById("impDownDuplicates");
     var totalRecords = document.getElementById("impDownTotal");
+
+    if(fs.readdirSync(__dirname + '/../data/Database/').length <= 1){
+        database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
+        document.getElementById("progressAnimation").style.display = "none";
+        return;
+    }
 
     importExportDB.get_database_count().then(function(total1) {
         console.log(total1);
@@ -142,15 +163,12 @@ function delete_database(){
     var i = classes.indexOf("deleteIconActive");
 
     if (i >= 0){
-        /* 
-        //WARNING: THIS WILL DELETE ALL THE DATABASES IN INDEXED_DB
-        window.indexedDB.databases().then((r) => {
-            for (var i = 0; i < r.length; i++) window.indexedDB.deleteDatabase(r[i].name);
-        }).then(() => {
-            console.log('Database is deleted');
+        database.table('Patterns').clear().then(() => {
+            database_acknowledgment('deleteIconWrapperID', 'DATABASE IS DELETED', 'error', 'databaseDeleteAlert', 'deleteIconWrapperID'); 
+            document.getElementById('deleteIconWrapperID').click();
+        }).catch((error) => {
+            database_error_alerts(cTarget='deleteIconWrapperID', cTitle='<b style="color:#5A81AE;">'+ error.name +'</b>', cHtml='<b>'+ error.message +'</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
         });
-        */
-        database_acknowledgment('deleteIconWrapperID', 'DATABASE IS DELETED', 'error', 'databaseDeleteAlert', 'deleteIconWrapperID');
     }
     else{
         console.log("Check caution button to delete database");
