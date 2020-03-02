@@ -33,48 +33,53 @@
 	</div>
   </header>
   <body>
-	<main class="mainContainer">
-		<section class="navTab">
-		  <div class="tabLinks" id="targetTabButton" onclick="openTabs(event, 'targetTab')">
-			<img class="navIcons" src="assets/icons/target.svg" draggable="false">
-			<label class="navLabels" id="targetLabel">Target</label>
-		  </div>
-		  <div class="tabLinks" id="processTabButton" onclick="openTabs(event, 'processTab')">
-			<img class="navIcons" src="assets/icons/process.svg" draggable="false">
-			<label class="navLabels" id="processLabel">Process</label>
-		  </div>
-		  <div class="tabLinks" id="homeTabButton" onclick="openTabs(event, 'homeTab')">
-			<img class="navIcons" src="assets/icons/home.svg" draggable="false">
-			<label class="navLabels" id="homeLabel">Home</label>
-		  </div>
-		  <div class="tabLinks" id="databaseTabButton" onclick="openTabs(event, 'databaseTab')">
-			<img class="navIcons" src="assets/icons/database.svg" draggable="false">
-			<label class="navLabels" id="databaseLabel">Database</label>
-		  </div>
-		  <div class="tabLinks" id="documentsTabButton" onclick="openTabs(event, 'documentTab')">
-			<img class="navIcons" src="assets/icons/documents.svg" draggable="false">
-			<label class="navLabels" id="documentLabel">Documents</label>
-		  </div>
-		</section>
-		<section class="tabContentArea">
-		  <div id="targetTab" class="tabContent targetContent">
-			<includeme src="htmls/target.html"></includeme>
-		  </div>
-		  <div id="processTab" class="tabContent processContent">
-			<includeme src="htmls/process.html"></includeme>
-		  </div>
-		  <div id="homeTab" class="tabContent homeContent">
-			<includeme src="htmls/home.html"></includeme>
-		  </div>
-		  <div id="databaseTab" class="tabContent databaseContent">
-			<includeme src="htmls/database.html"></includeme>
-		  </div>
-		  <div id="documentTab" class="tabContent documentContent">
-			<includeme src="htmls/documents.html"></includeme>
-		  </div>
-		  <includeme src="assets/images/animationSVG.html"></includeme>
-		</section>
-	  </main>
+	<div class="splashScreen" id="splashScreen">
+		<img class="splashIcon" src="assets/images/splash-screen.svg" draggable="false">
+	</div>
+	<div class="mainScreen" id="mainScreen">
+		<main class="mainContainer">
+			<section class="navTab">
+			  <div class="tabLinks" id="targetTabButton" onclick="openTabs(event, 'targetTab')">
+				<img class="navIcons" src="assets/icons/target.svg" draggable="false">
+				<label class="navLabels" id="targetLabel">Target</label>
+			  </div>
+			  <div class="tabLinks" id="processTabButton" onclick="openTabs(event, 'processTab')">
+				<img class="navIcons" src="assets/icons/process.svg" draggable="false">
+				<label class="navLabels" id="processLabel">Process</label>
+			  </div>
+			  <div class="tabLinks" id="homeTabButton" onclick="openTabs(event, 'homeTab')">
+				<img class="navIcons" src="assets/icons/home.svg" draggable="false">
+				<label class="navLabels" id="homeLabel">Home</label>
+			  </div>
+			  <div class="tabLinks" id="databaseTabButton" onclick="openTabs(event, 'databaseTab')">
+				<img class="navIcons" src="assets/icons/database.svg" draggable="false">
+				<label class="navLabels" id="databaseLabel">Database</label>
+			  </div>
+			  <div class="tabLinks" id="documentsTabButton" onclick="openTabs(event, 'documentTab')">
+				<img class="navIcons" src="assets/icons/documents.svg" draggable="false">
+				<label class="navLabels" id="documentLabel">Documents</label>
+			  </div>
+			</section>
+			<section class="tabContentArea">
+			  <div id="targetTab" class="tabContent targetContent">
+				<includeme src="htmls/target.html"></includeme>
+			  </div>
+			  <div id="processTab" class="tabContent processContent">
+				<includeme src="htmls/process.html"></includeme>
+			  </div>
+			  <div id="homeTab" class="tabContent homeContent">
+				<includeme src="htmls/home.html"></includeme>
+			  </div>
+			  <div id="databaseTab" class="tabContent databaseContent">
+				<includeme src="htmls/database.html"></includeme>
+			  </div>
+			  <div id="documentTab" class="tabContent documentContent">
+				<includeme src="htmls/documents.html"></includeme>
+			  </div>
+			  <includeme src="assets/images/animationSVG.html"></includeme>
+			</section>
+		</main>
+	</div>
 	  <!-- renderer.js will handle system call like opening default text editor -->
 	  <script src="./preload.js"></script> 
 	  <script src="./renderer.js"></script>
@@ -90,6 +95,12 @@
 	  <script src="scripts/alerts.js"></script>
 	  <script>
 		document.addEventListener('includemeCompleted', function (e) {
+			setTimeout(() => {
+				document.getElementById("splashScreen").style.opacity = '0';
+				document.getElementById("splashScreen").style.visibility = '0';
+				document.getElementById("mainScreen").style.opacity = '1';
+				document.getElementById("mainScreen").style.visibility = 'visible';
+			}, 600);
 			console.log('All external HTML files have been loaded!');
 			autocomplete(document.getElementById("patternSearchInput"));
 			document.getElementById("expDB").click();

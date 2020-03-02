@@ -11,4 +11,4 @@ function openTabs(evt, tabName){
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("targetTabButton").click();
+document.getElementById("homeTabButton").click();

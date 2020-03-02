@@ -241,6 +241,8 @@ p {
 }
 .impDownTextHead{
     margin-bottom: 2%;
+    white-space: nowrap;
+    overflow: visible;
     color: #5A81AE;
     font-weight: 900;
     font-style: light;
@@ -404,6 +406,8 @@ p {
 .exportDBTextHead{
     margin-top: 9%;
     margin-left: 4%;
+    white-space: nowrap;
+    overflow: visible;
     color: #499371;
     font-weight: 900;
     font-style: light;

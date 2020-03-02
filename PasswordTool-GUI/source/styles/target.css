@@ -119,15 +119,15 @@
 }
 
 .targetLocation{
-    top: 62%;
+    top: 61%;
     left: 5%;
 }
 .targetLocationLabel{
-    top: 63%;
+    top: 62%;
     left: 6%;
 }
 .targetLocation:focus+.targetLocationLabel, .targetLocation:not(:placeholder-shown)+.targetLocationLabel{
-    top: 57.7%;
+    top: 58%;
     left: 6%;
     font-size: 2.5vh;
 }
@@ -141,7 +141,7 @@
     left: 41%;
 }
 .targetMobile:focus+.targetMobileLabel, .targetMobile:not(:placeholder-shown)+.targetMobileLabel{
-    top: 57.7%;
+    top: 58%;
     left: 41%;
     font-size: 2.5vh;
 }

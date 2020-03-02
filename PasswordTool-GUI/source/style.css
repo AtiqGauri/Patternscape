@@ -155,6 +155,31 @@ body {
 }
 /****************HEADER END********************/
 
+/****************SPLASH START********************/
+.splashScreen{
+    width: 100vw;
+    height: 100vh;
+    background-color: #F2F2F2;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 2000ms, visibility 2000ms;
+}
+.splashIcon{
+    position: absolute;
+    top: 7vh;
+    left: 7vw;
+    height: 86%;
+    width: 86%;
+    pointer-events: none;
+}
+.mainScreen{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2000ms, visibility 2000ms;
+}
+/****************SPLASH END********************/
+
 /****************NAV and MAIN START********************/
 .mainContainer{
     position: absolute;
