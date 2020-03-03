@@ -1,5 +1,8 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
+const { remote } = require('electron')
+const { Menu, MenuItem, getCurrentWindow } = remote
+
 
 // When document has loaded, initialized
 document.onreadystatechange = () => {
@@ -56,3 +59,20 @@ function platformWindowControl(){
         document.getElementById("windowControls").classList.add("forElse");
     }
 }
+
+
+
+const menu = new Menu()
+menu.append(new MenuItem({ label: 'Cut', role:'cut' }))
+menu.append(new MenuItem({ label: 'Copy', role:'copy' }))
+menu.append(new MenuItem({ label: 'Paste', role:'paste' }))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'Refresh', click() { getCurrentWindow().reload() } }))
+//menu.append(new MenuItem({ type: 'separator' }))
+//console.log(process.env);
+menu.append(new MenuItem({ label: 'Inspect Element', click() { getCurrentWindow().webContents.openDevTools({mode: 'detach'}) } }))
+
+window.addEventListener('contextmenu', (e) => {
+  e.preventDefault()
+  menu.popup({ window: remote.getCurrentWindow() })
+}, false)

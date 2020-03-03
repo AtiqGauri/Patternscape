@@ -100,13 +100,26 @@ function analyze_passwords_emails(){
 
 		document.getElementById("progressAnimation").style.display = "block";
 		
-		if(fs.readdirSync(__dirname + '/../data/Input/').length <= 1){
-			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
-			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
-		 	cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
-			document.getElementById("progressAnimation").style.display = "none";
-			bAnalyzer = true;
-			return;
+		if(fs.existsSync(path.join(process.resourcesPath, '..','data','Input'))){
+			if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Input')).length <= 1){
+				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
+				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+				document.getElementById("progressAnimation").style.display = "none";
+				bAnalyzer = true;
+				return;
+			}
+		}else if(fs.existsSync(path.join(__dirname, '..','data','Input'))){
+			if(fs.readdirSync(path.join(__dirname, '..','data','Input')).length <= 1){
+				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
+				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+				document.getElementById("progressAnimation").style.display = "none";
+				bAnalyzer = true;
+				return;
+			}
+		}else{
+			console.error('data/Database/ folder doesn\'t exist');
 		}
 
 		//initalizing web worker
@@ -183,13 +196,28 @@ function stop_analyze_passwords_emails(){
 function generate_statistics(){
 	document.getElementById("progressAnimation").style.display = "block";
 
-	if(fs.readdirSync(__dirname + '/../data/Output/').length <= 1){
-		document.getElementById("progressAnimation").style.display = "none";
-		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
-		cHtml='<b style="margin: 0 4vw 0 1vw;"> First analyze files in analyzation section, then try again </b>',
-		 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
-		return;
+	if(fs.existsSync(path.join(process.resourcesPath, '..','data','Output'))){
+		if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Output')).length <= 1){
+			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
+			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+			document.getElementById("progressAnimation").style.display = "none";
+			bAnalyzer = true;
+			return;
+		}
+	}else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Output'))){
+		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Output')).length <= 1){
+			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again</b>',
+			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+			document.getElementById("progressAnimation").style.display = "none";
+			bAnalyzer = true;
+			return;
+		}
+	}else{
+		console.error('data/Database/ folder doesn\'t exist');
 	}
+
 
 	//Initialize web worker
 	worker2 = new Worker('threadWorkers/statisticsWorker.js')
