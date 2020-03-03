@@ -16,6 +16,7 @@ function createWindow () {
     autoHideMenuBar: true,
     frame: false,
     backgroundColor: '#F2F2F2',
+    show: false,
     webPreferences: {
       nativeWindowOpen: true,
       nodeIntegration: true,
@@ -38,6 +39,10 @@ function createWindow () {
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools()
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+    console.log('asdas');
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

@@ -13,11 +13,23 @@ function database_worker_client(){
 
     document.getElementById("progressAnimation").style.display = "block";
 
-    if(fs.readdirSync(__dirname + '/../data/Stats/Patterns Data/').length <= 1){
-        database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
-        document.getElementById("progressAnimation").style.display = "none";
-        return;
-    }
+    if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data'))){
+		if(fs.readdirSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data')).length <= 1){
+			database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
+            document.getElementById("progressAnimation").style.display = "none";
+            return;
+		}
+	}else if(fs.existsSync(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'))){
+		if(fs.readdirSync(path.join(__dirname, '..','data', 'Stats', 'Patterns Data')).length <= 1){
+            database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
+            document.getElementById("progressAnimation").style.display = "none";
+            return;
+		}
+	}else{
+		database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
+	}
+
+
     //initialize web worker
     worker = new Worker('threadWorkers/databaseWorker.js')
 
@@ -119,11 +131,21 @@ function database_import_client(){
     var duplicates = document.getElementById("impDownDuplicates");
     var totalRecords = document.getElementById("impDownTotal");
 
-    if(fs.readdirSync(__dirname + '/../data/Database/').length <= 1){
-        database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
-        document.getElementById("progressAnimation").style.display = "none";
-        return;
-    }
+    if(fs.existsSync(path.join(process.resourcesPath, '..', 'data', 'Database'))){
+		if(fs.readdirSync(path.join(process.resourcesPath, '..', 'data', 'Database')).length <= 1){
+			database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
+            document.getElementById("progressAnimation").style.display = "none";
+            return;
+		}
+	}else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Database'))){
+		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Database')).length <= 1){
+            database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
+            document.getElementById("progressAnimation").style.display = "none";
+            return;
+		}
+	}else{
+		console.error('data/Database/ folder doesn\'t exist');
+	}
 
     importExportDB.get_database_count().then(function(total1) {
         console.log(total1);
@@ -161,11 +183,13 @@ function delete_database(){
     
     var classes = element.className.split(" ");
     var i = classes.indexOf("deleteIconActive");
+    database.delete('PasswordTool');
 
     if (i >= 0){
         database.table('Patterns').clear().then(() => {
             database_acknowledgment('deleteIconWrapperID', 'DATABASE IS DELETED', 'error', 'databaseDeleteAlert', 'deleteIconWrapperID'); 
             document.getElementById('deleteIconWrapperID').click();
+            database_storage_quota();
         }).catch((error) => {
             database_error_alerts(cTarget='deleteIconWrapperID', cTitle='<b style="color:#5A81AE;">'+ error.name +'</b>', cHtml='<b>'+ error.message +'</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
         });

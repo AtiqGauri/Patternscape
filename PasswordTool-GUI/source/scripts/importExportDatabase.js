@@ -25,18 +25,34 @@ var export_database = async function export_database(){
     try{
       const blob = await database.export({prettyJson: true});
       const text = await new Response(blob).text();
-      fileSystem.writeFile("data/Database/ExportedDatabase.json", text, function(error){
-        if(error){
-          console.log(error);
-          operationSuccess = false;
-          database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
-          return operationSuccess;
-        }
-      });
+      
+      if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
+        fileSystem.writeFile(path.join(__dirname, '..', '..', 'data','Database','ExportedDatabase.json'), text, function(error){
+          if(error){
+            console.log(error);
+            operationSuccess = false;
+            database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+            return operationSuccess;
+          }
+        });
+      }else if(fs.existsSync(path.join(process.resourcesPath, '..', 'data','Database'))){
+        fileSystem.writeFile(path.join(process.resourcesPath, '..', 'data','Database','ExportedDatabase.json'), text, function(error){
+          if(error){
+            console.log(error);
+            operationSuccess = false;
+            database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+            return operationSuccess;
+          }
+        });
+      }else{
+        operationSuccess = false;
+        database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml='Export directory not found', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+        return operationSuccess;
+      }
     }catch(error){
         console.error(''+error);
         operationSuccess = false;
-        database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml=error, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
+        database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
         return operationSuccess;
     }
     console.log("Exported");
@@ -55,14 +71,27 @@ var import_database = async function import_database(){
     var operationSuccess = true;
     
     var downloadedInputFiles = [];
-    fileSystem.readdirSync(__dirname + '/../../data/Database/').forEach(file => {
-      if(file != 'Error Log'){
-        downloadedInputFiles.push("data/Database/" + file);
-      }
-    });
+
+    if(fs.existsSync(path.join(process.resourcesPath, '..', '..', 'data', 'Database'))){
+      fileSystem.readdirSync(path.join(process.resourcesPath, '..', '..', 'data', 'Database')).forEach(file => {
+        if(file != 'Error Log'){
+          downloadedInputFiles.push(path.join('data', 'Database', file));
+        }
+      });  
+    }else if(fs.existsSync(path.join(__dirname, '..', '..', 'data', 'Database'))){
+      fileSystem.readdirSync(path.join(__dirname, '..', '..', 'data', 'Database')).forEach(file => {
+        if(file != 'Error Log'){
+          downloadedInputFiles.push(path.join('data', 'Database', file));
+        }
+      });
+    }else{
+      operationSuccess = false;
+      database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
+      return operationSuccess;
+    }
+
     for (let i = 0; i < downloadedInputFiles.length; i++) {
       try{
-
         const stream = fileSystem.createReadStream(downloadedInputFiles[i]);
         const blob = await toBlob(stream);
         await database.import(blob);

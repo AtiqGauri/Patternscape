@@ -164,6 +164,7 @@ body {
     opacity: 1;
     pointer-events: none;
     transition: opacity 2000ms, visibility 2000ms;
+    user-select: none;
 }
 .splashIcon{
     position: absolute;
@@ -172,6 +173,7 @@ body {
     height: 86%;
     width: 86%;
     pointer-events: none;
+    user-select: none;
 }
 .mainScreen{
     opacity: 0;
@@ -318,3 +320,15 @@ body {
     height: 100%;
 }
 /****************DOCUMENTS TAB END********************/
+
+
+/****************ALERTS START*************************/
+.generalAppAlerts{
+    text-shadow: none !important;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 1.5px;
+    user-select: text;
+}
+/****************ALERTS END*************************/

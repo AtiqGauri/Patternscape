@@ -1,5 +1,6 @@
 //require dexie package to create IndexedDB database for our app
 var Dexie = require('dexie');
+var {database_error_alerts} = require('./alerts.js');
 
 //initialize database 
 var database = new Dexie("PasswordTool");
@@ -8,11 +9,18 @@ var database = new Dexie("PasswordTool");
 database.version(1).stores({
     Patterns: 'pattern,address,popularity'
 })
+database.version(2).stores({
+    Patterns: 'pattern,address,popularity',
+    UserData: 'key, value'
+})
+
 
 //check if database is opened successfully (async process)
 database.open().catch(function(error){
     console.log("ERROR: "+ error);
 });
+
+database.UserData.put({key: "x86", value: "8 MB RAM, 256 GB SSD"});
 
 /**
  * Function to lookup/find pattern in database 

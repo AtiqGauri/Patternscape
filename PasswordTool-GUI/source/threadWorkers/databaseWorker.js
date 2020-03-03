@@ -1,5 +1,6 @@
 //require database script
 const {database} = require('../scripts/databaseInit.js');
+var path = require('path');
 
 //require n-readlines to read huge file line by line without excessive use of memory 
 const lineByLine = require('n-readlines');
@@ -16,7 +17,8 @@ database.open().catch(function(error){
 });
 
 //initialize n-readlines with data file address
-const liner = new lineByLine('./data/Stats/Patterns.txt');
+//can throw error because of asar packaging
+const liner = new lineByLine(path.join('data', 'Stats', 'Patterns.txt'));
 //variable to denote single line string
 let line;
 //variable to count line number(not necessary)
