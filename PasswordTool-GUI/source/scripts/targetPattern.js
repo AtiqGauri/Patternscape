@@ -80,27 +80,27 @@ ipc.on('message', (event, data) => {
 
 function handleWindowControls() {
 
-	let win = require('electron').remote.getCurrentWindow();
+	let targetWin = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
     document.getElementById('minWindowDiv').addEventListener("click", event => {
-        win.minimize();
+        targetWin.minimize();
     });
 
     document.getElementById('maxWindowDiv').addEventListener("click", event => {
-        win.maximize();
+        targetWin.maximize();
     });
 
     document.getElementById('restoreWindowDiv').addEventListener("click", event => {
-        win.unmaximize();
+        targetWin.unmaximize();
     });
 
     document.getElementById('closeWindowDiv').addEventListener("click", event => {
-        win.close();
+        targetWin.close();
     });
 
     function toggleMaxRestoreButtons() {
-        if (win.isMaximized()) {
+        if (targetWin.isMaximized()) {
 			//document.body.classList.add('maximized');
 			document.getElementById('maxWindowDiv').style.display = 'none';
 			document.getElementById('restoreWindowDiv').style.display = 'block';
@@ -113,14 +113,31 @@ function handleWindowControls() {
 
     // Toggle maximize/restore buttons when maximization/unmaximization occurs
     toggleMaxRestoreButtons();
-    win.on('maximize', toggleMaxRestoreButtons);
-    win.on('unmaximize', toggleMaxRestoreButtons);
+    targetWin.on('maximize', toggleMaxRestoreButtons);
+    targetWin.on('unmaximize', toggleMaxRestoreButtons);
+    targetWin.on('blur', (e, cmd) => {
+        document.getElementById("minWindowDiv").style.backgroundColor = 'grey';
+        document.getElementById("maxWindowDiv").style.backgroundColor = 'grey';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = 'grey';
+        document.getElementById("closeWindowDiv").style.backgroundColor = 'grey';
+    });
+    targetWin.on('focus', (e, cmd) => {
+        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+    })
 }
 
 
 function platformWindowControl(){
+    document.getElementById("windowControls").style.visibility = 'visible';
     if(process.platform == 'darwin'){
         document.getElementById("windowControls").classList.add("forMac");
+        document.getElementById("minWindowDiv").style.order = '2';
+        document.getElementById("maxWindowDiv").style.order = '3';
+        document.getElementById("restoreWindowDiv").style.order = '3';
+        document.getElementById("closeWindowDiv").style.order = '1';
     }else{
         document.getElementById("windowControls").classList.add("forElse");
     }

@@ -183,7 +183,6 @@ function delete_database(){
     
     var classes = element.className.split(" ");
     var i = classes.indexOf("deleteIconActive");
-    database.delete('PasswordTool');
 
     if (i >= 0){
         database.table('Patterns').clear().then(() => {

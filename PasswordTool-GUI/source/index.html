@@ -94,13 +94,8 @@
 	  <script src="scripts/targetPattern.js"></script>
 	  <script src="scripts/alerts.js"></script>
 	  <script>
-		document.addEventListener('includemeCompleted', function (e) {
-			setTimeout(() => {
-				document.getElementById("splashScreen").style.opacity = '0';
-				document.getElementById("splashScreen").style.visibility = '0';
-				document.getElementById("mainScreen").style.opacity = '1';
-				document.getElementById("mainScreen").style.visibility = 'visible';
-			}, 600);
+		document.addEventListener('includemeCompleted', async function (e) {
+			await oneTimeEventsOfApp();
 			console.log('All external HTML files have been loaded!');
 			autocomplete(document.getElementById("patternSearchInput"));
 			document.getElementById("expDB").click();

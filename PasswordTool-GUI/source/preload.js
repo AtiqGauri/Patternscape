@@ -4,16 +4,17 @@ const { remote } = require('electron')
 const { Menu, MenuItem, getCurrentWindow } = remote
 
 
+platformWindowControl();
+
 // When document has loaded, initialized
 document.onreadystatechange = () => {
+    
     if (document.readyState == "complete") {
         handleWindowControls();
-        platformWindowControl();
     }
 };
 
 function handleWindowControls() {
-
 	let win = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
@@ -41,7 +42,7 @@ function handleWindowControls() {
         } else {
 			//document.body.classList.remove('maximized');
 			document.getElementById('maxWindowDiv').style.display = 'block';
-			document.getElementById('restoreWindowDiv').style.display = 'none';
+            document.getElementById('restoreWindowDiv').style.display = 'none';
         }
     }
 
@@ -53,8 +54,13 @@ function handleWindowControls() {
 
 
 function platformWindowControl(){
+    document.getElementById("windowControls").style.visibility = 'visible';
     if(process.platform == 'darwin'){
         document.getElementById("windowControls").classList.add("forMac");
+        document.getElementById("minWindowDiv").style.order = '2';
+        document.getElementById("maxWindowDiv").style.order = '3';
+        document.getElementById("restoreWindowDiv").style.order = '3';
+        document.getElementById("closeWindowDiv").style.order = '1';
     }else{
         document.getElementById("windowControls").classList.add("forElse");
     }
@@ -76,3 +82,30 @@ window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
   menu.popup({ window: remote.getCurrentWindow() })
 }, false)
+
+
+
+async function oneTimeEventsOfApp(){
+    var splashTime=0;
+    await database.UserData.where("key").anyOf("firstSplashScreen", "showAppIntro").each(function (result) {
+        switch(result.key) {
+            case "firstSplashScreen":
+                result.value == 'true' ? splashTime=2000 : splashTime=0;
+                setTimeout(async () => {
+                    document.getElementById("splashScreen").style.opacity = '0';
+                    document.getElementById("splashScreen").style.visibility = '0';
+                    document.getElementById("mainScreen").style.opacity = '1';
+                    document.getElementById("mainScreen").style.visibility = 'visible';
+                    await database.UserData.where("key").equals("firstSplashScreen").modify({"value": "false"});
+                }, splashTime);
+              break;
+
+            case "showAppIntro":
+                console.log("showAppIntro " + result.value);
+              break;
+
+            default:
+                console.log("default");
+        }
+    });
+}

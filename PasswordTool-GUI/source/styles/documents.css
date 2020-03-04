@@ -4,6 +4,7 @@
     width: 98%;
     top: 2%;
     left: 1%;
+    border-radius: 7px;
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     user-select: none;
     z-index: 1;
@@ -36,6 +37,8 @@
     font-weight: 600;
     letter-spacing: 1px;
     word-spacing: 2.5px;
+    cursor:pointer;
+    transition: 0.15s;
 }
 
 .document1{
@@ -111,9 +114,11 @@
     color: white;
     user-select: none;
     z-index: 3;
+    cursor:pointer;
 }
 #documentBackButton:hover{
     background-color: #f9a825;
+    transition: 0.4s;
 }
 .backIcon{
     position: absolute;
@@ -121,4 +126,5 @@
     left: 10%;
     height: 80%;
     width: 80%;
+    pointer-events: none;
 }

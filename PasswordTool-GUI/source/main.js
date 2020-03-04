@@ -4,6 +4,7 @@ const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+
 let mainWindow
 
 function createWindow () {
@@ -28,7 +29,6 @@ function createWindow () {
       //experimentalFeatures: true,
       //enableBlinkFeatures: ['ExecCommandInJavaScript'],
       //enableRemoteModule: true,
-      //preload: path.join(__dirname, 'preload.js')
     }
   })
 
@@ -41,7 +41,6 @@ function createWindow () {
   //mainWindow.webContents.openDevTools()
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-    console.log('asdas');
   });
 
   // Emitted when the window is closed.

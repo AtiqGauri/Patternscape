@@ -2,7 +2,6 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-
 //require path package to handle file addresses
 const path = require('path');
 
@@ -228,7 +227,6 @@ function target_user_pattern(){
 					passwordPatterns.unshift({pattern:document.getElementById("patternSearchInput").value, address:'', popularity:''});
 				}
 
-
 				//take all the patterns and interpolate given information into them
                 for(var i=0; i<passwordPatterns.length; i++){
 					tempStr = passwordPatterns[i].pattern;
@@ -240,7 +238,7 @@ function target_user_pattern(){
 				}
 				
 				document.getElementById("patternSearchInput").value = '';
-				
+
 				setTimeout(function(){
 					//update process status, make alert sound
 					shell.beep();
