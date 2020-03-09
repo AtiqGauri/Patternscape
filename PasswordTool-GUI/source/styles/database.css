@@ -22,6 +22,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 .databaseButtons{
@@ -42,7 +43,7 @@ p {
     width: fit-content;
     letter-spacing: 1px;
     word-spacing: 2.5px;
-    border-radius: 10px;
+    border-radius: 9px;
     box-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 12px 12px 30px rgba(0, 0, 0, 0.15);
     
     background-color: transparent;
@@ -51,14 +52,16 @@ p {
     font-weight: 600;
     font-size: 2.3vh;
     user-select: none;
+    cursor:pointer;
 }
 
 .databaseButtons div:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 
 .databaseButtons div.active{
-    
+    cursor: default;
     box-shadow: inset -6px -6px 8px rgb(255, 255, 255),
                     inset 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -70,7 +73,7 @@ p {
     bottom: 2%;
     color: black;
     background-color: transparent;
-    
+    border-radius: 7px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -78,6 +81,7 @@ p {
 .databaseLowerBox{
     position: relative;
     display: flex;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 /*******************DATABASE TAB STRUCTURE END*********************/
@@ -127,6 +131,7 @@ p {
     font-weight: 600;
     font-size: 2.5vh;
     user-select: none;
+    cursor:pointer;
 }
 
 .importDbStart{
@@ -142,6 +147,7 @@ p {
 }
 .importDbStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .importDbStop{
     position: absolute;
@@ -210,10 +216,12 @@ p {
     border-width: 1px;
     color: #B94955;
     border-color: grey;
+    cursor:pointer;
 }
 .impInputFolder:hover{
     background-color: #B94955;
     color: #F2F2F2;
+    transition: 0.4s;
 }
 /******************IMPORT DATABASE END**********************/
 
@@ -286,6 +294,8 @@ p {
 }
 .importDownStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor:pointer;
 }
 .importDownStop{
     position: absolute;
@@ -300,6 +310,8 @@ p {
 }
 .importDownStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor:pointer;
 }
 
 .impDownResults{
@@ -375,10 +387,12 @@ p {
     border-width: 1px;
     color: #5A81AE;
     border-color: grey;
+    cursor:pointer;
 }
 .impDownInputFolder:hover{
     background-color: #5A81AE;
     color: #F2F2F2;
+    transition: 0.4s;
 }
 /******************IMPORT DOWNLOADED DATABASE END**********************/
 
@@ -453,6 +467,8 @@ p {
 }
 .exportDBStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor:pointer;
 }
 .exportDBStop{
     position: absolute;
@@ -467,6 +483,8 @@ p {
 }
 .exportDBStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor:pointer;
 }
 
 .expResults{
@@ -525,10 +543,12 @@ p {
     word-spacing: 2px;
     line-height: 1.6;
     letter-spacing: 1px;
+    cursor:pointer;
 }
 .expFolder:hover{
     background-color: #499371;
     color: #F2F2F2;
+    transition: 0.4s;
 }
 /******************EXPORT DATABASE END**********************/
 
@@ -567,10 +587,12 @@ p {
     border-radius: 10px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     background-color: transparent;
+    cursor:pointer;
 }
 
 .deleteIconActive{
     background-color: #f9a825;
+    transition: 0.8s;
 }
 
 .deleteIcon{
@@ -579,6 +601,7 @@ p {
     left: 10%;
     height: 80%;
     width: 80%;
+    cursor:pointer;
 }
 
 
@@ -598,7 +621,7 @@ p {
     
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     word-spacing: 6px;
     font-family: Montserrat;
     letter-spacing: 1.2px;
@@ -606,10 +629,13 @@ p {
     font-weight: 900;
     font-size: 2vh;
     color: grey;
+    cursor:pointer;
 }
 .deleteButton:hover{
     background-color: #AE1100;
     color: white;
+    text-shadow: none;
+    transition: 0.4s;
 }
 /******************DELETE DATABASE END**********************/
 
@@ -662,14 +688,17 @@ p {
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
     font-weight: bold;
     font-size: 2vh;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     word-spacing: 6px;
     color: grey;
+    cursor:pointer;
 }
 .persistanceButton:hover{
     background-color: #4CBB17;
     color: white;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    text-shadow: none;
+    transition: 0.4s;
 }
 /******************PERSIST DATABASE END*********************/
 

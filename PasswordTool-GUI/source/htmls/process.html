@@ -33,8 +33,8 @@
                 * After That you need to create statistics of this processed data.</br>
                 * To perform stats generation you will be taken to next tab soon...</br>
             </p>
-            <div class="analyzeStart" onclick="analyze_passwords_emails()">Analyse</div>
-            <div class="analyzeStop" onclick="stop_analyze_passwords_emails()">Stop</div>
+            <div class="analyzeStart" onclick="analyze_passwords_emails()" id="analyzeStart">Analyse</div>
+            <div class="analyzeStop" onclick="stop_analyze_passwords_emails()" id="analyzeStop">Stop</div>
             <div class="analyzeInput" onclick="input_of_analyzing()">Raw Input</div>
             <div class="analyzeOutput" onclick="output_of_analyzing()">Processed Data</div>
         </div>
@@ -51,8 +51,8 @@
                 * If you want to stop process press "Stop" button.</br>
                 * Finally you can check output in "Generated Stats" folder.</br>
             </p>
-            <div class="statsStart" onclick="generate_statistics()">Statistics</div>
-            <div class="statsStop" onclick="stop_generate_statistics()">Stop</div>
+            <div class="statsStart" onclick="generate_statistics()" id="statsStart">Statistics</div>
+            <div class="statsStop" onclick="stop_generate_statistics()" id="statsStop">Stop</div>
             <div class="statsInput" onclick="input_of_stats_generator()">Processed Data</div>
             <div class="statsOutput" onclick="output_of_stats_generator()">Generated Stats</div>
         </div>
@@ -65,10 +65,10 @@
             <img class="arrowIcon" src="assets/icons/arrow.svg" draggable="false">
         </div>
     </div>
-    <div class="multipleProcessButton processTabLinks" onclick="openProcessTabs(event, 'multiUserTabID')" id="processDefaultOpen">
+    <div class="multipleProcessButton processTabLinks" onclick="openProcessTabs(event, 'multiUserTabID')" id="multipleProcessButton">
         <img class="multiUserIcon" src="assets/icons/process-multiuser.svg" draggable="false"> 
     </div>
-    <div class="singleUserButton processTabLinks" onclick="openProcessTabs(event, 'singleUserTabID')">
+    <div class="singleUserButton processTabLinks" onclick="openProcessTabs(event, 'singleUserTabID')" id="singleUserButton">
         <img class="singleUserIcon" src="assets/icons/process-user.svg" draggable="false">
     </div>
 </div>

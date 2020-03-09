@@ -9,6 +9,7 @@ function openOperations(evt, tabName) {
         dbTabLinks[i].className = dbTabLinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).style.transition = "10s";
     evt.currentTarget.className += " active";
 }
 

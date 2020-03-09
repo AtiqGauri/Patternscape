@@ -31,13 +31,17 @@ p h1 h2 h3{
     box-shadow: -12px -12px 13px rgba(255, 255, 255, 1),
               12px 15px 13px rgba(0, 0, 0, 0.1);
     user-select: none;
+    cursor:pointer;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 .multipleProcessButton:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .multipleProcessButton.active{
     box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
     inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
 }
 .multiUserIcon{
     position: absolute;
@@ -45,6 +49,7 @@ p h1 h2 h3{
     width: 60%;
     right: 20%;
     top: 15%;
+    cursor:pointer;
 }
 
 .singleUserButton{
@@ -60,13 +65,17 @@ p h1 h2 h3{
     box-shadow: -12px -12px 13px rgba(255, 255, 255, 1),
               12px 15px 13px rgba(0, 0, 0, 0.1);
     user-select: none;
+    cursor:pointer;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 .singleUserButton:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .singleUserButton.active{
     box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
     inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
 }
 .singleUserIcon{
     position: absolute;
@@ -74,6 +83,7 @@ p h1 h2 h3{
     width: 60%;
     right: 20%;
     top: 15%;
+    cursor:pointer;
 }
 /***************HEADER END***********************/
 
@@ -90,6 +100,7 @@ p h1 h2 h3{
     right: 1%;
     font-family: Montserrat;
     font-style: light;
+    border-radius: 7px;
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -200,10 +211,12 @@ p h1 h2 h3{
     font-weight: 600;
     user-select: none;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .singleUserSubmit:hover{
     background-color: #ff6584;
     color: white;
+    transition: 0.4s;
 }
 
 .singleUserOutput{
@@ -230,7 +243,7 @@ p h1 h2 h3{
     top: 2%;
     bottom: 2%;
     right: 1%;
-
+    border-radius: 7px;
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     font-family: Montserrat;
 }
@@ -244,6 +257,9 @@ p h1 h2 h3{
     border-top-left-radius: 90px;
     border-bottom-left-radius: 90px;
     background-color: #78126A;
+    cursor:pointer;
+    transition: 0.15s;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 .arrowIcon{
     position: absolute;
@@ -252,6 +268,8 @@ p h1 h2 h3{
     left: 40%;
     top: 32%;
     user-select: none;
+    cursor:pointer;
+    pointer-events: none;
 }
 
 .threadSelector{
@@ -360,9 +378,11 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     border-radius: 10px;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .analyzeStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .analyzeStop{
     position: absolute;
@@ -378,9 +398,11 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     border-radius: 10px;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .analyzeStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 
 .analyzeInput{
@@ -394,10 +416,12 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-width: 1px;
     color: #78126A;
     border-color: grey;
+    cursor:pointer;
 }
 .analyzeInput:hover{
     background-color: #78126A;
     color: #F2F2F2;
+    transition: 0.3s;
 }
 
 .analyzeOutput{
@@ -411,10 +435,12 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-width: 1px;
     color: rgb(121, 83, 116);
     border-color: grey;
+    cursor:pointer;
 }
 .analyzeOutput:hover{
     background-color: #78126A;
     color: #F2F2F2;
+    transition: 0.3s;
 }
 
 .statsGeneration{
@@ -459,9 +485,11 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     border-radius: 10px;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .statsStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .statsStop{
     position: absolute;
@@ -477,9 +505,11 @@ input[type="range"]::-webkit-slider-thumb:active {
     font-size: 2.5vh;
     border-radius: 10px;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .statsStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 
 .statsInput{
@@ -493,10 +523,12 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-width: 1px;
     color: #E86135;
     border-color: grey;
+    cursor:pointer;
 }
 .statsInput:hover{
     background-color: #E86135;
     color: #F2F2F2;
+    transition: 0.3s;
 }
 .statsOutput{
     position: absolute;
@@ -509,10 +541,12 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-width: 1px;
     color: #E86135;
     border-color: grey;
+    cursor:pointer;
 }
 .statsOutput:hover{
     background-color: #E86135;
     color: #F2F2F2;
+    transition: 0.3s;
 }
 /*******************MULTI USER TAB END**********************/
 

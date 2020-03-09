@@ -5,6 +5,7 @@
     left: 1%;
     width: 98%;
     height: 96%;
+    border-radius: 7px;
     box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     user-select: none;
 }
@@ -179,6 +180,7 @@
     border-style: dashed;
     border-width: 1px;
     border-color: grey;
+    cursor:pointer;
 }
 
 .getPattern::-webkit-scrollbar {
@@ -198,6 +200,7 @@
 .getPattern:hover{
     background-color: #5E84AC;
     color: white;
+    transition: 0.3s;
 }
 
 .targetSubmit{
@@ -213,10 +216,12 @@
     font-size: 4vh;
     font-weight: 900;
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 .targetSubmit:hover{
     background-color: #5E84AC;
     color: white;
+    transition: 0.3s;
 }
 
 /**********************ALERTS START************************/

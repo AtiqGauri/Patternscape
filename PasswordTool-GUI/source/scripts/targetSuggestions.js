@@ -41,47 +41,55 @@ ipc.on('message', (event, suggestionArray) => {
 
 function handleWindowControls() {
 
-	let win = require('electron').remote.getCurrentWindow();
+	let suggestionWin = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
     document.getElementById('minWindowDiv').addEventListener("click", event => {
-        win.minimize();
+        suggestionWin.minimize();
     });
 
     document.getElementById('maxWindowDiv').addEventListener("click", event => {
-        win.maximize();
+        suggestionWin.maximize();
+        document.getElementById('maxWindowDiv').style.display = 'none';
+		document.getElementById('restoreWindowDiv').style.display = 'block';
     });
 
     document.getElementById('restoreWindowDiv').addEventListener("click", event => {
-        win.unmaximize();
+        suggestionWin.unmaximize();
+        document.getElementById('maxWindowDiv').style.display = 'block';
+		document.getElementById('restoreWindowDiv').style.display = 'none';
     });
 
     document.getElementById('closeWindowDiv').addEventListener("click", event => {
-        win.close();
+        suggestionWin.close();
     });
 
-    function toggleMaxRestoreButtons() {
-        if (win.isMaximized()) {
-			//document.body.classList.add('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'none';
-			document.getElementById('restoreWindowDiv').style.display = 'block';
-        } else {
-			//document.body.classList.remove('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'block';
-			document.getElementById('restoreWindowDiv').style.display = 'none';
-        }
-    }
-
-    // Toggle maximize/restore buttons when maximization/unmaximization occurs
-    toggleMaxRestoreButtons();
-    win.on('maximize', toggleMaxRestoreButtons);
-    win.on('unmaximize', toggleMaxRestoreButtons);
+    window.onbeforeunload = (e) => {
+        suggestionWin.removeAllListeners();
+    };
+    suggestionWin.on('focus', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+    });
+    suggestionWin.on('blur', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+    });
 }
 
 
 function platformWindowControl(){
+    document.getElementById("windowControls").style.visibility = 'visible';
     if(process.platform == 'darwin'){
         document.getElementById("windowControls").classList.add("forMac");
+        document.getElementById("minWindowDiv").style.order = '2';
+        document.getElementById("maxWindowDiv").style.order = '3';
+        document.getElementById("restoreWindowDiv").style.order = '3';
+        document.getElementById("closeWindowDiv").style.order = '1';
     }else{
         document.getElementById("windowControls").classList.add("forElse");
     }

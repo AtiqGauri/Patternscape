@@ -60,8 +60,12 @@ body {
     position: absolute;
     height: 100%;
     width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-app-region: no-drag;
     user-select: none;
+    visibility: hidden;
 }
 .windowControls{
     display: none;
@@ -81,29 +85,35 @@ body {
     height: 25px;
     width: 25px;
     border-radius: 50%;
+    margin: 5%;
+    cursor:pointer;
 }
 #minWindowDiv{
-    position: absolute;
-    top: 15%;
-    left: 0%;
-    margin-left: 15%;
-    background-color: #f9a825;
+    position: relative;
+    background-color: #FFBD44;
+}
+#minWindowDiv:hover #minimizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #minimizeWindow{
     position: absolute;
-    left: 21%;
+    left: 22%;
     top: 15%;
     height: 70%;
     width: 60%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #maxWindowDiv{
+    position: relative;
     display: none;
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 41.5%;
-    background-color: #6A9BD8;
+    background-color: #00CA4E;
+}
+#maxWindowDiv:hover #maximizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #maximizeWindow{
     position: absolute;
@@ -111,15 +121,18 @@ body {
     top: 21.5%;
     height: 55%;
     width: 45%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #restoreWindowDiv{
+    position: relative;
     display: block;
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 41.5%;
-    background-color: #6A9BD8;
+    background-color: #00CA4E;
+}
+#restoreWindowDiv:hover #restoreWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #restoreWindow{
     position: absolute;
@@ -127,15 +140,18 @@ body {
     top: 10.5%;
     height: 80%;
     width: 70%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #closeWindowDiv{
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 15%;
-    background-color: #ff6584;
+    position: relative;
+    background-color: #FF605C;
     
+}
+#closeWindowDiv:hover #closeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #closeWindow{
     position: absolute;
@@ -143,6 +159,8 @@ body {
     top: 25%;
     height: 50%;
     width: 40%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 @media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
@@ -163,7 +181,7 @@ body {
     visibility: visible;
     opacity: 1;
     pointer-events: none;
-    transition: opacity 2000ms, visibility 2000ms;
+    transition: opacity 600ms, visibility 600ms;
     user-select: none;
 }
 .splashIcon{
@@ -178,7 +196,7 @@ body {
 .mainScreen{
     opacity: 0;
     visibility: hidden;
-    transition: opacity 2000ms, visibility 2000ms;
+    transition: opacity 600ms, visibility 600ms;
 }
 /****************SPLASH END********************/
 
@@ -198,11 +216,16 @@ body {
     position:relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: #F2F2F2;
+    top: 1.8%;
+    height: 98%;
+    border-top-right-radius: 40px;
+    /*
     border-top-right-radius: 45px;
-    box-shadow:5px 5px 10px rgba(0, 0, 0, 0.1);
+    */
+    box-shadow:-8px -8px 10px rgba(255, 255, 255, 255), 5px 5px 10px rgba(0, 0, 0, 0.1);
     user-select: none;
 }
 
@@ -214,16 +237,20 @@ body {
     border-radius: 15px;
     height: 12vh;
     width: 11.5vh;
-    margin-top: 37%;
+    margin-top: 36%;
+    cursor:pointer;
     box-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 8px 8px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navTab div:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
 }
 .navTab div.active{
     box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1),
               inset 8px 8px 8px rgba(0, 0, 0, 0.1);
+    cursor: default;
+    transition: 0.5s;
 }
 
 .navIcons{
@@ -235,6 +262,8 @@ body {
     top: 19%;
     left: 29%;
     user-select: none;
+    cursor:pointer;
+    pointer-events: none;
 }
 
 .navLabels{
@@ -246,6 +275,8 @@ body {
     user-select: none;
     font-family: Montserrat;
     font-weight: 600;
+    cursor:pointer;
+    pointer-events: none;
 }
 
 #databaseLabel{

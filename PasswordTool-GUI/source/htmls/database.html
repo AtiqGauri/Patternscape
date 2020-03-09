@@ -3,7 +3,7 @@
 
 <div class="databaseTabContainer">
     <section class="databaseUpperBox">
-        <div class="databaseButtons">
+        <div class="databaseButtons" id="databaseButtons">
             <div class="impDB dbTabLinks" onclick="openOperations(event, 'importDB')" id="impDB">Import Processed Data</div>
             <div class="impDownDB dbTabLinks" onclick="openOperations(event, 'importDownDB')" id="impDownDB">Import Downloaded Database</div>
             <div class="expDB dbTabLinks" onclick="openOperations(event, 'exportDB')" id="expDB">Export Stored Database</div>
@@ -18,8 +18,8 @@
                 * This must be a whole database transaction else will be rolled back.</br>
               </p>
               <div class="importDbButtons">
-                <div class="importDbStart" onclick="database_worker_client()">Import</div>
-                <div class="importDbStop" onclick="stop_database_import()">Stop</div>
+                <div class="importDbStart" onclick="database_worker_client()" id="importDbStart">Import</div>
+                <div class="importDbStop" onclick="stop_database_import()" id="importDbStop">Stop</div>
               </div>
               <div class="importDbResult" id="importDbResult">
                 <p class="importDbAdded" id="importDbAdded">Newly added records: 14223649</p>
@@ -41,8 +41,8 @@
                 </p>
               </div>
               <div class="impDownButtons">
-                <div class="importDownStart" onclick="database_import_client()">Import</div>
-                <div class="importDownStop" onclick="stop_down_database_import()">Stop</div>
+                <div class="importDownStart" onclick="database_import_client()" id="importDownStart">Import</div>
+                <div class="importDownStop" onclick="stop_down_database_import()" id="importDownStop">Stop</div>
               </div>
               <div class="impDownDD">
                 <p class="impDownInputText">Copy Paste Downloaded Database into this folder</p>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </section>
-    <section class="databaseLowerBox">
+    <section class="databaseLowerBox" id="databaseLowerBox">
         <div class="dataPersistance">
           <div class="persistanceText">
             <p class="persistanceWarning">

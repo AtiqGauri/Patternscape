@@ -1,0 +1,359 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
+}
+
+.introConfirmAlert{
+    display: none !important;
+}
+.introTitleAlert{
+    left: 1% !important;
+    text-align: justify !important;
+}
+.introHomeText{
+    position: relative;
+    margin-top: 2%;
+    left: 4% !important;
+    width: 95% !important;
+    text-align: justify !important;
+    font-weight: 900 !important;
+    font-size: 2vh !important;
+    color: grey !important;
+}
+.neverHomeIntro{
+    margin-top: 2%;
+    margin-left: 4%;
+    padding: 1% 2% 1% 2%;
+    color: #C0C0C0;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 2vh !important;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.neverHomeIntro:hover{
+    background-color: #AE1100;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/********************INTRO ALERT START**********************/
+.askForIntroAlert{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 2vh;
+    margin-left: 5vw !important;
+    height: 45vh !important;
+    width: 50vw !important;
+    padding: 4% 4% 4% 1.5% !important;
+    text-shadow: none !important;
+    font-family: Montserrat !important;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    border-radius: 9px !important;
+    user-select: none;
+}
+.askIntroTitle{
+    font-size: 4.5vh !important;
+    left: 1% !important;
+    text-align: justify !important;
+}
+.neverAskIntro{
+    margin-top: 6%;
+    margin-left: 4%;
+    padding: 0.5% 2% 0.5% 2%;
+    color: #C0C0C0;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 2vh !important;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.neverAskIntro:hover{
+    background-color: #AE1100;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+/********************INTRO ALERT END**********************/
+
+
+/********************HOME ALERTS START**********************/
+.homeIntroAlert{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 2vh;
+    margin-left: 9.8vw;
+    height: 38vh !important;
+    width: 42.6vw !important;
+    padding: 4% 4% 4% 1.5% !important;
+    text-shadow: none !important;
+    font-family: Montserrat !important;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    border-radius: 9px !important;
+    user-select: none;
+}
+.introSkipNextDiv{
+    display: flex;
+}
+
+.homeIntroSkip{
+    margin-top: 4%;
+    margin-left: 4%;
+    padding: 3% 8% 3% 8%;
+    color: #B0B0B0;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    border-radius: 7px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.homeIntroSkip:hover{
+    background-color: #B0B0B0;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.homeIntroNext{
+    margin-top: 4%;
+    margin-left: 4%;
+    padding: 3% 8% 3% 8%;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.homeIntroNext:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor: pointer;
+}
+/********************HOME ALERTS END**********************/
+
+
+/********************DATABASE ALERTS START**********************/
+.databaseIntroAlert{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 1vh;
+    margin-left: 9.3vw;
+    height: 30vh !important;
+    width: 89.2vw !important;
+    padding: 1% 4% 4% 2% !important;
+    text-shadow: none !important;
+    font-family: Montserrat !important;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    line-height: 5px;
+    letter-spacing: 1.5px;
+    border-radius: 9px !important;
+    user-select: none;
+}
+.introDownDbTitle{
+    margin-top: 4%;
+    margin-left: 1%;
+    color:#5A81AE;
+    font-weight: 900;
+    text-align: left;
+}
+.introDownDbText{
+    position: relative;
+    margin-top: 0.5%;
+    left: 1.2%;
+    text-align: justify !important;
+    font-weight: 900 !important;
+    font-size: 2.2vh !important;
+    color: grey !important;
+}
+.downDbIntroNever{
+    margin-top: 1.5%;
+    margin-left: 1%;
+    padding: 0.5% 2% 0.5% 2%;
+    color: #C0C0C0;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 2vh !important;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.downDbIntroNever:hover{
+    background-color: #AE1100;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.downDbSkipIntro{
+    margin-top: 2%;
+    margin-left: 1%;
+    padding: 1% 4% 1% 4%;
+    color: #B0B0B0;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    border-radius: 7px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.downDbSkipIntro:hover{
+    background-color: #B0B0B0;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.downDbNextIntro{
+    margin-top: 2%;
+    margin-left: 4%;
+    padding: 1% 4% 1% 4%;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.downDbNextIntro:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.databaseImportIntro{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 0vh;
+    margin-left: 8.5vw;
+    height: 30vh !important;
+    width: 89.2vw !important;
+    padding: 1% 4% 4% 2% !important;
+    text-shadow: none !important;
+    font-family: Montserrat !important;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    line-height: 5px;
+    letter-spacing: 1.5px;
+    border-radius: 9px !important;
+    user-select: none;
+}
+/********************DATABASE ALERTS END**********************/
+
+/********************PROCESS ALERTS START**********************/
+.processIntroAlert{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-top: 8vh !important;
+    margin-left: 11.5vw;
+    height: 48vh !important;
+    width: 72vw !important;
+    padding: 4% 4% 4% 1.5% !important;
+    text-shadow: none !important;
+    font-family: Montserrat !important;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    border-radius: 9px !important;
+    user-select: none;
+}
+
+.processIntroTitle{
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin-top: 3%;
+    margin-left: 2%;
+    font-weight: 900;
+    font-size: 3.5vh !important;
+}
+.processIntroText{
+    margin-top: 5%;
+    margin-left: 2%;
+    left: 1.2%;
+    line-height: 25px;
+    text-align: left !important;
+    font-weight: 900 !important;
+    font-size: 2.2vh !important;
+    color: grey !important;
+}
+
+.neverProcessIntro{
+    margin-top: 3%;
+    margin-left: 2%;
+    padding: 0.5% 2% 0.5% 2%;
+    color: #C0C0C0;
+    width: 18%;
+    font-weight: 900 !important;
+    font-size: 2vh !important;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.neverProcessIntro:hover{
+    background-color: #AE1100;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.processSkipIntro{
+    margin-top: 2%;
+    margin-left: 2.1%;
+    padding: 1% 4% 1% 4%;
+    color: #B0B0B0;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    border-radius: 7px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.processSkipIntro:hover{
+    background-color: #B0B0B0;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.processNextIntro{
+    margin-top: 2%;
+    margin-left: 3%;
+    padding: 1% 4% 1% 4%;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+.processNextIntro:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+    cursor: pointer;
+}
+/********************PROCESS ALERTS END**********************/
+
+
+/********************ACKNOWLEDGE ALERTS START**********************/
+.completedIntroContent{
+    width: 100% !important;
+}
+.completedIntroSkip{
+    margin-top: 2%;
+    margin-left: 30%;
+    padding: 3% 5% 3% 5%;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 3.5vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+/********************ACKNOWLEDGE ALERTS END**********************/

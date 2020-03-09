@@ -59,8 +59,12 @@ html, body{margin:0px; padding:0px;
     position: absolute;
     height: 100%;
     width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-app-region: no-drag;
     user-select: none;
+    visibility: hidden;
 }
 .windowControls{
     display: none;
@@ -80,29 +84,35 @@ html, body{margin:0px; padding:0px;
     height: 25px;
     width: 25px;
     border-radius: 50%;
+    margin: 5%;
+    cursor:pointer;
 }
 #minWindowDiv{
-    position: absolute;
-    top: 15%;
-    left: 0%;
-    margin-left: 15%;
-    background-color: #f9a825;
+    position: relative;
+    background-color: #FFBD44;
+}
+#minWindowDiv:hover #minimizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #minimizeWindow{
     position: absolute;
-    left: 21%;
+    left: 22%;
     top: 15%;
     height: 70%;
     width: 60%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #maxWindowDiv{
-    display: none;
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 41.5%;
-    background-color: #6A9BD8;
+    position: relative;
+    display: block;
+    background-color: #00CA4E;
+}
+#maxWindowDiv:hover #maximizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #maximizeWindow{
     position: absolute;
@@ -110,15 +120,18 @@ html, body{margin:0px; padding:0px;
     top: 21.5%;
     height: 55%;
     width: 45%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #restoreWindowDiv{
-    display: block;
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 41.5%;
-    background-color: #6A9BD8;
+    position: relative;
+    display: none;
+    background-color: #00CA4E;
+}
+#restoreWindowDiv:hover #restoreWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #restoreWindow{
     position: absolute;
@@ -126,15 +139,18 @@ html, body{margin:0px; padding:0px;
     top: 10.5%;
     height: 80%;
     width: 70%;
+    cursor:pointer;
+    visibility: hidden;
 }
 
 #closeWindowDiv{
-    position: absolute;
-    top: 15%;
-    right: 0%;
-    margin-right: 15%;
-    background-color: #ff6584;
+    position: relative;
+    background-color: #FF605C;
     
+}
+#closeWindowDiv:hover #closeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
 }
 #closeWindow{
     position: absolute;
@@ -142,8 +158,9 @@ html, body{margin:0px; padding:0px;
     top: 25%;
     height: 50%;
     width: 40%;
+    cursor:pointer;
+    visibility: hidden;
 }
-
 @media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
 (-webkit-device-pixel-ratio: 2), (device-pixel-ratio: 2),
 (-webkit-device-pixel-ratio: 3), (device-pixel-ratio: 3) {
