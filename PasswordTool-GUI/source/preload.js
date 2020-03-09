@@ -14,6 +14,7 @@ document.onreadystatechange = () => {
     }
 };
 
+
 function handleWindowControls() {
 	let win = require('electron').remote.getCurrentWindow();
 	
@@ -24,32 +25,35 @@ function handleWindowControls() {
 
     document.getElementById('maxWindowDiv').addEventListener("click", event => {
         win.maximize();
+        document.getElementById('maxWindowDiv').style.display = 'none';
+        document.getElementById('restoreWindowDiv').style.display = 'block';
     });
 
     document.getElementById('restoreWindowDiv').addEventListener("click", event => {
         win.unmaximize();
+        document.getElementById('maxWindowDiv').style.display = 'block';
+        document.getElementById('restoreWindowDiv').style.display = 'none';
     });
 
     document.getElementById('closeWindowDiv').addEventListener("click", event => {
         win.close();
     });
 
-    function toggleMaxRestoreButtons() {
-        if (win.isMaximized()) {
-			//document.body.classList.add('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'none';
-			document.getElementById('restoreWindowDiv').style.display = 'block';
-        } else {
-			//document.body.classList.remove('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'block';
-            document.getElementById('restoreWindowDiv').style.display = 'none';
-        }
-    }
-
-    // Toggle maximize/restore buttons when maximization/unmaximization occurs
-    toggleMaxRestoreButtons();
-    win.on('maximize', toggleMaxRestoreButtons);
-    win.on('unmaximize', toggleMaxRestoreButtons);
+    window.onbeforeunload = (e) => {
+        win.removeAllListeners();
+    };
+    win.on('focus', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+    });
+    win.on('blur', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+    });
 }
 
 
@@ -86,26 +90,26 @@ window.addEventListener('contextmenu', (e) => {
 
 
 async function oneTimeEventsOfApp(){
-    var splashTime=0;
     await database.UserData.where("key").anyOf("firstSplashScreen", "showAppIntro").each(function (result) {
         switch(result.key) {
             case "firstSplashScreen":
-                result.value == 'true' ? splashTime=2000 : splashTime=0;
                 setTimeout(async () => {
                     document.getElementById("splashScreen").style.opacity = '0';
                     document.getElementById("splashScreen").style.visibility = '0';
                     document.getElementById("mainScreen").style.opacity = '1';
                     document.getElementById("mainScreen").style.visibility = 'visible';
-                    await database.UserData.where("key").equals("firstSplashScreen").modify({"value": "false"});
-                }, splashTime);
+                    await database.UserData.where("key").equals("firstSplashScreen").modify({"value": 1});
+                }, result.value);
               break;
 
             case "showAppIntro":
-                console.log("showAppIntro " + result.value);
+                if(result.value >= 1){   
+                    ask_for_intro();
+                }
               break;
 
             default:
-                console.log("default");
+                console.log("User data is not available");
         }
     });
 }

@@ -81,32 +81,35 @@ function handleWindowControls() {
 
     document.getElementById('maxWindowDiv').addEventListener("click", event => {
         patternCategoryWin.maximize();
+        document.getElementById('maxWindowDiv').style.display = 'none';
+		document.getElementById('restoreWindowDiv').style.display = 'block';
     });
 
     document.getElementById('restoreWindowDiv').addEventListener("click", event => {
         patternCategoryWin.unmaximize();
+        document.getElementById('maxWindowDiv').style.display = 'block';
+        document.getElementById('restoreWindowDiv').style.display = 'none';
     });
 
     document.getElementById('closeWindowDiv').addEventListener("click", event => {
         patternCategoryWin.close();
     });
 
-    function toggleMaxRestoreButtons() {
-        if (patternCategoryWin.isMaximized()) {
-			//document.body.classList.add('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'none';
-			document.getElementById('restoreWindowDiv').style.display = 'block';
-        } else {
-			//document.body.classList.remove('maximized');
-			document.getElementById('maxWindowDiv').style.display = 'block';
-			document.getElementById('restoreWindowDiv').style.display = 'none';
-        }
-    }
-
-    // Toggle maximize/restore buttons when maximization/unmaximization occurs
-    toggleMaxRestoreButtons();
-    patternCategoryWin.on('maximize', toggleMaxRestoreButtons);
-    patternCategoryWin.on('unmaximize', toggleMaxRestoreButtons);
+    window.onbeforeunload = (e) => {
+        patternCategoryWin.removeAllListeners();
+    };
+    patternCategoryWin.on('focus', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+    });
+    patternCategoryWin.on('blur', ()=>{
+        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+    });
 }
 
 

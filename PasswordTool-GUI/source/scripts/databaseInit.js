@@ -25,8 +25,8 @@ addUserPreference();
 
 function addUserPreference() {
     UserPreference = [
-                    {key: "firstSplashScreen", value: "true"}, 
-                    {key: "showAppIntro", value: "true"}
+                    {key: "firstSplashScreen", value: 2000}, 
+                    {key: "showAppIntro", value: 2}
     ];
     database.UserData.bulkAdd(UserPreference).catch(Dexie.BulkError, function (e) {
         e.name === "BulkError" ? null :  console.log('User Data Error: '+ e.message);

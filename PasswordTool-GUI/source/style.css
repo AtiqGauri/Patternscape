@@ -181,7 +181,7 @@ body {
     visibility: visible;
     opacity: 1;
     pointer-events: none;
-    transition: opacity 2000ms, visibility 2000ms;
+    transition: opacity 600ms, visibility 600ms;
     user-select: none;
 }
 .splashIcon{
@@ -196,7 +196,7 @@ body {
 .mainScreen{
     opacity: 0;
     visibility: hidden;
-    transition: opacity 2000ms, visibility 2000ms;
+    transition: opacity 600ms, visibility 600ms;
 }
 /****************SPLASH END********************/
 

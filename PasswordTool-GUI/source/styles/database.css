@@ -22,6 +22,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 .databaseButtons{
@@ -80,6 +81,7 @@ p {
 .databaseLowerBox{
     position: relative;
     display: flex;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 /*******************DATABASE TAB STRUCTURE END*********************/
@@ -278,7 +280,6 @@ p {
     height: 50%;
     font-weight: 600;
     font-size: 2.5vh;
-    cursor:pointer;
 }
 .importDownStart{
     position: absolute;
@@ -294,6 +295,7 @@ p {
 .importDownStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     transition: 0.1s;
+    cursor:pointer;
 }
 .importDownStop{
     position: absolute;
@@ -309,6 +311,7 @@ p {
 .importDownStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     transition: 0.1s;
+    cursor:pointer;
 }
 
 .impDownResults{
@@ -450,7 +453,6 @@ p {
     font-size: 2.5vh;
     text-shadow: 0.1px 0.1px 1px grey;
     background-color: transparent;
-    cursor:pointer;
 }
 .exportDBStart{
     position: absolute;
@@ -466,6 +468,7 @@ p {
 .exportDBStart:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     transition: 0.1s;
+    cursor:pointer;
 }
 .exportDBStop{
     position: absolute;
@@ -481,6 +484,7 @@ p {
 .exportDBStop:hover{
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     transition: 0.1s;
+    cursor:pointer;
 }
 
 .expResults{

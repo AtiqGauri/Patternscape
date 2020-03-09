@@ -3,6 +3,7 @@
     margin-top: 6%;
     width: 70%;
     transition: 0.8s;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 
@@ -160,6 +161,7 @@
 
     z-index: 0;
     user-select: none;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 .homeDecor2{
@@ -170,6 +172,7 @@
 
     z-index: 0;
     user-select: none;
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 

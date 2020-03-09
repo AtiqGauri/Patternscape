@@ -107,7 +107,7 @@ background-color: #F2F2F2;
 
 #maxWindowDiv{
     position: relative;
-    display: none;
+    display: block;
     background-color: #00CA4E;
 }
 #maxWindowDiv:hover #maximizeWindow{
@@ -126,7 +126,7 @@ background-color: #F2F2F2;
 
 #restoreWindowDiv{
     position: relative;
-    display: block;
+    display: none;
     background-color: #00CA4E;
 }
 #restoreWindowDiv:hover #restoreWindow{
