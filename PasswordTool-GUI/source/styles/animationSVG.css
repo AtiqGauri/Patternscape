@@ -1,11 +1,10 @@
 .progressAnimation{
     display: none;
     position: relative;
-    left: 40%;
+    left: 38%;
     top: 35%;
-    height: 80%;
-    width: 20%;
-    
+    height: fit-content;
+    width: fit-content;
     user-select: none;
     z-index: 10;
 }
