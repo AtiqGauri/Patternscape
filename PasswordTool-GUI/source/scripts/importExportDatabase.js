@@ -3,7 +3,11 @@ const {database} = require('./databaseInit.js');
 const {database_error_alerts} = require('./alerts.js');
 
 //require package to export import database
+//
 require('dexie-export-import');
+function exportSingleTable(db, tableName) {
+  return exportDB(db, {filter: (tables, value, key) => tables === tableName});
+}
 
 //require package to convert stream into a blob
 const toBlob = require('stream-to-blob');
@@ -19,11 +23,24 @@ var fileSystem = require('fs');
  * Step 3. write normal text into json file
  * Step 4. acknowledgment
  */
+
+ /**
+  * 
+      //const blob = await exportDB(database, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
+      const blob = await exportSingleTable(database, "Patterns").then( async (blob1) => {
+        const text1 = await new Response(blob1).text();
+        console.log(text1);
+        // Result is in blob
+      });
+      const text = await new Response(blob).text();
+  */
 var export_database = async function export_database(){
     var operationSuccess = true;
     console.log("Exporting database");
     try{
-      const blob = await database.export({prettyJson: true});
+      
+      //const blob = await exportDB(database, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
+      const blob = await database.export({prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
       const text = await new Response(blob).text();
       
       if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
@@ -72,14 +89,14 @@ var import_database = async function import_database(){
     
     var downloadedInputFiles = [];
 
-    if(fs.existsSync(path.join(process.resourcesPath, '..', '..', 'data', 'Database'))){
-      fileSystem.readdirSync(path.join(process.resourcesPath, '..', '..', 'data', 'Database')).forEach(file => {
+    if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
+      fileSystem.readdirSync(path.join(__dirname, '..', '..', 'data','Database')).forEach(file => {
         if(file != 'Error Log'){
           downloadedInputFiles.push(path.join('data', 'Database', file));
         }
       });  
-    }else if(fs.existsSync(path.join(__dirname, '..', '..', 'data', 'Database'))){
-      fileSystem.readdirSync(path.join(__dirname, '..', '..', 'data', 'Database')).forEach(file => {
+    }else if(fs.existsSync(path.join(process.resourcesPath, '..', 'data','Database'))){
+      fileSystem.readdirSync(path.join(process.resourcesPath, '..', 'data','Database')).forEach(file => {
         if(file != 'Error Log'){
           downloadedInputFiles.push(path.join('data', 'Database', file));
         }
@@ -94,8 +111,7 @@ var import_database = async function import_database(){
       try{
         const stream = fileSystem.createReadStream(downloadedInputFiles[i]);
         const blob = await toBlob(stream);
-        await database.import(blob);
-
+        await database.import(blob, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
       }catch(error){
         if(error.name === "BulkError"){
           console.log('IMPORT ERROR: '+ error.message);
