@@ -29,15 +29,20 @@ function database_worker_client(){
 		database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
 	}
 
-
-    //initialize web worker
-    worker = new Worker('threadWorkers/databaseWorker.js')
+    //initalizing web worker
+	if(worker==undefined){
+		worker = new Worker('threadWorkers/databaseWorker.js');
+	}else{
+		return;
+	}
 
     //listen to webworker signals
     worker.onmessage = function(event){
 
         //terminate worker
         worker.terminate();
+        //set it to undefined
+		worker = undefined;
         
         console.log(event.data);
 

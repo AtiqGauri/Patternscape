@@ -8,6 +8,29 @@ PasswordTool-GUI/dist/
 #redundent package-lock.json file
 PasswordTool-GUI/package-lock.json
 
+#database folder
+PasswordTool-GUI/data/Database/
+!PasswordTool-GUI/data/Database/Error Log
+
+#Input folder
+PasswordTool-GUI/data/Output/
+!PasswordTool-GUI/data/Output/Error Log
+
+#Output folder
+PasswordTool-GUI/data/Input/
+!PasswordTool-GUI/data/Input/Error Log
+!PasswordTool-GUI/data/Input/resizedFile1.txt
+
+#Stats folder
+PasswordTool-GUI/data/Stats/
+PasswordTool-GUI/data/Stats/Patterns Data/
+!PasswordTool-GUI/data/Stats/Error Log
+!PasswordTool-GUI/data/Stats/Patterns.txt
+!PasswordTool-GUI/data/Stats/Patterns Data/Error Log
+
+#Temp folder
+PasswordTool-GUI/data/Temp/
+!PasswordTool-GUI/data/Temp/Error Log
 
 
 #******* PasswordTool-Native-Addon *******#
