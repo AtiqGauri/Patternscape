@@ -123,7 +123,11 @@ function analyze_passwords_emails(){
 		}
 
 		//initalizing web worker
-		worker1 = new Worker('threadWorkers/analyzationWorker.js')
+		if(worker1==undefined){
+			worker1 = new Worker('threadWorkers/analyzationWorker.js');
+		}else{
+			return;
+		}
 		
 		//get user given thread number from GUI
 		var threadNumber = document.getElementById('threadSelectorInput').value;
@@ -136,7 +140,11 @@ function analyze_passwords_emails(){
 			
 			//print web worker acknowledgment then terminate it
 			console.log("worker1 : ", event.data);
-			worker1.terminate();  
+			
+			//terminate webworker
+			worker1.terminate();
+			//set it to undefined
+			worker1 = undefined; 
 
 			shell.beep();
 			
@@ -219,15 +227,21 @@ function generate_statistics(){
 	}
 
 
-	//Initialize web worker
-	worker2 = new Worker('threadWorkers/statisticsWorker.js')
-
+	//initalizing web worker
+	if(worker2==undefined){
+		worker2 = new Worker('threadWorkers/statisticsWorker.js');
+	}else{
+		return;
+	}
+	
 	//listen to webworker signals
 	worker2.onmessage = function(event) {
 
 		//print web worker acknowledgment then terminate it
 		console.log("worker2 : ", event.data);
-		worker2.terminate();
+        worker2.terminate();
+        //set it to undefined
+		worker2 = undefined;
 
 		shell.beep();
 
@@ -286,8 +300,12 @@ function target_password_patterns(password, email){
 
 		document.getElementById("singleUserSubmit").disabled = true;
 
-		//Initialize web worker
-		targetPasswordWorker = new Worker('threadWorkers/targetPasswordWorker.js');
+		//initalizing web worker
+		if(targetPasswordWorker==undefined){
+			targetPasswordWorker = new Worker('threadWorkers/targetPasswordWorker.js');
+		}else{
+			return;
+		}
 
 		//pass arguments to web worker
 		targetPasswordWorker.postMessage({p:password, e:email});
@@ -297,6 +315,8 @@ function target_password_patterns(password, email){
 			
 			//print web worker acknowledgment then terminate it
 			targetPasswordWorker.terminate();
+			//set it to undefined
+			targetPasswordWorker = undefined;
 			
 			setTimeout(function(){
 				//update process status, make alert sound
