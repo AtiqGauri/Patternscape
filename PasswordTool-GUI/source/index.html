@@ -11,6 +11,7 @@
 	<script src="./scripts/databaseClient.js" type="text/javascript"></script>
 	<!---->
   </head>
+  <!--TITLE BAR AND APP WINDOW BUTTONS-->
   <header id="titleBar">
 	<div id="dragRegion">
 		<div id="windowControls" class="windowControls">
@@ -34,29 +35,32 @@
 	</div>
   </header>
   <body id="appBody">
+	<!--SPLASH SCREEN-->
 	<div class="splashScreen" id="splashScreen">
 		<img class="splashIcon" src="assets/images/splash-screen.svg" draggable="false">
 	</div>
+
+	<!--APP MAIN CONTENT-->
 	<div class="mainScreen" id="mainScreen">
 		<main class="mainContainer" id="mainContainer">
 			<section class="navTab" id="navTab">
-			  <div class="tabLinks" id="targetTabButton" onclick="openTabs(event, 'targetTab')">
+			  <div class="tabLinks" id="targetTabButton" onclick="change_main_tabs(event, 'targetTab')">
 				<img class="navIcons" src="assets/icons/target.svg" draggable="false">
 				<label class="navLabels" id="targetLabel">Target</label>
 			  </div>
-			  <div class="tabLinks" id="processTabButton" onclick="openTabs(event, 'processTab')">
+			  <div class="tabLinks" id="processTabButton" onclick="change_main_tabs(event, 'processTab')">
 				<img class="navIcons" src="assets/icons/process.svg" draggable="false">
 				<label class="navLabels" id="processLabel">Process</label>
 			  </div>
-			  <div class="tabLinks" id="homeTabButton" onclick="openTabs(event, 'homeTab')">
+			  <div class="tabLinks" id="homeTabButton" onclick="change_main_tabs(event, 'homeTab')">
 				<img class="navIcons" src="assets/icons/home.svg" draggable="false">
 				<label class="navLabels" id="homeLabel">Home</label>
 			  </div>
-			  <div class="tabLinks" id="databaseTabButton" onclick="openTabs(event, 'databaseTab')">
+			  <div class="tabLinks" id="databaseTabButton" onclick="change_main_tabs(event, 'databaseTab')">
 				<img class="navIcons" src="assets/icons/database.svg" draggable="false">
 				<label class="navLabels" id="databaseLabel">Database</label>
 			  </div>
-			  <div class="tabLinks" id="documentsTabButton" onclick="openTabs(event, 'documentTab')">
+			  <div class="tabLinks" id="documentsTabButton" onclick="change_main_tabs(event, 'documentTab')">
 				<img class="navIcons" src="assets/icons/documents.svg" draggable="false">
 				<label class="navLabels" id="documentLabel">Documents</label>
 			  </div>
@@ -81,7 +85,7 @@
 			</section>
 		</main>
 	</div>
-	  <!-- renderer.js will handle system call like opening default text editor -->
+	  <!-- JAVASCRIPT FILES -->
 	  <script src="./preload.js"></script> 
 	  <script src="./scripts/appIntro.js"></script>
 	  <script src="./renderer.js"></script>
@@ -94,16 +98,38 @@
 	  <script src="scripts/database.js"></script>
 	  <script src="scripts/documents.js"></script>
 	  <script src="scripts/alerts.js"></script>
+	  
+	  <!-- BELOW CODE WILL EXECUTE ONCE ALL "<includeme>" HTML FILES ARE LOADED AND READY -->
 	  <script>
+		/*
+		* WE ARE USING <INCLUDEME> TAG IN MAIN INDEX FILE OF THE APP TO INCLUDE- 
+		* OTHER HTML FILES. ONCE ALL THESE FILES ARE LOADED COMPLETELY IN DOM, THEN-
+		* THIS FUNCTION WILL TRIGGER AND WE CAN ACCESS CONTENT OF THOSE HTML FILES.
+		*/
 		document.addEventListener('includemeCompleted', async function (e) {
-			document.getElementById("expDB").click();
-			document.getElementById("multipleProcessButton").click();
+			//click on export tab of database window >>htmls/database.html<<
+			document.querySelector("#expDB").click();
+			
+			//click on multiple record tab of process window >>htmls/process.html<<
+			document.querySelector("#multipleProcessButton").click();
+			
+			//Trigger all first time events >>./preload.js<<
 			await oneTimeEventsOfApp();
 			console.log('All external HTML files have been loaded!');
-			autocomplete(document.getElementById("patternSearchInput"));
+			
+			//autocomplete suggestion for pattern search bar >>scripts/home.js<<
+			autocomplete(document.querySelector("#patternSearchInput"));
+			
+			//Thread selection slider in process window >>scripts/process.js<<
 			process_thread_selection();
+
+			//Change analyze to stats tab in process window >>scripts/process.js<<
 			process_change_button();
+
+			//Back/Close document in document tab >>scripts/documents.js<<
 			get_back_button();
+
+			//available storage quota >>scripts/databaseClients.js<<
 			database_storage_quota();
 		});
 	  </script>

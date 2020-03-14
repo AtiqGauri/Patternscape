@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 html, body{margin:0px; padding:0px;
     background-color: #F2F2F2;
 }
@@ -15,7 +21,7 @@ html, body{margin:0px; padding:0px;
     top: 0%;
     width: 100%;
     color: black;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     z-index: 99;
 }
 #dragRegion{
@@ -33,7 +39,7 @@ html, body{margin:0px; padding:0px;
     height: 100%;
     width: 17%;
     left: 43%;
-    color: #6A9BD8;
+    color: var(--database-blue);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -89,7 +95,7 @@ html, body{margin:0px; padding:0px;
 }
 #minWindowDiv{
     position: relative;
-    background-color: #FFBD44;
+    background-color: var(--minimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -108,7 +114,7 @@ html, body{margin:0px; padding:0px;
 #maxWindowDiv{
     position: relative;
     display: block;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -127,7 +133,7 @@ html, body{margin:0px; padding:0px;
 #restoreWindowDiv{
     position: relative;
     display: none;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -145,7 +151,7 @@ html, body{margin:0px; padding:0px;
 
 #closeWindowDiv{
     position: relative;
-    background-color: #FF605C;
+    background-color: var(--close-red);
     
 }
 #closeWindowDiv:hover #closeWindow{
@@ -181,7 +187,7 @@ html, body{margin:0px; padding:0px;
 
     padding-left: 2.7vh;
     
-    color: #B94955;
+    color: var(--darker-blood-red);
 }
 
 #generatedPatterns {
@@ -204,11 +210,11 @@ li {
     grid-column-start: auto;
     width: fit-content;
 
-    color: #24C981;
+    color: var(--target-green);
     padding: 3.5vh 3.7vh 3.5vh 3.7vh;
     margin: 3vh;
     border-radius: 11px;
-    background-color: #f2f2f2;
+    background-color: var(--white-like);
     box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -220,7 +226,7 @@ dt {
     margin: 0.4vh;
     border-radius: 11px;
     width: auto;
-    color: #f9a825;
+    color: var(--process-yellow);
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -244,7 +250,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
     -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    background: #F2F2F2;
+    background: var(--white-like);
 }
 body::-webkit-scrollbar-thumb {
   background-color: #bebdbd;

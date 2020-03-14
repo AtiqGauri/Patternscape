@@ -1,8 +1,8 @@
-//to communicate with parent window
-//const require = parent.require;
+//TO COMMUNICATE WITH PARENT WINDOW
+//CONST REQUIRE = PARENT.REQUIRE;
 const ipc = require('electron').ipcRenderer;
 
-// When document has loaded, initialized
+// WHEN DOCUMENT HAS LOADED, INITIALIZED
 document.onreadystatechange = () => {
     if (document.readyState == "complete") {
         handleWindowControls();
@@ -11,14 +11,14 @@ document.onreadystatechange = () => {
 };
 
 
-//require h1 element to reflect password 
-var h1 = document.getElementById('passwordString');
-//require ordered list to add pattern rows
-var olContainer = document.getElementById('generatedPatterns');
-//required variables
+//REQUIRE H1 ELEMENT TO REFLECT PASSWORD 
+var h1 = document.querySelector('#passwordString');
+//REQUIRE ORDERED LIST TO ADD PATTERN ROWS
+var olContainer = document.querySelector('#generatedPatterns');
+//REQUIRED VARIABLES
 var li, ul, dt, dd, patternTagCounter, i, j, splitter;
 
-//catch detected pattern in passed password
+//CATCH DETECTED PATTERN IN PASSED PASSWORD
 ipc.on('message', (event, data) => {
     //look at data in console to understand while loop working
     console.log(data);
@@ -77,59 +77,76 @@ ipc.on('message', (event, data) => {
 
 })
 
-
+/**
+ * FUNCTIONALITY FOR CUSTOM WINDOW CONTROLS (CLOSE, MINIMIZE, MAXIMIZE, RESTORE)
+ */
 function handleWindowControls() {
 
 	let targetWin = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
-    document.getElementById('minWindowDiv').addEventListener("click", event => {
+    document.querySelector('#minWindowDiv').addEventListener("click", event => {
         targetWin.minimize();
     });
 
-    document.getElementById('maxWindowDiv').addEventListener("click", event => {
+    document.querySelector('#maxWindowDiv').addEventListener("click", event => {
         targetWin.maximize();
-        document.getElementById('maxWindowDiv').style.display = 'none';
-		document.getElementById('restoreWindowDiv').style.display = 'block';
+        document.querySelector('#maxWindowDiv').style.display = 'none';
+		document.querySelector('#restoreWindowDiv').style.display = 'block';
     });
 
-    document.getElementById('restoreWindowDiv').addEventListener("click", event => {
+    document.querySelector('#restoreWindowDiv').addEventListener("click", event => {
         targetWin.unmaximize();
-        document.getElementById('maxWindowDiv').style.display = 'block';
-		document.getElementById('restoreWindowDiv').style.display = 'none';
+        document.querySelector('#maxWindowDiv').style.display = 'block';
+		document.querySelector('#restoreWindowDiv').style.display = 'none';
     });
 
-    document.getElementById('closeWindowDiv').addEventListener("click", event => {
+    document.querySelector('#closeWindowDiv').addEventListener("click", event => {
         targetWin.close();
     });
 
+    /**
+     * THIS WILL REMOVE ALL LISTENERS ATTACHED TO WINDOW BEFORE APP-
+     * GETS CLOSED OR REFRESHED.
+     * THIS IS IMPORTANT TO CLEAN LISTENERS AND AVOID WARNINGS.
+     */
     window.onbeforeunload = (e) => {
         targetWin.removeAllListeners();
     };
+    //Recolor window control buttons when focused
     targetWin.on('focus', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#FF605C';
     });
+    //Grey out window control button when not focused
     targetWin.on('blur', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#D3D3D3';
     });
 }
 
-
+/**
+ * PLATFORM WINDOW CONTROL ORDER AND ALIGNMENT WILL BE CHANGED 
+ * DYNAMICALLY DEPENDING ON PLATFORM
+ */
 function platformWindowControl(){
-    document.getElementById("windowControls").style.visibility = 'visible';
+    
+    //If current platform is a mac
     if(process.platform == 'darwin'){
-        document.getElementById("windowControls").classList.add("forMac");
-        document.getElementById("minWindowDiv").style.order = '2';
-        document.getElementById("maxWindowDiv").style.order = '3';
-        document.getElementById("restoreWindowDiv").style.order = '3';
-        document.getElementById("closeWindowDiv").style.order = '1';
+        document.querySelector("#windowControls").classList.add("forMac");
+        document.querySelector("#minWindowDiv").style.order = '2';
+        document.querySelector("#maxWindowDiv").style.order = '3';
+        document.querySelector("#restoreWindowDiv").style.order = '3';
+        document.querySelector("#closeWindowDiv").style.order = '1';
     }else{
-        document.getElementById("windowControls").classList.add("forElse");
+        //On windows and Linux
+        document.querySelector("#windowControls").classList.add("forElse");
     }
+    
+    //make controls visible, this is done to avoid default left side alignment jitter 
+    document.querySelector("#windowControls").style.visibility = 'visible';
 }

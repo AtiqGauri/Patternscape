@@ -1,5 +1,7 @@
+<!--STYLE FOR target.html-->
 <link rel="stylesheet" type="text/css" href="styles/target.css">
 
+<!--TARGET TAB MAIN CONTENT-->
 <div class="targetContentContainer" id="targetContentContainer">
     <p class="targetHead">Target any specific user:</p>
     <p class="targetText">
@@ -21,7 +23,9 @@
         <label class="targetMobileLabel targetLabels">Mobile</label>
         <input class="targetDob targetInputs" type="date" placeholder=" " id="targetDob">
         <label class="targetDobLabel targetLabels">DOB</label>
-        <div class="getPattern" onclick="getTargetPattern();"  id="getPattern">Select Pattern(Optional)</div>
-        <div class="targetSubmit" onclick="submitTargetForm()" id="targetSubmit">Target</div>
+        
+        <!-- >>APP_FOLDER/scripts/target.js<<-->
+        <div class="getPattern" onclick="get_target_pattern();"  id="getPattern">Select Pattern(Optional)</div>
+        <div class="targetSubmit" onclick="submit_target_form()" id="targetSubmit">Target</div>
     </form>
 </div>

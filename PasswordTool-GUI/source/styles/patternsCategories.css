@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 html, body{margin:0px; padding:0px;
 background-color: #F2F2F2;
 }
@@ -15,7 +21,7 @@ background-color: #F2F2F2;
     top: 0%;
     width: 100%;
     color: black;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     z-index: 99;
 }
 #dragRegion{
@@ -33,7 +39,7 @@ background-color: #F2F2F2;
     height: 100%;
     width: 17%;
     left: 43%;
-    color: #6A9BD8;
+    color: var(--database-blue);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -89,7 +95,7 @@ background-color: #F2F2F2;
 }
 #minWindowDiv{
     position: relative;
-    background-color: #FFBD44;
+    background-color: var(--minimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -108,7 +114,7 @@ background-color: #F2F2F2;
 #maxWindowDiv{
     position: relative;
     display: block;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -127,7 +133,7 @@ background-color: #F2F2F2;
 #restoreWindowDiv{
     position: relative;
     display: none;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -145,7 +151,7 @@ background-color: #F2F2F2;
 
 #closeWindowDiv{
     position: relative;
-    background-color: #FF605C;
+    background-color: var(--close-red);
     
 }
 #closeWindowDiv:hover #closeWindow{
@@ -184,7 +190,7 @@ background-color: #F2F2F2;
     letter-spacing: 4px;
     text-align: center;
 
-    color: #04052E;
+    color: var(--darker-royal-blue);
     user-select: none;
 }
 
@@ -206,7 +212,7 @@ th {
     height: 50px;
     border-radius: 11px;
     background-color: #F2F2F2;
-    color: #292826;
+    color: var(--darker-royal-blue);
     text-align: center;
     white-space:normal;
     overflow: auto;
@@ -238,15 +244,15 @@ td::-webkit-scrollbar-thumb {
 
 
 .patternColumn{
-    color: #B94955;
+    color: var(--blood-red);
 }
 
 .popularityColumn{
-    color: #5A81AE;
+    color: var(--sea-blue);
 }
 
 .addressColumn{
-    color: #f9a825;
+    color: var(--process-yellow);
 }
 
 
@@ -256,7 +262,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
     -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    background: #F2F2F2;
+    background: var(--white-like);
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgb(180, 179, 179);

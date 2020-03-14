@@ -1,7 +1,7 @@
-//to communicate with parent window
+//TO COMMUNICATE WITH PARENT WINDOW
 const ipc = require('electron').ipcRenderer; 
 
-// When document has loaded, initialized
+// WHEN DOCUMENT HAS LOADED, INITIALIZED
 document.onreadystatechange = () => {
     if (document.readyState == "complete") {
         handleWindowControls();
@@ -9,10 +9,10 @@ document.onreadystatechange = () => {
     }
 };
 
-//get ordered list element to append suggestion rows into it
-var olContainer = document.getElementById('suggestionList'), li;
+//GET ORDERED LIST ELEMENT TO APPEND SUGGESTION ROWS INTO IT
+var olContainer = document.querySelector('#suggestionList'), li;
 
-//Catch suggestion array sent by parent window
+//CATCH SUGGESTION ARRAY SENT BY PARENT WINDOW
 ipc.on('message', (event, suggestionArray) => {
 
     //iterate over suggestion array
@@ -39,58 +39,76 @@ ipc.on('message', (event, suggestionArray) => {
 
 })
 
+/**
+ * FUNCTIONALITY FOR CUSTOM WINDOW CONTROLS (CLOSE, MINIMIZE, MAXIMIZE, RESTORE)
+ */
 function handleWindowControls() {
 
 	let suggestionWin = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
-    document.getElementById('minWindowDiv').addEventListener("click", event => {
+    document.querySelector('#minWindowDiv').addEventListener("click", event => {
         suggestionWin.minimize();
     });
 
-    document.getElementById('maxWindowDiv').addEventListener("click", event => {
+    document.querySelector('#maxWindowDiv').addEventListener("click", event => {
         suggestionWin.maximize();
-        document.getElementById('maxWindowDiv').style.display = 'none';
-		document.getElementById('restoreWindowDiv').style.display = 'block';
+        document.querySelector('#maxWindowDiv').style.display = 'none';
+		document.querySelector('#restoreWindowDiv').style.display = 'block';
     });
 
-    document.getElementById('restoreWindowDiv').addEventListener("click", event => {
+    document.querySelector('#restoreWindowDiv').addEventListener("click", event => {
         suggestionWin.unmaximize();
-        document.getElementById('maxWindowDiv').style.display = 'block';
-		document.getElementById('restoreWindowDiv').style.display = 'none';
+        document.querySelector('#maxWindowDiv').style.display = 'block';
+		document.querySelector('#restoreWindowDiv').style.display = 'none';
     });
 
-    document.getElementById('closeWindowDiv').addEventListener("click", event => {
+    document.querySelector('#closeWindowDiv').addEventListener("click", event => {
         suggestionWin.close();
     });
 
+    /**
+     * THIS WILL REMOVE ALL LISTENERS ATTACHED TO WINDOW BEFORE APP-
+     * GETS CLOSED OR REFRESHED.
+     * THIS IS IMPORTANT TO CLEAN LISTENERS AND AVOID WARNINGS.
+     */
     window.onbeforeunload = (e) => {
         suggestionWin.removeAllListeners();
     };
+    //Recolor window control buttons when focused
     suggestionWin.on('focus', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#FF605C';
     });
+    //Grey out window control button when not focused 
     suggestionWin.on('blur', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#D3D3D3';
     });
 }
 
-
+/**
+ * PLATFORM WINDOW CONTROL ORDER AND ALIGNMENT WILL BE CHANGED 
+ * DYNAMICALLY DEPENDING ON PLATFORM
+ */
 function platformWindowControl(){
-    document.getElementById("windowControls").style.visibility = 'visible';
+    
+    //If current platform is a mac
     if(process.platform == 'darwin'){
-        document.getElementById("windowControls").classList.add("forMac");
-        document.getElementById("minWindowDiv").style.order = '2';
-        document.getElementById("maxWindowDiv").style.order = '3';
-        document.getElementById("restoreWindowDiv").style.order = '3';
-        document.getElementById("closeWindowDiv").style.order = '1';
+        document.querySelector("#windowControls").classList.add("forMac");
+        document.querySelector("#minWindowDiv").style.order = '2';
+        document.querySelector("#maxWindowDiv").style.order = '3';
+        document.querySelector("#restoreWindowDiv").style.order = '3';
+        document.querySelector("#closeWindowDiv").style.order = '1';
     }else{
-        document.getElementById("windowControls").classList.add("forElse");
+        //On windows and Linux
+        document.querySelector("#windowControls").classList.add("forElse");
     }
+
+    //make controls visible, this is done to avoid default left side alignment jitter 
+    document.querySelector("#windowControls").style.visibility = 'visible';
 }

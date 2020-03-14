@@ -1,13 +1,13 @@
-//require path package to handle file addresses
+//REQUIRE PATH PACKAGE TO HANDLE FILE ADDRESSES
 const path = require('path');
-//require file system
+//REQUIRE FILE SYSTEM
 const fs = require('fs');
-//require n-readlines to read huge file line by line without excessive use of memory 
+//REQUIRE N-READLINES TO READ HUGE FILE LINE BY LINE WITHOUT EXCESSIVE USE OF MEMORY 
 const lineByLine = require('n-readlines');
-//to communicate with parent window
+//TO COMMUNICATE WITH PARENT WINDOW
 const ipc = require('electron').ipcRenderer;
 
-// When document has loaded, initialized
+// WHEN DOCUMENT HAS LOADED, INITIALIZED
 document.onreadystatechange = () => {
     if (document.readyState == "complete") {
         handleWindowControls();
@@ -16,23 +16,23 @@ document.onreadystatechange = () => {
 };
 
 
-//variable to denote single line string
+//VARIABLE TO DENOTE SINGLE LINE STRING
 let line;
-//splitter will be used to split string in tokens
+//SPLITTER WILL BE USED TO SPLIT STRING IN TOKENS
 var splitter;
 
-//get pattern text element to reflect file pattern string
-var pattern = document.getElementById('patternText');
-//variable to count number of values in a pattern.
-//variable to count popularity of a pattern
+//GET PATTERN TEXT ELEMENT TO REFLECT FILE PATTERN STRING
+var pattern = document.querySelector('#patternText');
+//VARIABLE TO COUNT NUMBER OF VALUES IN A PATTERN.
+//VARIABLE TO COUNT POPULARITY OF A PATTERN
 var patternTagCounter, popularityCounter=0;
 
-//get unordered list element to add rows in it
-var ulContainer = document.getElementById('passwordList'); 
-//variables required to make a row 
+//GET UNORDERED LIST ELEMENT TO ADD ROWS IN IT
+var ulContainer = document.querySelector('#passwordList'); 
+//VARIABLES REQUIRED TO MAKE A ROW 
 var li, ul, dt, dd, splitter, i;
 
-//catch the pattern data file address sent by parent windows 
+//CATCH THE PATTERN DATA FILE ADDRESS SENT BY PARENT WINDOWS 
 ipc.on('message', (event, patternString, fileAddress) => {
     
     //reflect file pattern string
@@ -93,62 +93,81 @@ ipc.on('message', (event, patternString, fileAddress) => {
         popularityCounter++;
     }
     //reflect popularity
-    document.getElementById('popularityText').innerHTML = 'Popularity: ' + popularityCounter;
+    document.querySelector('#popularityText').innerHTML = 'Popularity: ' + popularityCounter;
 })
 
-
+/**
+ * FUNCTIONALITY FOR CUSTOM WINDOW CONTROLS (CLOSE, MINIMIZE, MAXIMIZE, RESTORE)
+ */
 function handleWindowControls() {
 
 	let patternDataWin = require('electron').remote.getCurrentWindow();
 	
     // Make minimize/maximize/restore/close buttons work when they are clicked
-    document.getElementById('minWindowDiv').addEventListener("click", event => {
+    document.querySelector('#minWindowDiv').addEventListener("click", event => {
         patternDataWin.minimize();
     });
 
-    document.getElementById('maxWindowDiv').addEventListener("click", event => {
+    document.querySelector('#maxWindowDiv').addEventListener("click", event => {
         patternDataWin.maximize();
-        document.getElementById('maxWindowDiv').style.display = 'none';
-        document.getElementById('restoreWindowDiv').style.display = 'block';
+        document.querySelector('#maxWindowDiv').style.display = 'none';
+        document.querySelector('#restoreWindowDiv').style.display = 'block';
     });
 
-    document.getElementById('restoreWindowDiv').addEventListener("click", event => {
+    document.querySelector('#restoreWindowDiv').addEventListener("click", event => {
         patternDataWin.unmaximize();
-        document.getElementById('maxWindowDiv').style.display = 'block';
-        document.getElementById('restoreWindowDiv').style.display = 'none';
+        document.querySelector('#maxWindowDiv').style.display = 'block';
+        document.querySelector('#restoreWindowDiv').style.display = 'none';
     });
 
-    document.getElementById('closeWindowDiv').addEventListener("click", event => {
+    document.querySelector('#closeWindowDiv').addEventListener("click", event => {
         patternDataWin.close();
     });
 
+    /**
+     * THIS WILL REMOVE ALL LISTENERS ATTACHED TO WINDOW BEFORE APP-
+     * GETS CLOSED OR REFRESHED.
+     * THIS IS IMPORTANT TO CLEAN LISTENERS AND AVOID WARNINGS.
+     */
     window.onbeforeunload = (e) => {
         patternDataWin.removeAllListeners();
     };
+
+    //Recolor window control buttons when focused
     patternDataWin.on('focus', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#FFBD44';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#00CA4E';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#FF605C';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#00CA4E';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#FF605C';
     });
+
+    //Grey out window control button when not focused 
     patternDataWin.on('blur', ()=>{
-        document.getElementById("minWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("maxWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("restoreWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.getElementById("closeWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#minWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = '#D3D3D3';
     });
 }
 
-
+/**
+ * PLATFORM WINDOW CONTROL ORDER AND ALIGNMENT WILL BE CHANGED 
+ * DYNAMICALLY DEPENDING ON PLATFORM
+ */
 function platformWindowControl(){
-    document.getElementById("windowControls").style.visibility = 'visible';
+
+    //If current platform is a mac
     if(process.platform == 'darwin'){
-        document.getElementById("windowControls").classList.add("forMac");
-        document.getElementById("minWindowDiv").style.order = '2';
-        document.getElementById("maxWindowDiv").style.order = '3';
-        document.getElementById("restoreWindowDiv").style.order = '3';
-        document.getElementById("closeWindowDiv").style.order = '1';
+        document.querySelector("#windowControls").classList.add("forMac");
+        document.querySelector("#minWindowDiv").style.order = '2';
+        document.querySelector("#maxWindowDiv").style.order = '3';
+        document.querySelector("#restoreWindowDiv").style.order = '3';
+        document.querySelector("#closeWindowDiv").style.order = '1';
     }else{
-        document.getElementById("windowControls").classList.add("forElse");
+        //On windows and Linux
+        document.querySelector("#windowControls").classList.add("forElse");
     }
+
+    //make controls visible, this is done to avoid default left side alignment jitter 
+    document.querySelector("#windowControls").style.visibility = 'visible';
 }

@@ -1,4 +1,11 @@
-function openTabs(evt, tabName){
+/**
+ * FUNCTION TO CHANGE MAIN TABS WHEN CLICKED
+ * FIRST IT WILL FIRST SET "display:none" TO ALL TABS
+ * THEN IT WILL SET "display:block" ON SELECTED TAB
+ * @param {event} evt ELEMENT REFERENCE 
+ * @param {id} tabName SUB-TAB ID WHICH WILL BE DISPLAYED 
+ */
+function change_main_tabs(evt, tabName){
     var i, tabContent, tabLinks;
     tabContent = document.getElementsByClassName("tabContent");
     for (i = 0; i < tabContent.length; i++) {
@@ -8,7 +15,9 @@ function openTabs(evt, tabName){
     for (i = 0; i < tabLinks.length; i++) {
         tabLinks[i].className = tabLinks[i].className.replace(" active", "");
     }
-    document.getElementById(tabName).style.display = "block";
+    document.querySelector('#'+tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("homeTabButton").click();
+
+//CLICK ON HOME TAB AS ACTIVE TAB WHEN APP IS STARTED
+document.querySelector("#homeTabButton").click();

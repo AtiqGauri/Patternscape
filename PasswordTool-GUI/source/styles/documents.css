@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 .documentsContentContainer{
     position: absolute;
     height: 96%;
@@ -14,7 +20,7 @@
     position: absolute;
     top: 10%;
     left: 5%;
-    color: #0C2450;
+    color: var(--darker-royal-blue);
     font-family: Montserrat;
     font-weight: 900;
     font-style: light;
@@ -30,7 +36,7 @@
     text-align: left;
     border-radius: 11px;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
-    color: #0C2450;
+    color: var(--darker-royal-blue);
     font-family: Montserrat;
     font-style: light;
     font-size: 2.5vh;
@@ -46,8 +52,8 @@
     left: 7%;
 }
 .document1:hover{
-    background-color: #0C2450;
-    color: #F2F2F2;
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
 }
 
 .document2{
@@ -55,8 +61,8 @@
     left: 7%;
 }
 .document2:hover{
-    background-color: #0C2450;
-    color: #F2F2F2;
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
 }
 
 .document3{
@@ -65,8 +71,8 @@
     
 }
 .document3:hover{
-    background-color: #0C2450;
-    color: #F2F2F2;
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
 }
 
 .document4{
@@ -74,8 +80,8 @@
     left: 7%;
 }
 .document4:hover{
-    background-color: #0C2450;
-    color: #F2F2F2;
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
 }
 
 .document5{
@@ -84,8 +90,8 @@
     
 }
 .document5:hover{
-    background-color: #0C2450;
-    color: #F2F2F2;
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
 }
 
 .documentFrame{
@@ -95,7 +101,7 @@
     top: 2%;
     left: 1%;
     border: none;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
     user-select: none;
     z-index: 2;
@@ -110,14 +116,14 @@
     bottom: 5%;
     right: 6%;
     border-radius: 11px;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     color: white;
     user-select: none;
     z-index: 3;
     cursor:pointer;
 }
 #documentBackButton:hover{
-    background-color: #f9a825;
+    background-color: var(--process-yellow);
     transition: 0.4s;
 }
 .backIcon{

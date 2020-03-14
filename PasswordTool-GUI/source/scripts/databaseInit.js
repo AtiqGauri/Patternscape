@@ -1,11 +1,11 @@
-//require dexie package to create IndexedDB database for our app
+//REQUIRE DEXIE PACKAGE TO CREATE INDEXED_DB DATABASE FOR OUR APP
 var Dexie = require('dexie');
 var {database_error_alerts} = require('./alerts.js');
 
-//initialize database 
+//INITIALIZE DATABASE 
 var database = new Dexie("PasswordTool");
 
-//initialize database schema
+//INITIALIZE DATABASE SCHEMA
 database.version(1).stores({
     Patterns: 'pattern,address,popularity'
 })
@@ -15,19 +15,24 @@ database.version(2).stores({
 })
 
 
-//check if database is opened successfully (async process)
+//CHECK IF DATABASE IS OPENED SUCCESSFULLY (ASYNC PROCESS)
 database.open().catch(function(error){
     console.log("ERROR: "+ error);
 });
 
-addUserPreference();
-
-
-function addUserPreference() {
+/**
+ * INITIALIZE USER PREFERENCE VALUES IN DATABASE
+ * THESE WILL BE MODIFIED AT RUNTIME
+ */
+add_user_preference();
+function add_user_preference() {
+    //create an array to specify user preference variables and declaration values
     UserPreference = [
                     {key: "firstSplashScreen", value: 2000}, 
                     {key: "showAppIntro", value: 2}
     ];
+
+    //add variable to user preference database
     database.UserData.bulkAdd(UserPreference).catch(Dexie.BulkError, function (e) {
         e.name === "BulkError" ? null :  console.log('User Data Error: '+ e.message);
     });
@@ -35,8 +40,8 @@ function addUserPreference() {
 }
 
 /**
- * Function to lookup/find pattern in database 
- * @param {string} partialPattern partial pattern string entered in GUI for pattern search
+ * FUNCTION TO LOOKUP/FIND PATTERN IN DATABASE 
+ * @param {string} partialPattern PARTIAL PATTERN STRING ENTERED IN GUI FOR PATTERN SEARCH
  */
 async function starts_with_ignore_case(partialPattern) {
     
@@ -56,8 +61,8 @@ async function starts_with_ignore_case(partialPattern) {
 }
 
 /**
- * Function to get addresses of patterns stored in database
- * @param {string} patternString
+ * FUNCTION TO GET ADDRESSES OF PATTERNS STORED IN DATABASE
+ * @param {string} patternString PATTERN SELECTED BY USER
  */
 async function get_address_of_pattern_file(patternString) {
     
@@ -75,9 +80,9 @@ async function get_address_of_pattern_file(patternString) {
 }
 
 /**
- * Function to find patterns start with any of strings in database
- * and returns patterns which are matching with those strings
- * @param {string array} targetDataArray array of string (email, name, etc )
+ * FUNCTION TO FIND PATTERNS START WITH ANY OF STRINGS IN DATABASE
+ * AND RETURNS PATTERNS WHICH ARE MATCHING WITH THOSE STRINGS
+ * @param {string array} targetDataArray ARRAY OF STRING (EMAIL, NAME, ETC )
  */
 async function equals_any_of(targetDataArray) {
     
@@ -97,7 +102,7 @@ async function equals_any_of(targetDataArray) {
     return matchedPatterns.slice(0, 99);
 }
 
-//export members
+//EXPORT MEMBERS
 module.exports = {
     database,
     starts_with_ignore_case,

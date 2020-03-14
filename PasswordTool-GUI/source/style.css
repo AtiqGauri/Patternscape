@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("styles/constantStyles.css");
+/****************************************************/
+
 /****************CSS HEADER START********************/
 html, body{margin:0px; padding:0px;}
 @font-face {
@@ -6,8 +12,8 @@ html, body{margin:0px; padding:0px;}
     src: url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 body {
-    background-color: #F2F2F2;
-    color: white;
+    background-color: var(--white-like);
+    color: black;
     font-family: "Lato", sans-serif;
 }
 #titleBar {
@@ -17,7 +23,7 @@ body {
     height: 3.5vh;
     width: 100%;
     color: black;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     z-index: 99;
 }
 #dragRegion{
@@ -34,7 +40,7 @@ body {
     height: 100%;
     width: 17%;
     left: 44%;
-    color: #6A9BD8;
+    color: var(--database-blue);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -90,7 +96,7 @@ body {
 }
 #minWindowDiv{
     position: relative;
-    background-color: #FFBD44;
+    background-color: var(--minimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -109,7 +115,7 @@ body {
 #maxWindowDiv{
     position: relative;
     display: none;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -128,7 +134,7 @@ body {
 #restoreWindowDiv{
     position: relative;
     display: block;
-    background-color: #00CA4E;
+    background-color: var(--resize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -146,8 +152,7 @@ body {
 
 #closeWindowDiv{
     position: relative;
-    background-color: #FF605C;
-    
+    background-color: var(--close-red); 
 }
 #closeWindowDiv:hover #closeWindow{
     visibility: visible;
@@ -177,7 +182,7 @@ body {
 .splashScreen{
     width: 100vw;
     height: 100vh;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     visibility: visible;
     opacity: 1;
     pointer-events: none;
@@ -209,7 +214,7 @@ body {
     bottom: 0;
     grid-template-columns: 1fr 10fr;
     grid-template-rows: 1fr;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
 }
 
 .navTab{
@@ -218,7 +223,7 @@ body {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     top: 1.8%;
     height: 98%;
     border-top-right-radius: 40px;
@@ -247,8 +252,7 @@ body {
     transition: 0.1s;
 }
 .navTab div.active{
-    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1),
-              inset 8px 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1), inset 8px 8px 8px rgba(0, 0, 0, 0.1);
     cursor: default;
     transition: 0.5s;
 }
@@ -287,12 +291,12 @@ body {
 }
 
 #homeLabel{
-    color: #ff6584;
+    color: var(--home-red);
     letter-spacing: 0.5px;
 }
 
 #targetLabel{
-    color: #24C981;
+    color: var(--target-green);
     letter-spacing: 0.5px;
 }
 
@@ -301,14 +305,14 @@ body {
     top: 66%;
     left: 15%;
     letter-spacing: 1px;
-    color: #f9a825;
+    color: var(--process-yellow);
 }
 
 #documentLabel {
     position: relative;
     left: 7%;
     top: 75%;
-    color: #66657A;
+    color: var(--document-grey);
     font-size: 1.7vh;
 }
 

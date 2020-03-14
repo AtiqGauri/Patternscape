@@ -1,17 +1,17 @@
-// Modules to control application life and create native browser window
+// MODULES TO CONTROL APPLICATION LIFE AND CREATE NATIVE BROWSER WINDOW
 const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// KEEP A GLOBAL REFERENCE OF THE WINDOW OBJECT, IF YOU DON'T, THE WINDOW WILL
+// BE CLOSED AUTOMATICALLY WHEN THE JAVASCRIPT OBJECT IS GARBAGE COLLECTED.
 
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1920, height: 1080,
-    minWidth: 1280, minHeight:800,
+    width: 1280, height: 720,
+    minWidth: 1280, minHeight:720,
     title: "PasswordTool",
     icon: 'source/asset/icons/app-icon.png',
     autoHideMenuBar: true,
@@ -50,19 +50,14 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-
-  //Solution for iframe error in electron (without this you will get error saying refused to open url)
-  mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
-    callback({responseHeaders: Object.fromEntries(Object.entries(details.responseHeaders).filter(header => !/x-frame-options/i.test(header[0])))});
-  });
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// THIS METHOD WILL BE CALLED WHEN ELECTRON HAS FINISHED
+// INITIALIZATION AND IS READY TO CREATE BROWSER WINDOWS.
+// SOME APIS CAN ONLY BE USED AFTER THIS EVENT OCCURS.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// QUIT WHEN ALL WINDOWS ARE CLOSED.
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -75,5 +70,5 @@ app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// IN THIS FILE YOU CAN INCLUDE THE REST OF YOUR APP'S SPECIFIC MAIN PROCESS
+// CODE. YOU CAN ALSO PUT THEM IN SEPARATE FILES AND REQUIRE THEM HERE.

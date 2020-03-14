@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 p {
     display: block;
     margin-block-start: 0;
@@ -89,7 +95,7 @@ p {
 
 /******************IMPORT DATABASE START**********************/
 .impDB{
-    color: #B94955;
+    color: var(--darker-blood-red);
 }
 #importDB{
     position: absolute;
@@ -111,7 +117,7 @@ p {
     line-height: 1.5;
 }
 .impDataHeading{
-    color: #B94955;
+    color: var(--darker-blood-red);
 }
 .impDataText{
     color: grey;
@@ -125,7 +131,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     text-shadow: 0.1px 0.1px 1px grey;
-    color: #B94955;
+    color: var(--darker-blood-red);
 
     font-family: Montserrat;
     font-weight: 600;
@@ -182,13 +188,13 @@ p {
     user-select: none;
 }
 .importDbAdded{
-    color: #4CBB17;
+    color: var(--forest-green);
 }
 .importDbDuplicates{
-    color: #AE1100;
+    color: var(--blood-red);
 }
 .importDbTotal{
-    color: #6A9BD8;
+    color: var(--database-blue);
 }
 
 .impDbFolder{
@@ -214,13 +220,13 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #B94955;
+    color: var(--darker-blood-red);
     border-color: grey;
     cursor:pointer;
 }
 .impInputFolder:hover{
-    background-color: #B94955;
-    color: #F2F2F2;
+    background-color: var(--darker-blood-red);
+    color: var(--white-like);
     transition: 0.4s;
 }
 /******************IMPORT DATABASE END**********************/
@@ -228,7 +234,7 @@ p {
 
 /******************IMPORT DOWNLOADED DATABASE START*********************/
 .impDownDB{
-    color: #5A81AE;
+    color: var(--sea-blue);
 }
 
 .importDownDBClass{
@@ -251,7 +257,7 @@ p {
     margin-bottom: 2%;
     white-space: nowrap;
     overflow: visible;
-    color: #5A81AE;
+    color: var(--sea-blue);
     font-weight: 900;
     font-style: light;
     font-size: 4.4vh;
@@ -273,7 +279,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     text-shadow: 0.1px 0.1px 1px grey;
-    color: #5A81AE;
+    color: var(--sea-blue);
     left: 0%;
     bottom: 0%;
     width: 50%;
@@ -342,15 +348,15 @@ p {
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .impDownAdded{
-    color: #4CBB17;
+    color: var(--forest-green);
     text-shadow: 0.1px 0.1px 1px rgb(147, 180, 131);
 }
 .impDownDuplicates{
-    color: #AE1100; 
+    color: var(--blood-red); 
     text-shadow: 0.1px 0.1px 1px rgb(163, 127, 123);
 }
 .impDownTotal{
-    color: #6A9BD8;
+    color: var(--database-blue);
     text-shadow: 0.1px 0.1px 1px rgb(177, 194, 214);
 }
 
@@ -385,13 +391,13 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #5A81AE;
+    color: var(--sea-blue);
     border-color: grey;
     cursor:pointer;
 }
 .impDownInputFolder:hover{
-    background-color: #5A81AE;
-    color: #F2F2F2;
+    background-color: var(--sea-blue);
+    color: var(--white-like);
     transition: 0.4s;
 }
 /******************IMPORT DOWNLOADED DATABASE END**********************/
@@ -399,7 +405,7 @@ p {
 
 /******************EXPORT DATABASE START*********************/
 .expDB{
-    color: #499371;
+    color: var(--darker-forest-green);
 }
 
 .exportDBClass{
@@ -422,7 +428,7 @@ p {
     margin-left: 4%;
     white-space: nowrap;
     overflow: visible;
-    color: #499371;
+    color: var(--darker-forest-green);
     font-weight: 900;
     font-style: light;
     font-size: 4.4vh;
@@ -446,7 +452,7 @@ p {
     left: 0%;
     height: 50%;
     width: 50%;
-    color: #499371;
+    color: var(--darker-forest-green);
     letter-spacing: 1px;
     word-spacing: 2.5px;
     font-weight: 600;
@@ -516,7 +522,7 @@ p {
 .expTotal{
     position: relative;
     top: 34%;
-    color: #499371;
+    color: var(--darker-forest-green);
 }
 
 .expFolderDiv{
@@ -535,7 +541,7 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #499371;
+    color: var(--darker-forest-green);
     border-color: grey;
     font-style: light;
     font-weight: 900;
@@ -546,8 +552,8 @@ p {
     cursor:pointer;
 }
 .expFolder:hover{
-    background-color: #499371;
-    color: #F2F2F2;
+    background-color: var(--darker-forest-green);
+    color: var(--white-like);
     transition: 0.4s;
 }
 /******************EXPORT DATABASE END**********************/
@@ -569,7 +575,7 @@ p {
 .deleteWarning{
     padding: 3%;
     position: relative;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     width: fit-content;
     display: flex;
     align-items: center;
@@ -591,7 +597,7 @@ p {
 }
 
 .deleteIconActive{
-    background-color: #f9a825;
+    background-color: var(--process-yellow);
     transition: 0.8s;
 }
 
@@ -617,7 +623,7 @@ p {
     padding: 2%;
     width: 59.5%;
     text-align: center;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 
@@ -632,7 +638,7 @@ p {
     cursor:pointer;
 }
 .deleteButton:hover{
-    background-color: #AE1100;
+    background-color: var(--blood-red);
     color: white;
     text-shadow: none;
     transition: 0.4s;
@@ -675,7 +681,7 @@ p {
     margin-top: 1%;
     font-weight: 900;
     text-shadow: 0.1px 0.1px 1px gainsboro;
-    color: #499371;
+    color: var(--darker-forest-green);
 }
 
 .persistanceButton{
@@ -683,7 +689,7 @@ p {
     padding: 2%;
     width: 62%;
     text-align: center;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
 
     box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
     font-weight: bold;
@@ -694,7 +700,7 @@ p {
     cursor:pointer;
 }
 .persistanceButton:hover{
-    background-color: #4CBB17;
+    background-color: var(--forest-green);
     color: white;
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
     text-shadow: none;

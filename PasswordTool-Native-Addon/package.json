@@ -17,11 +17,11 @@
   },
   "cmake-js": {
     "runtime": "electron",
-    "runtimeVersion": "6.0.0",
-    "arch": "x64, ia32"
+    "runtimeVersion": "8.1.1",
+    "arch": "x64"
   },
   "devDependencies": {
-    "cmake-js": "^6.0.0"
+    "cmake-js": "^6.1.0"
   },
   "dependencies": {
     "node-addon-api": "^2.0.0"

@@ -1,12 +1,12 @@
 
-//require native c++ addon
+//REQUIRE NATIVE C++ ADDON
 const testAddon = require('../tool-addon/addon.node');
 
-//call c++ analyzation api function 
+//CALL C++ ANALYZATION API FUNCTION 
 var j = testAddon.stats_generator_api(2);
 //console.log(j);
 
-//return acknowledgment/result to main thread
+//RETURN ACKNOWLEDGMENT/RESULT TO MAIN THREAD
 postMessage(j);
 
 module.exports = testAddon;

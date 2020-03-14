@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 .progressAnimation{
     display: none;
     position: relative;
@@ -16,10 +22,10 @@
     filter: url(#gegga);
 }
 .stopp1 {
-    stop-color: #f9a825;
+    stop-color: var(--process-yellow);
 }
 .stopp2 {
-    stop-color: #f9a825;
+    stop-color: var(--process-yellow);
 }
 .halvan {
     animation: Snurra1 10s infinite linear;
