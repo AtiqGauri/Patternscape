@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 @font-face {
     font-family: "Montserrat";
     src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
@@ -32,7 +38,7 @@
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .neverHomeIntro:hover{
-    background-color: #AE1100;
+    background-color: var(--blood-red);
     color: white;
     transition: 0.3s;
     cursor: pointer;
@@ -73,7 +79,7 @@
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .neverAskIntro:hover{
-    background-color: #AE1100;
+    background-color: var(--blood-red);
     color: white;
     transition: 0.3s;
     cursor: pointer;
@@ -161,7 +167,7 @@
 .introDownDbTitle{
     margin-top: 4%;
     margin-left: 1%;
-    color:#5A81AE;
+    color: var(--sea-blue);
     font-weight: 900;
     text-align: left;
 }
@@ -186,7 +192,7 @@
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .downDbIntroNever:hover{
-    background-color: #AE1100;
+    background-color: var(--blood-red);
     color: white;
     transition: 0.3s;
     cursor: pointer;
@@ -297,7 +303,7 @@
     box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .neverProcessIntro:hover{
-    background-color: #AE1100;
+    background-color: var(--blood-red);
     color: white;
     transition: 0.3s;
     cursor: pointer;

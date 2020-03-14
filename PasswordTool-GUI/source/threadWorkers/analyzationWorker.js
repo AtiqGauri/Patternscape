@@ -1,8 +1,8 @@
 
-//require native C++ addon 
+//REQUIRE NATIVE C++ ADDON 
 const testAddon = require('../tool-addon/addon.node');
 
-//function to communicate with main thread
+//FUNCTION TO COMMUNICATE WITH MAIN THREAD
 onmessage = function(e) {
 	
 	//call c++ analyzation api function 

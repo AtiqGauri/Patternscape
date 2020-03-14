@@ -1,8 +1,12 @@
 const appIntroAlert = require('sweetalert2');
 
+/**
+ * APP INTRO ALERT'S STRUCTURE
+ * APP WILL USE THIS STRUCTURE WITH DIFFERENT CLASSES
+ */
 function app_intro_alert(cTarget, cTitle, cHtml, cPosition, cClass, cOnOpen, cOnClose){
     appIntroAlert.fire({
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#'+cTarget),
         title: cTitle,
         html: cHtml,
         customClass: cClass,
@@ -23,23 +27,33 @@ function app_intro_alert(cTarget, cTitle, cHtml, cPosition, cClass, cOnOpen, cOn
     })
 }
 
+/**
+ * FUNCTION TO CLOSE ANY INTRO ALERT
+ */
 function stop_app_intro(){
     appIntroAlert.close();
     make_elements_visible();
     decrease_intro_count();
 }
 
+/**
+ * FUNCTION TO MODIFY INTRO TRIGGER VARIABLE TO ZERO
+ */
 function never_show_intro(){
     appIntroAlert.close();
     make_elements_visible();
     zero_intro_count();
 }
 
+/**
+ * CALLBACK FUNCTION TO INITIALIZE NEXT INTRO ALERT IN ROUTE 
+ * @param {Function} next_alert NEXT ALERT FUNCTION
+ */
 function next_intro_alert(next_alert){
     next_alert && next_alert();
 }
 
-//STEP 0: Teach to search pattern and its data
+//STEP 0: ASK IF USER WANT TO SEE APP'S INTRO
 function ask_for_intro(){
     app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#f9a825">Let\'s take a tour of app</p>',
         cHtml='<p class="introHomeText">This will provide a brief intro to main functionalities of the app.</p>'+
@@ -76,7 +90,7 @@ function ask_for_intro(){
     );
 }
 
-//STEP 1: Teach to search pattern and its data
+//STEP 1: INTRODUCE HOME TAB AND TEACH TO SEARCH PATTERN AND ITS DATA
 function home_tab_intro(){
     app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#ff6584">Home Tab: You can search patterns and their data here</p>',
         cHtml='<p class="introHomeText">First time it could show empty warning. To avoid '+
@@ -111,7 +125,7 @@ function home_tab_intro(){
 }
 
 
-//STEP 2: Teach to import downloaded database
+//STEP 2: INTRODUCE DOWNLOADED DATABASE TAB AND TEACH TO IMPORT DOWNLOADED DATABASE
 function downloaded_database_tab_intro(){
     app_intro_alert(cTarget='importDownDB', cTitle='',
         cHtml='<p class="introDownDbTitle">Database: Here you can import downloaded database</p>'+
@@ -129,8 +143,10 @@ function downloaded_database_tab_intro(){
             title: 'introDownDbTitle',
             },
         cOnOpen = ()=>{
-            document.getElementById("impDownDB").click();
-            document.getElementById("databaseTabButton").click();
+            document.querySelector("#impDownDB").click();
+            document.querySelector("#databaseTabButton").click();
+            document.querySelector("#impDownTextHead").style.color  = '#D3D3D3';
+            document.querySelector("#impDownText").style.color  = '#D3D3D3';
             document.querySelector("#importDownStop").style.pointerEvents = 'none';
             document.querySelector("#importDownStart").style.pointerEvents = 'none';
             document.querySelector("#homeTabButton").style.visibility = 'hidden';
@@ -141,6 +157,8 @@ function downloaded_database_tab_intro(){
             document.querySelector("#databaseLowerBox").style.opacity = '0';
         },
         cOnClose = ()=>{
+            document.querySelector("#impDownTextHead").style.color  = '#5A81AE';
+            document.querySelector("#impDownText").style.color  = 'grey';
             document.querySelector("#importDownStop").style.pointerEvents = 'all';
             document.querySelector("#importDownStart").style.pointerEvents = 'all';
             document.querySelector("#databaseLowerBox").style.visibility = 'visible';
@@ -149,7 +167,7 @@ function downloaded_database_tab_intro(){
     );
 }
 
-//STEP 3: Teach to import downloaded database
+//STEP 3: INTRODUCE ANALYZATION TAB AND TEACH TO PROCESS RAW DATA
 function process_analyze_tab_intro(){
     app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:#78126A">Analyze Tab: Here you can process raw data locally</p>',
         cHtml='<p class="processIntroText">*Process raw data to detect patterns in them</br>'+
@@ -197,7 +215,7 @@ function process_analyze_tab_intro(){
     );
 }
 
-//STEP 4: Teach to import downloaded database
+//STEP 4: INTRODUCE STATISTICS TAB AND TEACH TO GENERATE STATISTICS
 function process_stats_tab_intro(){
     app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:#E86135">Statistics Tab: Here you can generate stats of analyzed patterns</p>',
         cHtml='<p class="processIntroText">*Generate statistics of analyzed patterns</br>'+
@@ -243,7 +261,7 @@ function process_stats_tab_intro(){
 }
 
 
-//STEP 5: Teach to import locally generated pattern in database
+//STEP 5: TEACH TO IMPORT LOCALLY GENERATED PATTERN IN DATABASE
 function import_database_tab_intro(){
     app_intro_alert(cTarget='importDB', cTitle='',
         cHtml='<p class="introDownDbTitle" style="color:#AE1100">Database: Here you can import downloaded database</p>'+
@@ -263,6 +281,8 @@ function import_database_tab_intro(){
             document.querySelector("#processTabButton").style.visibility = 'hidden';
             document.querySelector("#databaseTabButton").click();
             document.querySelector("#impDB").click();
+            document.querySelector("#impDataHeading").style.color  = '#D3D3D3';
+            document.querySelector("#impDataText").style.color  = '#D3D3D3';
             document.querySelector("#importDbStart").style.pointerEvents = 'none';
             document.querySelector("#importDbStop").style.pointerEvents = 'none';
             document.querySelector("#navTab").style.visibility = 'hidden';
@@ -276,6 +296,8 @@ function import_database_tab_intro(){
         cOnClose = ()=>{
             document.querySelector("#importDbStart").style.pointerEvents = 'all';
             document.querySelector("#importDbStop").style.pointerEvents = 'all';
+            document.querySelector("#impDataHeading").style.color  = '#AE1100';
+            document.querySelector("#impDataText").style.color  = 'grey';
             document.querySelector("#processTabButton").style.visibility = 'visible';
             document.querySelector("#homeTabButton").style.visibility = 'visible';
             document.querySelector("#navTab").style.visibility = 'visible';
@@ -288,7 +310,7 @@ function import_database_tab_intro(){
     );
 }
 
-//STEP 6: TUTORIAL IS COMPLETED
+//STEP 6: ACKNOWLEDGMENT OF INTRO COMPLETION
 function intro_is_completed(){
     app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#f9a825">That\'s it</p>',
         cHtml='<div class="completedIntroSkip" onclick="never_show_intro()" style="color:#f9a825">DONE</div>', 
@@ -321,7 +343,10 @@ function make_elements_visible(){
     document.querySelector("#databaseTabButton").style.visibility = 'visible';
 }
 
-
+/**
+ * DECREASE INTRO TRIGGER VARIABLE BY ONE
+ * THIS WILL MODIFY DATABASE VARIABLE (showAppIntro)
+ */
 async function decrease_intro_count(){
     database.transaction('rw', database.UserData, async ()=> {
         try {
@@ -334,6 +359,10 @@ async function decrease_intro_count(){
     });
 }
 
+/**
+ * SET INTRO TRIGGER VARIABLE TO ZERO
+ * THIS WILL MODIFY INTRO VARIABLE (showAppIntro)
+ */
 async function zero_intro_count(){
     await database.UserData.where("key").equals("showAppIntro").modify({"value": 0});
 }

@@ -4,7 +4,7 @@ const alertComponent = require('sweetalert2');
 function target_alerts(cTarget, cTitle, cClass, cTime=2000){
     alertComponent.fire({
         title: cTitle,
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#'+cTarget),
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
@@ -27,7 +27,7 @@ function target_alerts(cTarget, cTitle, cClass, cTime=2000){
 function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error'){
     alertComponent.fire({
         title: cTitle,
-        target: document.getElementById('homeTab'),
+        target: document.querySelector('#homeTab'),
         html: cHtml,
         customClass: 'centerErrorAlert',
         position: 'center',
@@ -51,7 +51,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Let\'s move to create statistics</b>',
  cIcon='success', cTime='4000', cConfirmButton=true, cCancelButton=true){
 
     alertComponent.fire({
-        target: document.getElementById('processTab'),
+        target: document.querySelector('#processTab'),
         title: cTitle,
         html: cHtml,
         padding: '2vh 4vh 2vh 4vh',
@@ -77,7 +77,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Let\'s move to create statistics</b>',
             alertComponent.close();
         }if(!result.value){
             //direct user to generate stats after 2 seconds
-            document.getElementById("changeUserTypes").click();
+            document.querySelector("#changeUserTypes").click();
         }
     });
 }
@@ -86,7 +86,7 @@ function moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Finished</
 cHtml='<b style="margin: 0 4vw 0 1vw;">Now import these statistics into database</b>',
  cIcon='success', cTime='180000', cConfirmButton=true, cCancelButton=true){
     alertComponent.fire({
-        target: document.getElementById('statsGeneration'),
+        target: document.querySelector('#statsGeneration'),
         title: cTitle,
         html: cHtml,
         padding: '2vh 4vh 2vh 4vh',
@@ -111,8 +111,8 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Now import these statistics into database
         if (result.value) {
             alertComponent.close();
         }if(!result.value){
-            document.getElementById("databaseTabButton").click();
-			document.getElementById("impDB").click();
+            document.querySelector("#databaseTabButton").click();
+			document.querySelector("#impDB").click();
         }
     });
 }
@@ -120,7 +120,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw;">Now import these statistics into database
 function general_stop_alerts(cTarget, cTitle, cIcon, cClass, cTime=600, cProgress=false){
     alertComponent.fire({
         title: cTitle,
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#'+cTarget),
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
@@ -140,7 +140,7 @@ function general_stop_alerts(cTarget, cTitle, cIcon, cClass, cTime=600, cProgres
 function process_single_user_alerts(cTarget, cTitle, cClass, cTime=2000){
     alertComponent.fire({
         title: cTitle,
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#' + cTarget),
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
@@ -163,7 +163,7 @@ function process_single_user_alerts(cTarget, cTitle, cClass, cTime=2000){
 function database_acknowledgment(cTarget='importDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseImportAlert', cResult='importDbResult', cTime=2000){
     alertComponent.fire({
         title: cTitle,
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#'+cTarget),
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
@@ -178,13 +178,13 @@ function database_acknowledgment(cTarget='importDB', cTitle='Imported Successful
             toast.addEventListener('mouseleave', alertComponent.resumeTimer)
         }
     }).then(() => {
-        document.getElementById(cResult).style.display = "block";
+        document.querySelector('#'+cResult).style.display = "block";
     });
 }
 
 function database_error_alerts(cTarget, cTitle, cHtml, cIcon, cClass, cTime, cBColor){
     alertComponent.fire({
-        target: document.getElementById(cTarget),
+        target: document.querySelector('#'+cTarget),
         title: cTitle,
         html: cHtml,
         padding: '2vh 4vh 2vh 4vh',

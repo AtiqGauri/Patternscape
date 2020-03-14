@@ -15,7 +15,6 @@ PROJECT SETTINGS
 
 int main()
 {
-
 	auto start = APILayer::time_stamp();
 	APILayer::main_program(4);
 	//APILayer::pattern_stats(2);

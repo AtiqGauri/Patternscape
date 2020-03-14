@@ -1,30 +1,30 @@
-//require database script
+//REQUIRE DATABASE SCRIPT
 const {database} = require('../scripts/databaseInit.js');
 var path = require('path');
 
-//require n-readlines to read huge file line by line without excessive use of memory 
+//REQUIRE N-READLINES TO READ HUGE FILE LINE BY LINE WITHOUT EXCESSIVE USE OF MEMORY 
 const lineByLine = require('n-readlines');
 
-//initialize variables
-//duplicates represents how many duplicate records are trying to be added
-//addRecords represents how many records have been added
-//splitter will be used to split string in tokens
+//INITIALIZE VARIABLES
+//"duplicates" REPRESENTS HOW MANY DUPLICATE RECORDS ARE TRYING TO BE ADDED
+//"addedRecords" REPRESENTS HOW MANY RECORDS HAVE BEEN ADDED
+//"splitter" WILL BE USED TO SPLIT STRING IN TOKENS
 var duplicates=0, addedRecords=0, splitter;
 
-//check if database is opened successfully (async process)
+//CHECK IF DATABASE IS OPENED SUCCESSFULLY (ASYNC PROCESS)
 database.open().catch(function(error){
     console.error("ERROR: "+ error);
 });
 
-//initialize n-readlines with data file address
-//can throw error because of asar packaging
+//INITIALIZE N-READLINES WITH DATA FILE ADDRESS
+//CAN THROW ERROR BECAUSE OF ASAR PACKAGING
 const liner = new lineByLine(path.join('data', 'Stats', 'Patterns.txt'));
-//variable to denote single line string
+//VARIABLE TO DENOTE SINGLE LINE STRING
 let line;
-//variable to count line number(not necessary)
+//VARIABLE TO COUNT LINE NUMBER(NOT NECESSARY)
 let lineNumber = 0;
 
-//database transaction, this will rollback half completed operation automatically
+//DATABASE TRANSACTION, THIS WILL ROLLBACK HALF COMPLETED OPERATION AUTOMATICALLY
 database.transaction('rw', database.Patterns, async () => {
 
   //iterate over file

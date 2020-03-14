@@ -1,6 +1,9 @@
+<!--STYLE FOR process.html-->
 <link rel="stylesheet" type="text/css" href="styles/process.css">
 
+<!--PROCESS TAB MAIN CONTENT-->
 <div class="processTabContainer">
+    <!--SINGLE USER TAB-->
     <div class="singleUserTab processTabContent" id="singleUserTabID">
         <p class="singleUserText">
             * Here you can get patterns detected in a single password.</br>
@@ -13,13 +16,16 @@
                 <label class="singleUserPasswordLabel">*Password</label>
             </form>
         </div>
+        <!-- >>APP_FOLDER/scripts/process.js<<-->
         <div class="singleUserSubmit" onclick="singleUserForm()" id="singleUserSubmit">Detect Patterns</div>
         <!--
             <webview class="singleUserOutput" src = "htmls/targetPattern.html" id="singleUserOutput" nodeintegration></webview>
             <iframe class="singleUserOutput" src="htmls/singlePasswordPatterns.html"></iframe>
         -->
     </div>
+    <!--MULTI USER TAB-->
     <div class="multiUserTab processTabContent" id="multiUserTabID">
+        <!--ANALYZE RAW DATA-->
         <div class="processRawData" id="processRawData">
             <p class="rawDataHead">
                 Analyse Raw Data to detect Patterns in them:
@@ -33,11 +39,13 @@
                 * After That you need to create statistics of this processed data.</br>
                 * To perform stats generation you will be taken to next tab soon...</br>
             </p>
+            <!-- >>APP_FOLDER/scripts/process.js<<-->
             <div class="analyzeStart" onclick="analyze_passwords_emails()" id="analyzeStart">Analyse</div>
             <div class="analyzeStop" onclick="stop_analyze_passwords_emails()" id="analyzeStop">Stop</div>
             <div class="analyzeInput" onclick="input_of_analyzing()">Raw Input</div>
             <div class="analyzeOutput" onclick="output_of_analyzing()">Processed Data</div>
         </div>
+        <!--GENERATE PATTERN STATISTICS-->
         <div class="statsGeneration" id="statsGeneration">
             <p class="statsHead">
                 Generate Statistics out of processed data patterns:
@@ -51,6 +59,7 @@
                 * If you want to stop process press "Stop" button.</br>
                 * Finally you can check output in "Generated Stats" folder.</br>
             </p>
+            <!-- >>APP_FOLDER/scripts/process.js<<-->
             <div class="statsStart" onclick="generate_statistics()" id="statsStart">Statistics</div>
             <div class="statsStop" onclick="stop_generate_statistics()" id="statsStop">Stop</div>
             <div class="statsInput" onclick="input_of_stats_generator()">Processed Data</div>
@@ -61,14 +70,17 @@
             <div id="valueLabel">2</div>
             <input id="threadSelectorInput" type="range" min="0" max="8" step="1" value="2">
         </div>
-        <div class="changeUserTypes" id="changeUserTypes" onclick="changeAnalyseToStats()">
+        <!-- >>APP_FOLDER/scripts/process.js<<-->
+        <div class="changeUserTypes" id="changeUserTypes" onclick="change_analyse_to_stats()">
             <img class="arrowIcon" src="assets/icons/arrow.svg" draggable="false">
         </div>
     </div>
-    <div class="multipleProcessButton processTabLinks" onclick="openProcessTabs(event, 'multiUserTabID')" id="multipleProcessButton">
+    <!--PROCESS SUB-TABS-->
+    <!-- >>APP_FOLDER/scripts/process.js<<-->
+    <div class="multipleProcessButton processTabLinks" onclick="open_process_tabs(event, 'multiUserTabID')" id="multipleProcessButton">
         <img class="multiUserIcon" src="assets/icons/process-multiuser.svg" draggable="false"> 
     </div>
-    <div class="singleUserButton processTabLinks" onclick="openProcessTabs(event, 'singleUserTabID')" id="singleUserButton">
+    <div class="singleUserButton processTabLinks" onclick="open_process_tabs(event, 'singleUserTabID')" id="singleUserButton">
         <img class="singleUserIcon" src="assets/icons/process-user.svg" draggable="false">
     </div>
 </div>

@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 .autocomplete {
     margin-left: 15%;
     margin-top: 6%;
@@ -39,14 +45,14 @@
     border-style: solid;
     border-radius: 4px;
     font-size: 16px;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     background-image: url("../assets/icons/search-icon.svg");
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    border-color: #FF8C10;
-    color: #AE1100;
+    border-color: var(--darker-yellow);
+    color: var(--blood-red);
     padding: 12px 20px 12px 40px;
-    box-shadow: 0 18px 70px 0 #ffaf7b;
+    box-shadow: 0 18px 70px 0 var(--process-yellow);
     box-shadow: -20px -20px 70px rgba(255, 255, 255, 1),
               12px 12px 30px rgba(0, 0, 0, 0.4);
     transition: width 10s ease, top 0.4s ease, border-color 0.5s ease;
@@ -62,7 +68,7 @@
 
 
 .searchBarContainer.focused .patternSearchBar {
-    border-color: #AE1100;
+    border-color: var(--blood-red);
 }
 
 .homeImage {
@@ -88,7 +94,7 @@
 .autocomplete-items {
     width: 100%;
     position: relative;
-    border: 2px solid #E0E2E7;
+    border: 2px solid var(--white-like);
     border-top: none;
     border-bottom: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -102,20 +108,20 @@
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    color: #AE1100;
-    background-color: #F2F2F2; 
-    border-bottom: 1px solid #F2F2F2; 
+    color: var(--blood-red);
+    background-color: var(--white-like); 
+    border-bottom: 1px solid var(--white-like); 
 }
   
 /*when hovering an item:*/
 .autocomplete-items div:hover {
-    background-color: #6A9BD8; 
+    background-color: var(--database-blue); 
     color: white;
 }
   
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-    background-color: #6A9BD8 !important; 
+    background-color: var(--database-blue) !important; 
     color: white !important; 
 }
 
@@ -123,8 +129,8 @@
     position: absolute;
     top: 50%;
     left: 68%;
-    background-color: #F2F2F2;
-    color: #AE1100;
+    background-color: var(--white-like);
+    color: var(--blood-red);
     cursor: pointer;
     border: solid transparent;
     border-radius: 4px;
@@ -143,8 +149,8 @@
 
 
 .homeSubmit:hover{
-    background-color: #6A9BD8;
-    color: #EBF5FC;
+    background-color: var(--database-blue);
+    color: var(--white-like);
 }
 
 .searchBarContainer.focused~.homeSubmit{

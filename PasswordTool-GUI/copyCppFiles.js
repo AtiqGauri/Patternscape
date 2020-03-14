@@ -1,9 +1,9 @@
-//This file is created so that user doesn't have to manually copy updated c++ files, when we make changes in backend code.
-//Import cpy package
+//THIS FILE IS CREATED SO THAT USER DOESN'T HAVE TO MANUALLY COPY UPDATED C++ FILES, WHEN WE MAKE CHANGES IN BACKEND CODE.
+//IMPORT CPY PACKAGE
 const cpy = require('cpy');
 
-//copy updated C++ files into native addon src folder
-//copy all the header and source files except VS project source file
+//COPY UPDATED C++ FILES INTO NATIVE ADDON SRC FOLDER
+//COPY ALL THE HEADER AND SOURCE FILES EXCEPT VS PROJECT SOURCE FILE
 (async () => {
 	await cpy(
 		[

@@ -1,24 +1,20 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
-
-//require path package to handle file addresses
+//REQUIRE PATH PACKAGE TO HANDLE FILE ADDRESSES
 const path = require('path');
 
-//import BrowserWindow to create child windows
+//IMPORT BROWSERWINDOW TO CREATE CHILD WINDOWS
 const { BrowserWindow } = require('electron').remote;
 
-//require shell to open default application like text editor with a datafile in it
+//REQUIRE SHELL TO OPEN DEFAULT APPLICATION LIKE TEXT EDITOR WITH A DATAFILE IN IT
 const shell = require('electron').shell;
 
-//require file system
+//REQUIRE FILE SYSTEM
 const fs = require('fs');
 
-//require database script
+//REQUIRE DATABASE SCRIPT
 const { equals_any_of, get_address_of_pattern_file } = require('./scripts/databaseInit.js');
 
 /**
- * Function to open input folder of analyzation process
+ * FUNCTION TO OPEN INPUT FOLDER OF ANALYZATION PROCESS
  */
 function input_of_analyzing(){
 	
@@ -36,7 +32,7 @@ function input_of_analyzing(){
 }
 
 /**
- * Function to open output folder of analyzation process
+ * FUNCTION TO OPEN OUTPUT FOLDER OF ANALYZATION PROCESS
  */
 function output_of_analyzing(){
 	
@@ -55,8 +51,8 @@ function output_of_analyzing(){
 
 
 /**
- * Function to open input folder of stats generator.
- * Which happens to be output folder of analyzation process.
+ * FUNCTION TO OPEN INPUT FOLDER OF STATS GENERATOR.
+ * WHICH HAPPENS TO BE OUTPUT FOLDER OF ANALYZATION PROCESS.
  */
 function input_of_stats_generator(){
 
@@ -75,8 +71,8 @@ function input_of_stats_generator(){
 
 
 /**
- * Function to open output folder of Stats generator and pattern 
- * category file in default text editor.
+ * FUNCTION TO OPEN OUTPUT FOLDER OF STATS GENERATOR AND PATTERN 
+ * CATEGORY FILE IN DEFAULT TEXT EDITOR.
  */
 function output_of_stats_generator(){
 	
@@ -89,6 +85,7 @@ function output_of_stats_generator(){
 		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
     }
 
+	//open a new window to show generated pattern categories 
 	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
 	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	categoryWindow.loadFile('./source/htmls/patternsCategories.html');
@@ -98,8 +95,7 @@ function output_of_stats_generator(){
 }
 
 /**
- * Function to open import export database folder 
- * 
+ * FUNCTION TO OPEN IMPORT EXPORT DATABASE FOLDER 
  */
 function database_import_export_folder(){
 	
@@ -117,24 +113,25 @@ function database_import_export_folder(){
 
 
 /**
- * Function to open pattern data file. This function
- * makes a database query to get address of selected pattern
- * and open it in default text editor.
+ * FUNCTION TO OPEN SELECTED PATTERN'S DATA FILE IN NEW WINDOW. 
+ * THIS FUNCTION MAKES A DATABASE QUERY TO GET ADDRESS OF SELECTED PATTERN
+ * AND OPEN IT IN DEFAULT TEXT EDITOR.
  */
 function pattern_lookup(){
 	
 	//get value of pattern entered by user
-	var input = document.getElementById("patternSearchInput").value;
+	var input = document.querySelector("#patternSearchInput").value;
 	if(input==""){
 		home_pattern_error("Empty", "warning");
 		return;
 	}
 
-	//create a widow to show pattern data
+	//create a new widow to show pattern data
 	patternDataWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Data", autoHideMenuBar: true, 
 	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	patternDataWindow.loadFile('./source/htmls/patternData.html');
 
+	//get address of selected pattern  >>APP_FOLDER/scripts/databaseInit.js<<
 	get_address_of_pattern_file(input).then(function(result) {
 		var fileAddress;
 		for (i = 0; i < result.length; i++) {
@@ -150,25 +147,25 @@ function pattern_lookup(){
 			shell.beep();
 		}
 	});
-	document.getElementById("patternSearchInput").value = '';
+	document.querySelector("#patternSearchInput").value = '';
 }
 
 /**
- * Function to generate a passwords and patterns based on given information
- * of a particular target.
- * Step 1. check if all required parameters is given by user
- * Step 2. check if parameters are valid 
- * Step 3. collect all the parameters in an array to pass on to database lookup function
- * Step 4. add pattern selected by user and place it  at the top of the list
- * Step 5. change patterns returned by database lookup function to reflect target user information
- * Step 6. open a new window to display original patterns and generated semi-passwords/patterns
+ * FUNCTION TO GENERATE A PASSWORDS AND PATTERNS BASED ON GIVEN INFORMATION
+ * OF A PARTICULAR TARGET.
+ * STEP 1. CHECK IF ALL REQUIRED PARAMETERS IS GIVEN BY USER
+ * STEP 2. CHECK IF PARAMETERS ARE VALID 
+ * STEP 3. COLLECT ALL THE PARAMETERS IN AN ARRAY TO PASS ON TO DATABASE LOOKUP FUNCTION
+ * STEP 4. ADD PATTERN SELECTED BY USER AND PLACE IT  AT THE TOP OF THE LIST
+ * STEP 5. CHANGE PATTERNS RETURNED BY DATABASE LOOKUP FUNCTION TO REFLECT TARGET USER INFORMATION
+ * STEP 6. OPEN A NEW WINDOW TO DISPLAY ORIGINAL PATTERNS AND GENERATED SEMI-PASSWORDS/PATTERNS
  */
 function target_user_pattern(){
 	
 	//capture email given by user
-	const email = document.getElementById("targetEmail").value;
+	const email = document.querySelector("#targetEmail").value;
 	//capture password given by user
-	const password = document.getElementById("targetPassword").value;
+	const password = document.querySelector("#targetPassword").value;
 	
 	//if email field is empty then warn user
 	if(email != ''){
@@ -182,7 +179,7 @@ function target_user_pattern(){
 				target_password_patterns(password, email);
 			}
 
-			
+			//array to store form values
             var targetData = [];
 
             //extract email name
@@ -192,16 +189,16 @@ function target_user_pattern(){
             targetData.push({value:email.substring(email.indexOf("@")+1, email.indexOf(".")), type:'Website'});
 
             //get name value
-			targetData.push({value:document.getElementById("targetName").value, type:'Name'});
+			targetData.push({value:document.querySelector("#targetName").value, type:'Name'});
 
             //get location value
-			targetData.push({value:document.getElementById("targetLocation").value, type:'Location'});
+			targetData.push({value:document.querySelector("#targetLocation").value, type:'Location'});
 
             //get dob value
-			targetData.push({value:document.getElementById("targetDob").value, type:'DOB'});
+			targetData.push({value:document.querySelector("#targetDob").value, type:'DOB'});
 
             //get mobile value
-			targetData.push({value:document.getElementById("targetMobile").value, type:'Mobile'});
+			targetData.push({value:document.querySelector("#targetMobile").value, type:'Mobile'});
 
             //collect data entries which have been given, then remove empty ones
             var temp = [];
@@ -213,7 +210,7 @@ function target_user_pattern(){
 				}
 			}
 
-            //find top most popular pattern matching given data 
+            //find top most popular pattern matching given data >>APP_FOLDER/scripts/databaseInit.js<<
             equals_any_of(temp).then(function(passwordPatterns) {
 
 				//array to store generated password reflecting actual info given by user
@@ -223,8 +220,8 @@ function target_user_pattern(){
 				var tempStr;
 				
 				//add pattern selected by user
-				if(document.getElementById("patternSearchInput").value != ''){
-					passwordPatterns.unshift({pattern:document.getElementById("patternSearchInput").value, address:'', popularity:''});
+				if(document.querySelector("#patternSearchInput").value != ''){
+					passwordPatterns.unshift({pattern:document.querySelector("#patternSearchInput").value, address:'', popularity:''});
 				}
 
 				//take all the patterns and interpolate given information into them
@@ -237,7 +234,7 @@ function target_user_pattern(){
 					generatedPasswords.push({original:tempStr, generated:passwordPatterns[i].pattern});
 				}
 				
-				document.getElementById("patternSearchInput").value = '';
+				document.querySelector("#patternSearchInput").value = '';
 
 				setTimeout(function(){
 					//update process status, make alert sound
@@ -251,7 +248,8 @@ function target_user_pattern(){
 						suggestionsWindow.webContents.send('message', generatedPasswords);
 					});
 				},1200);
-				//
+
+				//target user loading alert >>APP_FOLDER/scripts/alerts.js<<
 				target_alerts(cTarget='targetContentContainer', cTitle='Processing', cClass='targetAlerts', cTime=2000);
 			});
 			
@@ -272,53 +270,53 @@ function target_user_pattern(){
 
 
 /**
- * Helper function to find and replace a substring
- * This function will find and replace all occurrences of substring
- * @param {string} targetString main string which contains smaller strings
- * @param {string} findString substring which need to be found in main string
- * @param {string} replaceString string which will be replaced at the place of substring
+ * HELPER FUNCTION TO FIND AND REPLACE A SUBSTRING
+ * THIS FUNCTION WILL FIND AND REPLACE ALL OCCURRENCES OF SUBSTRING
+ * @param {string} targetString MAIN STRING WHICH CONTAINS SMALLER STRINGS
+ * @param {string} findString SUBSTRING WHICH NEED TO BE FOUND IN MAIN STRING
+ * @param {string} replaceString STRING WHICH WILL BE REPLACED AT THE PLACE OF SUBSTRING
  */
 function replaceAll(targetString, findString, replaceString) {
     return targetString.replace(new RegExp(escapeRegExp(findString), 'g'), replaceString);
 }
 
 /**
- * Helper function to escape special characters while finding
- * substring in main string
- * @param {string} targetString main string
+ * HELPER FUNCTION TO ESCAPE SPECIAL CHARACTERS WHILE FINDING
+ * SUBSTRING IN MAIN STRING
+ * @param {string} targetString MAIN STRING
  */
 function escapeRegExp(targetString) {
     return targetString.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
 
 /**
- * Function to collect and check input password and email(optional).
- * if everything is fine then call web worker function to detect
- * pattern in this password.
+ * FUNCTION TO COLLECT AND CHECK INPUT PASSWORD AND EMAIL(OPTIONAL).
+ * IF EVERYTHING IS FINE THEN CALL WEB WORKER FUNCTION TO DETECT
+ * PATTERN IN THIS PASSWORD.
  */
 function catch_target_password(){
 
 	//get password value
-	var password = document.getElementById("singleUserPassword").value;
+	var password = document.querySelector("#singleUserPassword").value;
 	//get email value
-	var email = document.getElementById("singleUserEmail").value;
+	var email = document.querySelector("#singleUserEmail").value;
 
 	//if email is empty 
 	if(email == ''){
 		email = "";
 	}
-	//when check is passed then call function to process password and generate patterns
+	//Call function to process password and generate patterns >>APP_FOLDER/renderer.js<<
 	target_password_patterns(password, email);
 }
 
 
 /**
- * Function to display resulted patterns generated by processing single
- * password and email(optional)
- * @param {string} detectedData resulted patterns based on password entered by user 
+ * FUNCTION TO DISPLAY RESULTED PATTERNS GENERATED BY PROCESSING SINGLE
+ * PASSWORD AND EMAIL(OPTIONAL)
+ * @param {string} detectedData RESULTED PATTERNS BASED ON PASSWORD ENTERED BY USER 
  */
 function process_single_password(detectedData){
-	//create a window to display suggested patterns
+	//create a new window to display suggested patterns
 	targetPasswordWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
 	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	targetPasswordWindow.loadFile('./source/htmls/targetPattern.html');

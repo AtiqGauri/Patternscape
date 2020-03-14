@@ -1,53 +1,40 @@
-//require database script
+//REQUIRE DATABASE SCRIPT
 const {database} = require('./databaseInit.js');
 const {database_error_alerts} = require('./alerts.js');
 
-//require package to export import database
-//
+//REQUIRE PACKAGE TO EXPORT IMPORT DATABASE
 require('dexie-export-import');
-function exportSingleTable(db, tableName) {
-  return exportDB(db, {filter: (tables, value, key) => tables === tableName});
-}
 
-//require package to convert stream into a blob
+//REQUIRE PACKAGE TO CONVERT STREAM INTO A BLOB
 const toBlob = require('stream-to-blob');
 
-//require fs package to handle file manipulation
+//REQUIRE FS PACKAGE TO HANDLE FILE MANIPULATION
 var fileSystem = require('fs');
 
 /**
- * Function to export database to a json file
- * Json file will be stored at data/Stats/ExportedDatabase.json
- * Step 1. make a blob of database data
- * Step 2. convert blob into a readable text form
- * Step 3. write normal text into json file
- * Step 4. acknowledgment
+ * FUNCTION TO EXPORT DATABASE TO A JSON FILE
+ * JSON FILE WILL BE STORED AT >>APP_FOLDER/data/Stats/ExportedDatabase.json<<
+ * STEP 1. MAKE A BLOB OF DATABASE DATA
+ * STEP 2. CONVERT BLOB INTO A READABLE TEXT FORM
+ * STEP 3. WRITE NORMAL TEXT INTO JSON FILE
+ * STEP 4. ACKNOWLEDGMENT
  */
-
- /**
-  * 
-      //const blob = await exportDB(database, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
-      const blob = await exportSingleTable(database, "Patterns").then( async (blob1) => {
-        const text1 = await new Response(blob1).text();
-        console.log(text1);
-        // Result is in blob
-      });
-      const text = await new Response(blob).text();
-  */
 var export_database = async function export_database(){
     var operationSuccess = true;
     console.log("Exporting database");
     try{
-      
-      //const blob = await exportDB(database, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
+      //create blob of database and then convert it in plain text
       const blob = await database.export({prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
       const text = await new Response(blob).text();
       
+      //check if file exist or make a new one
+      //double if statement to avoid asar packaging address alteration
       if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
         fileSystem.writeFile(path.join(__dirname, '..', '..', 'data','Database','ExportedDatabase.json'), text, function(error){
           if(error){
             console.log(error);
             operationSuccess = false;
+            //>>APP_FOLDER/scripts/alerts.js<<
             database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
             return operationSuccess;
           }
@@ -57,18 +44,21 @@ var export_database = async function export_database(){
           if(error){
             console.log(error);
             operationSuccess = false;
+            //>>APP_FOLDER/scripts/alerts.js<<
             database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
             return operationSuccess;
           }
         });
       }else{
         operationSuccess = false;
+        //>>APP_FOLDER/scripts/alerts.js<<
         database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml='Export directory not found', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
         return operationSuccess;
       }
     }catch(error){
         console.error(''+error);
         operationSuccess = false;
+        //>>APP_FOLDER/scripts/alerts.js<<
         database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
         return operationSuccess;
     }
@@ -77,18 +67,20 @@ var export_database = async function export_database(){
 };
 
 /**
- * Function to import database
- * database will be imported from json file located at data/Stats/ExportedDatabase.json
- * Step 1. make a stream of file data
- * Step 2. convert stream into a package
- * Step 3. try to add blob into database
- * Step 4. acknowledgment
+ * FUNCTION TO IMPORT DATABASE
+ * DATABASE WILL BE IMPORTED FROM JSON FILES AVAILABLE IN >>APP_FOLDER/data/Stats/<< FOLDER
+ * STEP 1. MAKE A STREAM OF FILE DATA
+ * STEP 2. CONVERT STREAM INTO A PACKAGE
+ * STEP 3. TRY TO ADD BLOB INTO DATABASE
+ * STEP 4. ACKNOWLEDGMENT
  */
 var import_database = async function import_database(){
     var operationSuccess = true;
-    
+    //array to collect address of all available input file
     var downloadedInputFiles = [];
 
+    //check if any input file is available in input folder
+    //double if statement to avoid asar packaging address alteration
     if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
       fileSystem.readdirSync(path.join(__dirname, '..', '..', 'data','Database')).forEach(file => {
         if(file != 'Error Log'){
@@ -103,16 +95,22 @@ var import_database = async function import_database(){
       });
     }else{
       operationSuccess = false;
+      //>>APP_FOLDER/scripts/alerts.js<<
       database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
       return operationSuccess;
     }
-
+    
+    //iterate over each file try to import it
     for (let i = 0; i < downloadedInputFiles.length; i++) {
       try{
+        //make a stream of input file
         const stream = fileSystem.createReadStream(downloadedInputFiles[i]);
+        //change it in blob
         const blob = await toBlob(stream);
+        //import above blob in database
         await database.import(blob, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
       }catch(error){
+        //if BulkError(key already exist) then just move on
         if(error.name === "BulkError"){
           console.log('IMPORT ERROR: '+ error.message);
         }else{
@@ -120,15 +118,6 @@ var import_database = async function import_database(){
           operationSuccess = false;
           database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">' + error.name + '</b>', cHtml='<b>'+error.message+'</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
         }
-        /**
-         * 
-         .catch(Dexie.BulkError, function (e) {
-            // Explicitely catching the bulkAdd() operation makes those successful
-            // additions commit despite that there were errors.
-            console.error ("Some raindrops did not succeed. However, " +
-                100000-e.failures.length + " raindrops was added successfully");
-          });
-         */
       }
     }
     database_storage_quota();
@@ -136,10 +125,10 @@ var import_database = async function import_database(){
 };
 
 
-/** Check if storage is persisted already.
-  //@returns {Promise<boolean>} Promise resolved with true if current origin is
-  using persistent storage, false if not, and undefined if the API is not
-  present.
+/** CHECK IF STORAGE IS PERSISTED ALREADY.
+  //@returns {Promise<boolean>} PROMISE RESOLVED WITH TRUE IF CURRENT ORIGIN IS
+  USING PERSISTENT STORAGE, FALSE IF NOT, AND UNDEFINED IF THE API IS NOT
+  PRESENT.
 */
 async function is_storage_persisted() {
   return await navigator.storage && navigator.storage.persisted ?
@@ -148,10 +137,10 @@ async function is_storage_persisted() {
 }
 
 
-/** Queries available disk quota.
+/** QUERIES AVAILABLE DISK QUOTA.
   @see https://developer.mozilla.org/en-US/docs/Web/API/StorageEstimate
-  @returns {Promise<{quota: number, usage: number}>} Promise resolved with
-  {quota: number, usage: number} or undefined.
+  @returns {Promise<{quota: number, usage: number}>} PROMISE RESOLVED WITH
+  {quota: number, usage: number} OR UNDEFINED.
 */
 async function show_estimated_quota() {
     return await navigator.storage && navigator.storage.estimate ?
@@ -159,9 +148,9 @@ async function show_estimated_quota() {
       undefined;
 }
 
-/** Tries to convert to persisted storage.
-  @returns {Promise<boolean>} Promise resolved with true if successfully
-  persisted the storage, false if not, and undefined if the API is not present.
+/** TRIES TO CONVERT TO PERSISTED STORAGE.
+  @returns {Promise<boolean>} PROMISE RESOLVED WITH TRUE IF SUCCESSFULLY
+  PERSISTED THE STORAGE, FALSE IF NOT, AND UNDEFINED IF THE API IS NOT PRESENT.
 */
 async function persist() {
     return await navigator.storage && navigator.storage.persist ?
@@ -170,15 +159,15 @@ async function persist() {
 }
 
 
-/** Tries to persist storage without ever prompting user.
+/** TRIES TO PERSIST STORAGE WITHOUT EVER PROMPTING USER.
   @returns {Promise<string>}
-    "never" In case persisting is not ever possible. Caller don't bother
-      asking user for permission.
-    "prompt" In case persisting would be possible if prompting user first.
-    "persisted" In case this call successfully silently persisted the storage,
-      or if it was already persisted.
+    "NEVER" IN CASE PERSISTING IS NOT EVER POSSIBLE. CALLER DON'T BOTHER
+      ASKING USER FOR PERMISSION.
+    "PROMPT" IN CASE PERSISTING WOULD BE POSSIBLE IF PROMPTING USER FIRST.
+    "PERSISTED" IN CASE THIS CALL SUCCESSFULLY SILENTLY PERSISTED THE STORAGE,
+      OR IF IT WAS ALREADY PERSISTED.
 */
-async function try_persist_without_promting_user() {
+async function try_persist_without_prompting_user() {
     if (!navigator.storage || !navigator.storage.persisted) {
       return "never";
     }
@@ -207,11 +196,11 @@ async function try_persist_without_promting_user() {
 }
   
 /**
- * function to pass status of persisting data operation
+ * FUNCTION TO PASS STATUS OF PERSISTING DATA OPERATION
  */
 var init_storage_persistence = async function init_storage_persistence() {
   console.log("persisting data");
-  const persist = await try_persist_without_promting_user();
+  const persist = await try_persist_without_prompting_user();
   switch (persist) {
     case "never":
       return "No space to persist database";
@@ -222,6 +211,10 @@ var init_storage_persistence = async function init_storage_persistence() {
   }
 }
 
+/**
+ * returns total number of records present
+ * in Patterns table of database
+ */
 async function get_database_count(){
   return await database.table('Patterns').count();
 }

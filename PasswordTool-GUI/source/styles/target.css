@@ -1,3 +1,9 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
 /******************HEADER START***********************/
 .targetContentContainer{
     position: absolute;
@@ -14,7 +20,7 @@
     position: absolute;
     top: 12%;
     left: 5%;
-    color: #5E84AC;
+    color: var(--sea-blue);
     letter-spacing: 1px;
     word-spacing: 2px;
     font-family: Montserrat;
@@ -44,10 +50,10 @@
     padding: 0% 0% 0.5% 1%;
     width: 20%;
     height: 5%;
-    background-color: #F2F2F2;
+    background-color: var(--white-like);
     border: none;
-    color: #5E84AC;
-    border-bottom: 2px solid #5E84AC;
+    color: var(--sea-blue);
+    border-bottom: 2px solid var(--sea-blue);
     letter-spacing: 1px;
     word-spacing: 2px;
     font-family: Montserrat;
@@ -59,7 +65,7 @@
     user-select: none;
 }
 .targetInputs:focus, .targetInputs:not(:placeholder-shown){
-    border-bottom: 2px solid #F2F2F2;
+    border-bottom: 2px solid var(--white-like);
 }
 .targetLabels{
     position: absolute;
@@ -168,7 +174,7 @@
     max-width: 58%;
     bottom: 7%;
     left: 5%;
-    color: #5E84AC;
+    color: var(--sea-blue);
     overflow: scroll;
     text-align: center;
     letter-spacing: 1px;
@@ -198,7 +204,7 @@
 }
 
 .getPattern:hover{
-    background-color: #5E84AC;
+    background-color: var(--sea-blue);
     color: white;
     transition: 0.3s;
 }
@@ -208,7 +214,7 @@
     left: 74%;
     bottom: 11%;
     padding: 1% 3% 1% 3%;
-    color: #5E84AC;
+    color: var(--sea-blue);
     border-radius: 10px;
     letter-spacing: 1px;
     font-family: Montserrat;
@@ -219,7 +225,7 @@
     cursor:pointer;
 }
 .targetSubmit:hover{
-    background-color: #5E84AC;
+    background-color: var(--sea-blue);
     color: white;
     transition: 0.3s;
 }

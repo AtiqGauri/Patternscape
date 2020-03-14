@@ -1,3 +1,10 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
+
 /***************BOILER PLATES START*****************/
 p h1 h2 h3{
     display: block;
@@ -108,7 +115,7 @@ p h1 h2 h3{
     position: absolute;
     top: 12%;
     left: 4%;
-    color: #ff6584;
+    color: var(--single-pink);
     letter-spacing: 1px;
     word-spacing: 2px;
     font-size: 2.5vh;
@@ -132,16 +139,16 @@ p h1 h2 h3{
     top: 55%;
     left: 5%;
     font-size: 3vh;
-    color: #ff6584;
-    background-color: #F2F2F2;
+    color: var(--single-pink);
+    background-color: var(--white-like);
     border: none;
-    border-bottom: 2px solid #ff6584;
+    border-bottom: 2px solid var(--single-pink);
     outline: none;
     user-select: none;
     transition: 0.5s ease;
 }
 .singleUserEmail:focus, .singleUserEmail:not(:placeholder-shown){
-    border-bottom: 2px solid #F2F2F2;
+    border-bottom: 2px solid var(--white-like);
 }
 .singleUserEmailLabel{
     position: absolute;
@@ -167,16 +174,16 @@ p h1 h2 h3{
     top: 55%;
     left: 41%;
     font-size: 3vh;
-    color: #ff6584;
-    background-color: #F2F2F2;
+    color: var(--single-pink);
+    background-color: var(--white-like);
     border: none;
-    border-bottom: 2px solid #ff6584;
+    border-bottom: 2px solid var(--single-pink);
     outline: none;
     user-select: none;
     transition: 0.5s ease;
 }
 .singleUserPassword:focus, .singleUserPassword:not(:placeholder-shown){
-    border-bottom: 2px solid #F2F2F2;
+    border-bottom: 2px solid var(--white-like);
 }
 .singleUserPasswordLabel{
     position: absolute;
@@ -201,7 +208,7 @@ p h1 h2 h3{
     left: 78%;
     padding: 1% 2% 1% 2%;
     text-align: center;
-    color: #ff6584;
+    color: var(--single-pink);
     letter-spacing: 1px;
     word-spacing: 2px;
     border-radius: 6px;
@@ -214,7 +221,7 @@ p h1 h2 h3{
     cursor:pointer;
 }
 .singleUserSubmit:hover{
-    background-color: #ff6584;
+    background-color: var(--single-pink);
     color: white;
     transition: 0.4s;
 }
@@ -256,7 +263,7 @@ p h1 h2 h3{
     top: 40%;
     border-top-left-radius: 90px;
     border-bottom-left-radius: 90px;
-    background-color: #78126A;
+    background-color: var(--analyze-purple);
     cursor:pointer;
     transition: 0.15s;
     transition: opacity 1000ms, visibility 1000ms;
@@ -330,7 +337,7 @@ input[type="range"]::-webkit-slider-thumb {
 }​
 input[type="range"]::-webkit-slider-thumb:hover {
     background-color: transparent;
-    border: 2px solid #e74c3c;
+    border: 2px solid var(--home-red);
 }
 input[type="range"]::-webkit-slider-thumb:active {
     transform: scale(1.6);
@@ -349,7 +356,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     user-select: none;
 }
 .rawDataHead{
-    color: #78126A;
+    color: var(--analyze-purple);
     font-weight: 900;
     font-style: light;
     font-size: 4.2vh;
@@ -369,7 +376,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     left: 4%;
     top: 85%;
     padding: 1% 3% 1% 3%;
-    color: #78126A;
+    color: var(--analyze-purple);
     background-color: transparent;
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -389,7 +396,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     left: 20%;
     top: 85%;
     padding: 1% 4% 1% 4%;
-    color: #78126A;
+    color: var(--analyze-purple);
     background-color: transparent;
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -414,13 +421,13 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #78126A;
+    color: var(--analyze-purple);
     border-color: grey;
     cursor:pointer;
 }
 .analyzeInput:hover{
-    background-color: #78126A;
-    color: #F2F2F2;
+    background-color: var(--analyze-purple);
+    color: var(--white-like);
     transition: 0.3s;
 }
 
@@ -438,8 +445,8 @@ input[type="range"]::-webkit-slider-thumb:active {
     cursor:pointer;
 }
 .analyzeOutput:hover{
-    background-color: #78126A;
-    color: #F2F2F2;
+    background-color: var(--analyze-purple);
+    color: var(--white-like);
     transition: 0.3s;
 }
 
@@ -456,7 +463,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     user-select: none;
 }
 .statsHead{
-    color: #E86135;
+    color: var(--stats-orange);
     font-weight: 900;
     font-style: light;
     font-size: 4.2vh;
@@ -476,7 +483,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     left: 4%;
     top: 85%;
     padding: 1% 3% 1% 3%;
-    color: #E86135;
+    color: var(--stats-orange);
     background-color: transparent;
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -496,7 +503,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     left: 20%;
     top: 85%;
     padding: 1% 4% 1% 4%;
-    color: #E86135;
+    color: var(--stats-orange);
     background-color: transparent;
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -521,13 +528,13 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #E86135;
+    color: var(--stats-orange);
     border-color: grey;
     cursor:pointer;
 }
 .statsInput:hover{
-    background-color: #E86135;
-    color: #F2F2F2;
+    background-color: var(--stats-orange);
+    color: var(--white-like);
     transition: 0.3s;
 }
 .statsOutput{
@@ -539,13 +546,13 @@ input[type="range"]::-webkit-slider-thumb:active {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: #E86135;
+    color: var(--stats-orange);
     border-color: grey;
     cursor:pointer;
 }
 .statsOutput:hover{
-    background-color: #E86135;
-    color: #F2F2F2;
+    background-color: var(--stats-orange);
+    color: var(--white-like);
     transition: 0.3s;
 }
 /*******************MULTI USER TAB END**********************/

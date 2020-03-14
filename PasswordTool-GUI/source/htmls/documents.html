@@ -1,12 +1,17 @@
+<!--STYLE FOR documents.html-->
 <link rel="stylesheet" type="text/css" href="styles/documents.css">
+
+<!--LIST OF DOCUMENTS-->
 <div class="documentsContentContainer" id="documentsContentContainer">
     <p class="documentHead">All documents related to app -</p>
+    <!-- >>APP_FOLDER/scripts/documents.js<<-->
     <div class="document1 documents" onclick="show_document1()">1. Project timeline and roadmap</div>
     <div class="document2 documents" onclick="show_document2()">2. Overview and main structure of project</div>
     <div class="document3 documents" onclick="show_document3()">3. Layer 1- Backend made up of c++</div>
     <div class="document4 documents" onclick="show_document4()">4. Layer 1.5- Node API to communicate between layers</div>
     <div class="document5 documents" onclick="show_document5()">5. Layer 2- Frontend made up of electron</div>
 </div>
+<!--BUTTON TO BACK/CLOSE DOCUMENT WEBVIEW-->
 <div id="documentBackButton" onclick="close_frame_and_back_button()">
     <img class="backIcon" src="assets/icons/back.svg" draggable="false">
 </div>

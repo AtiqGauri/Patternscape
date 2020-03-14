@@ -1,4 +1,11 @@
-function openOperations(evt, tabName) {
+/**
+ * FUNCTION TO CHANGE SUB-TABS OF DATABASE TAB
+ * THIS WILL ASSIGN "display:none" TO ALL TAB AND THEN
+ * "tabName" TAB WILL ASSIGNED TO "display:block"
+ * @param {event} evt GET REFERENCE OF ELEMENT WHICH TRIGGERED THE FUNCTION 
+ * @param {*} tabName TAB WHICH WILL BE DISPLAYED
+ */
+function open_operations(evt, tabName) {
     var i, dbTabContent, dbTabLinks;
     dbTabContent = document.getElementsByClassName("dbTabContent");
     for (i = 0; i < dbTabContent.length; i++) {
@@ -8,13 +15,17 @@ function openOperations(evt, tabName) {
     for (i = 0; i < dbTabLinks.length; i++) {
         dbTabLinks[i].className = dbTabLinks[i].className.replace(" active", "");
     }
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).style.transition = "10s";
+    document.querySelector('#'+tabName).style.display = "block";
+    document.querySelector('#'+tabName).style.transition = "10s";
     evt.currentTarget.className += " active";
 }
 
-function databaseDeleteCheckbox() {
-  var element = document.getElementById("deleteIconWrapperID");
+/**
+ * FUNCTION TO TOGGLE CHECKBOX OF DATABASE DELETE BUTTON
+ * CHECKBOX MUST BE ACTIVE IN ORDER TO DELETE DATABASE
+ */
+function database_delete_checkbox() {
+  var element = document.querySelector("#deleteIconWrapperID");
   if (element.classList) { 
     element.classList.toggle("deleteIconActive");
     
@@ -30,8 +41,12 @@ function databaseDeleteCheckbox() {
   }
 }
 
-function persistDatabase(){
-  var element = document.getElementById("persistDataButton");
+/**
+ * FUNCTION TO CHANGE COLOR OF DATABASE PERSISTANCE BUTTON
+ * THIS WILL CHANGE COLOR OF BUTTON WHEN IT IS ACTIVEs
+ */
+function persist_database_color(){
+  var element = document.querySelector("#persistDataButton");
 
   element.style.backgroundColor = "#4CBB17"
   element.style.color = "white";

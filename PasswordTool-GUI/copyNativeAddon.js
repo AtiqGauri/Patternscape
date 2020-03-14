@@ -1,8 +1,8 @@
-//This file is created so that user doesn't have to manually copy updated addon files, when we make changes in addon code
-//Import cpy package
+//THIS FILE IS CREATED SO THAT USER DOESN'T HAVE TO MANUALLY COPY UPDATED ADDON FILES, WHEN WE MAKE CHANGES IN ADDON CODE
+//IMPORT CPY PACKAGE
 const cpy = require('cpy');
 
-//copy compiled native addon files into app source folder
+//COPY COMPILED NATIVE ADDON FILES INTO APP SOURCE FOLDER
 (async () => {
 	await cpy(
 		[

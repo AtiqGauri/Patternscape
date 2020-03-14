@@ -1,7 +1,7 @@
-//require native C++ addon 
+//REQUIRE NATIVE C++ ADDON 
 const testAddon = require('../tool-addon/addon.node');
 
-//this will catch arguments(password and email(optional)) sent by
+//THIS WILL CATCH ARGUMENTS(PASSWORD AND EMAIL(OPTIONAL)) SENT BY
 onmessage = function(passedData) {
 
     //call c++ backend function to process password and email

@@ -1,16 +1,24 @@
+//IMPORT FUNCTION TO GET MATCHING PATTERNS
 const { starts_with_ignore_case } = require('./scripts/databaseInit.js');
-//require database import export script 
+//REQUIRE DATABASE IMPORT EXPORT SCRIPT 
 var importExportDB = require("./scripts/importExportDatabase.js");
 //const { homePatternError } = require('./scripts/alerts.js');
 
+/**
+ * FUNCTION TO SUGGEST AUTOCOMPLETE PATTERNS
+ * THIS WILL MAKE DATABASE QUERY EVERY TIME USER TYPES A LETTER IN SEARCH BAR
+ * @param {input element} inp SEARCH BAR INPUT REFERENCE
+ * # IF DATABASE IS EMPTY THEN THROW A WARNING
+ * # IF USER TYPES A WRONG LETTER THEN THROW A WARNING
+ */
 function autocomplete(inp) {
-    
-    //the autocomplete function takes one arguments,
-    //the text field element
+
     var currentFocus;
+    //when input bar is focused
     inp.addEventListener("focus", function(e) {
         this.parentNode.setAttribute("class", "searchBarContainer focused");
     });
+    //when input bar is unfocused
     inp.addEventListener("blur", function(e) {
         setTimeout(() => { this.parentNode.setAttribute("class", "searchBarContainer") }, 200);
     });
@@ -41,20 +49,28 @@ function autocomplete(inp) {
         //make call to database
         starts_with_ignore_case(val).then(function(result) {
             dbArray = result.slice(0,20);
+            //if database is empty
             if(dbArray.length==0){
+                //check is there is any record in database
+                //>>APP_FOLDER/scripts/importExportDatabase.js<<
                 importExportDB.get_database_count().then(function(total) {
+                    //throw a warning saying database is empty
                     if(total==0){
+                        //>>APP_FOLDER/scripts/alerts.js<<
                         home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Empty Database</b>', cHtml='<b>No pattern available to suggest<b>', cIcon='warning');
-                        document.getElementById("patternSearchInput").value = "";
+                        document.querySelector("#patternSearchInput").value = "";
                     }else{
+                        //throw a warning saying user typed wrong letter
+                        //>>APP_FOLDER/scripts/alerts.js<<
                         home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error');
-                        document.getElementById("patternSearchInput").value = "";        
+                        document.querySelector("#patternSearchInput").value = "";        
                     }
                 });
                 return;
             }else{
                 alertComponent.close();
             }
+            //iterate over matching patterns 
             for (i = 0; i < dbArray.length; i++) {
                 
                 //create a DIV element for each matching element:
@@ -111,7 +127,7 @@ function autocomplete(inp) {
             //and simulate a click on the "active" item:
             if (x) x[currentFocus].click();
             }
-            document.getElementById("homeSubmit").click();
+            document.querySelector("#homeSubmit").click();
         }
     });
     function addActive(x) {
