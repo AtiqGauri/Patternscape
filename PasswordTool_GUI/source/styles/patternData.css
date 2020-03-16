@@ -1,0 +1,256 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
+html, body{margin:0px; padding:0px;
+    background-color: #F2F2F2;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Light.ttf) format("truetype");
+}
+
+/*********************APP HEADER START************************/
+#titleBar {
+    position: absolute;
+    display: block;
+    position: fixed;
+    height: 3.5vh;
+    top: 0%;
+    width: 100%;
+    color: black;
+    background-color: var(--white-like);
+    z-index: 99;
+}
+#dragRegion{
+    position: relative;
+    margin-top: 0.2%;
+    margin-left: 0.3%;
+    width: 99.4%;
+    height: 3.1vh;
+    background-color: transparent;
+    -webkit-app-region: drag;
+}
+
+#windowTitle{
+    position: absolute;
+    height: 100%;
+    width: 17%;
+    left: 43%;
+    color: var(--database-blue);
+
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 1.4vw;
+    user-select: none;
+}
+#appHeaderName{
+    position: absolute;
+    left: 5%;
+    top: 30%;
+}
+#appHeaderIcon{
+    position: absolute;
+    right: -30%;
+    top: 30%;
+    height: 80%;
+    width: 80%;
+}
+
+#windowControls{
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    visibility: hidden;
+}
+.windowControls{
+    display: none;
+}
+.forMac{
+    display: block;
+    left: -0.5%;
+    top: 10%;
+}
+.forElse{
+    display: block;
+    right: 0.5%;
+    top: 15%;
+}
+
+.windowControlDiv{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    margin: 5%;
+    cursor:pointer;
+}
+#minWindowDiv{
+    position: relative;
+    background-color: var(--minimize-yellow);
+}
+#minWindowDiv:hover #minimizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
+}
+#minimizeWindow{
+    position: absolute;
+    left: 22%;
+    top: 15%;
+    height: 70%;
+    width: 60%;
+    cursor:pointer;
+    visibility: hidden;
+}
+
+#maxWindowDiv{
+    position: relative;
+    display: block;
+    background-color: var(--resize-green);
+}
+#maxWindowDiv:hover #maximizeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
+}
+#maximizeWindow{
+    position: absolute;
+    left: 28.5%;
+    top: 21.5%;
+    height: 55%;
+    width: 45%;
+    cursor:pointer;
+    visibility: hidden;
+}
+
+#restoreWindowDiv{
+    position: relative;
+    display: none;
+    background-color: var(--resize-green);
+}
+#restoreWindowDiv:hover #restoreWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
+}
+#restoreWindow{
+    position: absolute;
+    left: 16.5%;
+    top: 10.5%;
+    height: 80%;
+    width: 70%;
+    cursor:pointer;
+    visibility: hidden;
+}
+
+#closeWindowDiv{
+    position: relative;
+    background-color: var(--close-red);
+    
+}
+#closeWindowDiv:hover #closeWindow{
+    visibility: visible;
+    transition: opacity 50ms, visibility 50ms;
+}
+#closeWindow{
+    position: absolute;
+    left: 32%;
+    top: 25%;
+    height: 50%;
+    width: 40%;
+    cursor:pointer;
+    visibility: hidden;
+}
+
+@media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
+(-webkit-device-pixel-ratio: 2), (device-pixel-ratio: 2),
+(-webkit-device-pixel-ratio: 3), (device-pixel-ratio: 3) {
+  .windowControlDiv .windowControlIcons {
+    width: 10px;
+    height: 10px;
+  }
+}
+/*********************APP HEADER END************************/
+
+#patternText{
+    margin-top: 5%;
+    padding-left: 5%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: light;
+    font-size: 35px;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: grey;
+}
+
+#popularityText{
+    padding-left: 5%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: light;
+    font-size: 35px;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: var(--blood-red);
+}
+
+li {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+
+    color: var(--sea-blue);
+    padding: 20px;
+    margin: 40px;
+    border-radius: 11px;
+    background-color: var(--white-like);
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+dt {
+    font-size: 27px;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 8px;
+    width: 93%;
+    border-radius: 15px;
+    color: var(--stats-orange);
+    background-color: var(--white-like);
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+dd {
+    font-size: 23px;
+    overflow: hidden;
+    padding: 4px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    color: grey;
+    background-color: var(--white-like);
+}
+
+body::-webkit-scrollbar {
+    width: auto;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    background: var(--white-like);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #bebdbd;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

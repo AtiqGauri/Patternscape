@@ -1,0 +1,604 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
+
+/***************BOILER PLATES START*****************/
+p h1 h2 h3{
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/***************BOILER PLATES END*****************/
+
+
+/***************HEADER START***********************/
+.processTabContainer{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.multipleProcessButton{
+    position: absolute;
+    height: 6%;
+    width: 4%;
+    right: 8%;
+    top: 4%;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    border-radius: 15px;
+    box-shadow: -3px -2px 4px rgba(255, 255, 255, 1), 12px 12px 13px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    cursor:pointer;
+    transition: opacity 1000ms, visibility 1000ms;
+}
+.multipleProcessButton:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+.multipleProcessButton.active{
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+}
+.multiUserIcon{
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    right: 20%;
+    top: 15%;
+    cursor:pointer;
+}
+
+.singleUserButton{
+    position: absolute;
+    height: 6%;
+    width: 4%;
+    right: 3%;
+    top: 4%;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    border-radius: 15px;
+    box-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 12px 15px 13px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    cursor:pointer;
+    transition: opacity 1000ms, visibility 1000ms;
+}
+.singleUserButton:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+.singleUserButton.active{
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+}
+.singleUserIcon{
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    right: 20%;
+    top: 15%;
+    cursor:pointer;
+}
+/***************HEADER END***********************/
+
+
+/*******************SINGLE USER TAB START**********************/
+.singleUserTab{
+    position: absolute;
+    background-color: transparent;
+    width: 98%;
+    height: 96%;
+    left: 1%;
+    top: 2%;
+    bottom: 2%;
+    right: 1%;
+    font-family: Montserrat;
+    font-style: light;
+    border-radius: 7px;
+    box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.singleUserText{
+    position: absolute;
+    top: 12%;
+    left: 4%;
+    color: var(--single-pink);
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    font-size: 2.5vh;
+    font-weight: 600;
+    user-select: none;
+}
+
+.singleUserInput{
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    top: 4%;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.singleUserEmail{
+    position: absolute;
+    padding: 0.5%;
+    width: 30%;
+    height: 10%;
+    top: 55%;
+    left: 5%;
+    font-size: 3vh;
+    color: var(--single-pink);
+    background-color: var(--white-like);
+    border: none;
+    border-bottom: 2px solid var(--single-pink);
+    outline: none;
+    user-select: none;
+    transition: 0.5s ease;
+}
+.singleUserEmail:focus, .singleUserEmail:not(:placeholder-shown){
+    border-bottom: 2px solid var(--white-like);
+}
+.singleUserEmailLabel{
+    position: absolute;
+    top: 59%;
+    left: 6%;
+    color: grey;
+    font-size: 3vh;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: 0.5s ease;
+}
+.singleUserEmail:focus+.singleUserEmailLabel, .singleUserEmail:not(:placeholder-shown)+.singleUserEmailLabel{
+    top: 47%;
+    left: 5.4%;
+    font-size: 2.5vh;
+}
+.singleUserPassword{
+    position: absolute;
+    padding: 0.5%;
+    width: 30%;
+    height: 10%;
+    top: 55%;
+    left: 41%;
+    font-size: 3vh;
+    color: var(--single-pink);
+    background-color: var(--white-like);
+    border: none;
+    border-bottom: 2px solid var(--single-pink);
+    outline: none;
+    user-select: none;
+    transition: 0.5s ease;
+}
+.singleUserPassword:focus, .singleUserPassword:not(:placeholder-shown){
+    border-bottom: 2px solid var(--white-like);
+}
+.singleUserPasswordLabel{
+    position: absolute;
+    top: 59%;
+    left: 42%;
+    color: grey;
+    font-size: 3vh;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: 0.5s ease;
+}
+.singleUserPassword:focus+.singleUserPasswordLabel, .singleUserPassword:not(:placeholder-shown)+.singleUserPasswordLabel{
+    top: 47%;
+    left: 41.4%;
+    font-size: 2.5vh;
+}
+
+.singleUserSubmit{
+    position: absolute;
+    top: 22%;
+    left: 78%;
+    padding: 1% 2% 1% 2%;
+    text-align: center;
+    color: var(--single-pink);
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    border-radius: 6px;
+    font-family: Montserrat;
+    font-style: light;
+    font-size: 2.5vh;
+    font-weight: 600;
+    user-select: none;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+.singleUserSubmit:hover{
+    background-color: var(--single-pink);
+    color: white;
+    transition: 0.4s;
+}
+
+.singleUserOutput{
+    position: absolute;
+    background-color: transparent;
+    left: 1%;
+    width: 98%;
+    height: 63%;
+    bottom: 1.5%;
+    border: none;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    user-select: none;
+}
+/*******************SINGLE USER TAB END**********************/
+
+
+/*******************MULTI USER TAB START**********************/
+.multiUserTab{
+    position: absolute;
+    background-color: transparent;
+    width: 98%;
+    height: 96%;
+    left: 1%;
+    top: 2%;
+    bottom: 2%;
+    right: 1%;
+    border-radius: 7px;
+    box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    font-family: Montserrat;
+}
+
+.changeUserTypes{
+    position: absolute;
+    width: 10vh;
+    height: 18vh;
+    right: 0%;
+    top: 40%;
+    border-top-left-radius: 90px;
+    border-bottom-left-radius: 90px;
+    background-color: var(--analyze-purple);
+    cursor:pointer;
+    transition: 0.15s;
+    transition: opacity 1000ms, visibility 1000ms;
+}
+.arrowIcon{
+    position: absolute;
+    height: 35%;
+    width: 35%;
+    left: 40%;
+    top: 32%;
+    user-select: none;
+    cursor:pointer;
+    pointer-events: none;
+}
+
+.threadSelector{
+    position: absolute;
+    height: 13%;
+    width: 30%;
+    top: 58%;
+    left: 4%;
+    border-radius: 11px;
+    user-select: none;
+}
+.threadText{
+    position: absolute;
+    height: 40%;
+    width: 60%;
+    top: 0%;
+    left: 0%;
+    padding-top: 2%;
+    text-align: center;
+    color: grey;
+    font-weight: 900;
+    font-style: light;
+    font-size: 2.5vh;
+}
+#valueLabel{
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    top: 0%;
+    right: 0%;
+    text-justify: auto;
+    color: grey;
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+#threadSelectorInput{
+    position: absolute;
+    top: 70%;
+    outline: none;
+}
+input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    background-color: #bdc3c7;
+    width: 80%;
+    height: 5%;
+    margin-left: 10%;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #909599;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}​
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: transparent;
+    border: 2px solid var(--home-red);
+}
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.6);
+}
+
+.processRawData{
+    display: block;
+    position: absolute;
+    height: 80%;
+    width: 97%;
+    top: 12%;
+    left: 3%;
+    word-spacing: 2px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    user-select: none;
+}
+.rawDataHead{
+    color: var(--analyze-purple);
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.2vh;
+}
+.rawDataText{
+    position: absolute;
+    left: 2%;
+    margin-top: 1%;
+    color: grey;
+    font-weight: 900;
+    font-style: light;
+    font-size: 2.5vh;
+}
+
+.analyzeStart{
+    position: absolute;
+    left: 4%;
+    top: 85%;
+    padding: 1% 3% 1% 3%;
+    color: var(--analyze-purple);
+    background-color: transparent;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    font-weight: 600;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+.analyzeStart:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+.analyzeStop{
+    position: absolute;
+    left: 20%;
+    top: 85%;
+    padding: 1% 4% 1% 4%;
+    color: var(--analyze-purple);
+    background-color: transparent;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    font-weight: 600;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+.analyzeStop:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+
+.analyzeInput{
+    position: absolute;
+    top: 82%;
+    left: 48%;
+    padding: 2% 6% 2% 6%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: var(--analyze-purple);
+    border-color: grey;
+    cursor:pointer;
+}
+.analyzeInput:hover{
+    background-color: var(--analyze-purple);
+    color: var(--white-like);
+    transition: 0.3s;
+}
+
+.analyzeOutput{
+    position: absolute;
+    top: 82%;
+    left: 72%;
+    padding: 2% 4% 2% 4%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: rgb(121, 83, 116);
+    border-color: grey;
+    cursor:pointer;
+}
+.analyzeOutput:hover{
+    background-color: var(--analyze-purple);
+    color: var(--white-like);
+    transition: 0.3s;
+}
+
+.statsGeneration{
+    display: none;
+    position: absolute;
+    height: 80%;
+    width: 97%;
+    top: 12%;
+    left: 3%;
+    word-spacing: 2px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    user-select: none;
+}
+.statsHead{
+    color: var(--stats-orange);
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.2vh;
+}
+.statsText{
+    position: absolute;
+    left: 2%;
+    margin-top: 1%;
+    color: grey;
+    font-weight: 900;
+    font-style: light;
+    font-size: 2.5vh;
+}
+
+.statsStart{
+    position: absolute;
+    left: 4%;
+    top: 85%;
+    padding: 1% 3% 1% 3%;
+    color: var(--stats-orange);
+    background-color: transparent;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    font-weight: 600;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+.statsStart:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+.statsStop{
+    position: absolute;
+    left: 20%;
+    top: 85%;
+    padding: 1% 4% 1% 4%;
+    color: var(--stats-orange);
+    background-color: transparent;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    text-shadow: 0.1px 0.1px 1px grey;
+    font-weight: 600;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+.statsStop:hover{
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+}
+
+.statsInput{
+    position: absolute;
+    top: 82%;
+    left: 48%;
+    padding: 2% 3.9% 2% 3.9%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: var(--stats-orange);
+    border-color: grey;
+    cursor:pointer;
+}
+.statsInput:hover{
+    background-color: var(--stats-orange);
+    color: var(--white-like);
+    transition: 0.3s;
+}
+.statsOutput{
+    position: absolute;
+    top: 82%;
+    left: 72%;
+    padding: 2% 3.7% 2% 3.7%;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    color: var(--stats-orange);
+    border-color: grey;
+    cursor:pointer;
+}
+.statsOutput:hover{
+    background-color: var(--stats-orange);
+    color: var(--white-like);
+    transition: 0.3s;
+}
+/*******************MULTI USER TAB END**********************/
+
+
+/*******************ALERTS START***************************/
+.processAnalyzeAlert{
+    width: 50vw !important;
+    margin-top: 20vh;
+    margin-left: 15vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: text;
+}
+
+.processStatsAlert{
+    width: 50vw !important;
+    margin-top: 20vh;
+    margin-left: 15vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: text;
+}
+
+.processStopAlerts{
+    margin-top: 5vh;
+    margin-left: 5vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.singleUserAlerts{
+    margin-top: 50vh;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 2.5vh;
+    letter-spacing: 1.5px;
+    box-shadow: -8px -8px 20px rgba(0, 0, 0, 0.15), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    user-select: text;
+}
+/*******************ALERTS END***************************/

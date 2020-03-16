@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pattern Categories</title>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="HandheldFriendly" content="true">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../styles/patternsCategories.css"/>
+    </head>
+    <body>
+        <header id="titleBar">
+            <!--TITLE BAR AND APP WINDOW BUTTONS-->
+            <div id="dragRegion">
+                <div id="windowControls" class="windowControls">
+                    <div class="windowControlDiv" id="minWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/min.svg" id="minimizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="maxWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/max.svg" id="maximizeWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="restoreWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/mid.svg" id="restoreWindow" draggable="false">
+                    </div>
+                    <div class="windowControlDiv" id="closeWindowDiv">
+                        <img class="windowControlIcons" src="../assets/icons/cross.svg" id="closeWindow" draggable="false">
+                    </div>
+                </div>
+                <div id="windowTitle">
+                    <span id="appHeaderName">Ongoing Project</span>
+                    <img class="appHeaderIcon" src="../assets/icons/app-icon.svg" id="appHeaderIcon" draggable="false">
+                </div>
+            </div>
+        </header>
+        <h1 id='header' >Pattern Categories</h1>
+        <!-- CONTENT TABLE -->
+        <!-- PATTERN POPULARITY ADDRESS -->
+        <table id='patternTable'>
+            <tr>
+                <th class="patternColumn">Pattern</th>
+                <th class="popularityColumn">Popularity</th>
+                <th class="addressColumn">File Address</th>
+            </tr>
+        </table>
+        <!-- JS -->
+        <script src="../scripts/patternsCategories.js"></script>
+    </body>
+</html>

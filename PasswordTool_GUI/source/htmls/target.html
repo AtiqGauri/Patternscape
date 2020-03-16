@@ -1,0 +1,31 @@
+<!--STYLE FOR target.html-->
+<link rel="stylesheet" type="text/css" href="styles/target.css">
+
+<!--TARGET TAB MAIN CONTENT-->
+<div class="targetContentContainer" id="targetContentContainer">
+    <p class="targetHead">Target any specific user:</p>
+    <p class="targetText">
+        * First fill all the information about user.</br>
+        * Some field are required denoted with * .</br>
+        * Optionally you can choose specific pattern.</br>
+        * Finally press "Target" button to get results.</br>
+    </p>
+    <form id="targetForm">
+        <input class="targetEmail targetInputs" type="email" placeholder=" " id="targetEmail" required>
+        <label class="targetEmailLabel targetLabels">*Email</label>
+        <input class="targetPassword targetInputs" type="text" placeholder=" " id="targetPassword" required>
+        <label class="targetPasswordLabel targetLabels">*Password</label>
+        <input class="targetName targetInputs" type="text" placeholder=" " id="targetName">
+        <label class="targetNameLabel targetLabels">Name</label>
+        <input class="targetLocation targetInputs" type="text" placeholder=" " id="targetLocation">
+        <label class="targetLocationLabel targetLabels">Location</label>
+        <input class="targetMobile targetInputs" type="number" placeholder=" " id="targetMobile">
+        <label class="targetMobileLabel targetLabels">Mobile</label>
+        <input class="targetDob targetInputs" type="date" placeholder=" " id="targetDob">
+        <label class="targetDobLabel targetLabels">DOB</label>
+        
+        <!-- >>APP_FOLDER/scripts/target.js<<-->
+        <div class="getPattern" onclick="get_target_pattern();"  id="getPattern">Select Pattern(Optional)</div>
+        <div class="targetSubmit" onclick="submit_target_form()" id="targetSubmit">Target</div>
+    </form>
+</div>

@@ -1,0 +1,136 @@
+/****************************************************
+                IMPORT CONSTANT STYLES
+****************************************************/
+@import url("./constantStyles.css");
+/****************************************************/
+
+.documentsContentContainer{
+    position: absolute;
+    height: 96%;
+    width: 98%;
+    top: 2%;
+    left: 1%;
+    border-radius: 7px;
+    box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    user-select: none;
+    z-index: 1;
+}
+
+.documentHead{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: var(--darker-royal-blue);
+    font-family: Montserrat;
+    font-weight: 900;
+    font-style: light;
+    font-size: 4.2vh;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+}
+
+.documents{
+    position: absolute;
+    padding: 1.5% 0% 1.5% 3%;
+    width: 80%;
+    text-align: left;
+    border-radius: 11px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    color: var(--darker-royal-blue);
+    font-family: Montserrat;
+    font-style: light;
+    font-size: 2.5vh;
+    font-weight: 600;
+    letter-spacing: 1px;
+    word-spacing: 2.5px;
+    cursor:pointer;
+    transition: 0.15s;
+}
+
+.document1{
+    top: 23%;
+    left: 7%;
+}
+.document1:hover{
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
+}
+
+.document2{
+    top: 35%;
+    left: 7%;
+}
+.document2:hover{
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
+}
+
+.document3{
+    top: 47%;
+    left: 7%;
+    
+}
+.document3:hover{
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
+}
+
+.document4{
+    top: 59%;
+    left: 7%;
+}
+.document4:hover{
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
+}
+
+.document5{
+    top: 71%;
+    left: 7%;
+    
+}
+.document5:hover{
+    background-color: var(--darker-royal-blue);
+    color: var(--white-like);
+}
+
+.documentFrame{
+    position: absolute;
+    height: 96%;
+    width: 98%;
+    top: 2%;
+    left: 1%;
+    border: none;
+    background-color: var(--white-like);
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    z-index: 2;
+}
+
+#documentBackButton{
+    display: none;
+    position: absolute;
+    padding: 1%;
+    height: 13%;
+    width: 9%;
+    bottom: 5%;
+    right: 6%;
+    border-radius: 11px;
+    background-color: var(--white-like);
+    color: white;
+    user-select: none;
+    z-index: 3;
+    cursor:pointer;
+}
+#documentBackButton:hover{
+    background-color: var(--process-yellow);
+    transition: 0.4s;
+}
+.backIcon{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    pointer-events: none;
+}

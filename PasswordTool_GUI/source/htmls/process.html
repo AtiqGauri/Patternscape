@@ -1,0 +1,86 @@
+<!--STYLE FOR process.html-->
+<link rel="stylesheet" type="text/css" href="styles/process.css">
+
+<!--PROCESS TAB MAIN CONTENT-->
+<div class="processTabContainer">
+    <!--SINGLE USER TAB-->
+    <div class="singleUserTab processTabContent" id="singleUserTabID">
+        <p class="singleUserText">
+            * Here you can get patterns detected in a single password.</br>
+        </p>
+        <div class="singleUserInput">
+            <form id="singleUserForm">
+                <input class="singleUserEmail" type="email" placeholder=" " id="singleUserEmail">
+                <label class="singleUserEmailLabel">Email (Optional)</label>
+                <input class="singleUserPassword" type="text" placeholder=" " id="singleUserPassword" required>
+                <label class="singleUserPasswordLabel">*Password</label>
+            </form>
+        </div>
+        <!-- >>APP_FOLDER/scripts/process.js<<-->
+        <div class="singleUserSubmit" onclick="singleUserForm()" id="singleUserSubmit">Detect Patterns</div>
+        <!--
+            <webview class="singleUserOutput" src = "htmls/targetPattern.html" id="singleUserOutput" nodeintegration></webview>
+            <iframe class="singleUserOutput" src="htmls/singlePasswordPatterns.html"></iframe>
+        -->
+    </div>
+    <!--MULTI USER TAB-->
+    <div class="multiUserTab processTabContent" id="multiUserTabID">
+        <!--ANALYZE RAW DATA-->
+        <div class="processRawData" id="processRawData">
+            <p class="rawDataHead">
+                Analyse Raw Data to detect Patterns in them:
+            </p>
+            <p class="rawDataText">
+                * first copy paste raw data into "Raw Input" folder.</br>
+                * Second select how many thread you want to use.</br>
+                * Third press "Analyse" button to start processing raw data.</br>
+                * If you want stop process press "Stop" button.</br>
+                * You can check output in "Processed Data" folder.</br>
+                * After That you need to create statistics of this processed data.</br>
+                * To perform stats generation you will be taken to next tab soon...</br>
+            </p>
+            <!-- >>APP_FOLDER/scripts/process.js<<-->
+            <div class="analyzeStart" onclick="analyze_passwords_emails()" id="analyzeStart">Analyse</div>
+            <div class="analyzeStop" onclick="stop_analyze_passwords_emails()" id="analyzeStop">Stop</div>
+            <div class="analyzeInput" onclick="input_of_analyzing()">Raw Input</div>
+            <div class="analyzeOutput" onclick="output_of_analyzing()">Processed Data</div>
+        </div>
+        <!--GENERATE PATTERN STATISTICS-->
+        <div class="statsGeneration" id="statsGeneration">
+            <p class="statsHead">
+                Generate Statistics out of processed data patterns:
+            </p>
+            <p class="statsText">
+                * Here we generate statistics auto of analyzed data.</br>
+                * Input will be automatically taken from previous analyzation(if any).</br>
+                * Alternatively add your own stats in "Processed Data" folder. </br>
+                * Data should be in required format else will be ignored.</br>
+                * Press "Statistics" button to start stat generation.</br>
+                * If you want to stop process press "Stop" button.</br>
+                * Finally you can check output in "Generated Stats" folder.</br>
+            </p>
+            <!-- >>APP_FOLDER/scripts/process.js<<-->
+            <div class="statsStart" onclick="generate_statistics()" id="statsStart">Statistics</div>
+            <div class="statsStop" onclick="stop_generate_statistics()" id="statsStop">Stop</div>
+            <div class="statsInput" onclick="input_of_stats_generator()">Processed Data</div>
+            <div class="statsOutput" onclick="output_of_stats_generator()">Generated Stats</div>
+        </div>
+        <div class="threadSelector">
+            <label class="threadText">No. of threads:</label>
+            <div id="valueLabel">2</div>
+            <input id="threadSelectorInput" type="range" min="0" max="8" step="1" value="2">
+        </div>
+        <!-- >>APP_FOLDER/scripts/process.js<<-->
+        <div class="changeUserTypes" id="changeUserTypes" onclick="change_analyse_to_stats()">
+            <img class="arrowIcon" src="assets/icons/arrow.svg" draggable="false">
+        </div>
+    </div>
+    <!--PROCESS SUB-TABS-->
+    <!-- >>APP_FOLDER/scripts/process.js<<-->
+    <div class="multipleProcessButton processTabLinks" onclick="open_process_tabs(event, 'multiUserTabID')" id="multipleProcessButton">
+        <img class="multiUserIcon" src="assets/icons/process-multiuser.svg" draggable="false"> 
+    </div>
+    <div class="singleUserButton processTabLinks" onclick="open_process_tabs(event, 'singleUserTabID')" id="singleUserButton">
+        <img class="singleUserIcon" src="assets/icons/process-user.svg" draggable="false">
+    </div>
+</div>
