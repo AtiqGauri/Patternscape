@@ -9,7 +9,7 @@ Electron app running multithreaded c++ code to collect patterns out of raw data.
 **Installation**
 ```
 git clone https://github.com/AtiqGauri/PasswordTool.git
-cd PasswordTool/PasswordTool-GUI
+cd PasswordTool/PasswordTool_GUI
 npm install
 npm start
 ```
