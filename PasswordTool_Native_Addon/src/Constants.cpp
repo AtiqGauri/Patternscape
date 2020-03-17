@@ -1,108 +1,108 @@
 #include "Constants.h"
 
 //***************************************
-//Static Variables Initialization
+//STATIC VARIABLES INITIALIZATION
 //***************************************
 
-//Error log file name 
+//ERROR LOG FILE NAME 
 const string Constants::errorLogFileName = "Error Log";
 
-//Huge files gets resized first. So, this will be prefix for their name
+//HUGE FILES GETS RESIZED FIRST. SO, THIS WILL BE PREFIX FOR THEIR NAME
 const string Constants::resizedFileName = "data/Input/resizedFile";
 
-//Size of smaller files will be decided by this variable
+//SIZE OF SMALLER FILES WILL BE DECIDED BY THIS VARIABLE
 const int Constants::resizedFileSize = 100000;
 
-//String variable to store .txt extension
+//STRING VARIABLE TO STORE .TXT EXTENSION
 const string Constants::txtExtension = ".txt";
 
 
-//Address of name list file
+//ADDRESS OF NAME LIST FILE
 const string Constants::nameListFileAddress = "data/datafiles/names.txt";
 
-//Address of dob list file
+//ADDRESS OF DOB LIST FILE
 const string Constants::dobListFileAddress = "data/datafiles/dobs.txt";
 
-//Address of location list file
+//ADDRESS OF LOCATION LIST FILE
 const string Constants::locationListFileAddress = "data/datafiles/locations.txt";
 
-//Address of common list file
+//ADDRESS OF COMMON LIST FILE
 const string Constants::commonListFileAddress = "data/datafiles/Commons.txt";
 
-//Total number of lines in name list file (APPROX)
+//TOTAL NUMBER OF LINES IN NAME LIST FILE (APPROX)
 const int Constants::nameListFileSize = 187706;
 
-//Total number of lines in dob list file (APPROX)
+//TOTAL NUMBER OF LINES IN DOB LIST FILE (APPROX)
 const int Constants::dobListFileSize = 287281;
 
-//Total number of lines in location list file (APPROX)
+//TOTAL NUMBER OF LINES IN LOCATION LIST FILE (APPROX)
 const int Constants::locationListFileSize = 39202;
 
-//Total number of lines in common list file (APPROX)
+//TOTAL NUMBER OF LINES IN COMMON LIST FILE (APPROX)
 const int Constants::commonListFileSize = 369646;
 
-//Tag to denote name detection in generated pattern
+//TAG TO DENOTE NAME DETECTION IN GENERATED PATTERN
 const string Constants::nameListTag = "Name/";
 
-//Tag to denote email name detection in generated pattern
+//TAG TO DENOTE EMAIL NAME DETECTION IN GENERATED PATTERN
 const string Constants::emailNameTag = "email_Name/";
 
-//Tag to denote website detection in generated pattern
+//TAG TO DENOTE WEBSITE DETECTION IN GENERATED PATTERN
 const string Constants::websiteTag = "Website/";
 
-//Tag to denote dob detection in generated pattern
+//TAG TO DENOTE DOB DETECTION IN GENERATED PATTERN
 const string Constants::dobListTag = "DOB/";
 
-//Tag to denote location detection in generated pattern
+//TAG TO DENOTE LOCATION DETECTION IN GENERATED PATTERN
 const string Constants::locationListTag = "Location/";
 
-//Tag to denote mobile detection in generated pattern
+//TAG TO DENOTE MOBILE DETECTION IN GENERATED PATTERN
 const string Constants::mobileListTag = "Mobile/";
 
-//Tag to denote first common word detection in generated pattern
+//TAG TO DENOTE FIRST COMMON WORD DETECTION IN GENERATED PATTERN
 const string Constants::common1ListTag = "Common1/";
 
-//Tag to denote second common word detection in generated pattern
+//TAG TO DENOTE SECOND COMMON WORD DETECTION IN GENERATED PATTERN
 const string Constants::common2ListTag = "Common2/";
 
-//Tag to denote third common word detection in generated pattern
+//TAG TO DENOTE THIRD COMMON WORD DETECTION IN GENERATED PATTERN
 const string Constants::common3ListTag = "Common3/";
 
-//Dilimiter or divider for output of program
+//DELIMITER OR DIVIDER FOR OUTPUT OF PROGRAM
 const string Constants::outputDelimiter = "<|>";
 
-//variable to denote length(Length:) of detected value in given password
+//VARIABLE TO DENOTE LENGTH(LENGTH:) OF DETECTED VALUE IN GIVEN PASSWORD
 const string Constants::outputLengthDelimiter = "Length:";
 
-//variable to denote position(Position:) of detected value in given password
+//VARIABLE TO DENOTE POSITION(POSITION:) OF DETECTED VALUE IN GIVEN PASSWORD
 const string Constants::outputPositionDelimiter = "Position:";
 
-//Tag to denote undetected part detection in generated pattern
+//TAG TO DENOTE UNDETECTED PART DETECTION IN GENERATED PATTERN
 const string Constants::undetectedTag = "Undetected/";
 
-//Folder address which contains all the pattern data files
+//FOLDER ADDRESS WHICH CONTAINS ALL THE PATTERN DATA FILES
 const string Constants::patternDataFolderAddress = "data/Stats/Patterns Data/";
 
-//Pattern categories file address 
+//PATTERN CATEGORIES FILE ADDRESS 
 const string Constants::patternCategoriesFileAddress = "data/Stats/Patterns.txt";
 
-//Delimiter or divider in given input files (Email|DELIMITER|Password)
+//DELIMITER OR DIVIDER IN GIVEN INPUT FILES (EMAIL|DELIMITER|PASSWORD)
 const string Constants::inputDelimiter = ":";
 
-//Address of input folder 
+//ADDRESS OF INPUT FOLDER 
 const string Constants::inputFolderAddress = "data/Input/";
 
-//Address of output folder
+//ADDRESS OF OUTPUT FOLDER
 const string Constants::outputFolderAddress = "data/Output/";
 
-//Prefix for output files
+//PREFIX FOR OUTPUT FILES
 const string Constants::outputFileName = "output.txt";
 
-//Default email when no email is given (only for single target pattern generation)
+//DEFAULT EMAIL WHEN NO EMAIL IS GIVEN (ONLY FOR SINGLE TARGET PATTERN GENERATION)
 const string Constants::defaultEmailString = "*****@*****.com";
 
-//Temporary file address for pattern generation for a single target
+//TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
 const string Constants::singleTargetFileAddress = "data/Temp/singlePassword.txt";
 
-//Temporary folder address
+//TEMPORARY FOLDER ADDRESS
 const string Constants::tempFolderAddress = "data/Temp/";

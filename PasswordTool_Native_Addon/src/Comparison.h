@@ -18,107 +18,107 @@ public:
 	vector<string> passwordSubStrings;
 	vector<Resources::patternStructure> results1;
 
-	vector<string> passwordsList;//vector to store passwords of single files
-	vector<string> emailsList;//vector to store emails of single files
-	vector<string> emailNamesList;//vector to store email_names extracted from emails vector
-	vector<string> websitesList;//vector to store websites extracted from emails vector
-	vector<string> rawData;//To store temp data for future processing
-	vector<Resources::patternStructure> results;//final output of all this process will stored in this vector
+	vector<string> passwordsList;//VECTOR TO STORE PASSWORDS OF SINGLE FILES
+	vector<string> emailsList;//VECTOR TO STORE EMAILS OF SINGLE FILES
+	vector<string> emailNamesList;//VECTOR TO STORE EMAIL_NAMES EXTRACTED FROM EMAILS VECTOR
+	vector<string> websitesList;//VECTOR TO STORE WEBSITES EXTRACTED FROM EMAILS VECTOR
+	vector<string> rawData;//TO STORE TEMP DATA FOR FUTURE PROCESSING
+	vector<Resources::patternStructure> results;//FINAL OUTPUT OF ALL THIS PROCESS WILL STORED IN THIS VECTOR
 
 	/*
-		Here data will be loaded into a vector according to reserveSize value
+		HERE DATA WILL BE LOADED INTO A VECTOR ACCORDING TO RESERVESIZE VALUE
 	*/
 	void load_data(vector<string>::iterator beginIt, vector<string>::iterator endIt, int reserveSize);
 	
 	/*
-		This function will lower all incoming data
+		THIS FUNCTION WILL LOWER ALL INCOMING DATA
 	*/
 	void lower_case_raw_data();
 
 	/*
-		delimiter is seperating string of email and password e.g. ':'
-		Here email and password will be extracted out and stored in respective vectors
-		Step 1. for loop will iterate over rawdata one by one
-		Step 2. first we will find @ from there we will find delimiter. This is for avoiding
-				front part which can include ':' delimiter
-		Step 3. content before delimiter and after delimiter will be sperated on basis of locations
+		DELIMITER IS SEPERATING STRING OF EMAIL AND PASSWORD E.G. ':'
+		HERE EMAIL AND PASSWORD WILL BE EXTRACTED OUT AND STORED IN RESPECTIVE VECTORS
+		STEP 1. FOR LOOP WILL ITERATE OVER RAWDATA ONE BY ONE
+		STEP 2. FIRST WE WILL FIND @ FROM THERE WE WILL FIND DELIMITER. THIS IS FOR AVOIDING
+				FRONT PART WHICH CAN INCLUDE ':' DELIMITER
+		STEP 3. CONTENT BEFORE DELIMITER AND AFTER DELIMITER WILL BE SEPARATED ON BASIS OF LOCATIONS
 	*/
 	void extract_email_and_password(string delimiter);
 
 	/*
-		Here we will extract email both half part as email name and website
-		Step 1. first we will find @ symbol which can be seen as middle location
-		Step 2. content before @ and after @ will be seperated out in two strings
-		Step 3. both strings will be stored in respective vectors
+		HERE WE WILL EXTRACT EMAIL BOTH HALF PART AS EMAIL NAME AND WEBSITE
+		STEP 1. FIRST WE WILL FIND @ SYMBOL WHICH CAN BE SEEN AS MIDDLE LOCATION
+		STEP 2. CONTENT BEFORE @ AND AFTER @ WILL BE SEPERATED OUT IN TWO STRINGS
+		STEP 3. BOTH STRINGS WILL BE STORED IN RESPECTIVE VECTORS
 	*/
 	void extract_email_names_and_websites();
 
 	/*
-		Here password string will be compared against all common name lists
-		Step 1. an iterator will set on name list vector
-		Step 2. while loop will check if any name exists in password string
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE PASSWORD STRING WILL BE COMPARED AGAINST ALL COMMON NAME LISTS
+		STEP 1. AN ITERATOR WILL SET ON NAME LIST VECTOR
+		STEP 2. WHILE LOOP WILL CHECK IF ANY NAME EXISTS IN PASSWORD STRING
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void name_list_comparison(string password);
 
 	/*
-		Here email name/ front part of email will be compared against password string
-		Step 1. first according to password number its respective email front will be called
-		Step 2. if statement will check if front part exists in password or not
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE EMAIL NAME/ FRONT PART OF EMAIL WILL BE COMPARED AGAINST PASSWORD STRING
+		STEP 1. FIRST ACCORDING TO PASSWORD NUMBER ITS RESPECTIVE EMAIL FRONT WILL BE CALLED
+		STEP 2. IF STATEMENT WILL CHECK IF FRONT PART EXISTS IN PASSWORD OR NOT
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void email_name_list_comparison(string password, vector<string>::iterator& password_it);
 
 	/*
-		Here website part of email will be compared against password string
-		Step 1. first according to password number its respective website part will be called
-		Step 2. if statement will check if website part exists in password or not
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE WEBSITE PART OF EMAIL WILL BE COMPARED AGAINST PASSWORD STRING
+		STEP 1. FIRST ACCORDING TO PASSWORD NUMBER ITS RESPECTIVE WEBSITE PART WILL BE CALLED
+		STEP 2. IF STATEMENT WILL CHECK IF WEBSITE PART EXISTS IN PASSWORD OR NOT
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void website_list_comparison(string password, vector<string>::iterator& password_it);
 	
 	/*
-		Here DOB lists will be compared against password string
-		Step 1. an iterator will set on DOB list vector
-		Step 2. while loop will check if any dob exists in password string
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE DOB LISTS WILL BE COMPARED AGAINST PASSWORD STRING
+		STEP 1. AN ITERATOR WILL SET ON DOB LIST VECTOR
+		STEP 2. WHILE LOOP WILL CHECK IF ANY DOB EXISTS IN PASSWORD STRING
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void dob_list_comparison(string password);
 
 	/*
-		Here location lists will be compared against password string
-		Step 1. an iterator will set on location list vector
-		Step 2. while loop will check if any location exists in password string
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE LOCATION LISTS WILL BE COMPARED AGAINST PASSWORD STRING
+		STEP 1. AN ITERATOR WILL SET ON LOCATION LIST VECTOR
+		STEP 2. WHILE LOOP WILL CHECK IF ANY LOCATION EXISTS IN PASSWORD STRING
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void location_list_comparison(string password);
 
 	/*
-		Here password string will be examined to test if thier any mobile number exists
-		Step 1. for loop will iterate over every character of password string
-		Step 2. first if will check if current character is a digit or not. if it is a digit
-				then program will continue to further statments else will be continue to next character.
-		Step 3. second if will check if password has another 3 character after current character
-				if not then loop will be breaked
-		Step 4. thired if will check  if all these 4 character including current character are digits or not.
-				if not then loop will be continued to next character.
-		Step 5. secon for loop will check after these 4 character including current character are there
-				anymore digits are present. If there are more digit then it will check how many are there.
-		Step 6. finally result will be added with location, length, tag and content
+		HERE PASSWORD STRING WILL BE EXAMINED TO TEST IF THEIR ANY MOBILE NUMBER EXISTS
+		STEP 1. FOR LOOP WILL ITERATE OVER EVERY CHARACTER OF PASSWORD STRING
+		STEP 2. FIRST IF WILL CHECK IF CURRENT CHARACTER IS A DIGIT OR NOT. IF IT IS A DIGIT
+				THEN PROGRAM WILL CONTINUE TO FURTHER STATEMENTS ELSE WILL BE CONTINUE TO NEXT CHARACTER.
+		STEP 3. SECOND IF WILL CHECK IF PASSWORD HAS ANOTHER 3 CHARACTER AFTER CURRENT CHARACTER
+				IF NOT THEN LOOP WILL BE BRAKED
+		STEP 4. THIRD IF WILL CHECK  IF ALL THESE 4 CHARACTER INCLUDING CURRENT CHARACTER ARE DIGITS OR NOT.
+				IF NOT THEN LOOP WILL BE CONTINUED TO NEXT CHARACTER.
+		STEP 5. SECOND FOR LOOP WILL CHECK AFTER THESE 4 CHARACTER INCLUDING CURRENT CHARACTER ARE THERE
+				ANYMORE DIGITS ARE PRESENT. IF THERE ARE MORE DIGIT THEN IT WILL CHECK HOW MANY ARE THERE.
+		STEP 6. FINALLY RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void mobile_number_comparison(string password);
 	
 	/*
-		Here common words lists will be compared against password string
-		Step 1. an iterator will set on common words list vector
-		Step 2. while loop will check if any common word exists in password string
-		Step 3. maximum 3 common words will be find in a single password string (using if statments)
-		Step 3. if so then result will be added with location, length, tag and content
+		HERE COMMON WORDS LISTS WILL BE COMPARED AGAINST PASSWORD STRING
+		STEP 1. AN ITERATOR WILL SET ON COMMON WORDS LIST VECTOR
+		STEP 2. WHILE LOOP WILL CHECK IF ANY COMMON WORD EXISTS IN PASSWORD STRING
+		STEP 3. MAXIMUM 3 COMMON WORDS WILL BE FIND IN A SINGLE PASSWORD STRING (USING IF STATEMENTS)
+		STEP 3. IF SO THEN RESULT WILL BE ADDED WITH LOCATION, LENGTH, TAG AND CONTENT
 	*/
 	void common_word_list_comparison(string password);
 
 	/*
-		Here vectors and other members will be cleared and shrinked to release memory
+		HERE VECTORS AND OTHER MEMBERS WILL BE CLEARED AND SHRINKED TO RELEASE MEMORY
 	*/
 	void clear_and_shrink();
 };

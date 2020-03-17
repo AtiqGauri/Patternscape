@@ -7,6 +7,7 @@
 #include<string>
 #include<unordered_map>
 #include<unordered_set>
+#include<mutex>
 #include "FileHandler.h"
 
 using namespace std;
@@ -20,22 +21,23 @@ public:
 	static unordered_set<string> commonsList1;
 
 
-	static vector<string> mobilesList;//vector to store all mobile number lists
-	static vector<string> namesList;//vecor to store all common name lists
-	static vector<string> dobsList;//vector to store all DOB combinations
-	static vector<string> locationsList;//vector to store all locations lists
-	static vector<string> commonsList;//vector to store all commons lists
-	static vector<string> rawDataList;//raw data readed from Input files
-	static vector<string> results;//vector to store results on different level of program
+	static vector<string> mobilesList;//VECTOR TO STORE ALL MOBILE NUMBER LISTS
+	static vector<string> namesList;//VECTOR TO STORE ALL COMMON NAME LISTS
+	static vector<string> dobsList;//VECTOR TO STORE ALL DOB COMBINATIONS
+	static vector<string> locationsList;//VECTOR TO STORE ALL LOCATIONS LISTS
+	static vector<string> commonsList;//VECTOR TO STORE ALL COMMONS LISTS
+	static vector<string> rawDataList;//RAW DATA READ FROM INPUT FILES
+	static vector<string> results;//VECTOR TO STORE RESULTS ON DIFFERENT LEVEL OF PROGRAM
+	static mutex resultsMutex;//MUTEXT TO LOCK THREADS WHILE INSERTING RESULTS
 	struct patternStructure {
-		//structure to store analyzed data
+		//STRUCTURE TO STORE ANALYZED DATA
 		string key;
 		string value;
 		int len = -1;
 		int loc = -1;
 	};
 	struct typesOfPatternsStruct {
-		//structure to store type of pattern and its data
+		//STRUCTURE TO STORE TYPE OF PATTERN AND ITS DATA
 		string address;
 		deque<string> data;
 		long long int popularity;
@@ -43,14 +45,14 @@ public:
 	static unordered_map<string, typesOfPatternsStruct> typesOfPatternsMap;
 
 	/*
-		Here we read all resouces files which includes common names, DOB,
-		  location names, common english words.
-		Every list is stored in respective vector.
+		HERE WE READ ALL RESOURCES FILES WHICH INCLUDES COMMON NAMES, DOB,
+		  LOCATION NAMES, COMMON ENGLISH WORDS.
+		EVERY LIST IS STORED IN RESPECTIVE VECTOR.
 	*/
 	static void read_resources();
 
 	/*
-		This function will read small set of raw data to process it
+		THIS FUNCTION WILL READ SMALL SET OF RAW DATA TO PROCESS IT
 	*/
 	static void read_raw_data_list(string path);
 };

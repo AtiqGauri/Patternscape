@@ -8,7 +8,7 @@ using namespace std;
 string StatsGenerator::split_filename(const string str)
 {
 	/*
-		This function extracts file name by removing extension of files
+		THIS FUNCTION EXTRACTS FILE NAME BY REMOVING EXTENSION OF FILES
 	*/
 	size_t found = str.find_last_of("/\\");
 	if (found != string::npos) {
@@ -21,15 +21,15 @@ string StatsGenerator::split_filename(const string str)
 
 void StatsGenerator::load_stored_patterns(deque<string>& storedPatterns) {
 	/*
-		Function to load processed files.
-		Step 1. make a iterator for map, temp object of pattern structure and temp deque to intialize map
-		Step 2. a while to iterate over stored patterns
-		Step 3. if there is a dilimiter/divider then store pattern string, popularity and a 
-				empty deque for pattern data.
-		Step 4. clear and shrink stored pattern map
+		FUNCTION TO LOAD PROCESSED FILES.
+		STEP 1. MAKE A ITERATOR FOR MAP, TEMP OBJECT OF PATTERN STRUCTURE AND TEMP DEQUE TO INITIALIZE MAP
+		STEP 2. A WHILE TO ITERATE OVER STORED PATTERNS
+		STEP 3. IF THERE IS A DELIMITER/DIVIDER THEN STORE PATTERN STRING, POPULARITY AND A 
+				EMPTY DEQUE FOR PATTERN DATA.
+		STEP 4. CLEAR AND SHRINK STORED PATTERN MAP
 	*/
 	
-	//itrate over all the file paths
+	//iterate over all the file paths
 	deque<string>::iterator it = storedPatterns.begin();
 
 	
@@ -61,16 +61,16 @@ void StatsGenerator::load_stored_patterns(deque<string>& storedPatterns) {
 
 void StatsGenerator::patterns_classifier(string filePath) {
 	/*
-		Function to classify patterns, so that same pattern have a single file for its data.
-		Step 1. declare variables- temp deque and a map with iterators 
-		Step 2. read file content into temp deque and iterate over tempDeque with while loop
-		Step 3. find first delimiter/divide in string which will denote pattern string
-		Step 4. check if it already exist in temp map of patterns categories
-		Step 5. if so, then add pattern data to found category else create a new one.
-		Step 6. clear and shrink all variables. 
+		FUNCTION TO CLASSIFY PATTERNS, SO THAT SAME PATTERN HAVE A SINGLE FILE FOR ITS DATA.
+		STEP 1. DECLARE VARIABLES- TEMP DEQUE AND A MAP WITH ITERATORS 
+		STEP 2. READ FILE CONTENT INTO TEMP DEQUE AND ITERATE OVER TEMPDEQUE WITH WHILE LOOP
+		STEP 3. FIND FIRST DELIMITER/DIVIDE IN STRING WHICH WILL DENOTE PATTERN STRING
+		STEP 4. CHECK IF IT ALREADY EXIST IN TEMP MAP OF PATTERNS CATEGORIES
+		STEP 5. IF SO, THEN ADD PATTERN DATA TO FOUND CATEGORY ELSE CREATE A NEW ONE.
+		STEP 6. CLEAR AND SHRINK ALL VARIABLES. 
 	*/
 
-	//Deque and iterator for reading and itrating over file data
+	//Deque and iterator for reading and iterating over file data
 	deque<string> tempDeque;
 	deque<string>::iterator dequeIt;
 	
@@ -123,14 +123,14 @@ void StatsGenerator::patterns_classifier(string filePath) {
 
 void StatsGenerator::store_classified_patterns() {
 	/*
-		Function to store temp map categories into final main map categories
-		Step 1. declare iterator for temp map and main map
-		Step 2. Start and mutex and lock guard for thread safe execution
-		Step 3. while loop to iterate over temp map
-		Step 4. check if temp map pattern category exist in main map
-		Step 5. if so then add temp map category data to main map category data 
-		Step 6. else create a new category in main map
-		Step 7. clear and shrink variables 
+		FUNCTION TO STORE TEMP MAP CATEGORIES INTO FINAL MAIN MAP CATEGORIES
+		STEP 1. DECLARE ITERATOR FOR TEMP MAP AND MAIN MAP
+		STEP 2. START AND MUTEX AND LOCK GUARD FOR THREAD SAFE EXECUTION
+		STEP 3. WHILE LOOP TO ITERATE OVER TEMP MAP
+		STEP 4. CHECK IF TEMP MAP PATTERN CATEGORY EXIST IN MAIN MAP
+		STEP 5. IF SO THEN ADD TEMP MAP CATEGORY DATA TO MAIN MAP CATEGORY DATA 
+		STEP 6. ELSE CREATE A NEW CATEGORY IN MAIN MAP
+		STEP 7. CLEAR AND SHRINK VARIABLES 
 	*/
 
 	//Iterator for statsResult( temporary thread map ) 
@@ -175,7 +175,7 @@ void StatsGenerator::store_classified_patterns() {
 bool is_bad_charactor(char c)
 {
 	/*
-		helper function to check charactors is present or not
+		HELPER FUNCTION TO CHECK CHARACTORS IS PRESENT OR NOT
 	*/
 	switch (c)
 	{
@@ -189,10 +189,10 @@ bool is_bad_charactor(char c)
 
 void StatsGenerator::write_pattern_statstics_files() {
 	/*
-		Step 1. declare a iterator for main map and a while loop to iterate
-		Step 2. check if new data is added into main map for respective pattern( deque size > 0 )
-		Step 3. if so then check if that category has a address for data file
-		Step 4. if so then append data file with new data else create a new file with new data.
+		STEP 1. DECLARE A ITERATOR FOR MAIN MAP AND A WHILE LOOP TO ITERATE
+		STEP 2. CHECK IF NEW DATA IS ADDED INTO MAIN MAP FOR RESPECTIVE PATTERN( DEQUE SIZE > 0 )
+		STEP 3. IF SO THEN CHECK IF THAT CATEGORY HAS A ADDRESS FOR DATA FILE
+		STEP 4. IF SO THEN APPEND DATA FILE WITH NEW DATA ELSE CREATE A NEW FILE WITH NEW DATA.
 	*/
 
 	//Iterator for Resource class map
@@ -228,11 +228,11 @@ void StatsGenerator::write_pattern_statstics_files() {
 
 void StatsGenerator::write_key_patterns() {
 	/*
-		Function to write categorised pattens into a single file with addresses of their respective data files.
-		Step 1. declare deque for pattern and address and a iterator for main map
-		Step 2. while loop to itrate over map
-		Step 3. add pattern, address and popularity to deque and finally after loop write that in a file.
-		Step 4. clear and shrink variables.
+		FUNCTION TO WRITE CATEGORIZED PATTENS INTO A SINGLE FILE WITH ADDRESSES OF THEIR RESPECTIVE DATA FILES.
+		STEP 1. DECLARE DEQUE FOR PATTERN AND ADDRESS AND A ITERATOR FOR MAIN MAP
+		STEP 2. WHILE LOOP TO ITERATE OVER MAP
+		STEP 3. ADD PATTERN, ADDRESS AND POPULARITY TO DEQUE AND FINALLY AFTER LOOP WRITE THAT IN A FILE.
+		STEP 4. CLEAR AND SHRINK VARIABLES.
 	*/
 	deque<string> patternAndAddresses;
 	unordered_map<string, Resources::typesOfPatternsStruct>::iterator mapIt;

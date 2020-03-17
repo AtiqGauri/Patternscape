@@ -3,11 +3,11 @@
 
 void Patterns::pattern(string password) {
 	/*
-		Here processed data will be converted into patterns
-		Step 1. sort data
-		Step 2. call divide_patterns() on data to divide overlapping patterns and addressing undetected part
-		Step 3. sort data on basis of struct length element
-		Step 4. Formatting output and write it in a file
+		HERE PROCESSED DATA WILL BE CONVERTED INTO PATTERNS
+		STEP 1. SORT DATA
+		STEP 2. CALL DIVIDE_PATTERNS() ON DATA TO DIVIDE OVERLAPPING PATTERNS AND ADDRESSING UNDETECTED PART
+		STEP 3. SORT DATA ON BASIS OF STRUCT LENGTH ELEMENT
+		STEP 4. FORMATTING OUTPUT AND WRITE IT IN A FILE
 	*/
 
 	string value_pattern, finalOutputString;
@@ -48,8 +48,8 @@ void Patterns::pattern(string password) {
 
 void Patterns::sort_vector_struct_on_length(vector<Resources::patternStructure>& x) {
 	/*
-		This function takes a vector of type patternStructure and sort it
-		on the basis of its length element
+		THIS FUNCTION TAKES A VECTOR OF TYPE PATTERNSTRUCTURE AND SORT IT
+		ON THE BASIS OF ITS LENGTH ELEMENT
 	*/
 	sort(x.begin(), x.end(), [](Resources::patternStructure a, Resources::patternStructure b) -> bool
 		{
@@ -64,8 +64,8 @@ void Patterns::sort_vector_struct_on_length(vector<Resources::patternStructure>&
 
 void Patterns::sort_vector_struct_on_location(vector<Resources::patternStructure>& x) {
 	/*
-		This function takes a vector of type patternStructure and sort it
-		on the basis of its location element
+		THIS FUNCTION TAKES A VECTOR OF TYPE PATTERNSTRUCTURE AND SORT IT
+		ON THE BASIS OF ITS LOCATION ELEMENT
 	*/
 	sort(x.begin(), x.end(), [](Resources::patternStructure a, Resources::patternStructure b) -> bool
 		{
@@ -80,11 +80,11 @@ void Patterns::sort_vector_struct_on_location(vector<Resources::patternStructure
 
 void Patterns::divide_patterns(vector<Resources::patternStructure>& patternVector, string password) {
 	/*
-		Here a single pattern get divided into multiple if it overlapping itself.
-		To address undetected part Undetected() will called after dividing patter in multiple patterns
-		Step 1. every part will be tested to verify location attribute is overlapping or not
-		Step 2. if so then overlapping part will be called reqursivly and current part will be stored.
-		Step 3. this will end with calling Undetected() on all the patterns.
+		HERE A SINGLE PATTERN GET DIVIDED INTO MULTIPLE IF IT OVERLAPPING ITSELF.
+		TO ADDRESS UNDETECTED PART UNDETECTED() WILL CALLED AFTER DIVIDING PATTER IN MULTIPLE PATTERNS
+		STEP 1. EVERY PART WILL BE TESTED TO VERIFY LOCATION ATTRIBUTE IS OVERLAPPING OR NOT
+		STEP 2. IF SO THEN OVERLAPPING PART WILL BE CALLED REQURSIVLY AND CURRENT PART WILL BE STORED.
+		STEP 3. THIS WILL END WITH CALLING UNDETECTED() ON ALL THE PATTERNS.
 	*/
 	vector<Resources::patternStructure> temp;
 	if (patternVector.size() != 0) {
@@ -115,15 +115,15 @@ void Patterns::divide_patterns(vector<Resources::patternStructure>& patternVecto
 
 void Patterns::undetected(string password) {
 	/*
-		This function takes splittedResults and analyse their undetected part to add undetected tag.
-		Step 1. every pattern will go through for loop one by one
-		Step 2. for loop has 3 if statements to address front - middle - end part of pattern
-		Step 3. first if will check if location 0 is an undetected part or not
-		Step 4. second if will run a loop until last detected part to check if there is an undetected
-				part in middle
-		Step 5. Thired if will check if end of password is undetected part or not
-		Step 6. If any part of password is found to be undetected than a tag will we added to that 
-				location.
+		THIS FUNCTION TAKES SPLITTEDRESULTS AND ANALYSE THEIR UNDETECTED PART TO ADD UNDETECTED TAG.
+		STEP 1. EVERY PATTERN WILL GO THROUGH FOR LOOP ONE BY ONE
+		STEP 2. FOR LOOP HAS 3 IF STATEMENTS TO ADDRESS FRONT - MIDDLE - END PART OF PATTERN
+		STEP 3. FIRST IF WILL CHECK IF LOCATION 0 IS AN UNDETECTED PART OR NOT
+		STEP 4. SECOND IF WILL RUN A LOOP UNTIL LAST DETECTED PART TO CHECK IF THERE IS AN UNDETECTED
+				PART IN MIDDLE
+		STEP 5. THIRD IF WILL CHECK IF END OF PASSWORD IS UNDETECTED PART OR NOT
+		STEP 6. IF ANY PART OF PASSWORD IS FOUND TO BE UNDETECTED THAN A TAG WILL WE ADDED TO THAT 
+				LOCATION.
 	*/
 	if (splittedResults.size() != 0) {
 		int p_size = (int)password.length();
@@ -149,16 +149,15 @@ void Patterns::undetected(string password) {
 
 void Patterns::insert_output() {
 	/*
-		This function starts a mutex to insert output of this thread to main resource output container
+		THIS FUNCTION STARTS A MUTEX TO INSERT OUTPUT OF THIS THREAD TO MAIN RESOURCE OUTPUT CONTAINER
 	*/
-	mutex m;
-	lock_guard<mutex> lockGuard(m);
+	lock_guard<mutex> lockGuard(Resources::resultsMutex);
 	Resources::results.insert(Resources::results.end(), output.begin(), output.end());
 }
 
 void Patterns::clear_and_shrink() {
 	/*
-		This function will clear and shrink vectors and other members
+		THIS FUNCTION WILL CLEAR AND SHRINK VECTORS AND OTHER MEMBERS
 	*/
 	output.clear(); output.shrink_to_fit();
 }

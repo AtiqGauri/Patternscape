@@ -8,9 +8,9 @@ PROJECT SETTINGS
 ************************************
 1. Project -> Project Properties -> C/C++ -> Language -> C++ Language Standard -> std:c++latest
 
-2. Set Project in Debug to Release mode
+2. SET PROJECT IN DEBUG TO RELEASE MODE
 
-3. Set Arch to 64x (optional)
+3. SET ARCH TO 64X (OPTIONAL)
 */
 
 

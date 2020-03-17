@@ -7,22 +7,23 @@ unordered_set<string> Resources::locationsList1;
 unordered_set<string> Resources::commonsList1;
 
 
-//Static Variable Initialization
-vector<string> Resources::mobilesList;//vector to store all mobile number lists
-vector<string> Resources::namesList;//vecor to store all common name lists
-vector<string> Resources::dobsList;//vector to store all DOB combinations
-vector<string> Resources::locationsList;//vector to store all locations lists
-vector<string> Resources::commonsList;//vector to store all commons lists
-vector<string> Resources::rawDataList;//raw data readed from Input files
-vector<string> Resources::results;//vector to store raw results of analysing process
-unordered_map<string, Resources::typesOfPatternsStruct> Resources::typesOfPatternsMap;//Container to store pattern, address and data deque
+//STATIC VARIABLE INITIALIZATION
+vector<string> Resources::mobilesList;//VECTOR TO STORE ALL MOBILE NUMBER LISTS
+vector<string> Resources::namesList;//VECTOR TO STORE ALL COMMON NAME LISTS
+vector<string> Resources::dobsList;//VECTOR TO STORE ALL DOB COMBINATIONS
+vector<string> Resources::locationsList;//VECTOR TO STORE ALL LOCATIONS LISTS
+vector<string> Resources::commonsList;//VECTOR TO STORE ALL COMMONS LISTS
+vector<string> Resources::rawDataList;//RAW DATA READ FROM INPUT FILES
+vector<string> Resources::results;//VECTOR TO STORE RAW RESULTS OF ANALYSING PROCESS
+mutex Resources::resultsMutex;//MUTEXT TO LOCK THREAD WHILE INSERTING RESULTS 
+unordered_map<string, Resources::typesOfPatternsStruct> Resources::typesOfPatternsMap;//CONTAINER TO STORE PATTERN, ADDRESS AND DATA DEQUE
 
 
 void Resources::read_resources() {
 	/*
-		Here we read all resource files which includes common names, DOB,
-		  location names, common english words.
-		Every list is stored in respective vector.
+		HERE WE READ ALL RESOURCE FILES WHICH INCLUDES COMMON NAMES, DOB,
+		  LOCATION NAMES, COMMON ENGLISH WORDS.
+		EVERY LIST IS STORED IN RESPECTIVE VECTOR.
 	*/
 	//reading common name datalist
 	Resources::namesList1.reserve(Constants::nameListFileSize);
@@ -54,7 +55,7 @@ void Resources::read_resources() {
 
 void Resources::read_raw_data_list(string path) {
 	/*
-		This function will read small set of raw data to process it
+		THIS FUNCTION WILL READ SMALL SET OF RAW DATA TO PROCESS IT
 	*/
 	Resources::rawDataList.reserve(Constants::resizedFileSize);
 	FileHandler::read_file(Resources::rawDataList, path);

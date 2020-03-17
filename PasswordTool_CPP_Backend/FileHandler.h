@@ -1,10 +1,6 @@
 #ifndef FILEHANDLER_H
 #define FILEHANDLER_H
 
-/*
-	All the methods have their documentation in source file
-*/
-
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -20,9 +16,9 @@ class FileHandler
 {
 public:
 	/*
-		Using experimental::filesystem::recursive_directory_iterator to get names of all the files
-		present in directoryPath and SUBFOLDERS.
-		lastly saving all these functions in a deque(fileNames)
+		USING EXPERIMENTAL::FILESYSTEM::RECURSIVE_DIRECTORY_ITERATOR TO GET NAMES OF ALL THE FILES
+		PRESENT IN DIRECTORYPATH AND SUBFOLDERS.
+		LASTLY SAVING ALL THESE FUNCTIONS IN A DEQUE(FILENAMES)
 	*/
 	static void get_files_recursive(deque<string>& fileNames, string directoryPath);
 	
@@ -34,47 +30,52 @@ public:
 	static void get_files_recursive(vector<string>& fileNames, string directoryPath);
 	
 	/*
-		Using ifstream to open a file(filePath) and reading its content in deque(fileContent)
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN DEQUE(FILECONTENT)
 	*/
 	static void read_file(deque<string>& fileContent, string filePath);
 
 	/*
-		Using ifstream to open a file(filePath) and reading its content in vector(fileContent)
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN VECTOR(FILECONTENT)
 	*/
 	static void read_file(vector<string>& fileContent, string filePath);
 
 	static void read_file(unordered_set<string>& fileContent, string filePath);
 
 	/*
-		Using Of ofstream to open a file(filePath) and writing a deque(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A DEQUE(FILECONTENT) IN IT
 	*/
 	static void write_file(deque<string>& fileContent, string filePath);
 
 	/*
-		Using Of ofstream to open a file(filePath) and writing a vector(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A VECTOR(FILECONTENT) IN IT
 	*/
 	static void write_file(vector<string>& fileContent, string filePath);
 
-	
+	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPENDING A DEQUE(FILECONTENT) IN IT
+	*/
 	static void write_and_append_file(deque<string>& fileContent, string filePath);
 
+	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPENDING A VECTOR(FILECONTENT) IN IT
+	*/
 	static void write_and_append_file(vector<string>& fileContent, string filePath);
 
 	/*
-		Here we are taking a path of directory(directoryPath) and resizing all its content
-		in samll files.The length/size of small files is hardcoded.
-		Step 1 while loop iterate on number of files in that directory
-		Step 2 every file is sent to resize_file function with a deque of vectors of strings
-		Step 3 we get deque of small vectors of strings and make them individual files with another for loop
+		HERE WE ARE TAKING A PATH OF DIRECTORY(DIRECTORYPATH) AND RESIZING ALL ITS CONTENT
+		IN SMALL FILES.THE LENGTH/SIZE OF SMALL FILES IS HARDCODED.
+		STEP 1 WHILE LOOP ITERATE ON NUMBER OF FILES IN THAT DIRECTORY
+		STEP 2 EVERY FILE IS SENT TO RESIZE_FILE FUNCTION WITH A DEQUE OF VECTORS OF STRINGS
+		STEP 3 WE GET DEQUE OF SMALL VECTORS OF STRINGS AND MAKE THEM INDIVIDUAL FILES WITH ANOTHER FOR LOOP
 	*/
 	static void resize_all_files(string directoryPath);
 
 	/*
-		This function is only called by resize_all_files().
-		It resize a bigger file into smaller file.The length/size of small files is hardcoded.
-		Step 1. it checks if size of file content is bigger than desired number.
-		Step 2. then starts while loop which pieces them in smaller content vectors and place these vectors in deque
-		Step 3. if file is smaller than lesser than desired size than just pass it normally in single vector
+		THIS FUNCTION IS ONLY CALLED BY RESIZE_ALL_FILES().
+		IT RESIZE A BIGGER FILE INTO SMALLER FILE.THE LENGTH/SIZE OF SMALL FILES IS HARDCODED.
+		STEP 1. IT CHECKS IF SIZE OF FILE CONTENT IS BIGGER THAN DESIRED NUMBER.
+		STEP 2. THEN STARTS WHILE LOOP WHICH PIECES THEM IN SMALLER CONTENT VECTORS AND PLACE THESE VECTORS IN DEQUE
+		STEP 3. IF FILE IS SMALLER THAN LESSER THAN DESIRED SIZE THAN JUST PASS IT NORMALLY IN SINGLE VECTOR
 	*/
 	static void resize_file(deque<vector<string>>& resizedContent, vector<string> tempVector);
 };

@@ -2,8 +2,8 @@
 
 void DataCleanser::delimiter_remover(vector<string>& rawVector, string delimiter) {
 	/*
-		takes 2 parameter 1. vector of strings, 2. string(delimiter)
-		remove delimiter from all the strings of vector
+		TAKES 2 PARAMETER 1. VECTOR OF STRINGS, 2. STRING(DELIMITER)
+		REMOVE DELIMITER FROM ALL THE STRINGS OF VECTOR
 	*/
 	string rawString;
 	size_t found;
@@ -20,7 +20,7 @@ void DataCleanser::delimiter_remover(vector<string>& rawVector, string delimiter
 
 void DataCleanser::lower_case(vector<string>& rawDataVector) {
 	/*
-		Takes a vector of strings and lower case all the strings present in it.
+		TAKES A VECTOR OF STRINGS AND LOWER CASE ALL THE STRINGS PRESENT IN IT.
 	*/
 	for (auto it = rawDataVector.begin(); it != rawDataVector.end(); it++) {
 		transform(it->begin(), it->end(), it->begin(), ::tolower);

@@ -11,13 +11,13 @@ class DataCleanser
 {
 public:
 	/*
-		takes 2 parameter 1. vector of strings, 2. string(delimiter)
-		remove delimiter from all the strings of vector
+		TAKES 2 PARAMETER 1. VECTOR OF STRINGS, 2. STRING(DELIMITER)
+		REMOVE DELIMITER FROM ALL THE STRINGS OF VECTOR
 	*/
 	static void delimiter_remover(vector<string>& rawVector, string delimiter);
 
 	/*
-		Takes a vector of strings and lower case all the strings present in it.
+		TAKES A VECTOR OF STRINGS AND LOWER CASE ALL THE STRINGS PRESENT IN IT.
 	*/
 	static void lower_case(vector<string>& rawDataVector);
 

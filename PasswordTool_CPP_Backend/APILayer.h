@@ -22,14 +22,14 @@ using namespace std;
 
 namespace APILayer {
 	/*
-			returns a timestamp of current time
+			RETURNS A TIMESTAMP OF CURRENT TIME
 	*/
 	auto time_stamp() {
 		return std::chrono::high_resolution_clock::now();
 	}
 
 	/*
-			Takes two timestamps and print amount of time spend
+			TAKES TWO TIMESTAMPS AND PRINT AMOUNT OF TIME SPEND
 	*/
 	void time_elapsed(chrono::high_resolution_clock::time_point start, chrono::high_resolution_clock::time_point stop) {
 		std::chrono::duration<double> elapsed = stop - start;
@@ -37,7 +37,7 @@ namespace APILayer {
 	}
 
 	/*
-			Here files present in Input folder will be resized
+			HERE FILES PRESENT IN INPUT FOLDER WILL BE RESIZED
 	*/
 	void standardize_files(string directoryPath) {
 		FileHandler::resize_all_files(directoryPath);
@@ -46,14 +46,14 @@ namespace APILayer {
 
 
 	/*
-			Here Every thread will process data and send output to Resources::results
-			Step 1. data will be lower cased
-			Step 2. email front part, website and password will be extracted from raw data
-			Step 3. While loop will iterate over every password one by one
-			Step 4. name, email, website, location, dob, mobile and common words lists will be tested
-					against password
-			Step 5. pattern will be generated from processed data
-			Step 6. all memory will be released by this thread
+			HERE EVERY THREAD WILL PROCESS DATA AND SEND OUTPUT TO RESOURCES::RESULTS
+			STEP 1. DATA WILL BE LOWER CASED
+			STEP 2. EMAIL FRONT PART, WEBSITE AND PASSWORD WILL BE EXTRACTED FROM RAW DATA
+			STEP 3. WHILE LOOP WILL ITERATE OVER EVERY PASSWORD ONE BY ONE
+			STEP 4. NAME, EMAIL, WEBSITE, LOCATION, DOB, MOBILE AND COMMON WORDS LISTS WILL BE TESTED
+					AGAINST PASSWORD
+			STEP 5. PATTERN WILL BE GENERATED FROM PROCESSED DATA
+			STEP 6. ALL MEMORY WILL BE RELEASED BY THIS THREAD
 	*/
 	void thread_process(Comparison& compareThreadObj, Patterns& patternThreadObj) {
 		vector<string>::iterator rawIt;
@@ -81,15 +81,15 @@ namespace APILayer {
 	}
 	
 	/*
-			Here Everything will be executed. It starts from importing input then process and lastly output
-			Step 1. first threads will be declared according to numberOFThreads value (default: 4)
-			Step 2. Input and Ouput folder can be specified (optional) 
-			Step 3. files will be read and resized which are located in Input folder
-			Step 4. resources will be read to respective vectors in Resources.h
-			Step 5. while loop will iterate over all the files available in Input folder
-			Step 6. every file will be read and gets distributed equally in number of threads
-			Step 7. all thread(thread_process()) will run concurrently and sends ouput to Resources::results vector
-			Step 8. memory gets released for next file
+			HERE EVERYTHING WILL BE EXECUTED. IT STARTS FROM IMPORTING INPUT THEN PROCESS AND LASTLY OUTPUT
+			STEP 1. FIRST THREADS WILL BE DECLARED ACCORDING TO NUMBEROFTHREADS VALUE (DEFAULT: 4)
+			STEP 2. INPUT AND OUPUT FOLDER CAN BE SPECIFIED (OPTIONAL) 
+			STEP 3. FILES WILL BE READ AND RESIZED WHICH ARE LOCATED IN INPUT FOLDER
+			STEP 4. RESOURCES WILL BE READ TO RESPECTIVE VECTORS IN RESOURCES.H
+			STEP 5. WHILE LOOP WILL ITERATE OVER ALL THE FILES AVAILABLE IN INPUT FOLDER
+			STEP 6. EVERY FILE WILL BE READ AND GETS DISTRIBUTED EQUALLY IN NUMBER OF THREADS
+			STEP 7. ALL THREAD(THREAD_PROCESS()) WILL RUN CONCURRENTLY AND SENDS OUPUT TO RESOURCES::RESULTS VECTOR
+			STEP 8. MEMORY GETS RELEASED FOR NEXT FILE
 	*/
 	void main_program(int numberOfThreads=2, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
 		//threads and objects declaration
@@ -131,12 +131,13 @@ namespace APILayer {
 			}
 			if (Resources::rawDataList.size()<20000) {
 				Comparison compareObj; Patterns patternObj;
+				compareObj.rawData.reserve(compareObj.rawData.size());
 				compareObj.rawData.insert(compareObj.rawData.begin(), Resources::rawDataList.begin(), Resources::rawDataList.end());
 				thread_process(compareObj, patternObj);
 			}
 			else
 			{
-				//divide file content into equal parts(threadNumber) to parocess
+				//divide file content into equal parts(threadNumber) to process
 				//them in multiple threads
 				for (unsigned int i = 0; i < totalThreads; i++) {
 					begint = (i * Resources::rawDataList.size()) / totalThreads;
@@ -270,15 +271,15 @@ namespace APILayer {
 	}
 
 	/*
-		Function to detect pattern in a single record of password and email(optional)
-		arguments:
-			targetPassword- patterns gonna be detected in this password
-			targetEmail- email attached to that password(optional)(default=*****@*****.com)
-		Step 1. first check if email has a value if not then use default value
-		Step 2. create a temporary vector to store email:password
-		Step 3. then pass it to main_process() function and retrive output
-		Step 4. clear and shrink all container
-		Step 5. return output
+		FUNCTION TO DETECT PATTERN IN A SINGLE RECORD OF PASSWORD AND EMAIL(OPTIONAL)
+		ARGUMENTS:
+			TARGETPASSWORD- PATTERNS GONNA BE DETECTED IN THIS PASSWORD
+			TARGETEMAIL- EMAIL ATTACHED TO THAT PASSWORD(OPTIONAL)(DEFAULT=*****@*****.COM)
+		STEP 1. FIRST CHECK IF EMAIL HAS A VALUE IF NOT THEN USE DEFAULT VALUE
+		STEP 2. CREATE A TEMPORARY VECTOR TO STORE EMAIL:PASSWORD
+		STEP 3. THEN PASS IT TO main_process() FUNCTION AND RETRIVE OUTPUT
+		STEP 4. CLEAR AND SHRINK ALL CONTAINER
+		STEP 5. RETURN OUTPUT
 	*/
 	string process_target(string targetPassword, string targetEmail = "") {		
 

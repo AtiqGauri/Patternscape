@@ -4,9 +4,9 @@
 
 void FileHandler::get_files_recursive(deque<string>& fileNames, string directoryPath) {
 	/*
-		Using filesystem::recursive_directory_iterator to get names of all the files
-		present in directoryPath and SUBFOLDERS.
-		lastly saving all these functions in a deque(fileNames)
+		USING FILESYSTEM::RECURSIVE_DIRECTORY_ITERATOR TO GET NAMES OF ALL THE FILES
+		PRESENT IN DIRECTORYPATH AND SUBFOLDERS.
+		LASTLY SAVING ALL THESE FUNCTIONS IN A DEQUE(FILENAMES)
 	*/
 	size_t findErrorFile;
 	for (const auto& entry : filesystem::recursive_directory_iterator(directoryPath)) {
@@ -30,9 +30,9 @@ void FileHandler::get_files_recursive(deque<string>& fileNames, string directory
 
 void FileHandler::get_files_recursive(vector<string>& fileNames, string directoryPath) {
 	/*
-		Using filesystem::recursive_directory_iterator to get names of all the files
-		present in directoryPath and SUBFOLDERS.
-		lastly saving all these functions in a vector(fileNames)
+		USING FILESYSTEM::RECURSIVE_DIRECTORY_ITERATOR TO GET NAMES OF ALL THE FILES
+		PRESENT IN DIRECTORYPATH AND SUBFOLDERS.
+		LASTLY SAVING ALL THESE FUNCTIONS IN A VECTOR(FILENAMES)
 	*/
 	size_t findErrorFile;
 	for (const auto& entry : filesystem::recursive_directory_iterator(directoryPath)) {
@@ -52,7 +52,7 @@ void FileHandler::get_files_recursive(vector<string>& fileNames, string director
 
 void FileHandler::read_file(deque<string>& fileContent, string filePath) {
 	/*
-		Using ifstream to open a file(filePath) and reading its content in deque(fileContent)
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN DEQUE(FILECONTENT)
 	*/
 	string str;
 	ifstream input(filePath);
@@ -63,15 +63,18 @@ void FileHandler::read_file(deque<string>& fileContent, string filePath) {
 	else
 	{
 		while (getline(input, str)) {
-			fileContent.push_back(str);
+			if (str.size() > 0) {
+				fileContent.push_back(str);
+			}
 		}
 	}
 	input.close();
+	return;
 }
 
 void FileHandler::read_file(vector<string>& fileContent, string filePath) {
 	/*
-		Using ifstream to open a file(filePath) and reading its content in vector(fileContent)
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN VECTOR(FILECONTENT)
 	*/
 	string str;
 	ifstream input(filePath);
@@ -81,7 +84,9 @@ void FileHandler::read_file(vector<string>& fileContent, string filePath) {
 	else
 	{
 		while (getline(input, str)) {
-			fileContent.push_back(str);
+			if (str.size() > 0) {
+				fileContent.push_back(str);
+			}
 		}
 	}
 	input.close();
@@ -96,7 +101,9 @@ void FileHandler::read_file(unordered_set<string>& fileContent, string filePath)
 	else
 	{
 		while (getline(input, str)) {
-			fileContent.insert(str);
+			if (str.size() > 0) {
+				fileContent.insert(str);
+			}
 		}
 	}
 	input.close();
@@ -104,7 +111,7 @@ void FileHandler::read_file(unordered_set<string>& fileContent, string filePath)
 
 void FileHandler::write_file(deque<string>& fileContent, string filePath) {
 	/*
-		Using Of ofstream to open a file(filePath) and writing a deque(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A DEQUE(FILECONTENT) IN IT
 	*/
 	ofstream output(filePath);
 	if (!output.is_open()) {
@@ -119,7 +126,7 @@ void FileHandler::write_file(deque<string>& fileContent, string filePath) {
 
 void FileHandler::write_file(vector<string>& fileContent, string filePath) {
 	/*
-		Using Of ofstream to open a file(filePath) and writing a vector(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A VECTOR(FILECONTENT) IN IT
 	*/
 	ofstream output(filePath);
 	if (!output.is_open()) {
@@ -135,7 +142,7 @@ void FileHandler::write_file(vector<string>& fileContent, string filePath) {
 
 void FileHandler::write_and_append_file(deque<string>& fileContent, string filePath) {
 	/*
-		Using Of ofstream to open a file(filePath) and append a deque(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPEND A DEQUE(FILECONTENT) IN IT
 	*/
 	ofstream appendFile(filePath, ios::app);
 	if (!appendFile.is_open()) {
@@ -150,7 +157,7 @@ void FileHandler::write_and_append_file(deque<string>& fileContent, string fileP
 
 void FileHandler::write_and_append_file(vector<string>& fileContent, string filePath) {
 	/*
-		Using Of ofstream to open a file(filePath) and append a vector(fileContent) in it
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPEND A VECTOR(FILECONTENT) IN IT
 	*/
 	ofstream appendFile(filePath, ios::app);
 	if (!appendFile.is_open()) {
@@ -165,12 +172,12 @@ void FileHandler::write_and_append_file(vector<string>& fileContent, string file
 
 void FileHandler::resize_all_files(string directoryPath) {
 	/*
-		Here we are taking a path of directory(directoryPath) and resizing all its content
-		in samll files.The length/size of small files is hardcoded.
-		Step 1 while loop to iterate on number of files in that directory
-		Step 2 every file is sent to resize_file function with a deque of vectors of strings
-		Step 3 then we get deque of small vecotrs(vector of small vectors) of strings and make 
-			   them individual files with another for loop.
+		HERE WE ARE TAKING A PATH OF DIRECTORY(DIRECTORYPATH) AND RESIZING ALL ITS CONTENT
+		IN SMALL FILES.THE LENGTH/SIZE OF SMALL FILES IS HARDCODED.
+		STEP 1 WHILE LOOP TO ITERATE ON NUMBER OF FILES IN THAT DIRECTORY
+		STEP 2 EVERY FILE IS SENT TO RESIZE_FILE FUNCTION WITH A DEQUE OF VECTORS OF STRINGS
+		STEP 3 THEN WE GET DEQUE OF SMALL VECTORS(VECTOR OF SMALL VECTORS) OF STRINGS AND MAKE 
+			   THEM INDIVIDUAL FILES WITH ANOTHER FOR LOOP.
 	*/
 	deque<string> allFilesPaths;
 	get_files_recursive(allFilesPaths, directoryPath);
@@ -202,11 +209,11 @@ void FileHandler::resize_all_files(string directoryPath) {
 
 void FileHandler::resize_file(deque<vector<string>>& resizedContent, vector<string> tempVector) {
 	/*
-		This is a helper function for resize_all_files() function.
-		It resize a bigger file into multiple smaller files(The length/size of small files is hardcoded).
-		Step 1. it checks if size of file content is bigger than desired number.
-		Step 2. then starts while loop which divide them in smaller vectors and place these vectors in a deque
-		Step 3. if file is smaller than desired size than just pass it normally in single vector
+		THIS IS A HELPER FUNCTION FOR RESIZE_ALL_FILES() FUNCTION.
+		IT RESIZE A BIGGER FILE INTO MULTIPLE SMALLER FILES(THE LENGTH/SIZE OF SMALL FILES IS HARDCODED).
+		STEP 1. IT CHECKS IF SIZE OF FILE CONTENT IS BIGGER THAN DESIRED NUMBER.
+		STEP 2. THEN STARTS WHILE LOOP WHICH DIVIDE THEM IN SMALLER VECTORS AND PLACE THESE VECTORS IN A DEQUE
+		STEP 3. IF FILE IS SMALLER THAN DESIRED SIZE THAN JUST PASS IT NORMALLY IN SINGLE VECTOR
 	*/
 	vector<string> temp;
 	vector<string>::iterator it = tempVector.begin();

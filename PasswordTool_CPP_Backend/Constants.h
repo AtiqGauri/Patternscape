@@ -10,106 +10,106 @@ class Constants
 {
 public:
 	
-	//Error log file name 
+	//ERROR LOG FILE NAME 
 	static const string errorLogFileName;
 	
-	//Huge files gets resized first. So, this will be prefix for their name
+	//HUGE FILES GETS RESIZED FIRST. SO, THIS WILL BE PREFIX FOR THEIR NAME
 	static const string resizedFileName;
 	
-	//Size of smaller files will be decided by this variable
+	//SIZE OF SMALLER FILES WILL BE DECIDED BY THIS VARIABLE
 	static const int resizedFileSize;
 	
-	//String variable to store .txt extension
+	//STRING VARIABLE TO STORE .TXT EXTENSION
 	static const string txtExtension;
 
-	//Address of name list file
+	//ADDRESS OF NAME LIST FILE
 	static const string nameListFileAddress;
 	
-	//Address of dob list file
+	//ADDRESS OF DOB LIST FILE
 	static const string dobListFileAddress;
 	
-	//Address of location list file
+	//ADDRESS OF LOCATION LIST FILE
 	static const string locationListFileAddress;
 	
-	//Address of common list file
+	//ADDRESS OF COMMON LIST FILE
 	static const string commonListFileAddress;
 
-	//Total number of lines in name list file (APPROX)
+	//TOTAL NUMBER OF LINES IN NAME LIST FILE (APPROX)
 	static const int nameListFileSize;
 	
-	//Total number of lines in dob list file (APPROX)
+	//TOTAL NUMBER OF LINES IN DOB LIST FILE (APPROX)
 	static const int dobListFileSize;
 
-	//Total number of lines in location list file (APPROX)
+	//TOTAL NUMBER OF LINES IN LOCATION LIST FILE (APPROX)
 	static const int locationListFileSize;
 
-	//Total number of lines in common list file (APPROX)
+	//TOTAL NUMBER OF LINES IN COMMON LIST FILE (APPROX)
 	static const int commonListFileSize;
 
-	//Tag to denote name detection in generated pattern
+	//TAG TO DENOTE NAME DETECTION IN GENERATED PATTERN
 	static const string nameListTag;
 
-	//Tag to denote email name detection in generated pattern
+	//TAG TO DENOTE EMAIL NAME DETECTION IN GENERATED PATTERN
 	static const string emailNameTag;
 	
-	//Tag to denote website detection in generated pattern
+	//TAG TO DENOTE WEBSITE DETECTION IN GENERATED PATTERN
 	static const string websiteTag;
 
-	//Tag to denote dob detection in generated pattern
+	//TAG TO DENOTE DOB DETECTION IN GENERATED PATTERN
 	static const string dobListTag;
 
-	//Tag to denote location detection in generated pattern
+	//TAG TO DENOTE LOCATION DETECTION IN GENERATED PATTERN
 	static const string locationListTag;
 
-	//Tag to denote mobile detection in generated pattern
+	//TAG TO DENOTE MOBILE DETECTION IN GENERATED PATTERN
 	static const string mobileListTag;
 
-	//Tag to denote first common word detection in generated pattern
+	//TAG TO DENOTE FIRST COMMON WORD DETECTION IN GENERATED PATTERN
 	static const string common1ListTag;
 
-	//Tag to denote second common word detection in generated pattern
+	//TAG TO DENOTE SECOND COMMON WORD DETECTION IN GENERATED PATTERN
 	static const string common2ListTag;
 
-	//Tag to denote third common word detection in generated pattern
+	//TAG TO DENOTE THIRD COMMON WORD DETECTION IN GENERATED PATTERN
 	static const string common3ListTag;
 
-	//Dilimiter or divider for output of program
+	//DELIMITER OR DIVIDER FOR OUTPUT OF PROGRAM
 	static const string outputDelimiter;
 
-	//variable to denote length(Length:) of detected value in given password
+	//VARIABLE TO DENOTE LENGTH(LENGTH:) OF DETECTED VALUE IN GIVEN PASSWORD
 	static const string outputLengthDelimiter;
 	
-	//variable to denote position(Position:) of detected value in given password
+	//VARIABLE TO DENOTE POSITION(POSITION:) OF DETECTED VALUE IN GIVEN PASSWORD
 	static const string outputPositionDelimiter;
 
-	//Tag to denote undetected part detection in generated pattern
+	//TAG TO DENOTE UNDETECTED PART DETECTION IN GENERATED PATTERN
 	static const string undetectedTag;
 
-	//Folder address which contains all the pattern data files
+	//FOLDER ADDRESS WHICH CONTAINS ALL THE PATTERN DATA FILES
 	static const string patternDataFolderAddress;
 
-	//Pattern categories file address 
+	//PATTERN CATEGORIES FILE ADDRESS 
 	static const string patternCategoriesFileAddress;
 
-	//Delimiter or divider in given input files (Email|DELIMITER|Password)
+	//DELIMITER OR DIVIDER IN GIVEN INPUT FILES (EMAIL|DELIMITER|PASSWORD)
 	static const string inputDelimiter;
 
-	//Address of input folder 
+	//ADDRESS OF INPUT FOLDER 
 	static const string inputFolderAddress;
 
-	//Address of output folder
+	//ADDRESS OF OUTPUT FOLDER
 	static const string outputFolderAddress;
 	
-	//Prefix for output files
+	//PREFIX FOR OUTPUT FILES
 	static const string outputFileName;
 	
-	//Default email when no email is given (only for single target pattern generation)
+	//DEFAULT EMAIL WHEN NO EMAIL IS GIVEN (ONLY FOR SINGLE TARGET PATTERN GENERATION)
 	static const string defaultEmailString;
 	
-	//Temporary file address for pattern generation for a single target
+	//TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
 	static const string singleTargetFileAddress;
 
-	//Temporary folder address
+	//TEMPORARY FOLDER ADDRESS
 	static const string tempFolderAddress;
 
 };
