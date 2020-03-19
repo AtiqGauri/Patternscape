@@ -50,6 +50,11 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  mainWindow.on('uncaughtException', function (err) {
+    console.error('Main window error: ' +err);
+    mainWindow.reload();
+  });
 }
 
 // THIS METHOD WILL BE CALLED WHEN ELECTRON HAS FINISHED
@@ -70,10 +75,21 @@ app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
 
+app.on('uncaughtException', function (err) {
+  console.error('App error: ' +err);
+  mainWindow.reload();
+});
+
+
 // IN THIS FILE YOU CAN INCLUDE THE REST OF YOUR APP'S SPECIFIC MAIN PROCESS
 // CODE. YOU CAN ALSO PUT THEM IN SEPARATE FILES AND REQUIRE THEM HERE.
 
 process.on('uncaughtException', function (err) {
-  console.error(err);
+  console.error('Process error: ' + err);
   mainWindow.reload();
-})
+});
+
+process.on('unhandledRejection', function (err) {
+  console.error('Process error: ' +err);
+  mainWindow.reload();
+});

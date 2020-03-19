@@ -98,7 +98,7 @@ function singleUserForm(){
         tmpSubmit.click();
         targetForm.removeChild(tmpSubmit);
     }else{
-		//>>APP_FOLDER/scripts/renderer.js<<
+		//>>APP_FOLDER/source/scripts/renderer.js<<
         catch_target_password();
     }
 }
@@ -119,7 +119,6 @@ var bTarget = true;
  * CHECK OUT DOCUMENTATION OR C++ CODE FOR MORE INFORMATION
  */
 function analyze_passwords_emails(){
-	
 	//if process is not executing already
 	if(bAnalyzer){
 		bAnalyzer = false;
@@ -131,7 +130,7 @@ function analyze_passwords_emails(){
 		//double if statement to avoid asar packaging path alteration
 		if(fs.existsSync(path.join(process.resourcesPath, '..','data','Input'))){
 			if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Input')).length <= 1){
-				//>>APP_FOLDER/scripts/alerts.js<<
+				//>>APP_FOLDER/source/scripts/alerts.js<<
 				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
 				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again (*consider required format)</b>',
 				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
@@ -141,7 +140,7 @@ function analyze_passwords_emails(){
 			}
 		}else if(fs.existsSync(path.join(__dirname, '..','data','Input'))){
 			if(fs.readdirSync(path.join(__dirname, '..','data','Input')).length <= 1){
-				//>>APP_FOLDER/scripts/alerts.js<<
+				//>>APP_FOLDER/source/scripts/alerts.js<<
 				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
 				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again (*consider required format)</b>',
 				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
@@ -184,12 +183,9 @@ function analyze_passwords_emails(){
 			bAnalyzer = true;
 
 			document.querySelector("#progressAnimation").style.display = "none";
-			//This function is defined in renderer.js to list all files in Output folder 
-			//>>APP_FOLDER/scripts/renderer.js<<
-			output_of_analyzing();
 
-			//direct user to generate stats after 4 seconds
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//direct user to generate stats after specified seconds
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats();
 		};
 
@@ -198,7 +194,7 @@ function analyze_passwords_emails(){
 			console.log(event.message, event);
 			//stop loading bar
 			document.querySelector("#progressAnimation").style.display = "none";
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">Error</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
 		 	cIcon='error', cTime='180000');
@@ -221,10 +217,10 @@ function stop_analyze_passwords_emails(){
 		//set process status variable
 		bAnalyzer = true;
 
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='processRawData', cTitle='Stopped', cIcon='warning', cClass='processStopAlerts');
 	}else{
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='processRawData', cTitle='Empty', cIcon='info', cClass='processStopAlerts');
 	}
 
@@ -247,7 +243,7 @@ function generate_statistics(){
 	//double if statements to avoid asar packaging alteration
 	if(fs.existsSync(path.join(process.resourcesPath, '..','data','Output'))){
 		if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Output')).length <= 1){
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Processed Data" folder, then try again (*consider required format)</b>',
 			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
@@ -257,7 +253,7 @@ function generate_statistics(){
 		}
 	}else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Output'))){
 		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Output')).length <= 1){
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Processed Data" folder, then try again (*consider required format)</b>',
 			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
@@ -291,13 +287,13 @@ function generate_statistics(){
 
 		//stop loading bar
 		document.querySelector("#progressAnimation").style.display = "none";
-		
-		//This function is defined in renderer.js to list all files in Output folder 
-		//>>APP_FOLDER/scripts/renderer.js<<
-		output_of_stats_generator();
+
+		//function to open a new window with a sample and total number- 
+		//-of pattern categories >>APP_FOLDER/renderer.js<<
+		sample_of_pattern_categories();
 
 		//direct user to import data window
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		moving_forward_to_importDB();
 	};
 
@@ -305,7 +301,7 @@ function generate_statistics(){
 	worker2.onerror = function (event) {
 		console.log(event.message, event);
 		document.querySelector("#progressAnimation").style.display = "none";
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Error</b>', 
 		cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
 		 cIcon='error', cTime='180000');
@@ -324,10 +320,10 @@ function stop_generate_statistics(){
 
         //set it to undefined
 		worker2 = undefined;
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='statsGeneration', cTitle='Stopped', cIcon='warning', cClass='processStopAlerts');
 	}else{
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='statsGeneration', cTitle='Empty', cIcon='info', cClass='processStopAlerts');
 	}
 }
@@ -374,13 +370,13 @@ function target_password_patterns(password, email){
 				//update process status, make alert sound
 				shell.beep();
 				//call renderer.js function to display resulting patterns
-				//>>APP_FOLDER/scripts/renderer.js<<
+				//>>APP_FOLDER/source/scripts/renderer.js<<
 				process_single_password(event.data);
 
 				//now user is free to process again
 				bTarget = true;
 			},1200);
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			process_single_user_alerts(cTarget='singleUserTabID', cTitle='Processing', cClass='singleUserAlerts', cTime=1000);
 		};
 
@@ -388,7 +384,7 @@ function target_password_patterns(password, email){
 		targetPasswordWorker.onerror = function (event) {
 			console.log(event.message, event);
 			document.querySelector("#progressAnimation").style.display = "none";
-			//>>APP_FOLDER/scripts/alerts.js<<
+			//>>APP_FOLDER/source/scripts/alerts.js<<
 			analyze_stats_stop_alerts(cTarget='singleUserTabID', cTitle=event.message, cIcon='error', cClass='singleUserAlerts', cTime=2000, cProgress=true);
 		};
 	}
@@ -407,10 +403,10 @@ function stop_target_password(){
 		targetPasswordWorker.terminate();
 		//set it to undefined
 		targetPasswordWorker = undefined;
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='singleUserTabID', cTitle='Stopped', cIcon='warning', cClass='singleUserAlerts');
 	}else{
-		//>>APP_FOLDER/scripts/alerts.js<<
+		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='singleUserTabID', cTitle='Empty', cIcon='info', cClass='singleUserAlerts');
 	}
 }

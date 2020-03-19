@@ -13,7 +13,7 @@ function submit_pattern(){
     //show data file of selected window 
     if(!fromTargetWindow){
         console.log("from home");
-        //>>APP_FOLDER/scripts/renderer.js<<
+        //>>APP_FOLDER/source/scripts/renderer.js<<
         pattern_lookup();
     }else{
         //user clicked on select pattern in target tab
@@ -53,7 +53,7 @@ function submit_target_form () {
 
     }else{
         //process target user and generate pattern and password suggestions
-        //>>APP_FOLDER/scripts/renderer.js<<
+        //>>APP_FOLDER/source/scripts/renderer.js<<
         target_user_pattern();
     }
 }

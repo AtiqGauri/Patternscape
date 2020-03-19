@@ -46,7 +46,10 @@ ipc.on('message', (event, patternString, fileAddress) => {
     }else if(fs.existsSync(path.join(__dirname, '..', '..', fileAddress))){
         var liner = new lineByLine(path.join(__dirname, '..', '..', fileAddress));
     }else{
-        console.error(fileAddress + ' file doesn\'t exist');
+        console.error(' file doesn\'t exist: ' + fileAddress);
+        //tell user there is no data to display
+        error_no_data_received();
+        return;
     }
 
     //count number of forward slash in pattern string to get number of tags(name, dob, etc) in it.
@@ -92,6 +95,14 @@ ipc.on('message', (event, patternString, fileAddress) => {
         //increase popularity counter
         popularityCounter++;
     }
+
+    if(popularityCounter==0){
+        //tell user there is no data to display
+        error_no_data_received();
+        console.error("pattern file has no data in it");
+        return;
+    }
+
     //reflect popularity
     document.querySelector('#popularityText').innerHTML = 'Popularity: ' + popularityCounter;
 })
@@ -170,4 +181,26 @@ function platformWindowControl(){
 
     //make controls visible, this is done to avoid default left side alignment jitter 
     document.querySelector("#windowControls").style.visibility = 'visible';
+}
+
+/**
+ * Function to display error message saying no data is received
+ * This will load svg with inbuilt css for animation
+ * To change color or animation, head toward svg source file 
+ */
+function error_no_data_received(){
+    //remove and blur empty containers
+    document.querySelector('body').style.backgroundColor = 'grey';
+    document.querySelector('html').style.backgroundColor = 'grey';
+    document.querySelector('#titleBar').style.backgroundColor = 'grey';
+    document.querySelector('#popularityText').style.display = 'none';
+    document.querySelector('#patternText').style.color = '#D3D3D3';
+    
+    //display svg saying no data received
+    swingingGirl = document.querySelector('#noDataReceived');
+    swingingGirl.style.display = 'block';
+    swingingGirl.src = '../assets/images/No_data_received.svg';
+    swingingGirl.style.height = '79vh';
+    swingingGirl.style.width = 'auto';
+    swingingGirl.style.marginLeft = '26vw';
 }

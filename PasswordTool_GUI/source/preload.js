@@ -41,6 +41,12 @@ function handle_window_controls() {
         win.removeAllListeners();
     };
 
+    //CATCH UNHANDLED CRASHES
+    win.webContents.on('crashed', (event) => {
+        console.error('Renderer error: ' +err);
+        win.reload();
+    });
+
     //Recolor window control buttons when focused
     win.on('focus', ()=>{
         document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
@@ -111,7 +117,7 @@ async function oneTimeEventsOfApp(){
     await database.UserData.where("key").anyOf("firstSplashScreen", "showAppIntro").each(function (result) {
         switch(result.key) {
             
-            //To change first splash time go to "APP_FOLDER/scripts/databaseInit.js"
+            //To change first splash time go to "APP_FOLDER/source/scripts/databaseInit.js"
             //and change UserPreference => firstSplashScreen.value
             case "firstSplashScreen":
                 setTimeout(async () => {
@@ -124,11 +130,11 @@ async function oneTimeEventsOfApp(){
                 }, result.value);
               break;
             
-            //To change total intro triggers go to "APP_FOLDER/scripts/databaseInit.js"
+            //To change total intro triggers go to "APP_FOLDER/source/scripts/databaseInit.js"
             //and change UserPreference => showAppIntro.value
             case "showAppIntro":
                 if(result.value >= 1){   
-                    //App intro route >>APP_FOLDER/scripts/appIntro.js<< 
+                    //App intro route >>APP_FOLDER/source/scripts/appIntro.js<< 
                     ask_for_intro();
                 }
               break;

@@ -34,7 +34,7 @@ var export_database = async function export_database(){
           if(error){
             console.log(error);
             operationSuccess = false;
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
             return operationSuccess;
           }
@@ -44,21 +44,21 @@ var export_database = async function export_database(){
           if(error){
             console.log(error);
             operationSuccess = false;
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
             return operationSuccess;
           }
         });
       }else{
         operationSuccess = false;
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
         database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Export Error</b>', cHtml='Export directory not found', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
         return operationSuccess;
       }
     }catch(error){
         console.error(''+error);
         operationSuccess = false;
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
         database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">'+ error.name +'</b>', cHtml=error.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#499371');
         return operationSuccess;
     }
@@ -95,7 +95,7 @@ var import_database = async function import_database(){
       });
     }else{
       operationSuccess = false;
-      //>>APP_FOLDER/scripts/alerts.js<<
+      //>>APP_FOLDER/source/scripts/alerts.js<<
       database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#5A81AE');
       return operationSuccess;
     }

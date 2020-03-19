@@ -48,20 +48,20 @@ function autocomplete(inp) {
         
         //make call to database
         starts_with_ignore_case(val).then(function(result) {
-            dbArray = result.slice(0,20);
+            dbArray = result.slice(0,14);
             //if database is empty
             if(dbArray.length==0){
                 //check is there is any record in database
-                //>>APP_FOLDER/scripts/importExportDatabase.js<<
+                //>>APP_FOLDER/source/scripts/importExportDatabase.js<<
                 importExportDB.get_database_count().then(function(total) {
                     //throw a warning saying database is empty
                     if(total==0){
-                        //>>APP_FOLDER/scripts/alerts.js<<
+                        //>>APP_FOLDER/source/scripts/alerts.js<<
                         home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Empty Database</b>', cHtml='<b>No pattern available to suggest<b>', cIcon='warning');
                         document.querySelector("#patternSearchInput").value = "";
                     }else{
                         //throw a warning saying user typed wrong letter
-                        //>>APP_FOLDER/scripts/alerts.js<<
+                        //>>APP_FOLDER/source/scripts/alerts.js<<
                         home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error');
                         document.querySelector("#patternSearchInput").value = "";        
                     }

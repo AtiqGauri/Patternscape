@@ -22,6 +22,8 @@ if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..','data', 'Stats', 'P
     var liner = new lineByLine(path.join(__dirname, '..', '..','data', 'Stats', 'Patterns.txt'));
 }else{
     console.error('data/Stats/Pattern.txt file doesn\'t exist');
+    //tell user there is no data to display
+    error_no_data_received();
 }
 
 
@@ -29,46 +31,81 @@ if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..','data', 'Stats', 'P
 let line;
 //SPLITTER WILL BE USED TO SPLIT STRING IN TOKENS
 var splitter;
+//NUMBER OF ROWS COUNTER
+var maxLines = 0;
 
 //GET TABLE ELEMENT TO ADD ROWS IN IT
 var table = document.querySelector('#patternTable'), tr;
 
 //LOOP TO ITERATE IN A FILE
 while(line = liner.next()){
+    if(maxLines < 100){
+        //get table row element
+        tr = document.createElement('tr');
 
-    //get table row element
-    tr = document.createElement('tr');
+        //split lines into tokens
+        splitter = line.toString().split('<|>');
 
-    //split lines into tokens
-    splitter = line.toString().split('<|>');
+        //create a pattern cell
+        pattern = document.createElement('td');
+        //create a popularity cell
+        popularity = document.createElement('td');
+        //create a address cell
+        address = document.createElement('td');
 
-    //create a pattern cell
-    pattern = document.createElement('td');
-    //create a popularity cell
-    popularity = document.createElement('td');
-    //create a address cell
-    address = document.createElement('td');
-    
-    //append pattern cell into row
-    tr.appendChild(pattern);
-    //append popularity cell into row
-    tr.appendChild(popularity);
-    //append address cell into row
-    tr.appendChild(address);
+        //append pattern cell into row
+        tr.appendChild(pattern);
+        //append popularity cell into row
+        tr.appendChild(popularity);
+        //append address cell into row
+        tr.appendChild(address);
 
-    //enter pattern data
-    pattern.innerHTML = splitter[0];
-    pattern.style.color = '#B94955';
-    //enter popularity data
-    popularity.innerHTML = splitter[2];
-    popularity.style.color = '#5A81AE';
-    //enter address data
-    address.innerHTML = splitter[1];
-    address.style.color = '#f9a825';
-    
-    //append row into table element
-    table.appendChild(tr);
+        //enter pattern data
+        pattern.innerHTML = splitter[0];
+        pattern.style.color = '#B94955';
+        //enter popularity data
+        popularity.innerHTML = splitter[2];
+        popularity.style.color = '#5A81AE';
+        //enter address data
+        address.innerHTML = splitter[1];
+        address.style.color = '#f9a825';
+
+        //append row into table element
+        table.appendChild(tr);
+    }
+    maxLines++;
 }
+
+if(maxLines == 0){
+    //tell user there is no data to display
+    error_no_data_received();
+}else{
+    /**
+     * FOOTER WITH ENDING MESSAGE
+     * EXECUTES ONCE SPECIFIED NUMBER OF PATTERNS ARE ADDED 
+     */
+    //add last row 
+    tr = document.createElement('tr');
+    tr.style.whiteSpace = 'nowrap';
+    tr.style.height = '20vh';
+    tr.style.textAlign = 'center';
+    tr.style.color = '#FF605C';
+    //add message div in that row
+    endRowDiv = document.createElement('div');
+    endRowDiv.innerHTML = 'Total number of generated stats: '+ maxLines+
+                            '</br> Import these patterns to access them in home tab';
+    document.querySelector('#header').innerHTML += maxLines;
+    endRowDiv.style.position = 'relative';
+    endRowDiv.style.top = '8vh';
+    endRowDiv.style.width = '98vw';
+    endRowDiv.style.textAlign = 'center';
+    endRowDiv.style.userSelect = 'none';
+    tr.appendChild(endRowDiv);
+    table.appendChild(tr);
+    maxLines = 0;
+}
+
+
 
 /**
  * FUNCTIONALITY FOR CUSTOM WINDOW CONTROLS (CLOSE, MINIMIZE, MAXIMIZE, RESTORE)
@@ -143,4 +180,26 @@ function platformWindowControl(){
 
     //make controls visible, this is done to avoid default left side alignment jitter 
     document.querySelector("#windowControls").style.visibility = 'visible';
+}
+
+/**
+ * Function to display error message saying no data is received
+ * This will load svg with inbuilt css for animation
+ * To change color or animation, head toward svg source file 
+ */
+function error_no_data_received(){
+    //remove and blur empty containers
+    document.querySelector('body').style.backgroundColor = 'grey';
+    document.querySelector('html').style.backgroundColor = 'grey';
+    document.querySelector('#titleBar').style.backgroundColor = 'grey';
+    document.querySelector('#patternTable').style.display = 'none';
+    document.querySelector('#header').style.opacity = '0';
+    
+    //display svg saying no data received
+    swingingGirl = document.querySelector('#noDataReceived');
+    swingingGirl.style.display = 'block';
+    swingingGirl.src = '../assets/images/No_data_received.svg';
+    swingingGirl.style.height = '79vh';
+    swingingGirl.style.width = 'auto';
+    swingingGirl.style.marginLeft = '26vw';
 }

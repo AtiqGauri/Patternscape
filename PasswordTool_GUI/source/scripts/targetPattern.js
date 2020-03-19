@@ -20,8 +20,17 @@ var li, ul, dt, dd, patternTagCounter, i, j, splitter;
 
 //CATCH DETECTED PATTERN IN PASSED PASSWORD
 ipc.on('message', (event, data) => {
+
     //look at data in console to understand while loop working
     console.log(data);
+    
+    //if ipc renderer doesn't sent any data in object
+    if(data.toString()==''){
+        //tell user there is no data to display
+        error_no_data_received();
+        console.error('No data received from ipcRenderer');
+        return;
+    }
 
     //split data into tokens
     splitter = data.toString().split('<|>');
@@ -149,4 +158,26 @@ function platformWindowControl(){
     
     //make controls visible, this is done to avoid default left side alignment jitter 
     document.querySelector("#windowControls").style.visibility = 'visible';
+}
+
+/**
+ * Function to display error message saying no data is received
+ * This will load svg with inbuilt css for animation
+ * To change color or animation, head toward svg source file 
+ */
+function error_no_data_received(){
+    //remove and blur empty containers
+    document.querySelector('body').style.backgroundColor = 'grey';
+    document.querySelector('html').style.backgroundColor = 'grey';
+    document.querySelector('#titleBar').style.backgroundColor = 'grey';
+    document.querySelector('#generatedPatterns').style.display = 'none';
+    document.querySelector('#passwordString').style.color = '#D3D3D3';
+    
+    //display svg saying no data received
+    swingingGirl = document.querySelector('#noDataReceived');
+    swingingGirl.style.display = 'block';
+    swingingGirl.src = '../assets/images/No_data_received.svg';
+    swingingGirl.style.height = '79vh';
+    swingingGirl.style.width = 'auto';
+    swingingGirl.style.marginLeft = '26vw';
 }

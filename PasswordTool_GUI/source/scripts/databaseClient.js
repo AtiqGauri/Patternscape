@@ -18,21 +18,21 @@ function database_worker_client(){
     //if statement to avoid asar packaging path alteration
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data'))){
 		if(fs.readdirSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data')).length <= 1){
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
             document.querySelector("#progressAnimation").style.display = "none";
             return;
 		}
 	}else if(fs.existsSync(path.join(__dirname, '..','data', 'Stats', 'Patterns Data'))){
 		if(fs.readdirSync(path.join(__dirname, '..','data', 'Stats', 'Patterns Data')).length <= 1){
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">No file available to import</b>', cHtml='<b>First create some statistics using process tab operations, then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
             document.querySelector("#progressAnimation").style.display = "none";
             return;
         }
 	}else{
         //if input is not available then warn user
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
 		database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
 	}
 
@@ -69,11 +69,11 @@ function database_worker_client(){
             
             document.querySelector("#progressAnimation").style.display = "none";
             
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_acknowledgment(cTarget='importDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseImportAlert', cResult='importDbResult');
             
             //update storage quota in UI
-            //>>APP_FOLDER/scripts/databaseClient.js<<
+            //>>APP_FOLDER/source/scripts/databaseClient.js<<
             database_storage_quota();
         });
     };
@@ -81,7 +81,7 @@ function database_worker_client(){
     //handle exception or error thrown by web worker
     worker.onerror = function (event){
         console.error(event.message, event);
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
         database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml=event.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#B94955');
     };
 }
@@ -98,11 +98,11 @@ function stop_database_import(){
         //set it to undefined
         worker = undefined;
         //popup to tell user worker is stopped
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='importDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 	}else{
         //popup to tell user worker is undefined/empty
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='importDB', cTitle='Empty', cIcon='info', cClass='databaseImportAlert');
 	}
 }
@@ -110,7 +110,7 @@ function stop_database_import(){
 
 /**
  * FUNCTION TO EXPORT DATABASE INTO A JSON FILE.
- * CHECK >>APP_FOLDER/scripts/importExportDatabase.js<< FOR INNER WORKING
+ * CHECK >>APP_FOLDER/source/scripts/importExportDatabase.js<< FOR INNER WORKING
  */
 function database_export_client(){
 
@@ -125,20 +125,20 @@ function database_export_client(){
         //check if there is any record available
         if(total == 0){
             document.querySelector("#progressAnimation").style.display = "none";
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='exportDB', cTitle='<b style="color:#499371;">Database is empty</b>', cHtml='<b>No records available to export</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#499371');
             return;
         }
         
         //call function to export database 
-        //>>APP_FOLDER/scripts/importExportDatabase.js<<
+        //>>APP_FOLDER/source/scripts/importExportDatabase.js<<
         importExportDB.export_database().then((exportResult)=>{
             //close loading bar
             document.querySelector("#progressAnimation").style.display = "none";
             //reflect results in UI
             if(exportResult){
                 totalRecords.innerHTML = 'Exported Records: ' + total;
-                //>>APP_FOLDER/scripts/alerts.js<<
+                //>>APP_FOLDER/source/scripts/alerts.js<<
                 database_acknowledgment(cTarget='exportDB', cTitle='Exported Successfully', cIcon='success', cClass='databaseExportAlert', cResult='expResultsDiv');
             }
         });
@@ -153,13 +153,13 @@ function stop_database_export(){
     
     //close loading bar
     document.querySelector("#progressAnimation").style.display = "none";
-    //acknowledgment for user >>APP_FOLDER/scripts/alerts.js<<
+    //acknowledgment for user >>APP_FOLDER/source/scripts/alerts.js<<
     general_stop_alerts(cTarget='exportDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
 
 /**
  * FUNCTION TO IMPORT DATABASE FROM A JSON FILE.
- * CHECK >>APP_FOLDER/scripts/importExportDatabase.js<< SCRIPT FOR WORKING PROCESS
+ * CHECK >>APP_FOLDER/source/scripts/importExportDatabase.js<< SCRIPT FOR WORKING PROCESS
  */
 function database_import_client(){
     //start loading bar
@@ -173,14 +173,14 @@ function database_import_client(){
     //double if statements to avoid asar packaging 
     if(fs.existsSync(path.join(process.resourcesPath, '..', 'data', 'Database'))){
 		if(fs.readdirSync(path.join(process.resourcesPath, '..', 'data', 'Database')).length <= 1){
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
             document.querySelector("#progressAnimation").style.display = "none";
             return;
 		}
 	}else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Database'))){
 		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Database')).length <= 1){
-            //>>APP_FOLDER/scripts/alerts.js<<
+            //>>APP_FOLDER/source/scripts/alerts.js<<
             database_error_alerts(cTarget='importDownDB', cTitle='<b style="color:#5A81AE;">No file available to import</b>', cHtml='<b>No database file available to import, please paste file inside "DATABASE INPUT FOLDER" and then try again</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
             document.querySelector("#progressAnimation").style.display = "none";
             return;
@@ -191,7 +191,7 @@ function database_import_client(){
 
     //count total number of records available in database
     importExportDB.get_database_count().then(function(total1) {
-        //call import function >>APP_FOLDER/scripts/importExportDatabase.js<<
+        //call import function >>APP_FOLDER/source/scripts/importExportDatabase.js<<
         importExportDB.import_database().then((importResult)=>{
             //close loading bar
             document.querySelector("#progressAnimation").style.display = "none";
@@ -204,7 +204,7 @@ function database_import_client(){
                     //reflect results
                     newlyAdded.innerHTML = 'Newly added records: ' + (total2-total1);
                     totalRecords.innerHTML = 'Total Records: ' + total2;
-                    //>>APP_FOLDER/scripts/alerts.js<<
+                    //>>APP_FOLDER/source/scripts/alerts.js<<
                     database_acknowledgment(cTarget='importDownDB', cTitle='Imported Successfully', cIcon='success', cClass='databaseDownloadAlert', cResult='impDownResultsDiv');
                     document.querySelector('#impDownResultsDiv').style.display = "block";     
                 });
@@ -219,7 +219,7 @@ function database_import_client(){
 function stop_down_database_import(){
     //close loading bar
     document.querySelector("#progressAnimation").style.display = "none";
-    //acknowledge user >>APP_FOLDER/scripts/alerts.js<<
+    //acknowledge user >>APP_FOLDER/source/scripts/alerts.js<<
     general_stop_alerts(cTarget='importDownDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
 
@@ -237,10 +237,10 @@ function delete_database(){
 
     if (i >= 0){
         database.table('Patterns').clear().then(() => {
-            //acknowledge user for success >>APP_FOLDER/scripts/alerts.js<<
+            //acknowledge user for success >>APP_FOLDER/source/scripts/alerts.js<<
             database_acknowledgment('deleteIconWrapperID', 'DATABASE IS DELETED', 'error', 'databaseDeleteAlert', 'deleteIconWrapperID'); 
             document.querySelector('#deleteIconWrapperID').click();
-            //update storage quota in UI >>APP_FOLDER/scripts/alerts.js<<
+            //update storage quota in UI >>APP_FOLDER/source/scripts/alerts.js<<
             database_storage_quota();
         }).catch((error) => {
             database_error_alerts(cTarget='deleteIconWrapperID', cTitle='<b style="color:#5A81AE;">'+ error.name +'</b>', cHtml='<b>'+ error.message +'</b>', cIcon='warning', cClass='databaseErrorAlerts', cTime=8000, cBColor='#5A81AE');
@@ -248,7 +248,7 @@ function delete_database(){
     }
     else{
         console.log("Check caution button to delete database");
-        //Tell user that checkbox is required >>APP_FOLDER/scripts/alerts.js<<
+        //Tell user that checkbox is required >>APP_FOLDER/source/scripts/alerts.js<<
         database_acknowledgment('deleteIconWrapperID', 'First check caution button to delete database', 'warning', 'databaseDeleteAlert', 'deleteIconWrapperID');
     }
     
@@ -257,28 +257,28 @@ function delete_database(){
 /**
  * FUNCTION TO PERSIST DATABASE OF THE APP SO IT DON'T GET DELETED AUTOMATICALLY
  * OS DELETES DATABASE WHEN IT EXCEEDS QUOTA TO AVOID THAT WE PERSIST DATABASE
- * CHECK >>APP_FOLDER/scripts/importExportDatabase.js<< FOR INNER WORKING
+ * CHECK >>APP_FOLDER/source/scripts/importExportDatabase.js<< FOR INNER WORKING
  */
 function persist_database(){
     
-    //call import export script function >>APP_FOLDER/scripts/importExportDatabase.js<<
+    //call import export script function >>APP_FOLDER/source/scripts/importExportDatabase.js<<
     var isPersisted = importExportDB.init_storage_persistence();
     
     //pass acknowledgment
     isPersisted.then(function(result){
         console.log('yes p');
-        //>>APP_FOLDER/scripts/alerts.js<<
+        //>>APP_FOLDER/source/scripts/alerts.js<<
         database_acknowledgment('dataPersistance', result, 'success', 'databasePersistAlert', 'persistDataButton');
     });
 }
 
 /**
  * FUNCTION TO CHECK IF DATABASE IS PERSISTED
- * CHECK >>APP_FOLDER/scripts/importExportDatabase.js<< FOR INNER WORKING
+ * CHECK >>APP_FOLDER/source/scripts/importExportDatabase.js<< FOR INNER WORKING
  */
 function is_database_persisted(){
     
-    //call import export script function >>APP_FOLDER/scripts/importExportDatabase.js<<
+    //call import export script function >>APP_FOLDER/source/scripts/importExportDatabase.js<<
     var isPersisted = importExportDB.is_storage_persisted();
     
     //pass acknowledgment
@@ -289,11 +289,11 @@ function is_database_persisted(){
 
 /**
  * FUNCTION TO CHECK AVAILABLE SPACE
- * CHECK >>APP_FOLDER/scripts/importExportDatabase.js<< SCRIPT FOR WORKING PROCESS
+ * CHECK >>APP_FOLDER/source/scripts/importExportDatabase.js<< SCRIPT FOR WORKING PROCESS
  */
 function database_storage_quota(){
 
-    //call import export script function >>APP_FOLDER/scripts/importExportDatabase.js<<
+    //call import export script function >>APP_FOLDER/source/scripts/importExportDatabase.js<<
     var data = importExportDB.show_estimated_quota();
 
     //pass information

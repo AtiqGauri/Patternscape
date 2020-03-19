@@ -1,7 +1,7 @@
 //REQUIRE PATH PACKAGE TO HANDLE FILE ADDRESSES
 const path = require('path');
 
-//IMPORT BROWSERWINDOW TO CREATE CHILD WINDOWS
+//IMPORT BrowserWindow TO CREATE CHILD WINDOWS
 const { BrowserWindow } = require('electron').remote;
 
 //REQUIRE SHELL TO OPEN DEFAULT APPLICATION LIKE TEXT EDITOR WITH A DATAFILE IN IT
@@ -85,14 +85,21 @@ function output_of_stats_generator(){
 		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
     }
 
+	//alert sound should be played finally in all conditions
+	shell.beep();
+}
+
+/**
+ * FUNCTION TO OPEN A NEW WINDOW WITH SAMPLE OF GENERATED PATTERN CATEGORIES
+ * THIS WINDOW WILL ONLY CONTAIN AT MAX 100 SAMPLES BUT WILL TELL USER TOTAL COUNT.
+ */
+function sample_of_pattern_categories(){
 	//open a new window to show generated pattern categories 
 	categoryWindow = new BrowserWindow({width: 1280, height: 720, title: "Pattern Categories", autoHideMenuBar: true, 
 	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	categoryWindow.loadFile('./source/htmls/patternsCategories.html');
-
-	//alert sound should be played finally in all conditions
-	shell.beep();
 }
+
 
 /**
  * FUNCTION TO OPEN IMPORT EXPORT DATABASE FOLDER 
@@ -131,7 +138,7 @@ function pattern_lookup(){
 	frame: false, backgroundColor: '#F2F2F2', webPreferences: {nodeIntegration: true,}});
 	patternDataWindow.loadFile('./source/htmls/patternData.html');
 
-	//get address of selected pattern  >>APP_FOLDER/scripts/databaseInit.js<<
+	//get address of selected pattern  >>APP_FOLDER/source/scripts/databaseInit.js<<
 	get_address_of_pattern_file(input).then(function(result) {
 		var fileAddress;
 		for (i = 0; i < result.length; i++) {
@@ -210,7 +217,7 @@ function target_user_pattern(){
 				}
 			}
 
-            //find top most popular pattern matching given data >>APP_FOLDER/scripts/databaseInit.js<<
+            //find top most popular pattern matching given data >>APP_FOLDER/source/scripts/databaseInit.js<<
             equals_any_of(temp).then(function(passwordPatterns) {
 
 				//array to store generated password reflecting actual info given by user
@@ -249,7 +256,7 @@ function target_user_pattern(){
 					});
 				},1200);
 
-				//target user loading alert >>APP_FOLDER/scripts/alerts.js<<
+				//target user loading alert >>APP_FOLDER/source/scripts/alerts.js<<
 				target_alerts(cTarget='targetContentContainer', cTitle='Processing', cClass='targetAlerts', cTime=2000);
 			});
 			
@@ -305,7 +312,7 @@ function catch_target_password(){
 	if(email == ''){
 		email = "";
 	}
-	//Call function to process password and generate patterns >>APP_FOLDER/renderer.js<<
+	//Call function to process password and generate patterns >>APP_FOLDER/source/renderer.js<<
 	target_password_patterns(password, email);
 }
 
