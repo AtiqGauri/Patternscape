@@ -17,10 +17,10 @@ PROJECT SETTINGS
 int main()
 {
 	auto start = APILayer::time_stamp();
-	APILayer::main_program(4);
+	//APILayer::main_program(4);
 	//APILayer::pattern_stats(2);
-	//string str = APILayer::process_target("idontknowthatyet", "");
-	//cout << "\n" << str << "\n";
+	string str = APILayer::process_target("idontknowthatyet", "");
+	cout << "\n" << str << "\n";
 	auto stop = APILayer::time_stamp();
 	cout << "Program RunTime:  "; APILayer::time_elapsed(start, stop);
 	

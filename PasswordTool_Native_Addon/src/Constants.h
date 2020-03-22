@@ -107,7 +107,7 @@ public:
 	static const string defaultEmailString;
 	
 	//TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
-	static const string singleTargetFileAddress;
+	static const string singleTargetFileDirectory;
 
 	//TEMPORARY FOLDER ADDRESS
 	static const string tempFolderAddress;

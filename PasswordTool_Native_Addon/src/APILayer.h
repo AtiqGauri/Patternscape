@@ -301,24 +301,33 @@ namespace APILayer {
 		vector<string> tempVector;
 		tempVector.push_back(targetEmail + Constants::inputDelimiter + targetPassword);
 		
+		//create a temporary directory to operate in
+		filesystem::create_directory(Constants::singleTargetFileDirectory);
 		//store vector into a file to process it
-		FileHandler::write_file(tempVector, Constants::singleTargetFileAddress);
-		
+		FileHandler::write_file(tempVector, Constants::singleTargetFileDirectory+"single_target.txt");
+
 		//pass it to main process
-		APILayer::main_program(1, Constants::tempFolderAddress, Constants::tempFolderAddress);
+		APILayer::main_program(1, Constants::singleTargetFileDirectory, Constants::singleTargetFileDirectory);
 		
 		//clear vector
 		tempVector.clear();
+		//delete input file
+		if (remove((Constants::singleTargetFileDirectory + "single_target.txt").c_str()) != 0) {
+			cout << "Error deleting file" + (Constants::singleTargetFileDirectory + "single_target.txt") + "\n";
+		}
 
 		//read output file then delete it
-		string filePath = Constants::tempFolderAddress + "0output.txt", resultString = "";
-		FileHandler::read_file(tempVector, filePath);
-		if (remove(filePath.c_str()) != 0) {
-			cout << "Error deleting file" + filePath + "\n";
+		string filePath, resultString = "";
+
+		//get address of output file
+		for (const auto& entry : filesystem::recursive_directory_iterator(Constants::singleTargetFileDirectory)) {
+			filePath = entry.path().string();
 		}
 		
-		//delete input vector containing file
-		filePath = Constants::singleTargetFileAddress;
+		//read output
+		FileHandler::read_file(tempVector, filePath);
+		
+		//delete output vector containing file
 		if (remove(filePath.c_str()) != 0) {
 			cout << "Error deleting file" + filePath + "\n";
 		}

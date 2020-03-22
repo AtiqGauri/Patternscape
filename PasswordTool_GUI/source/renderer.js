@@ -183,6 +183,7 @@ function target_user_pattern(){
 			//if user entered a password then this will call a function to- 
 			//display patterns in that password
 			if(password!=''){
+				//>>APP_FOLDER/source/scripts/process.js<<
 				target_password_patterns(password, email);
 			}
 
@@ -312,7 +313,7 @@ function catch_target_password(){
 	if(email == ''){
 		email = "";
 	}
-	//Call function to process password and generate patterns >>APP_FOLDER/source/renderer.js<<
+	//Call function to process password and generate patterns >>APP_FOLDER/source/scripts/process.js<<
 	target_password_patterns(password, email);
 }
 

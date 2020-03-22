@@ -19,13 +19,11 @@ PasswordTool_GUI/data/Output/*
 #Output folder
 PasswordTool_GUI/data/Input/*
 !PasswordTool_GUI/data/Input/Error Log
-!PasswordTool_GUI/data/Input/resizedFile1.txt
 
 #Stats folder
 PasswordTool_GUI/data/Stats/*
 PasswordTool_GUI/data/Stats/Patterns Data/*
 !PasswordTool_GUI/data/Stats/Error Log
-!PasswordTool_GUI/data/Stats/Patterns.txt
 !PasswordTool_GUI/data/Stats/Patterns Data/Error Log
 
 #Temp folder
@@ -57,7 +55,6 @@ PasswordTool_Native_Addon/data/Output/*
 #Output folder
 PasswordTool_Native_Addon/data/Input/*
 !PasswordTool_Native_Addon/data/Input/Error Log
-!PasswordTool_Native_Addon/data/Input/resizedFile1.txt
 
 #Stats folder
 PasswordTool_Native_Addon/data/Stats/*
@@ -89,7 +86,6 @@ PasswordTool_CPP_Backend/data/Output/*
 #Output folder
 PasswordTool_CPP_Backend/data/Input/*
 !PasswordTool_CPP_Backend/data/Input/Error Log
-!PasswordTool_CPP_Backend/data/Input/resizedFile1.txt
 
 #Stats folder
 PasswordTool_CPP_Backend/data/Stats/*

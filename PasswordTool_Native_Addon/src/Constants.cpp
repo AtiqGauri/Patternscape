@@ -102,7 +102,7 @@ const string Constants::outputFileName = "output.txt";
 const string Constants::defaultEmailString = "*****@*****.com";
 
 //TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
-const string Constants::singleTargetFileAddress = "data/Temp/singlePassword.txt";
+const string Constants::singleTargetFileDirectory = "data/Temp/single_target_files/";
 
 //TEMPORARY FOLDER ADDRESS
 const string Constants::tempFolderAddress = "data/Temp/";

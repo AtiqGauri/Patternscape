@@ -9,23 +9,28 @@
     "postinstall": "first copy addon files into app source folder then install electron builder deps",
     "start": "start the app",
     "pack": "package app at given location",
-    "dist": "package app"
+    "dist": "operations before dist creation and then package app"
   },
   "scripts": {
-    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node copyCppFiles.js && npm install ../PasswordTool_Native_Addon --no-save)",
-    "postinstall": "(node copyNativeAddon.js && install-app-deps)",
+    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node ../Tests_and_assets/project_operations/copyCppFiles.js && npm install ../PasswordTool_Native_Addon --no-save)",
+    "postinstall": "(node ../Tests_and_assets/project_operations/copyNativeAddon.js && install-app-deps)",
     "start": "electron ./",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "(node ../Tests_and_assets/project_operations/beforeNpmDist.js && electron-builder)"
   },
   "build": {
     "appId": "com.atiqgauri",
     "files": [
-      "source/**/*",
-      "preload.js"
+      "source/**/*"
     ],
     "extraFiles": [
-      "data/**/*"
+      "data/Database/Error Log",
+      "data/Input/Error Log",
+      "data/Input/sample_input.txt",
+      "data/Output/Error Log",
+      "data/Stats/Error Log",
+      "data/Stats/Patterns Data/Error Log",
+      "data/Temp/Error Log"
     ],
     "win": {
       "target": "nsis",
