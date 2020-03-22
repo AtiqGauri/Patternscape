@@ -31,6 +31,8 @@ var patternTagCounter, popularityCounter=0;
 var ulContainer = document.querySelector('#passwordList'); 
 //VARIABLES REQUIRED TO MAKE A ROW 
 var li, ul, dt, dd, splitter, i;
+//LIMIT ELEMENTS IN DOM
+var limitElement = 100;
 
 //CATCH THE PATTERN DATA FILE ADDRESS SENT BY PARENT WINDOWS 
 ipc.on('message', (event, patternString, fileAddress) => {
@@ -58,42 +60,45 @@ ipc.on('message', (event, patternString, fileAddress) => {
     //loop to iterate over file
     while(line = liner.next()){
         
-        //this will split password and it detected parts in tokens
-        splitter = line.toString().split('<|>');
+        if(limitElement>0){
+            //this will split password and it detected parts in tokens
+            splitter = line.toString().split('<|>');
 
-        //Create list element, This represents a single password and its associated data.
-        li = document.createElement('li');
-        
-        //reflect password
-        li.innerHTML = 'Password: ' + splitter[0];
-        li.style.padding = "2% 0% 2% 3%";
-        li.style.textShadow = "1px 1px 1px rgba(255, 255, 255, 1)";
-        
-        //Create ul element, this will contain all the detected parts of password.
-        ul = document.createElement('ul');
-
-        //loop to iterate over all the detected parts of password
-        for(i=0; i<patternTagCounter; i++){
-
-            //Create dt element, this will represent a single value(detected part)
-            dt = document.createElement('dt');
-            //reflect dt value
-            dt.innerHTML = splitter[1 + (i*2)];
+            //Create list element, This represents a single password and its associated data.
+            li = document.createElement('li');
             
-            //Create dd element, this will represent properties(length, position) associated to detected part
-            dd = document.createElement('dd');
-            //reflect dd value
-            dd.innerHTML = splitter[1 + (i*2) + 1];
+            //reflect password
+            li.innerHTML = 'Password: ' + splitter[0];
+            li.style.padding = "2% 0% 2% 3%";
+            li.style.textShadow = "1px 1px 1px rgba(255, 255, 255, 1)";
             
-            //append elements to their parents
-            ul.appendChild(dt);
-            ul.appendChild(dd);
+            //Create ul element, this will contain all the detected parts of password.
+            ul = document.createElement('ul');
+
+            //loop to iterate over all the detected parts of password
+            for(i=0; i<patternTagCounter; i++){
+
+                //Create dt element, this will represent a single value(detected part)
+                dt = document.createElement('dt');
+                //reflect dt value
+                dt.innerHTML = splitter[1 + (i*2)];
+                
+                //Create dd element, this will represent properties(length, position) associated to detected part
+                dd = document.createElement('dd');
+                //reflect dd value
+                dd.innerHTML = splitter[1 + (i*2) + 1];
+                
+                //append elements to their parents
+                ul.appendChild(dt);
+                ul.appendChild(dd);
+            }
+            li.appendChild(ul);
+            ulContainer.appendChild(li);
         }
-        li.appendChild(ul);
-        ulContainer.appendChild(li);
-
         //increase popularity counter
         popularityCounter++;
+        //increase element limiter
+        limitElement--;
     }
 
     if(popularityCounter==0){

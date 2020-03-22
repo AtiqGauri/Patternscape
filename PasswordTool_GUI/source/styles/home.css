@@ -118,11 +118,33 @@
     background-color: var(--database-blue); 
     color: white;
 }
+
+/********serach results popularity*********/
+#searchPatternPopularity{
+    position: absolute;
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    width: fit-content;
+    right: 1%;
+    color: var(--white-like);
+    font-size: 2vh;
+    background-color: var(--database-blue);
+    border-radius: 50px;
+    transform: translateY(-18%);
+}
+.autocomplete-items div:hover #searchPatternPopularity{
+    background-color: var(--process-yellow);
+}
+#searchPatternPopularity:hover{
+    background-color: var(--blood-red) !important;
+}
   
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
     background-color: var(--database-blue) !important; 
     color: white !important; 
+}
+.autocomplete-active #searchPatternPopularity{
+    background-color: var(--process-yellow) !important;
 }
 
 .homeSubmit{

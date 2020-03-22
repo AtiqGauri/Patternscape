@@ -149,7 +149,7 @@ function analyze_passwords_emails(){
 				return;
 			}
 		}else{
-			console.error('data/Database/ folder doesn\'t exist');
+			console.error('data/Input/ folder doesn\'t exist');
 		}
 
 		//initalizing web worker
@@ -192,6 +192,10 @@ function analyze_passwords_emails(){
 		//handle exception or error thrown by web worker
 		worker1.onerror = function (event) {
 			console.log(event.message, event);
+			//terminate webworker
+			worker1.terminate();
+			//set it to undefined
+			worker1 = undefined;
 			//stop loading bar
 			document.querySelector("#progressAnimation").style.display = "none";
 			//>>APP_FOLDER/source/scripts/alerts.js<<
@@ -245,7 +249,7 @@ function generate_statistics(){
 		if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Output')).length <= 1){
 			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
-			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Processed Data" folder, then try again (*consider required format)</b>',
+			cHtml='<b style="margin: 0 4vw 0 1vw;">First analyze some raw data in previous analyzation process then try again</b>',
 			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
 			document.querySelector("#progressAnimation").style.display = "none";
 			bAnalyzer = true;
@@ -255,14 +259,14 @@ function generate_statistics(){
 		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Output')).length <= 1){
 			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
-			cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Processed Data" folder, then try again (*consider required format)</b>',
+			cHtml='<b style="margin: 0 4vw 0 1vw;">First analyze some raw data in previous analyzation process then try again</b>',
 			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
 			document.querySelector("#progressAnimation").style.display = "none";
 			bAnalyzer = true;
 			return;
 		}
 	}else{
-		console.error('data/Database/ folder doesn\'t exist');
+		console.error('data/Output/ folder doesn\'t exist');
 	}
 
 
@@ -300,6 +304,12 @@ function generate_statistics(){
 	//handle exception or error thrown by web worker
 	worker2.onerror = function (event) {
 		console.log(event.message, event);
+
+		//terminate webworker
+        worker2.terminate();
+        //set it to undefined
+		worker2 = undefined;
+		//stop progress bar
 		document.querySelector("#progressAnimation").style.display = "none";
 		//>>APP_FOLDER/source/scripts/alerts.js<<
 		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Error</b>', 
@@ -383,6 +393,11 @@ function target_password_patterns(password, email){
 		//handle exception or error thrown by web worker
 		targetPasswordWorker.onerror = function (event) {
 			console.log(event.message, event);
+			//terminate webworker
+			targetPasswordWorker.terminate();
+			//set it to undefined
+			targetPasswordWorker = undefined;
+			//stop progress bar
 			document.querySelector("#progressAnimation").style.display = "none";
 			//>>APP_FOLDER/source/scripts/alerts.js<<
 			analyze_stats_stop_alerts(cTarget='singleUserTabID', cTitle=event.message, cIcon='error', cClass='singleUserAlerts', cTime=2000, cProgress=true);

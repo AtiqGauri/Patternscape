@@ -7,7 +7,6 @@
 #include<deque>
 #include<fstream>
 #include<algorithm>
-#include<chrono>
 #include<thread>
 //Custom Headers
 #include"FileHandler.h"
@@ -98,6 +97,8 @@ namespace APILayer {
 		vector<Comparison> compareThreadObj(totalThreads); vector<Patterns> patternThreadObj(totalThreads);
 		vector<thread> threads; threads.reserve(totalThreads);
 		size_t begint = 0, endt = 0;
+		//Variable to store time and string to make time date string
+		string currentDateTimeString;
 
 		//Resizing all the files in Input folder to size(100,000 lines per file)
 		FileHandler::resize_all_files(Constants::inputFolderAddress);
@@ -115,7 +116,7 @@ namespace APILayer {
 
 		//process files
 		auto start2 = time_stamp();
-		int fileCounter = 0;
+		long long int fileCounter = 0;
 		while (file != filePaths.end()) {
 			start = time_stamp();
 			cout << "\n" << "File: " << *file << " \n";
@@ -157,9 +158,18 @@ namespace APILayer {
 				//clear thread vector for next iteration
 				threads.clear();
 			}
+
+			//get time from system clock
+			DataCleanser::systemTimeContainer = chrono::system_clock::to_time_t(chrono::system_clock::now());
+			//fill date time struct then create a data time string => time_date
+			localtime_s(&DataCleanser::dateTimeStruct, &DataCleanser::systemTimeContainer);
+			currentDateTimeString = to_string(DataCleanser::systemTimeContainer) + "_" +
+				to_string(DataCleanser::dateTimeStruct.tm_mday) + to_string(1 + DataCleanser::dateTimeStruct.tm_mon)
+				+ to_string(1900 + DataCleanser::dateTimeStruct.tm_year);
 			
-			//write output in a file 
-			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + Constants::outputFileName);
+			//write output in a file =>  fileCounter_time_date.extension
+			FileHandler::write_file(Resources::results, outputFolderPath + to_string(fileCounter) + "_" +
+				currentDateTimeString + "_" + Constants::outputFileName);
 			
 			//clear and shrink memory 
 			Resources::rawDataList.clear(); Resources::rawDataList.shrink_to_fit();

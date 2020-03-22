@@ -1,5 +1,15 @@
 #include "DataCleanser.h"
 
+/******************************************/
+//			STATIC VARIBALES
+/******************************************/
+//STRUCT TO STORE localtime_s VARIBALES >>chrono<<
+struct tm DataCleanser::dateTimeStruct;
+//time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
+time_t DataCleanser::systemTimeContainer;
+
+
+
 void DataCleanser::delimiter_remover(vector<string>& rawVector, string delimiter) {
 	/*
 		TAKES 2 PARAMETER 1. VECTOR OF STRINGS, 2. STRING(DELIMITER)

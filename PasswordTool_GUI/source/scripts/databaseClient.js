@@ -81,6 +81,10 @@ function database_worker_client(){
     //handle exception or error thrown by web worker
     worker.onerror = function (event){
         console.error(event.message, event);
+        //terminate worker
+        worker.terminate();
+        //set it to undefined
+		worker = undefined;
         //>>APP_FOLDER/source/scripts/alerts.js<<
         database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml=event.message, cIcon='error', cClass='databaseErrorAlerts', cTime=60000, cBColor='#B94955');
     };

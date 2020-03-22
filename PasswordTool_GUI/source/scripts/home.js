@@ -79,7 +79,8 @@ function autocomplete(inp) {
                 //make the matching letters bold:
                 b.innerHTML = "<strong>" + dbArray[i].pattern.substr(0, val.length) +"</strong>";
                 b.innerHTML += dbArray[i].pattern.substr(val.length);
-                //b.innerHTML += dbArray[i].pattern.substr(val.length) + "    Popularity: " +dbArray[i].popularity;
+                //add popularity with pattern name
+                b.innerHTML += dbArray[i].pattern.substr(val.length) + "<b id=\"searchPatternPopularity\">" +dbArray[i].popularity + "</b>";
 
                 //insert a input field that will hold the current array item's value:
                 b.innerHTML += "<input type='hidden' value='" + dbArray[i].pattern + "'>";

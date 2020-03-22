@@ -10,6 +10,8 @@
 #include <deque>
 #include <unordered_set>
 
+#include"DataCleanser.h"
+
 using namespace std;
 
 class FileHandler

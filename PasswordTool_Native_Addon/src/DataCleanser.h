@@ -4,6 +4,8 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<chrono>
+#include<ctime>
 
 using namespace std;
 
@@ -24,6 +26,12 @@ public:
 	void all_sub_strings(vector<string>& subStrings, string mainString);
 
 	bool is_digit(char something);
+
+	//STRUCT TO STORE localtime_s VARIBALES >>chrono<<
+	static struct tm dateTimeStruct;
+
+	//time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
+	static time_t systemTimeContainer;
 };
 
 #endif // !DATACLEANSER_H

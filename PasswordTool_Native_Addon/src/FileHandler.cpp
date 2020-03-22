@@ -183,6 +183,8 @@ void FileHandler::resize_all_files(string directoryPath) {
 	get_files_recursive(allFilesPaths, directoryPath);
 	vector<string> randomData;
 	string str;
+	//Variable to store time and string to make time date string
+	string currentDateTimeString;
 	long long int fileCounter = 1;
 	deque<vector<string>> resizedDataFiles;
 	deque<string>::iterator it = allFilesPaths.begin();
@@ -199,7 +201,16 @@ void FileHandler::resize_all_files(string directoryPath) {
 		resize_file(resizedDataFiles, randomData);
 		randomData.clear(); randomData.shrink_to_fit();
 		for (int i = 0; i < resizedDataFiles.size(); i++) {
-			write_file(resizedDataFiles[i], Constants::resizedFileName + to_string(fileCounter) + Constants::txtExtension);
+			//get time from system clock
+			DataCleanser::systemTimeContainer = chrono::system_clock::to_time_t(chrono::system_clock::now());
+			//fill date time struct then create a data time string => time_date
+			localtime_s(&DataCleanser::dateTimeStruct, &DataCleanser::systemTimeContainer);
+			currentDateTimeString = to_string(DataCleanser::systemTimeContainer) + "_" +
+				to_string(DataCleanser::dateTimeStruct.tm_mday) + to_string(1 + DataCleanser::dateTimeStruct.tm_mon)
+				+ to_string(1900 + DataCleanser::dateTimeStruct.tm_year);
+			//write resized file into input folder with unique name
+			write_file(resizedDataFiles[i], Constants::resizedFileName + "_" + to_string(fileCounter) +
+						"_" + currentDateTimeString + Constants::txtExtension);
 			fileCounter++;
 		}
 		resizedDataFiles.clear(); resizedDataFiles.shrink_to_fit();
