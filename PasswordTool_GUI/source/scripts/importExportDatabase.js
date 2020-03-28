@@ -113,6 +113,7 @@ var import_database = async function import_database(){
         //if BulkError(key already exist) then just move on
         if(error.name === "BulkError"){
           console.log('IMPORT ERROR: '+ error.message);
+          //console.log(error.failures);
         }else{
           console.log('IMPORT ERROR: '+ error );
           operationSuccess = false;

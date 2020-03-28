@@ -40,7 +40,7 @@ public:
 		//STRUCTURE TO STORE TYPE OF PATTERN AND ITS DATA
 		string address;
 		deque<string> data;
-		long long int popularity;
+		long long int popularity=0;
 	};
 	static unordered_map<string, typesOfPatternsStruct> typesOfPatternsMap;
 

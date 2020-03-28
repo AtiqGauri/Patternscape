@@ -38,10 +38,9 @@ void DataCleanser::lower_case(vector<string>& rawDataVector) {
 
 }
 
-
 void DataCleanser::all_sub_strings(vector<string>& subStrings, string mainString) {
 	subStrings.clear();
-	int len = mainString.length();
+	size_t len = mainString.length();
 	if (len < 3) {
 		cout << mainString << " string length should not be smaller than 3" << endl;
 		return;

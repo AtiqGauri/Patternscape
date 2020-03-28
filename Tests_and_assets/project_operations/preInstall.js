@@ -1,6 +1,7 @@
-//THIS FILE IS CREATED SO THAT USER DOESN'T HAVE TO MANUALLY COPY UPDATED C++ FILES, WHEN WE MAKE CHANGES IN BACKEND CODE.
-//IMPORT CPY PACKAGE
-const cpy = require('../../PasswordTool_GUI/node_modules/cpy');
+//IMPORT CPY PACKAGE TO MOVE, COPY & REPLACE FILES
+const cpy = require(__dirname + '/../../PasswordTool_GUI/node_modules/cpy');
+const fs = require('fs');
+var path = require("path");
 
 //COPY UPDATED C++ FILES INTO NATIVE ADDON SRC FOLDER
 //COPY ALL THE HEADER AND SOURCE FILES EXCEPT VS PROJECT SOURCE FILE
@@ -33,3 +34,23 @@ const cpy = require('../../PasswordTool_GUI/node_modules/cpy');
 		__dirname + '/../../PasswordTool_CPP_Backend/data/Input/'
 		);
 })();
+
+
+//DELETE BUILD FOLDER OF NATIVE ADDON BEFORE CREATING NEW ONE
+//fs.rmdirSync(__dirname + '/../../PasswordTool_Native_Addon/build', {recursive: true});
+remove_directories(__dirname + '/../../PasswordTool_Native_Addon/build');
+
+function remove_directories (dirPath) {
+    try { var files = fs.readdirSync(dirPath); }
+    catch(e) { return; }
+	if (files.length > 0){
+		for (var i = 0; i < files.length; i++) {
+			var filePath = dirPath + '/' + files[i];
+			if (fs.statSync(filePath).isFile())
+			fs.unlinkSync(filePath);
+			else
+			remove_directories(filePath);
+		}
+	}
+    fs.rmdirSync(dirPath);
+};

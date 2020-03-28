@@ -202,7 +202,7 @@ p {
     background-color: transparent;
     left: 99.3%;
     top: 105%;
-    width: 50%;
+    width: 52%;
     height: 50%;
     font-style: light;
     font-weight: 900;
@@ -211,7 +211,7 @@ p {
 .impInputFolder{
     position: absolute;
     margin-top: -10%;
-    margin-left: 31%;
+    margin-left: 25%;
     padding: 9%;
     width: 81%;
     font-size: 2.5vh;

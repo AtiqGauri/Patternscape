@@ -186,8 +186,12 @@ namespace APILayer {
 		//Processed
 	}
 
+	/*
+		STATS GENERATOR HELPER FUNCTION ASSIGN TASKS TO THREADS
+	*/
 	void stats_thread(StatsGenerator& obj, string str) {
 		obj.patterns_classifier(str);
+		obj.clear_and_shrink();
 	}
 
 	void pattern_stats(int numberOfThreads = 2) {
@@ -204,9 +208,11 @@ namespace APILayer {
 		}
 		
 		if (filePaths.size() >= numberOfThreads) {
-			
 			//Declare threads to process data faster
-			vector<thread> threads; threads.reserve(numberOfThreads);
+			vector<thread> threads;
+
+			//reservev thread vector size 
+			threads.reserve(numberOfThreads);
 
 			//Declare objects to pass in threads for thread safe execution
 			vector<StatsGenerator> statsObj(numberOfThreads);
@@ -228,7 +234,6 @@ namespace APILayer {
 				//Join all the threads to main thread
 				threadIt = 0;
 				while (threadIt != runningThreads) {
-					
 					threads[threadIt].join();
 					threadIt++;
 				}
@@ -237,19 +242,19 @@ namespace APILayer {
 				//Write Types of patterns to files
 				StatsGenerator::write_pattern_statstics_files();
 			}
-			
-			StatsGenerator::write_key_patterns();
 
 			//Clear and Shrink all the containers 
 			threads.shrink_to_fit();
 		}   
 		else {
+			//Declare threads to process data faster
+			vector<thread> threads;
 
 			//Thread objects
 			vector<StatsGenerator> statsObj(filePaths.size());
 
-			//Declare threads to process data faster
-			vector<thread> threads; threads.reserve(filePaths.size());
+			//reserve threads vector
+			threads.reserve(filePaths.size());
 
 			//objects Counter
 			int objC = 0;
@@ -273,10 +278,22 @@ namespace APILayer {
 			//Write Types of patterns to files
 			StatsGenerator::write_pattern_statstics_files();
 
-			StatsGenerator::write_key_patterns();
-
 			//Clear and Shrink all the containers 
 			threads.shrink_to_fit();
+		}
+
+		//Remove redundant/duplicate pattern data records and update thier popularity accordingly
+		StatsGenerator::remove_redundant_pattern_data(2);
+
+		//write main pattern stats map to a special file
+		//this file represent pattern categories (PATTERN:ADDRESS:POPULARITY) 
+		StatsGenerator::write_key_patterns();
+
+		//delete files as we have generated stats out of them
+		for (int i = 0; i < filePaths.size(); i++) {
+			if (remove(filePaths[i].c_str()) != 0) {
+				cout << "ERROR: while deleting file: " + filePaths[i] << endl;
+			}
 		}
 	}
 

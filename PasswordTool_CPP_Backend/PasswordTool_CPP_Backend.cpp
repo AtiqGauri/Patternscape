@@ -18,9 +18,16 @@ int main()
 {
 	auto start = APILayer::time_stamp();
 	//APILayer::main_program(4);
-	//APILayer::pattern_stats(2);
-	string str = APILayer::process_target("idontknowthatyet", "");
-	cout << "\n" << str << "\n";
+	APILayer::pattern_stats(2);
+	//string str = APILayer::process_target("idontknowthatyet", "");
+	//cout << "\n" << str << "\n";
+	
+	/*
+	vector<string> vec;
+	FileHandler::read_file(vec, "data/Stats/Patterns Data/Common1.txt");
+	DataCleanser::remove_vector_duplicates(vec);
+	FileHandler::write_file(vec, "out.txt");
+	*/
 	auto stop = APILayer::time_stamp();
 	cout << "Program RunTime:  "; APILayer::time_elapsed(start, stop);
 	

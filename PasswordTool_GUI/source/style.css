@@ -319,6 +319,7 @@ body {
 .tabContentArea{
     position:relative;
     background-color: transparent;
+    overflow: hidden;
 }
 /****************NAV and MAIN END********************/
 

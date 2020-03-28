@@ -16,7 +16,7 @@ function autocomplete(inp) {
     var currentFocus;
     //when input bar is focused
     inp.addEventListener("focus", function(e) {
-        this.parentNode.setAttribute("class", "searchBarContainer focused");
+        setTimeout(() => { this.parentNode.setAttribute("class", "searchBarContainer focused") }, 200);
     });
     //when input bar is unfocused
     inp.addEventListener("blur", function(e) {
@@ -77,10 +77,10 @@ function autocomplete(inp) {
                 b = document.createElement("DIV");
                 
                 //make the matching letters bold:
-                b.innerHTML = "<strong>" + dbArray[i].pattern.substr(0, val.length) +"</strong>";
-                b.innerHTML += dbArray[i].pattern.substr(val.length);
+                b.innerHTML ="<strong>" + dbArray[i].pattern.substr(0, val.length) +"</strong>" 
+                + dbArray[i].pattern.substr(val.length);
                 //add popularity with pattern name
-                b.innerHTML += dbArray[i].pattern.substr(val.length) + "<b id=\"searchPatternPopularity\">" +dbArray[i].popularity + "</b>";
+                b.innerHTML += "<b id=\"searchPatternPopularity\">" +dbArray[i].popularity + "</b>";
 
                 //insert a input field that will hold the current array item's value:
                 b.innerHTML += "<input type='hidden' value='" + dbArray[i].pattern + "'>";

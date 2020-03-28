@@ -102,6 +102,7 @@
 
     font-family: Montserrat;
     font-weight: 900;
+    cursor: pointer;
     /*position the autocomplete items to be the same width as the container:*/
 }
   
@@ -111,6 +112,8 @@
     color: var(--blood-red);
     background-color: var(--white-like); 
     border-bottom: 1px solid var(--white-like); 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
   
 /*when hovering an item:*/
@@ -119,12 +122,12 @@
     color: white;
 }
 
-/********serach results popularity*********/
+/********search results popularity*********/
 #searchPatternPopularity{
     position: absolute;
     padding: 0.5% 0.5% 0.5% 0.5%;
     width: fit-content;
-    right: 1%;
+    right: 1.5%;
     color: var(--white-like);
     font-size: 2vh;
     background-color: var(--database-blue);
@@ -149,7 +152,7 @@
 
 .homeSubmit{
     position: absolute;
-    top: 50%;
+    top: 50.5%;
     left: 68%;
     background-color: var(--white-like);
     color: var(--blood-red);
@@ -176,7 +179,7 @@
 }
 
 .searchBarContainer.focused~.homeSubmit{
-    top: 10%;
+    top: 10.5%;
     left: 87.5%;
     transition: 1s ease;
 }

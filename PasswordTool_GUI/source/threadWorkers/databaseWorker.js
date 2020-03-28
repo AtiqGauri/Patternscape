@@ -44,10 +44,24 @@ database.transaction('rw', database.Patterns, async () => {
       address: splitter[1],
       popularity: splitter[2]
     }).then(function(){
-      addedRecords++ 
+      addedRecords++;
       lineNumber++; 
-    }).catch(function (e) {
-      console.log(e.message);
+    }).catch(async function (e) {
+      //if record already exist in database then
+      if((e.name == "ConstraintError") && (e.message == 'Key already exists in the object store.')){
+        //check if popularity is greater than what we have in database
+        await database.Patterns.where('pattern')
+          .equalsIgnoreCase(splitter[0])
+          .and(function(record) { return record.popularity < splitter[2];})
+          .toArray (function (isSmall) {
+            //if yes then update popularity
+            if(isSmall.length){
+              database.Patterns.where('pattern').equals(splitter[0]).modify({"popularity": splitter[2]});
+            }
+          });
+      }else{
+        console.error(e.name + ': ' +e.message);
+      }
       duplicates++;
       lineNumber++;
     });

@@ -59,9 +59,9 @@
   }
   
 #progressPercent{
-  display: none;
 }
 
 #percentageCircle{
+  display: none;
   fill: var(--blood-red);
 }

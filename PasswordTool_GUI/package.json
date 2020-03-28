@@ -12,8 +12,8 @@
     "dist": "operations before dist creation and then package app"
   },
   "scripts": {
-    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node ../Tests_and_assets/project_operations/copyCppFiles.js && npm install ../PasswordTool_Native_Addon --no-save)",
-    "postinstall": "(node ../Tests_and_assets/project_operations/copyNativeAddon.js && install-app-deps)",
+    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node ../Tests_and_assets/project_operations/preInstall.js && npm install ../PasswordTool_Native_Addon --no-save)",
+    "postinstall": "(node ../Tests_and_assets/project_operations/postInstall.js && install-app-deps)",
     "start": "electron ./",
     "pack": "electron-builder --dir",
     "dist": "(node ../Tests_and_assets/project_operations/beforeNpmDist.js && electron-builder)"

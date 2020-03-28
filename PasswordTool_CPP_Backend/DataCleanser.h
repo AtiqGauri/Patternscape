@@ -23,6 +23,22 @@ public:
 	*/
 	static void lower_case(vector<string>& rawDataVector);
 
+	/*
+		FUNCTION TO REMOVE DUPLICATE ELEMENTS IN A VECTOR 
+		STEP 1. FIRST SORT VECTOR SO THAT ALL DUPLICATES STAY TOGETHER
+		STEP 2. REMOVE DUPILCATES USING std::unique AND std::erase
+	*/
+	template <typename T>
+	static void remove_vector_duplicates(vector<T>& dirtyVector){
+		/*
+			FUNCTION TO REMOVE DUPLICATE ELEMENTS IN A VECTOR
+			STEP 1. FIRST SORT VECTOR SO THAT ALL DUPLICATES STAY TOGETHER
+			STEP 2. REMOVE DUPILCATES USING std::unique AND std::erase
+		*/
+		sort(dirtyVector.begin(), dirtyVector.end());
+		dirtyVector.erase(unique(dirtyVector.begin(), dirtyVector.end()), dirtyVector.end());
+	}
+
 	void all_sub_strings(vector<string>& subStrings, string mainString);
 
 	bool is_digit(char something);
