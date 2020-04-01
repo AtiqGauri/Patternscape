@@ -13,7 +13,7 @@ var worker;
  */
 function database_worker_client(){
 
-    document.querySelector("#progressAnimation").style.display = "block";
+    document.querySelector("#progressAnimation").style.display = "block";    
 
     //if statement to avoid asar packaging path alteration
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data'))){
@@ -33,13 +33,15 @@ function database_worker_client(){
 	}else{
         //if input is not available then warn user
         //>>APP_FOLDER/source/scripts/alerts.js<<
-		database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
+        database_error_alerts(cTarget='importDB', cTitle='<b style="color:#B94955;">Import Error</b>', cHtml='<b>Import directory not found</b>', cIcon='error', cClass='databaseErrorAlerts', cTime=8000, cBColor='#B94955');
 	}
 
     //initalizing web worker
     //if statement to make sure only thread run at a time
 	if(worker==undefined){
-		worker = new Worker('threadWorkers/databaseWorker.js');
+        worker = new Worker('threadWorkers/databaseWorker.js');
+        //block other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+        block_database_functionalities();
 	}else{
 		return;
 	}
@@ -58,6 +60,9 @@ function database_worker_client(){
         var newlyAdded = document.querySelector("#importDbAdded");
         var duplicates = document.querySelector("#importDbDuplicates");
         var totalRecords = document.querySelector("#importDbTotal");
+
+        //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+		unblock_database_functionalities();
         
         //count database records 
         importExportDB.get_database_count().then(function(total) {
@@ -81,6 +86,11 @@ function database_worker_client(){
     //handle exception or error thrown by web worker
     worker.onerror = function (event){
         console.error(event.message, event);
+        document.querySelector("#progressAnimation").style.display = "none";
+
+        //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+		unblock_database_functionalities();
+
         //terminate worker
         worker.terminate();
         //set it to undefined
@@ -96,6 +106,8 @@ function database_worker_client(){
 function stop_database_import(){
     //close loading bar
 	document.querySelector("#progressAnimation").style.display = "none";
+    //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+	unblock_database_functionalities();
     if(worker!=undefined){
         //terminate webworker
 		worker.terminate();
@@ -120,12 +132,17 @@ function database_export_client(){
 
     //start loading bar
     document.querySelector("#progressAnimation").style.display = "block";
+
+    //block other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+    block_database_functionalities();
     
     //total exported records container
     var totalRecords = document.querySelector("#expTotal");
 
     //count total database records
     importExportDB.get_database_count().then(function(total) {
+        //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+        unblock_database_functionalities();
         //check if there is any record available
         if(total == 0){
             document.querySelector("#progressAnimation").style.display = "none";
@@ -154,9 +171,10 @@ function database_export_client(){
  * STOP DATABASE EXPORT PROCESS IF REQUIRED
  */
 function stop_database_export(){
-    
     //close loading bar
     document.querySelector("#progressAnimation").style.display = "none";
+    //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+    unblock_database_functionalities();
     //acknowledgment for user >>APP_FOLDER/source/scripts/alerts.js<<
     general_stop_alerts(cTarget='exportDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
@@ -190,15 +208,18 @@ function database_import_client(){
             return;
 		}
 	}else{
-		console.error('data/Database/ folder doesn\'t exist');
+        console.error('data/Database/ folder doesn\'t exist');
 	}
-
+    //block other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+    block_database_functionalities();
     //count total number of records available in database
     importExportDB.get_database_count().then(function(total1) {
         //call import function >>APP_FOLDER/source/scripts/importExportDatabase.js<<
         importExportDB.import_database().then((importResult)=>{
             //close loading bar
             document.querySelector("#progressAnimation").style.display = "none";
+            //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+            unblock_database_functionalities();
             //if operation was successful
             if(importResult){
                 //count total number of database record AFTER IMPORTING MORE
@@ -223,6 +244,8 @@ function database_import_client(){
 function stop_down_database_import(){
     //close loading bar
     document.querySelector("#progressAnimation").style.display = "none";
+    //unblock other resource heavy processes //>>APP_FOLDER/source/scripts/databaseClient.js<<
+    unblock_database_functionalities();
     //acknowledge user >>APP_FOLDER/source/scripts/alerts.js<<
     general_stop_alerts(cTarget='importDownDB', cTitle='Stopped', cIcon='warning', cClass='databaseImportAlert');
 }
@@ -305,4 +328,34 @@ function database_storage_quota(){
         //reflect result in UI
         document.querySelector("#availableQuota").innerHTML = 'Using ' + (value.usage / value.quota * 100).toFixed(4)  + '% of Available Quota';
     });
+}
+
+/**
+ * FUNCTION TO BLOCK FUNCTIONALITIES WHILE PROCESSING DATABASE PROCESSES
+ * THIS WILL CHANGE ONCLICK FUNCTIONALITIES OF BUTTON TO SHOW
+ * A POP TELLING USER TO WAIT.
+ * TO UNBLOCK FUNCTIONALITY AGAIN CALL "unblock_database_functionalities()"
+ */
+function block_database_functionalities(){
+    //block process tab
+	document.querySelector("#processTabButton").style.cursor = "not-allowed";
+	document.querySelector("#processTabButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/alerts.js<<
+		general_stop_alerts(cTarget='databaseUpperBox', cTitle='Wait for process to finish', 
+		cIcon='warning', cClass='processStopAlerts', cTime=1500);
+    };
+}
+
+/**
+ * FUNCTION TO UNBLOCK FUNCTIONALITIES WHICH ARE BLOCKED BECAUSE 
+ * OTHER RESOURCE HEAVY PROCESSES WERE TAKING PALACE.
+ * THIS WILL CHANGE ONCLICK FUNCTIONALITIES OF BUTTON TO NORMAL CALLS.
+ */
+function unblock_database_functionalities(){
+    //block process tab
+	document.querySelector("#processTabButton").style.cursor = "pointer";
+	document.querySelector("#processTabButton").onclick = function() {
+        //>>APP_FOLDER/source/scripts/tabs.js<<
+        change_main_tabs(event, 'processTab');
+    };
 }

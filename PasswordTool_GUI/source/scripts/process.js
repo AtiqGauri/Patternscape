@@ -156,6 +156,8 @@ function analyze_passwords_emails(){
 		//if statement to make sure on one thread is working at a time
 		if(worker1==undefined){
 			worker1 = new Worker('threadWorkers/analyzationWorker.js');
+			//block other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+			block_pattern_generation_functionality();
 		}else{
 			return;
 		}
@@ -184,6 +186,9 @@ function analyze_passwords_emails(){
 
 			document.querySelector("#progressAnimation").style.display = "none";
 
+			//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+			unblock_pattern_generation_functionality();
+
 			//direct user to generate stats after specified seconds
 			//>>APP_FOLDER/source/scripts/alerts.js<<
 			moving_forward_to_stats();
@@ -192,6 +197,10 @@ function analyze_passwords_emails(){
 		//handle exception or error thrown by web worker
 		worker1.onerror = function (event) {
 			console.log(event.message, event);
+
+			//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+			unblock_pattern_generation_functionality();
+			
 			//terminate webworker
 			worker1.terminate();
 			//set it to undefined
@@ -212,6 +221,10 @@ function analyze_passwords_emails(){
 function stop_analyze_passwords_emails(){
 	//stop loading bar
 	document.querySelector("#progressAnimation").style.display = "none";
+
+	//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+	unblock_pattern_generation_functionality();
+
     if(worker1!=undefined){
         //terminate webworker
 		worker1.terminate();
@@ -274,6 +287,8 @@ function generate_statistics(){
 	//if statement to make sure only single thread is working at a time 
 	if(worker2==undefined){
 		worker2 = new Worker('threadWorkers/statisticsWorker.js');
+		//block other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+		block_pattern_generation_functionality();
 	}else{
 		return;
 	}
@@ -292,6 +307,9 @@ function generate_statistics(){
 		//stop loading bar
 		document.querySelector("#progressAnimation").style.display = "none";
 
+		//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+		unblock_pattern_generation_functionality();
+
 		//function to open a new window with a sample and total number- 
 		//-of pattern categories >>APP_FOLDER/renderer.js<<
 		sample_of_pattern_categories();
@@ -304,6 +322,9 @@ function generate_statistics(){
 	//handle exception or error thrown by web worker
 	worker2.onerror = function (event) {
 		console.log(event.message, event);
+
+		//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+		unblock_pattern_generation_functionality();
 
 		//terminate webworker
         worker2.terminate();
@@ -324,6 +345,10 @@ function generate_statistics(){
 function stop_generate_statistics(){
 	//stop loading bar
 	document.querySelector("#progressAnimation").style.display = "none";
+
+	//unblock other resource heavy processes //>>APP_FOLDER/source/scripts/process.js<<
+	unblock_pattern_generation_functionality();
+
     if(worker2!=undefined){
         //terminate webworker
         worker2.terminate();
@@ -424,4 +449,76 @@ function stop_target_password(){
 		//>>APP_FOLDER/source/scripts/alerts.js<<
 		general_stop_alerts(cTarget='singleUserTabID', cTitle='Empty', cIcon='info', cClass='singleUserAlerts');
 	}
+}
+
+
+/**
+ * FUNCTION TO BLOCK FUNCTIONALITY WHILE PROCESSING DATA IN
+ * PROCESS TAB.
+ * THIS WILL CHANGE ONCLICK FUNCTIONALITIES OF BUTTON TO SHOW
+ * A POP TELLING USER TO WAIT.
+ * TO UNBLOCK FUNCTIONALITY AGAIN CALL "unblock_pattern_generation_functionality()"
+ */
+function block_pattern_generation_functionality(){
+	//block single password pattern generation functionality
+	document.querySelector("#singleUserButton").style.cursor = "not-allowed";
+	document.querySelector("#singleUserButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/alerts.js<<
+		general_stop_alerts(cTarget='multiUserTabID', cTitle='Wait for process to finish', 
+		cIcon='warning', cClass='processStopAlerts', cTime=1500);
+		wait_to_process();
+	};
+	//block target tab
+	document.querySelector("#targetTabButton").style.cursor = "not-allowed";
+	document.querySelector("#targetTabButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/alerts.js<<
+		general_stop_alerts(cTarget='multiUserTabID', cTitle='Wait for process to finish', 
+		cIcon='warning', cClass='processStopAlerts', cTime=1500);
+	};
+	//bloc stats generation functionality
+	document.querySelector("#changeUserTypes").style.cursor = "not-allowed";
+	document.querySelector("#changeUserTypes").onclick = function() {
+		//>>APP_FOLDER/source/scripts/alerts.js<<
+		general_stop_alerts(cTarget='multiUserTabID', cTitle='Wait for process to finish', 
+		cIcon='warning', cClass='processStopAlerts', cTime=1500);
+	};
+	//block database tab
+	document.querySelector("#databaseTabButton").style.cursor = "not-allowed";
+	document.querySelector("#databaseTabButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/alerts.js<<
+		general_stop_alerts(cTarget='multiUserTabID', cTitle='Wait for process to finish', 
+		cIcon='warning', cClass='processStopAlerts', cTime=1500);
+	};
+}
+
+/**
+ * FUNCTION TO UNBLOCK FUNCTIONALITIES WHICH ARE BLOCKED BECAUSE 
+ * OTHER RESOURCE HEAVY PROCESSES WERE TAKING PALACE.
+ * THIS WILL CHANGE ONCLICK FUNCTIONALITIES OF BUTTON TO NORMAL CALLS.
+ */
+function unblock_pattern_generation_functionality(){
+	//block single password pattern generation functionality
+	document.querySelector("#singleUserButton").style.cursor = "pointer";
+	document.querySelector("#singleUserButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/process.js<<
+		open_process_tabs(event, 'singleUserTabID');
+	};
+	//block target tab
+	document.querySelector("#targetTabButton").style.cursor = "pointer";
+	document.querySelector("#targetTabButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/tabs.js<<
+		change_main_tabs(event, 'targetTab');
+	};
+	//bloc stats generation functionality
+	document.querySelector("#changeUserTypes").style.cursor = "pointer";
+	document.querySelector("#changeUserTypes").onclick = function() {
+		//>>APP_FOLDER/source/scripts/process.js<<
+		change_analyse_to_stats();
+	};
+	//block database tab
+	document.querySelector("#databaseTabButton").style.cursor = "pointer";
+	document.querySelector("#databaseTabButton").onclick = function() {
+		//>>APP_FOLDER/source/scripts/tabs.js<<
+		change_main_tabs(event, 'databaseTab');
+	};
 }
