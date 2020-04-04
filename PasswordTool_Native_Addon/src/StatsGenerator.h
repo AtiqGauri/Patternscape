@@ -6,6 +6,7 @@
 #include<thread>
 #include<vector>
 #include<deque>
+#include<set>
 #include<string>
 #include<algorithm>
 #include<mutex>
@@ -50,7 +51,7 @@ public:
 
 	//THREAD SAFE MEMBERS
 	//UNORDERED MAP TO STORE PATTERNS AND THEIR DATA TEMPORARILY
-	unordered_map<string, deque<string>> statsResults;
+	unordered_map<string, set<string>> statsResults;
 	
 	/*
 		FUNCTION TO CLASSIFY PATTERNS, SO THAT SAME PATTERN HAVE A SINGLE FILE FOR ITS DATA.

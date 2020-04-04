@@ -73,8 +73,8 @@ void StatsGenerator::patterns_classifier(string filePath) {
 	deque<string>::iterator dequeIt;
 	
 	//Map and iterator for temporary map operation and key search 
-	deque<string> mapDeque;
-	unordered_map<string, deque<string>>::iterator mapIt;
+	set<string> mapDeque;
+	unordered_map<string, set<string>>::iterator mapIt;
 	
 	//Temporary string for data manipulation (Can be rectified)
 	string str1,str2;
@@ -97,14 +97,14 @@ void StatsGenerator::patterns_classifier(string filePath) {
 			if (mapIt != statsResults.end())
 			{
 				//If pattern exist in current temporary map then we just add another
-				//data string to its deque
-				mapIt->second.push_back(str1.substr(foundValue + 3));
+				//data string to its temp std::set
+				mapIt->second.insert(str1.substr(foundValue + 3));
 			}
 			else
 			{
 				//Else we add data string to temporary deque and then, add pattern
-				//and that deque as a new element in current temporary map
-				mapDeque.push_back(str1.substr(foundValue + 3));
+				//and that std::set as a new element in current temporary map
+				mapDeque.insert(str1.substr(foundValue + 3));
 				statsResults.insert({ str2, mapDeque });
 				mapDeque.clear();
 			}
@@ -113,7 +113,6 @@ void StatsGenerator::patterns_classifier(string filePath) {
 	}
 	//Clear and shrink all the containers 
 	tempDeque.clear(); tempDeque.shrink_to_fit();
-	mapDeque.shrink_to_fit();
 
 	//Store statsResult(temporary map) to main Resource class map
 	store_classified_patterns();
@@ -132,7 +131,7 @@ void StatsGenerator::store_classified_patterns() {
 	*/
 
 	//Iterator for statsResult( temporary thread map ) 
-	unordered_map<string, deque<string>>::iterator mapIt;
+	unordered_map<string, set<string>>::iterator mapIt;
 	
 	//Iterator for Key search in main Resource class map
 	unordered_map<string, Resources::typesOfPatternsStruct>::iterator keyIt;
@@ -153,13 +152,14 @@ void StatsGenerator::store_classified_patterns() {
 			keyIt->second.data.insert(keyIt->second.data.end(), mapIt->second.begin(), mapIt->second.end());
 		}
 		else {
-			tempStruct.address = ""; tempStruct.data = mapIt->second; tempStruct.popularity = 0;
+			tempStruct.address = ""; tempStruct.data.assign(mapIt->second.begin(), mapIt->second.end()); tempStruct.popularity = 0;
 			//Else we add pattern and deque as a new element into main map
 			Resources::typesOfPatternsMap.insert({ mapIt->first, tempStruct });
+			tempStruct.data.clear();
 		}
-		
 		mapIt++;
 	}
+	tempStruct.data.shrink_to_fit();
 }
 
 void StatsGenerator::clear_and_shrink() {
@@ -167,7 +167,7 @@ void StatsGenerator::clear_and_shrink() {
 		FUNCTION TO CLEAR AND SHRINK CONTAINERS BELONG TO STATS GENERATOR CALSS
 	*/
 	for (auto mapIt = statsResults.begin(); mapIt != statsResults.end(); mapIt++) {
-		mapIt->second.clear(); mapIt->second.shrink_to_fit();
+		mapIt->second.clear();
 	}
 	statsResults.clear(); statsResults.rehash(0);
 }
@@ -331,8 +331,7 @@ void StatsGenerator::helper_to_remove_redundant_data(StatsGenerator& threadObj) 
 		HELPER FUNCTION TO REMOVE REDUNDANT DATA (THREAD SAFE FUNCTION)
 		STEP 1.	LOOP ON EACH FILE ADDRESS
 		STEP 2. FIND FILE NAME(PATTERN) IN MAIN PATTERN STATS MAP
-		STEP 3. READ UNIQUE PATTERN FILE DATA
-		STEP 4. REMOVE REDUNDANT/DUPLICATE DATA ENTRIES
+		STEP 3. READ UNIQUE PATTERN FILE DATA IN A std::set THIS WILL ONLY READ UNIQUE RECORDS
 		STEP 5. UPDATE PATTERN POPULARITY IN MAIN PATTERN STATS MAP
 		STEP 6. WRITE UNIQUE PATTERN FILE DATA
 		STEP 7. CLEAR ADN SHRINK CONTAINERS
@@ -340,7 +339,7 @@ void StatsGenerator::helper_to_remove_redundant_data(StatsGenerator& threadObj) 
 	//Iterator for Resource class map
 	unordered_map<string, Resources::typesOfPatternsStruct>::iterator mapIt;
 	//temp vector to read, write and remove data
-	vector<string> patternDataFile;
+	set<string> patternDataFile;
 	//iterate over all files address
 	for (int i = 0; i < threadObj.uniquePatternFiles.size(); i++) {
 		//find unique file name in main pattern stats map
@@ -349,8 +348,7 @@ void StatsGenerator::helper_to_remove_redundant_data(StatsGenerator& threadObj) 
 		if (mapIt != Resources::typesOfPatternsMap.end()) {
 			//read pattern data file
 			FileHandler::read_file(patternDataFile, mapIt->second.address);
-			//remove duplicate data entries
-			DataCleanser::remove_vector_duplicates(patternDataFile);
+
 			//write updated pattern data file
 			FileHandler::write_file(patternDataFile, mapIt->second.address);
 
@@ -362,6 +360,5 @@ void StatsGenerator::helper_to_remove_redundant_data(StatsGenerator& threadObj) 
 		}
 	}
 	//clear and shrink containers
-	patternDataFile.shrink_to_fit();
 	threadObj.uniquePatternFiles.clear(); threadObj.uniquePatternFiles.shrink_to_fit();
 }

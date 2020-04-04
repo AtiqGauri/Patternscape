@@ -15,17 +15,6 @@ void FileHandler::get_files_recursive(deque<string>& fileNames, string directory
 			fileNames.push_back(entry.path().string());
 		}
 	}
-	/*
-	for (const auto& entry : experimental::filesystem::recursive_directory_iterator(directoryPath))
-		if (entry.path().string() != "Error Log") {
-			fileNames.push_back(entry.path().string());
-		}
-	*/
-	/*
-	if code is working file you can delete this comment section
-	for (const auto& entry : filesystem::recursive_directory_iterator(directoryPath))
-		fileNames.push_back(entry.path().string());
-	*/
 }
 
 void FileHandler::get_files_recursive(vector<string>& fileNames, string directoryPath) {
@@ -41,13 +30,6 @@ void FileHandler::get_files_recursive(vector<string>& fileNames, string director
 			fileNames.push_back(entry.path().string());
 		}
 	}
-	/*
-	for (const auto& entry : experimental::filesystem::recursive_directory_iterator(directoryPath)){
-		if (entry.path().string() != "Error Log") {
-			fileNames.push_back(entry.path().string());
-		}
-	}
-	*/
 }
 
 void FileHandler::read_file(deque<string>& fileContent, string filePath) {
@@ -58,7 +40,7 @@ void FileHandler::read_file(deque<string>& fileContent, string filePath) {
 	ifstream input(filePath);
 
 	if (!input.is_open()) {
-		cout << "File not found " << filePath << "\n";
+		cout << "File not found: " << filePath << "\n";
 	}
 	else
 	{
@@ -79,7 +61,7 @@ void FileHandler::read_file(vector<string>& fileContent, string filePath) {
 	string str;
 	ifstream input(filePath);
 	if (!input.is_open()) {
-		cout << "File not found " << filePath << "\n";
+		cout << "File not found: " << filePath << "\n";
 	}
 	else
 	{
@@ -93,10 +75,33 @@ void FileHandler::read_file(vector<string>& fileContent, string filePath) {
 }
 
 void FileHandler::read_file(unordered_set<string>& fileContent, string filePath) {
+	/*
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN UNORDERED_SET(FILECONTENT)
+	*/
 	string str;
 	ifstream input(filePath);
 	if (!input.is_open()) {
-		cout << "File not found " << filePath << "\n";
+		cout << "File not found: " << filePath << "\n";
+	}
+	else
+	{
+		while (getline(input, str)) {
+			if (str.size() > 0) {
+				fileContent.insert(str);
+			}
+		}
+	}
+	input.close();
+}
+
+void FileHandler::read_file(set<string>& fileContent, string filePath) {
+	/*
+		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN SET(FILECONTENT)
+	*/
+	string str;
+	ifstream input(filePath);
+	if (!input.is_open()) {
+		cout << "File not found: " << filePath << "\n";
 	}
 	else
 	{
@@ -115,7 +120,7 @@ void FileHandler::write_file(deque<string>& fileContent, string filePath) {
 	*/
 	ofstream output(filePath);
 	if (!output.is_open()) {
-		cout << "There is a problem while writing a file \n"<<filePath<<"\n";
+		cout << "ERROR: Can't find existing or create a new file at this address: \n"<<filePath<<endl;
 		return;
 	}
 	for (auto it = fileContent.begin(); it != fileContent.end(); it++) {
@@ -130,7 +135,22 @@ void FileHandler::write_file(vector<string>& fileContent, string filePath) {
 	*/
 	ofstream output(filePath);
 	if (!output.is_open()) {
-		cout << "There is a problem while writing a file \n";
+		cout << "ERROR: Can't find existing or create a new file at this address: \n" << filePath << endl;
+		return;
+	}
+	for (auto it = fileContent.begin(); it != fileContent.end(); it++) {
+		output << *it << "\n";
+	}
+	output.close();
+}
+
+void FileHandler::write_file(set<string>& fileContent, string filePath) {
+	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A SET(FILECONTENT) IN IT
+	*/
+	ofstream output(filePath);
+	if (!output.is_open()) {
+		cout << "ERROR: Can't find existing or create a new file at this address: \n" << filePath << endl;
 		return;
 	}
 	for (auto it = fileContent.begin(); it != fileContent.end(); it++) {
@@ -158,6 +178,21 @@ void FileHandler::write_and_append_file(deque<string>& fileContent, string fileP
 void FileHandler::write_and_append_file(vector<string>& fileContent, string filePath) {
 	/*
 		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPEND A VECTOR(FILECONTENT) IN IT
+	*/
+	ofstream appendFile(filePath, ios::app);
+	if (!appendFile.is_open()) {
+		FileHandler::write_file(fileContent, filePath);
+		return;
+	}
+	for (auto it = fileContent.begin(); it != fileContent.end(); it++) {
+		appendFile << *it << "\n";
+	}
+	appendFile.close();
+}
+
+void FileHandler::write_and_append_file(set<string>& fileContent, string filePath) {
+	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPEND A SET(FILECONTENT) IN IT
 	*/
 	ofstream appendFile(filePath, ios::app);
 	if (!appendFile.is_open()) {

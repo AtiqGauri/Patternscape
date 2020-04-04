@@ -290,11 +290,13 @@ namespace APILayer {
 		StatsGenerator::write_key_patterns();
 
 		//delete files as we have generated stats out of them
+		/*
 		for (int i = 0; i < filePaths.size(); i++) {
 			if (remove(filePaths[i].c_str()) != 0) {
 				cout << "ERROR: while deleting file: " + filePaths[i] << endl;
 			}
 		}
+		*/
 	}
 
 	/*
