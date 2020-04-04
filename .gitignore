@@ -60,7 +60,6 @@ PasswordTool_Native_Addon/data/Input/*
 PasswordTool_Native_Addon/data/Stats/*
 PasswordTool_Native_Addon/data/Stats/Patterns Data/*
 !PasswordTool_Native_Addon/data/Stats/Error Log
-!PasswordTool_Native_Addon/data/Stats/Patterns.txt
 !PasswordTool_Native_Addon/data/Stats/Patterns Data/Error Log
 
 #Temp folder
@@ -91,7 +90,6 @@ PasswordTool_CPP_Backend/data/Input/*
 PasswordTool_CPP_Backend/data/Stats/*
 PasswordTool_CPP_Backend/data/Stats/Patterns Data/*
 !PasswordTool_CPP_Backend/data/Stats/Error Log
-!PasswordTool_CPP_Backend/data/Stats/Patterns.txt
 !PasswordTool_CPP_Backend/data/Stats/Patterns Data/Error Log
 
 #Temp folder

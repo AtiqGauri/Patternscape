@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <set>
 #include <unordered_set>
 
 #include"DataCleanser.h"
@@ -40,8 +41,16 @@ public:
 		USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN VECTOR(FILECONTENT)
 	*/
 	static void read_file(vector<string>& fileContent, string filePath);
-
+	
+	/*
+	USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN UNORDERED_SET(FILECONTENT)
+	*/
 	static void read_file(unordered_set<string>& fileContent, string filePath);
+
+	/*
+	USING IFSTREAM TO OPEN A FILE(FILEPATH) AND READING ITS CONTENT IN SET(FILECONTENT)
+	*/
+	static void read_file(set<string>& fileContent, string filePath);
 
 	/*
 		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A DEQUE(FILECONTENT) IN IT
@@ -54,6 +63,11 @@ public:
 	static void write_file(vector<string>& fileContent, string filePath);
 
 	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND WRITING A SET(FILECONTENT) IN IT
+	*/
+	static void write_file(set<string>& fileContent, string filePath);
+
+	/*
 		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPENDING A DEQUE(FILECONTENT) IN IT
 	*/
 	static void write_and_append_file(deque<string>& fileContent, string filePath);
@@ -62,6 +76,11 @@ public:
 		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPENDING A VECTOR(FILECONTENT) IN IT
 	*/
 	static void write_and_append_file(vector<string>& fileContent, string filePath);
+
+	/*
+		USING OF OFSTREAM TO OPEN A FILE(FILEPATH) AND APPENDING A SET(FILECONTENT) IN IT
+	*/
+	static void write_and_append_file(set<string>& fileContent, string filePath);
 
 	/*
 		HERE WE ARE TAKING A PATH OF DIRECTORY(DIRECTORYPATH) AND RESIZING ALL ITS CONTENT
