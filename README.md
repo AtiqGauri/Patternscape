@@ -1,12 +1,13 @@
 # PasswordTool
 
-Electron app running multithreaded c++ code to collect patterns out of raw data.</br>
+A project designed to understand different patterns out of data breaches.</br>
 </br>
 **Windows 64bit:**   [Setup](https://drive.google.com/open?id=1yWabjDeCFd34bbs4m5pPkWMHKxtHk6ds)
 </br>
 </br>
 
-**Installation**
+
+#### Installation
 ```
 git clone https://github.com/AtiqGauri/PasswordTool.git
 cd PasswordTool/PasswordTool_GUI
