@@ -11,25 +11,25 @@
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
-* [Requirements](#requirements)
 * [Download](#download)
   * [Windows](#win64)
   * [MacOS](#win64)
   * [Linux](#win64)
+* [Requirements](#requirements)
 * [Installation](#installation)
   * [64 bit (Recommended)](#64bit)
   * [32 bit](#32bit)
 * [Roadmap](#roadmap)
 
-## Requirements: <i id="requirements"></i> 
-* Nodejs [^12.16.1](https://nodejs.org/en/)
-* CMake [^3.17.1](https://cmake.org/download/)<i id="win64"></i>
-* A proper C/C++ compiler toolchain
-  * Visual Studio 2019 ([the free Community](https://visualstudio.microsoft.com/vs/community/) version works well)
-
 ## Download App (binaries) <i id="download"></i>
   * Windows
     * [64 bit](https://drive.google.com/open?id=1yWabjDeCFd34bbs4m5pPkWMHKxtHk6ds)<i id="win64"></i>
+
+## Requirements: <i id="requirements"></i> 
+* Nodejs [^12.16.1](https://nodejs.org/en/)
+* CMake [^3.17.1](https://cmake.org/download/)
+* A proper C/C++ compiler toolchain
+  * Visual Studio 2019 ([the free Community](https://visualstudio.microsoft.com/vs/community/) version works well)
 
 ## Installation: <i id="installation"></i>
 ### Architecture 64-bit (Recommended) <i id="64bit"></i>
