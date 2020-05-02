@@ -4,19 +4,28 @@
   "version": "1.0.0",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
-  "scriptsComments": {
-    "preinstall": "first install cpy package, then use it to copy updated C++ files in addon folder, then compile addon",
-    "postinstall": "first copy addon files into app source folder then install electron builder deps",
-    "start": "start the app",
-    "pack": "package app at given location",
-    "dist": "operations before dist creation and then package app"
-  },
   "scripts": {
-    "preinstall": "(npm install cpy@^8.0.1 --save-dev && node ../Tests_and_assets/project_operations/preInstall.js && npm install ../PasswordTool_Native_Addon --no-save)",
-    "postinstall": "(node ../Tests_and_assets/project_operations/postInstall.js && install-app-deps)",
+    "preinstall": "npm-run-all copy_package preinstall_actions",
+    "install": "(npm-run-all install_addon && npm install --arch=x64 electron)",
+    "install32": "npm-run-all preinstall install_32bit install_addon32bit postinstall",
+    "postinstall": "(npm-run-all postinstall_actions && install-app-deps)",
     "start": "electron ./",
-    "pack": "electron-builder --dir",
-    "dist": "(node ../Tests_and_assets/project_operations/beforeNpmDist.js && electron-builder)"
+    "dist": "npm-run-all install predist_actions build_dist postdist_actions",
+    "dist32": "npm-run-all install32 predist_actions build_dist32 postdist_actions",
+    "COMMENT0": "*                                   *",
+    "COMMENT1": "###### SUBSET COMMANDS BELOW ########",
+    "COMMENT2": "*                                   *",
+    "install_32bit": "npm install --arch=ia32 electron",
+    "preinstall_actions": "node ../Tests_and_assets/project_operations/app/beforeInstall.js",
+    "postinstall_actions": "node ../Tests_and_assets/project_operations/app/afterInstall.js",
+    "install_addon": "npm install ../PasswordTool_Native_Addon --no-save",
+    "install_addon32bit": "npm run install32 --prefix ../PasswordTool_Native_Addon --no-save",
+    "build_dist": "electron-builder --x64",
+    "build_dist32": "electron-builder --ia32",
+    "predist_actions": "node ../Tests_and_assets/project_operations/app/beforeDist.js",
+    "postdist_actions": "",
+    "npm_run_all_package": "npm i npm-run-all --save-dev",
+    "copy_package": "npm install cpy@^8.0.1 --save-dev"
   },
   "build": {
     "appId": "com.atiqgauri",
@@ -81,8 +90,9 @@
   },
   "devDependencies": {
     "cpy": "^8.0.1",
-    "electron": "^8.0.2",
-    "electron-builder": "^22.3.2"
+    "electron": "^8.2.5",
+    "electron-builder": "^22.3.2",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "dexie": "^2.0.4",

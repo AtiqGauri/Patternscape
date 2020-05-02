@@ -5,9 +5,6 @@ PasswordTool_GUI/node_modules/*
 # Platform dependent build forder
 PasswordTool_GUI/dist/*
 
-#redundent package-lock.json file
-PasswordTool_GUI/package-lock.json
-
 #database folder
 PasswordTool_GUI/data/Database/*
 !PasswordTool_GUI/data/Database/Error Log
@@ -38,11 +35,14 @@ PasswordTool_GUI/source/tool_addon/*
 # node.js modules
 PasswordTool_Native_Addon/node_modules/*
 
+# source files
+PasswordTool_Native_Addon/src/*
+!PasswordTool_Native_Addon/src/AddonAPI.cpp
+!PasswordTool_Native_Addon/src/AddonAPI.h
+
 # Platform dependent build forder
 PasswordTool_Native_Addon/build/*
 
-#redundent package-lock.json file
-PasswordTool_Native_Addon/package-lock.json
 
 #database folder
 PasswordTool_Native_Addon/data/Database/*

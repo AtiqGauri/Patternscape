@@ -108,7 +108,7 @@ var import_database = async function import_database(){
         //change it in blob
         const blob = await toBlob(stream);
         //import above blob in database
-        await database.import(blob, {prettyJson: true, filter: (table, value, key) => table === 'Patterns'});
+        await database.import(blob, {prettyJson: true, overwriteValues: true, filter: (table, value, key) => table === 'Patterns'});
       }catch(error){
         //if BulkError(key already exist) then just move on
         if(error.name === "BulkError"){

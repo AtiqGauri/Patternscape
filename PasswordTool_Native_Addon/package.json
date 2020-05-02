@@ -4,24 +4,28 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "scriptsComments": {
-    "install": "this will trigger CMakeList.txt from there c++ backend compilation will start"
-  },
   "scripts": {
-    "install": "cmake-js compile"
-  },
-  "cmake-jsComments": {
-    "runtime": "select a runtime framework here(electron)",
-    "runtimeVersion": "select electron version here",
-    "arch": "select targeted platform architecture here "
+    "preinstall": "npm-run-all preinstall_actions",
+    "install": "npm-run-all set_64arch install_addon",
+    "install32": "npm-run-all preinstall_actions set_32arch install_addon32",
+    "COMMENT0": "*                                   *",
+    "COMMENT1": "###### SUBSET COMMANDS BELOW ########",
+    "COMMENT2": "*                                   *",
+    "set_64arch": "npm config set cmake_js_arch x64",
+    "set_32arch": "npm config set cmake_js_arch ia32",
+    "install_addon": "cmake-js compile cmake -G \"Visual Studio 16 2019\" -A x64",
+    "install_addon32": "cmake-js compile cmake -G \"Visual Studio 16 2019\" -A Win32",
+    "preinstall_actions": "node scripts/beforeInstall.js",
+    "postinstall_actions": ""
   },
   "cmake-js": {
     "runtime": "electron",
     "runtimeVersion": "8.1.1",
-    "arch": "x64"
+    "arch": "ia32"
   },
   "devDependencies": {
-    "cmake-js": "^6.1.0"
+    "cmake-js": "^6.1.0",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "node-addon-api": "^2.0.0"
