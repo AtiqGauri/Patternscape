@@ -23,7 +23,7 @@ function target_alerts(cTarget, cTitle, cClass, cTime=2000){
 }
 /*****************TARGET END***********************/
 
-/*****************HOME STARTS***********************/
+/*****************HOME STARTS**********************/
 function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> Invalid pattern</b>', cHtml='<b>Start typing with E, N, M, D, C, L, U to get autocomplete suggestions<b>', cIcon='error'){
     alertComponent.fire({
         title: cTitle,

@@ -711,8 +711,8 @@ p {
 
 /****************ALERTS START*****************/
 .databaseImportAlert{
-    margin-top: 20vh;
-    margin-left: 61vw;
+    margin-top: 22.5vh;
+    margin-left: 59vw !important;
     width: 25vw !important;
     padding: 2vh 4vh 2vh 4vh;
     font-family: Montserrat;
