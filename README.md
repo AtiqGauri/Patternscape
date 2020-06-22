@@ -20,10 +20,12 @@
   * [64 bit (Recommended)](#64bit)
   * [32 bit](#32bit)
 * [Roadmap](#roadmap)
+* [License](#license)
 
 ## Download App (binaries) <i id="download"></i>
   * Windows
-    * [64 bit](https://drive.google.com/open?id=1yWabjDeCFd34bbs4m5pPkWMHKxtHk6ds)<i id="win64"></i>
+    * [64 bit](https://drive.google.com/file/d/16nwdyM9rSfKHgJSBB9Cyt7UUM8-3YI0Q/view?usp=sharing)
+    * [32 bit](https://drive.google.com/file/d/1ePijkygv75ebcmzxVePtWY7Xqr_Bkn1E/view?usp=sharing)
 
 ## Requirements: <i id="requirements"></i> 
 * Nodejs [^12.16.1](https://nodejs.org/en/)
@@ -36,14 +38,14 @@
     * Ninja or Make (Ninja will be picked if both present)
 
 ## Installation: <i id="installation"></i>
-### Architecture 64-bit (Recommended) <i id="64bit"></i>
+### 64-bit Architecture (Recommended) <i id="64bit"></i>
 ```
 git clone https://github.com/AtiqGauri/PasswordTool.git
 cd PasswordTool/PasswordTool_GUI
 npm install
 npm start
 ```
-#### Architecture 32-bit <i id="32bit"></i>
+#### 32-bit Architecture <i id="32bit"></i>
 ```
 git clone https://github.com/AtiqGauri/PasswordTool.git
 cd PasswordTool/PasswordTool_GUI
@@ -53,3 +55,7 @@ npm start
     
 ## Project Roadmap <i id="roadmap"></i>
   * [Timeline](https://paper.dropbox.com/doc/Projects-Timeline--AzP0A3Y1v5yEfAw5e8cNhcApAg-BoYhgTkFCHQ91an0uF9eg)
+
+
+## License <i id="license"></i>
+  * [MIT](https://github.com/AtiqGauri/PasswordTool/blob/master/LICENSE)
