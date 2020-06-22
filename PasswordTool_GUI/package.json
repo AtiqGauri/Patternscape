@@ -1,9 +1,10 @@
 {
   "name": "PasswordTool",
   "productName": "Password Tool",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
+  "homepage": "https://github.com/AtiqGauri/PasswordTool",
   "scripts": {
     "preinstall": "npm install npm-run-all && npm-run-all copy_package preinstall_actions",
     "install": "(npm-run-all install_addon && npm install --arch=x64 electron)",
@@ -13,7 +14,7 @@
     "dist": "npm-run-all install predist_actions build_dist postdist_actions",
     "dist32": "npm-run-all install32 predist_actions build_dist32 postdist_actions",
     "COMMENT0": "*                                   *",
-    "COMMENT1": "###### SUBSET COMMANDS BELOW ########",
+    "COMMENT1": "###### MANUAL COMMANDS BELOW ########",
     "COMMENT2": "*                                   *",
     "install_32bit": "npm install --arch=ia32 electron",
     "preinstall_actions": "node ../Tests_and_assets/project_operations/app/beforeInstall.js",
@@ -77,6 +78,19 @@
       "runAfterFinish": true
     }
   },
+  "devDependencies": {
+    "cpy": "^8.0.1",
+    "electron": "^8.3.3",
+    "electron-builder": "^22.3.2",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "dexie": "^2.0.4",
+    "dexie-export-import": "^1.0.0-rc.1",
+    "n-readlines": "^1.0.0",
+    "stream-to-blob": "^2.0.0",
+    "sweetalert2": "^9.8.2"
+  },
   "keywords": [
     "Password tool",
     "Password",
@@ -89,17 +103,5 @@
     "name": "Atiq Gauri",
     "email": "gauriatiq@gmail.com"
   },
-  "devDependencies": {
-    "cpy": "^8.0.1",
-    "electron": "^8.3.1",
-    "electron-builder": "^22.3.2",
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {
-    "dexie": "^2.0.4",
-    "dexie-export-import": "^1.0.0-rc.1",
-    "n-readlines": "^1.0.0",
-    "stream-to-blob": "^2.0.0",
-    "sweetalert2": "^9.8.2"
-  }
+  "license": "MIT"
 }

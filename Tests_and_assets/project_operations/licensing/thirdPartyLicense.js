@@ -219,7 +219,7 @@ function add_license(item) {
  * FUNCTION TO ADD FAILED CASE PROFILE TO OUTPUT FILE
  * STEP 1. LOOP THROUGH FAILED CASES ARRAY
  * STEP 2. ADD PACKAGE, PUBLISHER, LICENSE TYPE AND REPOSITORY NAMES IN OUTPUT STRING
- * STEP 3. ADD NOT_FOUND IN LICENSE FILED
+ * STEP 3. ADD LICENSE_FILE_NOT_FOUND IN LICENSE FILED
  * STEP 4. PRINT OUTPUT STRING IN OUTPUT FILE
  */
 function add_empty_failed_cases(){
@@ -232,7 +232,7 @@ function add_empty_failed_cases(){
         outputString += "Package: " + failed_cases[i].module + "\n";
         outputString += "Publisher: "+ failed_cases[i].publisher + "\t\t\t\tLicense Type: " + failed_cases[i].licenses + "\n";
         outputString += "Repository: " + failed_cases[i].repository + "\n\n";
-        outputString += "NOT_FOUND";
+        outputString += "LICENSE_FILE_NOT_FOUND";
         outputString += "\n\n\n\n###############################################################\n";
         append_license_file(output_file, outputString);
       }
