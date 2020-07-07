@@ -4,7 +4,7 @@
 //			STATIC VARIBALES
 /******************************************/
 //STRUCT TO STORE localtime_s VARIBALES >>chrono<<
-struct tm DataCleanser::dateTimeStruct;
+struct tm* DataCleanser::dateTimeStruct;
 //time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
 time_t DataCleanser::systemTimeContainer;
 
