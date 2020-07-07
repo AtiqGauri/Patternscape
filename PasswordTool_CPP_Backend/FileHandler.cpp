@@ -1,3 +1,5 @@
+#pragma warning(disable : 4996) //_CRT_SECURE_NO_WARNINGS
+
 #include "FileHandler.h"
 #include "Constants.h"
 
@@ -238,11 +240,15 @@ void FileHandler::resize_all_files(string directoryPath) {
 		for (int i = 0; i < resizedDataFiles.size(); i++) {
 			//get time from system clock
 			DataCleanser::systemTimeContainer = chrono::system_clock::to_time_t(chrono::system_clock::now());
-			//fill date time struct then create a data time string => time_date
-			localtime_s(&DataCleanser::dateTimeStruct, &DataCleanser::systemTimeContainer);
-			currentDateTimeString = to_string(DataCleanser::systemTimeContainer) + "_" +
-				to_string(DataCleanser::dateTimeStruct.tm_mday) + to_string(1 + DataCleanser::dateTimeStruct.tm_mon)
-				+ to_string(1900 + DataCleanser::dateTimeStruct.tm_year);
+			//fill date time struct then create a data time string => date_time
+			//WARNING LOCALTIME IS NOT THREAD SAFE 
+			DataCleanser::dateTimeStruct = localtime(&DataCleanser::systemTimeContainer);
+
+			currentDateTimeString = to_string(DataCleanser::dateTimeStruct->tm_mday) + to_string(1 + DataCleanser::dateTimeStruct->tm_mon)
+				+ to_string(1900 + DataCleanser::dateTimeStruct->tm_year)
+				+ "_"
+				+ to_string((chrono::high_resolution_clock::now()).time_since_epoch().count());
+			
 			//write resized file into input folder with unique name
 			write_file(resizedDataFiles[i], Constants::resizedFileName + "_" + to_string(fileCounter) +
 						"_" + currentDateTimeString + Constants::txtExtension);

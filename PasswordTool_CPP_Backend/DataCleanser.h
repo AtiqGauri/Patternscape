@@ -44,7 +44,7 @@ public:
 	bool is_digit(char something);
 
 	//STRUCT TO STORE localtime_s VARIBALES >>chrono<<
-	static struct tm dateTimeStruct;
+	static struct tm* dateTimeStruct;
 
 	//time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
 	static time_t systemTimeContainer;

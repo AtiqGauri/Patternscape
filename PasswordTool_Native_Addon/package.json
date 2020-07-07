@@ -13,8 +13,8 @@
     "COMMENT2": "*                                   *",
     "set_64arch": "npm config set cmake_js_arch x64",
     "set_32arch": "npm config set cmake_js_arch ia32",
-    "install_addon": "cmake-js compile cmake -A x64",
-    "install_addon32": "cmake-js compile cmake -A Win32",
+    "install_addon": "cmake-js compile cmake",
+    "install_addon32": "cmake-js compile cmake",
     "preinstall_actions": "node scripts/beforeInstall.js",
     "postinstall_actions": "",
     "npm_run_all_package": "npm i npm-run-all --save-dev"
