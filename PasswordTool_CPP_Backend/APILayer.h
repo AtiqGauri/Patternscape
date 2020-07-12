@@ -82,7 +82,7 @@ namespace APILayer {
 	
 	/*
 			HERE EVERYTHING WILL BE EXECUTED. IT STARTS FROM IMPORTING INPUT THEN PROCESS AND LASTLY OUTPUT
-			STEP 1. FIRST THREADS WILL BE DECLARED ACCORDING TO NUMBEROFTHREADS VALUE (DEFAULT: 4)
+			STEP 1. FIRST THREADS WILL BE DECLARED ACCORDING TO numberOfThreads VALUE (DEFAULT: 4)
 			STEP 2. INPUT AND OUPUT FOLDER CAN BE SPECIFIED (OPTIONAL) 
 			STEP 3. FILES WILL BE READ AND RESIZED WHICH ARE LOCATED IN INPUT FOLDER
 			STEP 4. RESOURCES WILL BE READ TO RESPECTIVE VECTORS IN RESOURCES.H
@@ -216,7 +216,7 @@ namespace APILayer {
 			//Declare threads to process data faster
 			vector<thread> threads;
 
-			//reservev thread vector size 
+			//reserve thread vector size 
 			threads.reserve(numberOfThreads);
 
 			//Declare objects to pass in threads for thread safe execution
@@ -287,7 +287,7 @@ namespace APILayer {
 			threads.shrink_to_fit();
 		}
 
-		//Remove redundant/duplicate pattern data records and update thier popularity accordingly
+		//Remove redundant/duplicate pattern data records and update their popularity accordingly
 		StatsGenerator::remove_redundant_pattern_data(2);
 
 		//write main pattern stats map to a special file

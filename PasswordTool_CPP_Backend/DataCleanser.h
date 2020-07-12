@@ -26,14 +26,14 @@ public:
 	/*
 		FUNCTION TO REMOVE DUPLICATE ELEMENTS IN A VECTOR 
 		STEP 1. FIRST SORT VECTOR SO THAT ALL DUPLICATES STAY TOGETHER
-		STEP 2. REMOVE DUPILCATES USING std::unique AND std::erase
+		STEP 2. REMOVE DUPLICATES USING std::unique AND std::erase
 	*/
 	template <typename T>
 	static void remove_vector_duplicates(vector<T>& dirtyVector){
 		/*
 			FUNCTION TO REMOVE DUPLICATE ELEMENTS IN A VECTOR
 			STEP 1. FIRST SORT VECTOR SO THAT ALL DUPLICATES STAY TOGETHER
-			STEP 2. REMOVE DUPILCATES USING std::unique AND std::erase
+			STEP 2. REMOVE DUPLICATES USING std::unique AND std::erase
 		*/
 		sort(dirtyVector.begin(), dirtyVector.end());
 		dirtyVector.erase(unique(dirtyVector.begin(), dirtyVector.end()), dirtyVector.end());
@@ -43,10 +43,10 @@ public:
 
 	bool is_digit(char something);
 
-	//STRUCT TO STORE localtime_s VARIBALES >>chrono<<
+	//STRUCT TO STORE localtime_s VARIABLES >>chrono<<
 	static struct tm* dateTimeStruct;
 
-	//time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
+	//time_t VARIABLE TO STORE LOCAL SYSTEM TIME
 	static time_t systemTimeContainer;
 };
 

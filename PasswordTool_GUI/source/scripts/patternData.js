@@ -40,11 +40,12 @@ ipc.on('message', (event, patternString, fileAddress) => {
     //reflect file pattern string
     pattern.innerHTML += patternString;
 
-    
     //initialize n-readlines with data file address
     //double if statement to avoid path error because of asar packaging of electron app
-    if(fs.existsSync(path.join(__dirname, '..', '..', '..', '..', fileAddress))){
-        var liner = new lineByLine(path.join(__dirname, '..', '..', '..', '..', fileAddress));
+    if(fs.existsSync(path.join(process.resourcesPath, '..', fileAddress))){
+        var liner = new lineByLine(path.join(process.resourcesPath, '..', fileAddress));
+    }else if(fs.existsSync(path.join(fileAddress))){
+        var liner = new lineByLine(path.join(fileAddress));
     }else if(fs.existsSync(path.join(__dirname, '..', '..', fileAddress))){
         var liner = new lineByLine(path.join(__dirname, '..', '..', fileAddress));
     }else{

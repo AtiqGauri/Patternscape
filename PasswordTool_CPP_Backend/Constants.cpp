@@ -8,7 +8,7 @@
 const string Constants::errorLogFileName = "Error Log";
 
 //HUGE FILES GETS RESIZED FIRST. SO, THIS WILL BE PREFIX FOR THEIR NAME
-const string Constants::resizedFileName = "data/Input/resizedFile";
+string Constants::resizedFileName = "data/Input/resizedFile";
 
 //SIZE OF SMALLER FILES WILL BE DECIDED BY THIS VARIABLE
 const int Constants::resizedFileSize = 100000;
@@ -18,16 +18,16 @@ const string Constants::txtExtension = ".txt";
 
 
 //ADDRESS OF NAME LIST FILE
-const string Constants::nameListFileAddress = "data/datafiles/names.txt";
+string Constants::nameListFileAddress = "data/datafiles/names.txt";
 
 //ADDRESS OF DOB LIST FILE
-const string Constants::dobListFileAddress = "data/datafiles/dobs.txt";
+string Constants::dobListFileAddress = "data/datafiles/dobs.txt";
 
 //ADDRESS OF LOCATION LIST FILE
-const string Constants::locationListFileAddress = "data/datafiles/locations.txt";
+string Constants::locationListFileAddress = "data/datafiles/locations.txt";
 
 //ADDRESS OF COMMON LIST FILE
-const string Constants::commonListFileAddress = "data/datafiles/Commons.txt";
+string Constants::commonListFileAddress = "data/datafiles/Commons.txt";
 
 //TOTAL NUMBER OF LINES IN NAME LIST FILE (APPROX)
 const int Constants::nameListFileSize = 187706;
@@ -81,19 +81,19 @@ const string Constants::outputPositionDelimiter = "Position:";
 const string Constants::undetectedTag = "Undetected/";
 
 //FOLDER ADDRESS WHICH CONTAINS ALL THE PATTERN DATA FILES
-const string Constants::patternDataFolderAddress = "data/Stats/Patterns Data/";
+string Constants::patternDataFolderAddress = "data/Stats/Patterns Data/";
 
 //PATTERN CATEGORIES FILE ADDRESS 
-const string Constants::patternCategoriesFileAddress = "data/Stats/Patterns.txt";
+string Constants::patternCategoriesFileAddress = "data/Stats/Patterns.txt";
 
 //DELIMITER OR DIVIDER IN GIVEN INPUT FILES (EMAIL|DELIMITER|PASSWORD)
 const string Constants::inputDelimiter = ":";
 
 //ADDRESS OF INPUT FOLDER 
-const string Constants::inputFolderAddress = "data/Input/";
+string Constants::inputFolderAddress = "data/Input/";
 
 //ADDRESS OF OUTPUT FOLDER
-const string Constants::outputFolderAddress = "data/Output/";
+string Constants::outputFolderAddress = "data/Output/";
 
 //PREFIX FOR OUTPUT FILES
 const string Constants::outputFileName = "output.txt";
@@ -102,7 +102,39 @@ const string Constants::outputFileName = "output.txt";
 const string Constants::defaultEmailString = "*****@*****.com";
 
 //TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
-const string Constants::singleTargetFileDirectory = "data/Temp/single_target_files/";
+string Constants::singleTargetFileDirectory = "data/Temp/single_target_files/";
 
 //TEMPORARY FOLDER ADDRESS
-const string Constants::tempFolderAddress = "data/Temp/";
+string Constants::tempFolderAddress = "data/Temp/";
+
+
+void Constants::add_project_directory_path(const string projectDirectory){
+	/*
+		1. IMPORTANT: This function MUST be called in Addon API layer before
+		   any backend call to adjust paths according to platforms. 
+		2. Adding project directory address as prefix of relative paths.
+	*/
+
+    Constants::resizedFileName = projectDirectory + "data/Input/resizedFile";
+
+    Constants::nameListFileAddress = projectDirectory + "data/datafiles/names.txt";
+
+    Constants::dobListFileAddress = projectDirectory + "data/datafiles/dobs.txt";
+
+    Constants::locationListFileAddress = projectDirectory + "data/datafiles/locations.txt";
+
+    Constants::commonListFileAddress = projectDirectory + "data/datafiles/Commons.txt";
+
+    Constants::patternDataFolderAddress = projectDirectory + "data/Stats/Patterns Data/";
+
+    Constants::patternCategoriesFileAddress = projectDirectory + "data/Stats/Patterns.txt";
+
+    Constants::inputFolderAddress = projectDirectory + "data/Input/";
+
+    Constants::outputFolderAddress = projectDirectory + "data/Output/";
+
+    Constants::singleTargetFileDirectory = projectDirectory + "data/Temp/single_target_files/";
+
+    Constants::tempFolderAddress = projectDirectory + "data/Temp/";
+
+}

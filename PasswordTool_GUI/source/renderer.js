@@ -20,9 +20,9 @@ function input_of_analyzing(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Input'))){
-        shell.openExternal(path.join(process.resourcesPath, '..','data', 'Input'));
+        shell.openExternal(path.join('file://', process.resourcesPath, '..','data', 'Input'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Input'))){
-        shell.openExternal(path.join(__dirname, '..','data', 'Input'));
+        shell.openExternal(path.join('file://', __dirname, '..','data', 'Input'));
     }else{
         console.error('data/Input/ folder doesn\'t exist');
     }
@@ -38,9 +38,9 @@ function output_of_analyzing(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Output'))){
-        shell.openExternal(path.join(process.resourcesPath, '..','data', 'Output'));
+        shell.openExternal(path.join('file://', process.resourcesPath, '..','data', 'Output'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
-        shell.openExternal(path.join(__dirname, '..','data', 'Output'));
+        shell.openExternal(path.join('file://', __dirname, '..','data', 'Output'));
     }else{
         console.error('data/Output/ folder doesn\'t exist');
     }
@@ -58,9 +58,9 @@ function input_of_stats_generator(){
 
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Output'))){
-        shell.openExternal(path.join(process.resourcesPath, '..','data', 'Output'));
+        shell.openExternal(path.join('file://', process.resourcesPath, '..','data', 'Output'));
     }else if(fs.existsSync(path.join(__dirname, '..','data', 'Output'))){
-        shell.openExternal(path.join(__dirname, '..','data', 'Output'));
+        shell.openExternal(path.join('file://', __dirname, '..','data', 'Output'));
     }else{
         console.error('data/Output/ folder doesn\'t exist');
     }
@@ -78,9 +78,9 @@ function output_of_stats_generator(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
     if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data'))){
-        shell.openExternal(path.join(process.resourcesPath, '..','data', 'Stats', 'Patterns Data'));
+        shell.openExternal(path.join('file://', process.resourcesPath, '..','data', 'Stats', 'Patterns Data'));
     }else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'))){
-        shell.openExternal(path.join(__dirname, '..', 'data', 'Stats', 'Patterns Data'));
+        shell.openExternal(path.join('file://', __dirname, '..', 'data', 'Stats', 'Patterns Data'));
     }else{
 		console.error('data/Stats/Patterns Data/ folder doesn\'t exist');
     }
@@ -108,9 +108,9 @@ function database_import_export_folder(){
 	
 	//double if statement to avoid path error because of asar packaging of electron app
 	if(fs.existsSync(path.join(process.resourcesPath, '..','data', 'Database'))){
-		shell.openExternal(path.join(process.resourcesPath, '..','data', 'Database'));
+		shell.openExternal(path.join('file://', process.resourcesPath, '..','data', 'Database'));
     }else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Database'))){
-		shell.openExternal(path.join(__dirname, '..', 'data', 'Database'));
+		shell.openExternal(path.join('file://', __dirname, '..', 'data', 'Database'));
     }else{
 		console.error('data/Database/ folder doesn\'t exist');
     }

@@ -164,7 +164,7 @@ void StatsGenerator::store_classified_patterns() {
 
 void StatsGenerator::clear_and_shrink() {
 	/*
-		FUNCTION TO CLEAR AND SHRINK CONTAINERS BELONG TO STATS GENERATOR CALSS
+		FUNCTION TO CLEAR AND SHRINK CONTAINERS BELONG TO STATS GENERATOR CLASS
 	*/
 	for (auto mapIt = statsResults.begin(); mapIt != statsResults.end(); mapIt++) {
 		mapIt->second.clear();
@@ -352,7 +352,7 @@ void StatsGenerator::helper_to_remove_redundant_data(StatsGenerator& threadObj) 
 			//write updated pattern data file
 			FileHandler::write_file(patternDataFile, mapIt->second.address);
 
-			//set lock_gaurd if required
+			//set lock_guard if required
 			//update popularity of pattern in main pattern stats map
 			mapIt->second.popularity = patternDataFile.size();
 			//clear temp vector

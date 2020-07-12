@@ -1,11 +1,11 @@
 #include "DataCleanser.h"
 
 /******************************************/
-//			STATIC VARIBALES
+//			STATIC VARIABLES
 /******************************************/
-//STRUCT TO STORE localtime_s VARIBALES >>chrono<<
+//STRUCT TO STORE localtime_s VARIABLES >>chrono<<
 struct tm* DataCleanser::dateTimeStruct;
-//time_t VARIABPLE TO STORE LOCAL SYSTEM TIME
+//time_t VARIABLE TO STORE LOCAL SYSTEM TIME
 time_t DataCleanser::systemTimeContainer;
 
 
