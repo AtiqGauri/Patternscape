@@ -1,5 +1,5 @@
 // MODULES TO CONTROL APPLICATION LIFE AND CREATE NATIVE BROWSER WINDOW
-const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow, Menu, screen} = require('electron')
 const path = require('path')
 
 // KEEP A GLOBAL REFERENCE OF THE WINDOW OBJECT, IF YOU DON'T, THE WINDOW WILL
@@ -8,12 +8,24 @@ const path = require('path')
 let mainWindow
 
 function createWindow () {
+  //STORE SYSTEM SCREEN SIZE
+  var { width, height } = screen.getPrimaryDisplay().workAreaSize;
+  //Set windows size according to scree resolution
+  if(height>1080 && width>1920){
+    height = 900; width = 1600;
+  }else if(height>720 && width>1280){
+    height = 768; width = 1366;
+  }else{
+    height = 720; width = 1280;
+    //check if 1366×768 looks good on 1080 screen
+  }
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1280, height: 720,
+    width: width, height: height,
     minWidth: 1280, minHeight:720,
     title: "PasswordTool",
-    icon: 'source/asset/icons/app-icon.png',
+    //icon: __dirname + '/asset/icons/app-icon.png',
     autoHideMenuBar: true,
     frame: false,
     backgroundColor: '#F2F2F2',
@@ -32,7 +44,10 @@ function createWindow () {
     }
   })
 
-  mainWindow.maximize();
+  //if screen is small enough then maximize windows
+  if(height==720){
+    mainWindow.maximize();
+  }
 
   // and load the index.html of the app.
   mainWindow.loadFile('source/index.html')
@@ -53,6 +68,18 @@ function createWindow () {
 
   mainWindow.on('uncaughtException', function (err) {
     console.error('Main window error: ' +err);
+    mainWindow.reload();
+  });
+
+  //catch uncaughtExceptions
+  process.on('uncaughtException', function (err) {
+    console.error('Process error: ' + err);
+    mainWindow.reload();
+  });
+
+  //catch uncaughtRejection
+  process.on('unhandledRejection', function (err) {
+    console.error('Process error: ' +err);
     mainWindow.reload();
   });
 }
@@ -77,19 +104,5 @@ app.on('activate', function () {
 
 app.on('uncaughtException', function (err) {
   console.error('App error: ' +err);
-  mainWindow.reload();
-});
-
-
-// IN THIS FILE YOU CAN INCLUDE THE REST OF YOUR APP'S SPECIFIC MAIN PROCESS
-// CODE. YOU CAN ALSO PUT THEM IN SEPARATE FILES AND REQUIRE THEM HERE.
-
-process.on('uncaughtException', function (err) {
-  console.error('Process error: ' + err);
-  mainWindow.reload();
-});
-
-process.on('unhandledRejection', function (err) {
-  console.error('Process error: ' +err);
   mainWindow.reload();
 });

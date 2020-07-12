@@ -13,7 +13,7 @@ namespace AddonAPI {
 		To generate pattern categories, category data files, popularity of each category.
 		@ param { int } numberOfThreads Number of threads for parallel execution.
 	*/
-  	std::string stats_generator_api(int numberOfThreads);
+  	std::string stats_generator_api(int numberOfThreads, string projectDirectory="");
   	
 	/*
 		Wrapper for stats_generator_api() function. This wrapper is required to convert
@@ -25,21 +25,21 @@ namespace AddonAPI {
 	/*
 		Api function to call main process of c++ backend (detect patterns out raw data)
 	*/
-  	int analyze_data_api(int numberOfThreads);
+  	string analyze_data_api(int numberOfThreads, string projectDirectory="");
   	
 	/*
 		Wrapper for analyze_data_api() function. This wrapper is required to convert
 		c++ datatypes into javascirpt form.
 		This will check if passed arguments is a number.
 	*/
-	Napi::Number analyze_data_wrapped(const Napi::CallbackInfo& info);
+	Napi::String analyze_data_wrapped(const Napi::CallbackInfo& info);
 
 
 	/*
 		c++ backend api function to process a single user password and email 
 		(detect patterns out of a single password)
 	*/
-  	std::string target_password_api(string password, string email="");
+  	std::string target_password_api(string password, string email="", string projectDirectory="");
   	
 	/*
 		Wrapper for target_password_api() function. This wrapper is required to convert

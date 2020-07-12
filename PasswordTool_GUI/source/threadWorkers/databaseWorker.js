@@ -1,6 +1,7 @@
 //REQUIRE DATABASE SCRIPT
 const {database} = require('../scripts/databaseInit.js');
-var path = require('path');
+const path = require('path');
+const fs = require('fs');
 
 //REQUIRE N-READLINES TO READ HUGE FILE LINE BY LINE WITHOUT EXCESSIVE USE OF MEMORY 
 const lineByLine = require('n-readlines');
@@ -17,8 +18,21 @@ database.open().catch(function(error){
 });
 
 //INITIALIZE N-READLINES WITH DATA FILE ADDRESS
-//CAN THROW ERROR BECAUSE OF ASAR PACKAGING
-const liner = new lineByLine(path.join('data', 'Stats', 'Patterns.txt'));
+var liner;
+try{
+
+  //CHECK IF APP IS PACKAGED OR NOT
+  if(fs.existsSync(path.join(process.resourcesPath, 'app.asar'))){ 
+    //INITIALIZE N-READLINES WITH DATA FILE ADDRESS
+    liner = new lineByLine(path.join(process.resourcesPath, '..', 'data', 'Stats', 'Patterns.txt'));
+  }else{
+    //INITIALIZE N-READLINES WITH DATA FILE ADDRESS
+    liner = new lineByLine(path.join('data', 'Stats', 'Patterns.txt'));
+  }
+}catch(err){
+  console.error(err);
+}
+
 //VARIABLE TO DENOTE SINGLE LINE STRING
 let line;
 //VARIABLE TO COUNT LINE NUMBER(NOT NECESSARY)

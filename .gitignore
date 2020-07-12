@@ -1,3 +1,7 @@
+#********* Project Root ***************#
+# macOS filesystem products
+*.DS_Store
+
 #********* PasswordTool_GUI ***********#
 # node.js modules
 PasswordTool_GUI/node_modules/*

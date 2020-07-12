@@ -9,7 +9,8 @@ require('dexie-export-import');
 const toBlob = require('stream-to-blob');
 
 //REQUIRE FS PACKAGE TO HANDLE FILE MANIPULATION
-var fileSystem = require('fs');
+const fileSystem = require('fs');
+const path = require('path');
 
 /**
  * FUNCTION TO EXPORT DATABASE TO A JSON FILE
@@ -83,14 +84,14 @@ var import_database = async function import_database(){
     //double if statement to avoid asar packaging address alteration
     if(fs.existsSync(path.join(__dirname, '..', '..', 'data','Database'))){
       fileSystem.readdirSync(path.join(__dirname, '..', '..', 'data','Database')).forEach(file => {
-        if(file != 'Error Log'){
+        if(file != 'Error Log' && file != '.DS_Store'){
           downloadedInputFiles.push(path.join('data', 'Database', file));
         }
       });  
     }else if(fs.existsSync(path.join(process.resourcesPath, '..', 'data','Database'))){
       fileSystem.readdirSync(path.join(process.resourcesPath, '..', 'data','Database')).forEach(file => {
-        if(file != 'Error Log'){
-          downloadedInputFiles.push(path.join('data', 'Database', file));
+        if(file != 'Error Log' && file != '.DS_Store'){
+          downloadedInputFiles.push(path.join(process.resourcesPath, '..', 'data', 'Database', file));
         }
       });
     }else{

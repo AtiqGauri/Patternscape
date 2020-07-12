@@ -13,8 +13,8 @@ public:
 	//ERROR LOG FILE NAME 
 	static const string errorLogFileName;
 	
-	//HUGE FILES GETS RESIZED FIRST. SO, THIS WILL BE PREFIX FOR THEIR NAME
-	static const string resizedFileName;
+ 	//TO RESIZE LARGE FILES WE ADD A PREFIX WITH ADDRESS
+	static string resizedFileName;
 	
 	//SIZE OF SMALLER FILES WILL BE DECIDED BY THIS VARIABLE
 	static const int resizedFileSize;
@@ -23,16 +23,16 @@ public:
 	static const string txtExtension;
 
 	//ADDRESS OF NAME LIST FILE
-	static const string nameListFileAddress;
+	static string nameListFileAddress;
 	
 	//ADDRESS OF DOB LIST FILE
-	static const string dobListFileAddress;
+	static string dobListFileAddress;
 	
 	//ADDRESS OF LOCATION LIST FILE
-	static const string locationListFileAddress;
+	static string locationListFileAddress;
 	
 	//ADDRESS OF COMMON LIST FILE
-	static const string commonListFileAddress;
+	static string commonListFileAddress;
 
 	//TOTAL NUMBER OF LINES IN NAME LIST FILE (APPROX)
 	static const int nameListFileSize;
@@ -86,19 +86,19 @@ public:
 	static const string undetectedTag;
 
 	//FOLDER ADDRESS WHICH CONTAINS ALL THE PATTERN DATA FILES
-	static const string patternDataFolderAddress;
+	static string patternDataFolderAddress;
 
 	//PATTERN CATEGORIES FILE ADDRESS 
-	static const string patternCategoriesFileAddress;
+	static string patternCategoriesFileAddress;
 
 	//DELIMITER OR DIVIDER IN GIVEN INPUT FILES (EMAIL|DELIMITER|PASSWORD)
 	static const string inputDelimiter;
 
 	//ADDRESS OF INPUT FOLDER 
-	static const string inputFolderAddress;
+	static string inputFolderAddress;
 
 	//ADDRESS OF OUTPUT FOLDER
-	static const string outputFolderAddress;
+	static string outputFolderAddress;
 	
 	//PREFIX FOR OUTPUT FILES
 	static const string outputFileName;
@@ -107,11 +107,18 @@ public:
 	static const string defaultEmailString;
 	
 	//TEMPORARY FILE ADDRESS FOR PATTERN GENERATION FOR A SINGLE TARGET
-	static const string singleTargetFileDirectory;
+	static string singleTargetFileDirectory;
 
 	//TEMPORARY FOLDER ADDRESS
-	static const string tempFolderAddress;
+	static string tempFolderAddress;
 
+	/*
+		1. IMPORTANT: THIS FUNCTION MUST BE CALLED IN ADDON API LAYER BEFORE
+		   ANY BACKEND CALL TO ADJUST PATHS ACCORDING TO PLATFORMS. 
+		2. ADDING PROJECT DIRECTORY ADDRESS AS PREFIX OF RELATIVE PATHS.
+	*/
+    static void add_project_directory_path(const string projectDirectory);
+    
 };
 
 #endif // !CONSTANT_H
