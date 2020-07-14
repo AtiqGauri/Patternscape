@@ -10,10 +10,26 @@ const path = require('path');
 //COPY SAMPLE INPUT FOR THE FIRST TIME USER
 (async () => {
 	await cpy(
+		[
 		__dirname + '/../../data/sample_input.txt',
+		__dirname + '/../../original_assets/additional scripts/Launch PasswordTool.sh'
+		],
 		__dirname + '/../../../PasswordTool_GUI/data/Input/'
 		);
 })();
+
+
+//COPY LAUNCH SHORTCUT SCRIPT FOR LINUX 
+if(process.platform === "linux"){
+	(async () => {
+		await cpy(
+			[
+			__dirname + '/../../original_assets/additional scripts/Launch PasswordTool.sh'
+			],
+			__dirname + '/../../../PasswordTool_GUI/'
+			);
+	})();
+}
 
 //DELETE DIST FOLDER OF APP DISTRIBUTABLE BEFORE CREATING NEW ONE
 fs.rmdirSync(path.join(__dirname, '/../../../PasswordTool_GUI/releases'), { recursive: true });

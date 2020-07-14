@@ -24,7 +24,7 @@
     "build_dist": "electron-builder --x64",
     "build_dist32": "electron-builder --ia32",
     "predist_actions": "node ../Tests_and_assets/project_operations/app/beforeDist.js",
-    "postdist_actions": "",
+    "postdist_actions": "node ../Tests_and_assets/project_operations/app/afterDist.js",
     "npm_run_all_package": "npm i npm-run-all --save-dev",
     "copy_package": "npm install cpy@^8.0.1 --save-dev"
   },
@@ -44,7 +44,8 @@
       "data/Output/Error Log",
       "data/Stats/Error Log",
       "data/Stats/Patterns Data/Error Log",
-      "data/Temp/Error Log"
+      "data/Temp/Error Log",
+      "Launch PasswordTool.sh"
     ],
     "win": {
       "target": "nsis",
@@ -86,18 +87,21 @@
     },
     "linux": {
       "category": "Development",
+      "icon": "source/assets/icons/app-icon.png",
       "desktop": {
         "Comment": "App to detect patterns in passwords",
-        "Name": "Password Tool",
+        "Icon": "source/assets/icons/app-icon.png",
+        "Name": "PasswordTool",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
         "Categories": "Development;"
       },
+      "artifactName": "PasswordTool",
       "executableName": "PasswordTool",
       "maintainer": "gauriatiq@gmail.com",
       "target": [
-        "AppImage"
+        "7z"
       ]
     }
   },
