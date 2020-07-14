@@ -24,10 +24,12 @@
 
 ## Download App (binaries) <i id="download"></i>
   * Windows
-    * [64 bit](https://drive.google.com/file/d/16nwdyM9rSfKHgJSBB9Cyt7UUM8-3YI0Q/view?usp=sharing)
-    * [32 bit](https://drive.google.com/file/d/1ePijkygv75ebcmzxVePtWY7Xqr_Bkn1E/view?usp=sharing)
+    * [win32-x64](https://drive.google.com/file/d/16nwdyM9rSfKHgJSBB9Cyt7UUM8-3YI0Q/view?usp=sharing)
   * macOS
-    * [darwin] (https://drive.google.com/file/d/11xFJIEUbb0-N5Mi1YLAQ_kEVziUsqlAC/view?usp=sharing)
+    * [darwin](https://drive.google.com/file/d/11xFJIEUbb0-N5Mi1YLAQ_kEVziUsqlAC/view?usp=sharing)
+  * Linux
+    * [7z-x64](https://drive.google.com/file/d/1hTVt0lUsIuFIqRokXBxEHYAg_XtKwFBx/view?usp=sharing)
+    
 
 ## Requirements: <i id="requirements"></i> 
 * Nodejs [^12.16.1](https://nodejs.org/en/)
