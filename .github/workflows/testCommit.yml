@@ -1,0 +1,165 @@
+name: Test-Commit
+
+on: 
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Commit Hash / Git Ref 
+        required: true
+      macos-build:
+        description: Build for MacOS
+        default: false # true if you want to run macOS job
+        required: false
+      linux-build:
+        description: Build for Linux
+        default: false # true if you want to run linux job
+        required: false
+      windows-build:
+        description: Build for Windows
+        default: false # true if you want to run windows job
+        required: false
+    
+jobs:
+  test-macos: # build for macOS
+    runs-on: ${{ matrix.platform }}
+    if: github.event.inputs.macos-build == 'true' # check macOS variable
+    strategy:
+      matrix:
+        node-version: [12.x]
+        platform: [macos-latest]
+    env: 
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }} # get commit-hash
+
+      - name: Install Node.js, NPM and Yarn # setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Set app version (package.json) # get app version from package.json
+        run: echo ::set-env name=APP_VERSION::$(node -p -e "require('./package.json').version")
+        shell: bash
+      
+      - name: (macOS) Build, set variables and zip # build for mac and set variables
+        run:   |
+              npm install npm-run-all --no-save
+              npm run dist
+              echo '::set-env name=NPM_PLATFORM::darwin'
+              echo '::set-env name=APP_EXT::dmg'
+
+      - name: Upload macos artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
+          path: PasswordTool_GUI/releases/darwin/x64/PasswordTool-darwin-v${{ env.APP_VERSION }}.dmg
+
+  test-linux: # build for linux
+    runs-on: ${{ matrix.platform }}
+    if: github.event.inputs.linux-build == 'true'
+    strategy:
+      matrix:
+        node-version: [12.x]
+        platform: [ubuntu-20.04]
+    env: 
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }} # get commit-hash
+
+      - name: Install Node.js, NPM and Yarn # setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Set app version (package.json) # get app version from package.json
+        run: echo ::set-env name=APP_VERSION::$(node -p -e "require('./package.json').version")
+        shell: bash
+      
+      - name: (ubuntu) Build, set variables and zip # build for linux, set variables and rename unpacked dir
+        run:   |
+              npm install npm-run-all --no-save
+              npm run dist
+              echo '::set-env name=NPM_PLATFORM::linux'
+              echo '::set-env name=APP_EXT::'
+              mv releases/linux/x64/linux-unpacked releases/linux/x64/PasswordTool-linux-v${{ env.APP_VERSION }}
+
+      - name: Upload linux artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
+          path: PasswordTool_GUI/releases/linux/x64/PasswordTool-linux-v${{ env.APP_VERSION }}
+
+  test-windows: # build for windows
+    runs-on: ${{ matrix.platform }}
+    if: github.event.inputs.windows-build == 'true'
+    strategy:
+      matrix:
+        node-version: [12.x]
+        platform: [windows-latest]
+    env: 
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }} # get commit-hash
+
+      - name: Install Node.js, NPM and Yarn # setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Set app version (package.json) # get app version from package.json
+        run: echo ::set-env name=APP_VERSION::$(node -p -e "require('./package.json').version")
+        shell: bash
+      
+      - name: (windows) Build, set variables and zip # build for windows and set variables
+        if: matrix.platform == 'windows-latest' && ${{ github.event.inputs.windows-build }} == yes
+        run:   |
+              npm install npm-run-all --no-save
+              npm run dist
+              echo '::set-env name=NPM_PLATFORM::win32'
+              echo '::set-env name=APP_EXT::exe'
+
+      - name: Upload windows artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
+          path: PasswordTool_GUI/releases/win32/x64/PasswordTool-win32-v${{ env.APP_VERSION }}.exe
+
+  delete-old-artifacts: # delte old artifact after matched condition
+    needs: [test-windows, test-linux, test-macos] # run only after above jobs
+    if: always() # run even if one of them failed
+    runs-on: ubuntu-latest
+    steps:
+    - name: Remove old artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: '0 month' #'Artifacts older than this will be deleted (e.g. "2 months", "1 day"). Parsed by moment.'
+        skip-recent: 3 # skip X number of recently created artifacts
+        # skip-tags: true # If enabled, tag build artifacts (e.g. release artifacts) will be kept.
+
+    #uncomment these commands if you are getting error for exceeding storage limit
+    #- run: sudo rm -rf "/usr/local/share/boost"
+    #- run: sudo rm -rf "$AGENT_TOOLSDIRECTORY"
