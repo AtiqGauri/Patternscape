@@ -1,0 +1,158 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Bump Version
+        default: patch
+        required: true
+
+jobs:
+  release-draft:
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release_draft.outputs.upload_url }} #url of draft to upload assets
+      draft_id: ${{ steps.create_release_draft.outputs.id }} #draft id to publish release
+      app_version: v${{ env.PACKAGE_VERSION }} #package.json version to print version on builds
+      commit_hash: ${{ env.COMMIT_HASH }} #commit hash to checkout when required
+
+#  Uncomment below code if you want this workflow to triggered by CODE OWNER ONLY
+#    if: github.actor == github.event.repository.owner.login
+
+    steps:
+      - name: Workflow Authentication #This will check person who triggred the workflow is a colaborator or not
+        uses: octokit/request-action@v2.0.0
+        with:
+          route: GET /repos/${{ github.repository }}/collaborators/${{ github.actor }} # https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-repository-collaborator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master #checkout master branch
+
+        # config github account
+        # use npm to bump version, tag and commit using standard-version package
+        # save commit_hash as env variable
+        # push commit and tag
+        # get app version from package.json
+      - name: Bump version and push commit with tag
+        run: |
+          git config --global user.name "AtiqGauri"
+          git config --global user.email "gauriatiq@gmail.com"
+          npm install standard-version --prefix PasswordTool_GUI/ --no-save
+          npm run release --prefix PasswordTool_GUI/ -- --release-as ${{ github.event.inputs.version }}
+          echo ::set-env name=COMMIT_HASH::$(git rev-parse --verify HEAD)
+          git push --follow-tags origin master
+          echo ::set-env name=PACKAGE_VERSION::$(node -p -e "require('./PasswordTool_GUI/package.json').version")
+
+      - name: Create a release draft
+        id: create_release_draft
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: v${{ env.PACKAGE_VERSION }}
+          release_name: PasswordTool v${{ env.PACKAGE_VERSION }}
+          body: |
+            Changelog: [Project Timeline](https://paper.dropbox.com/doc/Projects-Timeline--A4KNJax_pZMmJHwFv57DRJU~AQ-BoYhgTkFCHQ91an0uF9eg)
+          draft: true
+          prerelease: false
+
+  builds:
+    needs: release-draft # depend on draft job so we can get upload_url to upload assets
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      matrix:
+        node-version: [12.x]
+        platform: [ubuntu-20.04, macos-latest, windows-latest]
+    env: 
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      APP_VERSION: ${{ needs.release-draft.outputs.app_version }} # get app version from draft job
+    defaults:
+      run:
+        working-directory: PasswordTool_GUI/ #all the run commands gonna run in this directory
+
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ needs.release-draft.outputs.commit_hash }}  # commit hash saved from draft job
+
+      - name: Cache node modules # cache node modules and misc cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: |
+            ~/.npm
+            ~/cache
+            !~/cache/exclude
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+      
+        # setup node.js
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+        # install on dependency so we can build app directly (else you can install app and then build)
+      - name: Build app (x64)
+        run: |
+         npm install npm-run-all --no-save
+         npm run dist
+
+        # set platform as windows, extension as exe and zip built app 
+      - name: (windows) Set platform variables and zip build
+        if: matrix.platform == 'windows-latest' # run below command on windows only
+        run:   |
+              echo '::set-env name=NPM_PLATFORM::win32'
+              echo '::set-env name=APP_EXT::exe'
+              powershell Compress-Archive releases/win32/x64/PasswordTool-win32-${{ env.APP_VERSION }}.exe PasswordTool-win32-x64.zip
+        
+        # set platform as macOS, extension as exe and zip built app
+        # last command zip built app while excluding parent directory from zip
+      - name: (macOS) Set platform variables and zip build
+        if: matrix.platform == 'macos-latest' # run below command on macOS only
+        run:   |
+              echo '::set-env name=NPM_PLATFORM::darwin'
+              echo '::set-env name=APP_EXT::dmg'
+              (cd releases/darwin/x64/ && zip -r ../../../PasswordTool-darwin-x64.zip PasswordTool-darwin-${{ env.APP_VERSION }}.dmg)
+        
+        # set platform as linux, extension as exe
+        # rename unpacked folder and zip folder while removing parent directory
+      - name: (ubuntu) Set platform variables and zip build
+        if: matrix.platform == 'ubuntu-20.04' # run below command on linux only
+        run:   |
+              echo '::set-env name=NPM_PLATFORM::linux'
+              echo '::set-env name=APP_EXT::'
+              mv releases/linux/x64/linux-unpacked releases/linux/x64/PasswordTool-linux-${{ env.APP_VERSION }}
+              (cd releases/linux/x64/ && zip -r ../../../PasswordTool-linux-x64.zip PasswordTool-linux-${{ env.APP_VERSION }})
+      
+        # upload assets to release draft
+      - name: Upload app builds to release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ needs.release-draft.outputs.upload_url }} # get upload url form previous job
+          asset_path: PasswordTool_GUI/PasswordTool-${{ env.NPM_PLATFORM }}-x64.zip
+          asset_name: PasswordTool-${{ env.NPM_PLATFORM }}-x64.zip
+          asset_content_type: application/zip
+
+  publish-release:
+    needs: [release-draft, builds] # publish release only after draft and build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: publish draft release # publish draft as release
+        uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ needs.release-draft.outputs.draft_id }} # get draft id from draft job
