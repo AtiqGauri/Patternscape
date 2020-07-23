@@ -1,7 +1,7 @@
 {
   "name": "PasswordTool",
   "productName": "Password Tool",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
   "homepage": "https://github.com/AtiqGauri/PasswordTool",
@@ -13,7 +13,7 @@
     "start": "electron ./",
     "dist": "npm-run-all install predist_actions build_dist postdist_actions",
     "dist32": "npm-run-all install32 predist_actions build_dist32 postdist_actions",
-    "release" : "standard-version",
+    "release": "standard-version",
     "COMMENT0": "*                                   *",
     "COMMENT1": "###### MANUAL COMMANDS BELOW ########",
     "COMMENT2": "*                                   *",
@@ -108,11 +108,13 @@
   },
   "husky": {
     "hooks": {
-        "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
-     }
+      "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
+    }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
