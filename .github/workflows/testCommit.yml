@@ -35,7 +35,7 @@ jobs:
         working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
 
     steps:
-      - name: Checkout master 
+      - name: Checkout master (${{ github.event.inputs.git-ref }}) 
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.git-ref }} # get commit-hash
@@ -77,7 +77,7 @@ jobs:
         working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
 
     steps:
-      - name: Checkout master 
+      - name: Checkout master  (${{ github.event.inputs.git-ref }})
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.git-ref }} # get commit-hash
@@ -120,7 +120,7 @@ jobs:
         working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
 
     steps:
-      - name: Checkout master 
+      - name: Checkout master (${{ github.event.inputs.git-ref }})
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.git-ref }} # get commit-hash
