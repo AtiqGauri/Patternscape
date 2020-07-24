@@ -1,7 +1,7 @@
 {
   "name": "PasswordTool",
   "productName": "Password Tool",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
   "homepage": "https://github.com/AtiqGauri/PasswordTool",
@@ -22,8 +22,8 @@
     "postinstall_actions": "node ../Tests_and_assets/project_operations/app/afterInstall.js",
     "install_addon": "npm install ../PasswordTool_Native_Addon --no-save",
     "install_addon32bit": "npm run install32 --prefix ../PasswordTool_Native_Addon --no-save",
-    "build_dist": "electron-builder --x64",
-    "build_dist32": "electron-builder --ia32",
+    "build_dist": "electron-builder --x64 --publish never",
+    "build_dist32": "electron-builder --ia32 --publish never",
     "predist_actions": "node ../Tests_and_assets/project_operations/app/beforeDist.js",
     "postdist_actions": "node ../Tests_and_assets/project_operations/app/afterDist.js",
     "npm_run_all_package": "npm i npm-run-all --save-dev",
@@ -57,13 +57,13 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
-      "artifactName": "PasswordTool-win32-${version}.${ext}"
+      "artifactName": "PasswordTool-win32-v${version}.${ext}"
     },
     "mac": {
       "target": "dmg",
       "category": "public.app-category.developer-tools",
       "icon": "source/assets/icons/app-icon.png",
-      "artifactName": "PasswordTool-macOS-${version}.${ext}"
+      "artifactName": "PasswordTool-darwin-v${version}.${ext}"
     },
     "dmg": {
       "background": "../Tests_and_assets/original_assets/images/installer_backgroud.tif",
@@ -102,7 +102,7 @@
       "executableName": "PasswordTool",
       "maintainer": "gauriatiq@gmail.com",
       "target": [
-        "7z"
+        "dir"
       ]
     }
   },
