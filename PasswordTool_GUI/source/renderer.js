@@ -3,6 +3,8 @@ const path = require('path');
 
 //IMPORT BrowserWindow TO CREATE CHILD WINDOWS
 const { BrowserWindow } = require('electron').remote;
+//dark mode
+const nativeTheme = remote.nativeTheme;
 
 //REQUIRE SHELL TO OPEN DEFAULT APPLICATION LIKE TEXT EDITOR WITH A DATAFILE IN IT
 const shell = require('electron').shell;
@@ -364,6 +366,7 @@ function set_app_theme(){
 		document.querySelector("#appBody").setAttribute("data-theme", "dark");
 		//save user preference
 		window.localStorage.user_theme = 'dark';
+		nativeTheme.themeSource = 'dark';
 		console.log('dark theme activated');
     }else{
 		//change theme icon and button background
@@ -387,6 +390,7 @@ function set_app_theme(){
 		document.querySelector("#appBody").setAttribute("data-theme", "light");
 		//save user preference
 		window.localStorage.user_theme = 'light';
+		nativeTheme.themeSource = 'light';
 		console.log('light theme activated');
     }
 }

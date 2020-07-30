@@ -21,17 +21,20 @@
   * [32 bit](#32bit)
 * [Roadmap](#roadmap)
 * [License](#license)
+</br>
+</br>
+
 
 ## Download App (binaries) <i id="download"></i>
   * Windows
-    * [win32-x64](https://drive.google.com/file/d/16nwdyM9rSfKHgJSBB9Cyt7UUM8-3YI0Q/view?usp=sharing)
+    * [win32-x64](https://github.com/AtiqGauri/PasswordTool/releases/latest/download/PasswordTool-win32-x64.zip)
   * macOS
-    * [darwin](https://drive.google.com/file/d/11xFJIEUbb0-N5Mi1YLAQ_kEVziUsqlAC/view?usp=sharing)
+    * [darwin](https://github.com/AtiqGauri/PasswordTool/releases/latest/download/PasswordTool-darwin-x64.zip)     &emsp;[(need help?)](https://paper.dropbox.com/doc/App-Installation-Instructions--A4uRaRHGJG0vbUEDZdzfkrzmAg-Bhc188dViyiLTGI4BTqom#:uid=694129237904688615603558&h2=macOS)
   * Linux
-    * [7z-x64](https://drive.google.com/file/d/1hTVt0lUsIuFIqRokXBxEHYAg_XtKwFBx/view?usp=sharing)
+    * [zip](https://github.com/AtiqGauri/PasswordTool/releases/latest/download/PasswordTool-linux-x64.zip)         &emsp;[(need help?)](https://paper.dropbox.com/doc/App-Installation-Instructions--A4uRaRHGJG0vbUEDZdzfkrzmAg-Bhc188dViyiLTGI4BTqom#:uid=999266699401838158655202&h2=Linux)
     
 
-## Requirements: <i id="requirements"></i> 
+## Installation Requirements: <i id="requirements"></i> 
 * Nodejs [^12.16.1](https://nodejs.org/en/)
 * CMake [^3.17.1](https://cmake.org/download/)
 * A proper C/C++ compiler toolchain
