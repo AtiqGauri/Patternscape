@@ -1,24 +1,156 @@
-:root {
-    --white-like: #F2F2F2;
-    --database-blue: #6A9BD8;
-    --home-red: #ff6584;
-    --target-green: #24C981;
-    --process-yellow: #f9a825;
-    --stats-orange: #E86135;
-    --single-pink: #ff6584;
-    --analyze-purple: #78126A;
-    --darker-royal-blue: #0C2450; 
-    --document-grey: #66657A;
-    --blood-red: #AE1100;
-    --darker-yellow: #FF8C10;
-    --darker-blood-red: #B94955;
-    --sea-blue: #5A81AE;
-    --forest-green: #4CBB17;
-    --darker-forest-green: #499371;
-    --golden-yellow: #F2D184;
+:root { 
+    --concrete-white: #F2F2F2;
+    --lightest-grey: #D3D3D3;
+    --light-grey: #b4b3b3;
+    --dark-grey: #636161;
+    --dolphin-grey: #66657A;
+    --mineShaft-grey: #2a2a2a;
+    --woodSmoke-black: #161617;
+    --codGray-black: #121212; 
+
+    --cerise-red: #E43F5A;
+    --wildWatermelon-red: #ff6584;
+    --chestnut-red: #B94955;
+    --brightRed-red: #AE1100;
+    --cinnabar-orange: #E86135;
+    --buff-yellow: #F2D184;
+    --seaBuckthorn-yellow: #f9a825;
+    --westSide-yellow: #FF8C10;
+    --christi-green: #4CBB17;
+    --mountainMeadow-green: #24C981;
+    --viridian-green: #499371;
+    --robinEgg-teal: #03DAC5;
+    --danube-blue: #6A9BD8;
+    --wedgeWood-blue: #5A81AE;
+    --downriver-blue: #0C2450;
+    --heliotrope-purple: #BB86FC;
+    --disco-purple: #78126A;
 
     /*********WINDOW CONTROL*************/
-    --minimize-yellow: #FFBD44;
-    --resize-green: #00CA4E;
-    --close-red: #FF605C;
+    --windowMinimize-yellow: #FFBD44;
+    --windowResize-green: #00CA4E;
+    --windowClose-red: #FF605C;
+
+    /*********MAIN COMPONENTS COLORS**********/
+    --targetTab-text: var(--danube-blue);
+    --processAnalyze-text: var(--disco-purple);
+    --processStats-text: var(--cinnabar-orange);
+    --processSingeUser-text: var(--wildWatermelon-red);
+    --homeTab-text: var(--wildWatermelon-red);
+    --databaseImport-text: var(--chestnut-red);
+    --databaseDownload-text: var(--wedgeWood-blue);
+    --databaseExport-text: var(--viridian-green);
+    --documentTab-text: var(--downriver-blue);
+    --windowsControls-unfocused: var(--light-grey);
+    --scroll-bar: var(--light-grey);
+    --introAlertMain-text: var(--seaBuckthorn-yellow);
+
+    /*************MAIN APP THEME**************/
+    --mainTheme-color: var(--concrete-white);
+
+    /*********SUB COMPONENTS COLORS***********/
+    --searchBar-unfocused: var(--westSide-yellow);
+    --searchBar-focused: var(--brightRed-red);
+    --searchBar-text: var(--brightRed-red);
+    --searchBar-popularity: var(--seaBuckthorn-yellow);
+    --patternCategory-header: var(--downriver-blue);
+    --patternCategory-pattern: var(--chestnut-red);
+    --patternCategory-popularity: var(--wedgeWood-blue);
+    --patternCategory-address: var(--seaBuckthorn-yellow);
+    --alertBody-text: var(--dark-grey);
+    --alertLowVisible-text: var(--lightest-grey);
+    --targetTabButton-label: var(--mountainMeadow-green);
+    --processTabButton-label: var(--seaBuckthorn-yellow);
+    --homeTabButton-label: var(--wildWatermelon-red);
+    --databaseTabButton-label: var(--danube-blue);
+    --documentTabButton-label: var(--dolphin-grey);
+    --windowTitle-text: var(--danube-blue);
+
+    /***********SHADOWS******************/
+    --greyText-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    --navbar-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 5px 5px 10px rgba(0, 0, 0, 0.1);
+    --navButton-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 8px 8px 10px rgba(0, 0, 0, 0.1);
+    --navButtonHover-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    --navButtonActive-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1), inset 8px 8px 8px rgba(0, 0, 0, 0.1);
+    --bigTabContainers-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    --smallTabContainers-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    --tabContainersInner-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+
+    --homeSearchBar-shadow: -20px -20px 70px rgba(255, 255, 255, 1), 12px 12px 30px rgba(0, 0, 0, 0.4);
+    --homeSearchSubmit-shadow: -20px -20px 70px rgba(255, 255, 255, 1), 2px 12px 30px rgba(0, 0, 0, 0.4);
+    --smallSquareButton-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 12px 15px 13px rgba(0, 0, 0, 0.1);
+    --smallSquareHover-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    --smallSquareActive-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    --mediumElevatedButton-shadow: -5px -5px 11px rgba(255, 255, 255, 1), 12px 12px 30px rgba(0, 0, 0, 0.15);
+    --mediumElevatedHover-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    --mediumElevatedActive-shadow: inset -6px -6px 8px rgb(255, 255, 255), inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+    --highElevatedButton-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    --highElevatedHover-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15); 
+    --cardBlock-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+}
+
+[data-theme^="dark"],
+[data-theme] [data-theme^="dark"],
+[data-theme="light-dark-sidebar"] nav {
+    
+    --greyText-shadow: 1px 1px 1px #070707;
+
+    /*********MAIN COMPONENTS COLORS**********/
+    --targetTab-text: var(--danube-blue);
+    --processAnalyze-text: var(--heliotrope-purple);
+    --processStats-text: var(--cinnabar-orange);
+    --processSingeUser-text: var(--wildWatermelon-red);
+    --homeTab-text: var(--cerise-red);
+    --databaseImport-text: var(--cerise-red);
+    --databaseDownload-text: var(--danube-blue);
+    --databaseExport-text: var(--mountainMeadow-green);
+    --documentTab-text: var(--buff-yellow);
+    --windowsControls-unfocused: var(--dark-grey);
+    --scroll-bar: var(--dark-grey);
+    --introAlertMain-text: var(--buff-yellow);
+
+    /*************MAIN APP THEME**************/
+    --mainTheme-color: var(--woodSmoke-black);
+
+    /*********SUB COMPONENTS COLORS***********/
+    --searchBar-unfocused: var(--wedgeWood-blue);
+    --searchBar-focused: var(--buff-yellow);
+    --searchBar-text: var(--buff-yellow);
+    --searchBar-popularity: var(--buff-yellow);
+    --patternCategory-header: var(--light-grey);
+    --patternCategory-pattern: var(--cerise-red);
+    --patternCategory-popularity: var(--danube-blue);
+    --patternCategory-address: var(--westSide-yellow);
+    --alertBody-text: var(--lightest-grey);
+    --alertLowVisible-text: var(--mineShaft-grey);
+    --targetTabButton-label: var(--danube-blue);
+    --processTabButton-label: var(--cinnabar-orange);
+    --homeTabButton-label: var(--cerise-red);
+    --databaseTabButton-label: var(--mountainMeadow-green);
+    --documentTabButton-label: var(--buff-yellow);
+    --windowTitle-text: var(--buff-yellow);
+
+    /***********SHADOWS******************/
+    --navbar-shadow: 7px 7px 10px #090909, -7px -7px 14px #1b1b1b;
+    --navButton-shadow: 5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
+    --navButtonHover-shadow: 2px 2px 5px #070707, -2px -2px 5px #1a1a1a;
+    --navButtonActive-shadow: inset 6px 6px 7px #090909,  inset -6px -6px 7px #1b1b1b;
+    --bigTabContainers-shadow: -1px -2px 7px #070707, -2px -2px 5px #1a1a1a;
+    --smallTabContainers-shadow: 6px 6px 7px #090909, -7px -7px 14px #1b1b1b;
+    --tabContainersInner-shadow: inset 6px 6px 7px #090909, inset -4px -4px 6px #1b1b1b;
+
+    --homeSearchBar-shadow: -30px -30px 70px rgb(19, 19, 19), 20px 20px 30px rgba(0, 0, 0, 0.4);
+    --homeSearchSubmit-shadow: 8px 8px 11px #070707, -8px -8px 11px #212020;
+    --smallSquareButton-shadow: 8px 8px 11px #070707, -8px -8px 11px #212020;
+    --smallSquareHover-shadow: 2px 2px 5px #070707, -2px -2px 5px #1a1a1a;
+    --smallSquareActive-shadow: inset 6px 6px 7px #090909,  inset -6px -6px 7px #1b1b1b;
+    --mediumElevatedButton-shadow: 20px 20px 30px #090909, -10px -10px 20px #1b1b1b;
+    --mediumElevatedHover-shadow: 5px 5px 8px #070707, 2px 2px 5px #1a1a1a;
+    --mediumElevatedActive-shadow: inset 6px 6px 7px #090909,  inset -6px -6px 7px #1b1b1b;
+    --highElevatedButton-shadow: 8px 8px 20px #070707, -8px -8px 20px #1d1d1d;
+    --highElevatedHover-shadow: 2px 2px 5px #070707, -2px -2px 5px #1b1b1b;
+    --cardBlock-shadow: 6px 6px 7px #090909, -7px -7px 14px #1b1b1b;
+
+
 }

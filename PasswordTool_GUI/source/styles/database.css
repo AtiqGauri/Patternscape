@@ -50,7 +50,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     border-radius: 9px;
-    box-shadow: -5px -5px 11px rgba(255, 255, 255, 1), 12px 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--mediumElevatedButton-shadow);
     
     background-color: transparent;
 
@@ -62,14 +62,13 @@ p {
 }
 
 .databaseButtons div:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--mediumElevatedHover-shadow);
     transition: 0.1s;
 }
 
 .databaseButtons div.active{
     cursor: default;
-    box-shadow: inset -6px -6px 8px rgb(255, 255, 255),
-                    inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--mediumElevatedActive-shadow);
 }
 
 .databaseOperation{
@@ -80,7 +79,7 @@ p {
     color: black;
     background-color: transparent;
     border-radius: 7px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--smallTabContainers-shadow);
 }
 
 
@@ -95,7 +94,7 @@ p {
 
 /******************IMPORT DATABASE START**********************/
 .impDB{
-    color: var(--darker-blood-red);
+    color: var(--databaseImport-text);
 }
 #importDB{
     position: absolute;
@@ -117,7 +116,7 @@ p {
     line-height: 1.5;
 }
 .impDataHeading{
-    color: var(--darker-blood-red);
+    color: var(--databaseImport-text);
 }
 .impDataText{
     color: grey;
@@ -131,7 +130,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     text-shadow: 0.1px 0.1px 1px grey;
-    color: var(--darker-blood-red);
+    color: var(--databaseImport-text);
 
     font-family: Montserrat;
     font-weight: 600;
@@ -149,10 +148,10 @@ p {
     top: 100%;
     left: 3%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .importDbStart:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
     transition: 0.1s;
 }
 .importDbStop{
@@ -164,10 +163,10 @@ p {
     top: 100%;
     left: 30%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .importDbStop:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
 }
 
 .importDbResult{
@@ -179,7 +178,7 @@ p {
     top: 5%;
     text-align: center;
     border-radius: 11px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
     font-family: Montserrat;
     font-weight: 600;
     font-size: 60%;
@@ -188,13 +187,13 @@ p {
     user-select: none;
 }
 .importDbAdded{
-    color: var(--forest-green);
+    color: var(--christi-green);
 }
 .importDbDuplicates{
-    color: var(--blood-red);
+    color: var(--brightRed-red);
 }
 .importDbTotal{
-    color: var(--database-blue);
+    color: var(--databaseDownload-text);
 }
 
 .impDbFolder{
@@ -220,13 +219,13 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: var(--darker-blood-red);
+    color: var(--databaseImport-text);
     border-color: grey;
     cursor:pointer;
 }
 .impInputFolder:hover{
-    background-color: var(--darker-blood-red);
-    color: var(--white-like);
+    background-color: var(--databaseImport-text);
+    color: var(--mainTheme-color);
     transition: 0.4s;
 }
 /******************IMPORT DATABASE END**********************/
@@ -234,7 +233,7 @@ p {
 
 /******************IMPORT DOWNLOADED DATABASE START*********************/
 .impDownDB{
-    color: var(--sea-blue);
+    color: var(--databaseDownload-text);
 }
 
 .importDownDBClass{
@@ -257,7 +256,7 @@ p {
     margin-bottom: 2%;
     white-space: nowrap;
     overflow: visible;
-    color: var(--sea-blue);
+    color: var(--databaseDownload-text);
     font-weight: 900;
     font-style: light;
     font-size: 4.4vh;
@@ -279,7 +278,7 @@ p {
     letter-spacing: 1px;
     word-spacing: 2.5px;
     text-shadow: 0.1px 0.1px 1px grey;
-    color: var(--sea-blue);
+    color: var(--databaseDownload-text);
     left: 0%;
     bottom: 0%;
     width: 50%;
@@ -296,10 +295,10 @@ p {
     top: 30%;
     left: 7%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .importDownStart:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
     transition: 0.1s;
     cursor:pointer;
 }
@@ -312,10 +311,10 @@ p {
     top: 30%;
     left: 37%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .importDownStop:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
     transition: 0.1s;
     cursor:pointer;
 }
@@ -345,18 +344,18 @@ p {
     top: 5%;
     left: 14.5%;
     border-radius: 11px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .impDownAdded{
-    color: var(--forest-green);
+    color: var(--christi-green);
     text-shadow: 0.1px 0.1px 1px rgb(147, 180, 131);
 }
 .impDownDuplicates{
-    color: var(--blood-red); 
+    color: var(--brightRed-red); 
     text-shadow: 0.1px 0.1px 1px rgb(163, 127, 123);
 }
 .impDownTotal{
-    color: var(--database-blue);
+    color: var(--danube-blue);
     text-shadow: 0.1px 0.1px 1px rgb(177, 194, 214);
 }
 
@@ -391,13 +390,13 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: var(--sea-blue);
+    color: var(--databaseDownload-text);
     border-color: grey;
     cursor:pointer;
 }
 .impDownInputFolder:hover{
-    background-color: var(--sea-blue);
-    color: var(--white-like);
+    background-color: var(--databaseDownload-text);
+    color: var(--mainTheme-color);
     transition: 0.4s;
 }
 /******************IMPORT DOWNLOADED DATABASE END**********************/
@@ -405,7 +404,7 @@ p {
 
 /******************EXPORT DATABASE START*********************/
 .expDB{
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
 }
 
 .exportDBClass{
@@ -428,7 +427,7 @@ p {
     margin-left: 4%;
     white-space: nowrap;
     overflow: visible;
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
     font-weight: 900;
     font-style: light;
     font-size: 4.4vh;
@@ -452,7 +451,7 @@ p {
     left: 0%;
     height: 50%;
     width: 50%;
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
     letter-spacing: 1px;
     word-spacing: 2.5px;
     font-weight: 600;
@@ -469,10 +468,10 @@ p {
     top: 30%;
     left: 7%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .exportDBStart:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
     transition: 0.1s;
     cursor:pointer;
 }
@@ -485,10 +484,10 @@ p {
     top: 30%;
     left: 37%;
     border-radius: 10px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .exportDBStop:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
     transition: 0.1s;
     cursor:pointer;
 }
@@ -517,12 +516,12 @@ p {
     padding: 0% 4% 1% 4% !important;
     text-align: center;
     border-radius: 11px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .expTotal{
     position: relative;
     top: 34%;
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
 }
 
 .expFolderDiv{
@@ -541,7 +540,7 @@ p {
     border-radius: 10px;
     border-style: dashed;
     border-width: 1px;
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
     border-color: grey;
     font-style: light;
     font-weight: 900;
@@ -552,8 +551,8 @@ p {
     cursor:pointer;
 }
 .expFolder:hover{
-    background-color: var(--darker-forest-green);
-    color: var(--white-like);
+    background-color: var(--databaseExport-text);
+    color: var(--mainTheme-color);
     transition: 0.4s;
 }
 /******************EXPORT DATABASE END**********************/
@@ -575,12 +574,12 @@ p {
 .deleteWarning{
     padding: 3%;
     position: relative;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     width: fit-content;
     display: flex;
     align-items: center;
 
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
     font-family: Montserrat;
 
 }
@@ -591,13 +590,13 @@ p {
     width: 10vh;
     margin-right: 4%;
     border-radius: 10px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
     background-color: transparent;
     cursor:pointer;
 }
 
 .deleteIconActive{
-    background-color: var(--process-yellow);
+    background-color: var(--seaBuckthorn-yellow);
     transition: 0.8s;
 }
 
@@ -621,11 +620,11 @@ p {
 .deleteButton{
     margin-top: 3%;
     padding: 2%;
-    width: 59.5%;
+    width: 63.5%;
     text-align: center;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 
     letter-spacing: 2px;
     word-spacing: 6px;
@@ -638,8 +637,8 @@ p {
     cursor:pointer;
 }
 .deleteButton:hover{
-    background-color: var(--blood-red);
-    color: white;
+    background-color: var(--brightRed-red);
+    color: var(--mainTheme-color);
     text-shadow: none;
     transition: 0.4s;
 }
@@ -670,7 +669,7 @@ p {
     word-spacing: 2px;
     line-height: 1.4;
 
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 
     font-weight: 500;
     font-size: 2vh;
@@ -681,7 +680,7 @@ p {
     margin-top: 1%;
     font-weight: 900;
     text-shadow: 0.1px 0.1px 1px gainsboro;
-    color: var(--darker-forest-green);
+    color: var(--databaseExport-text);
 }
 
 .persistanceButton{
@@ -689,9 +688,9 @@ p {
     padding: 2%;
     width: 62%;
     text-align: center;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
 
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
     font-weight: bold;
     font-size: 2vh;
     letter-spacing: 2px;
@@ -700,9 +699,9 @@ p {
     cursor:pointer;
 }
 .persistanceButton:hover{
-    background-color: var(--forest-green);
-    color: white;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: var(--christi-green);
+    color: var(--mainTheme-color);
+    box-shadow: var(--highElevatedHover-shadow);
     text-shadow: none;
     transition: 0.4s;
 }

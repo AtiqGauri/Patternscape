@@ -7,6 +7,10 @@ on:
         description: Bump Version
         default: patch
         required: true
+      changelog:
+        description: (Optional) Changelog FORMATTED MARKDOWN
+        default: 
+        required: false
 
 jobs:
   release-draft:
@@ -21,7 +25,7 @@ jobs:
 #    if: github.actor == github.event.repository.owner.login
 
     steps:
-      - name: Workflow Authentication #This will check person who triggred the workflow is a colaborator or not
+      - name: Workflow Authentication #This will check person who triggered the workflow is a collaborator or not
         uses: octokit/request-action@v2.0.0
         with:
           route: GET /repos/${{ github.repository }}/collaborators/${{ github.actor }} # https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-repository-collaborator
@@ -58,6 +62,7 @@ jobs:
           release_name: PasswordTool v${{ env.PACKAGE_VERSION }}
           body: |
             Changelog: [Project Timeline](https://paper.dropbox.com/doc/Projects-Timeline--A4KNJax_pZMmJHwFv57DRJU~AQ-BoYhgTkFCHQ91an0uF9eg)
+            ${{ github.event.inputs.changelog }}
           draft: true
           prerelease: false
 

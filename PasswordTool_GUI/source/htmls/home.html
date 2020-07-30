@@ -3,10 +3,13 @@
 
 <!--PATTERN SEARCH BAR-->
 <div class="autocomplete" id="autocomplete">
+    <div class="themeChangeButton changeThemeLink" onclick="change_app_theme()">
+      <img class="appThemeIcon" src="assets/icons/light_mode.svg" draggable="false"> 
+    </div>
     <div class="searchBarContainer">
       <input class="patternSearchBar" id="patternSearchInput" placeholder="Pattern...">
     </div>
-    <img class="homeImage" src="assets/images/home-page-image.svg" alt="Home Page" draggable="false">
+    <img class="homeImage homeImageLight" src="assets/images/home-page-image.svg" alt="Home Page" draggable="false">
     <!-- >>APP_FOLDER/source/scripts/target.js<<-->
     <button type="submit" class="homeSubmit" id="homeSubmit" onclick="submit_pattern()">Submit</button>
 </div>

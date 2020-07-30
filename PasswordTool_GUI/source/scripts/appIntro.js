@@ -11,7 +11,7 @@ function app_intro_alert(cTarget, cTitle, cHtml, cPosition, cClass, cOnOpen, cOn
         html: cHtml,
         customClass: cClass,
         position: cPosition,
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         toast: true,
         showConfirmButton: true,
         buttonsStyling: false,
@@ -55,12 +55,12 @@ function next_intro_alert(next_alert){
 
 //STEP 0: ASK IF USER WANT TO SEE APP'S INTRO
 function ask_for_intro(){
-    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#f9a825">Let\'s take a tour of app</p>',
+    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:var(--introAlertMain-text)">Let\'s take a tour of app</p>',
         cHtml='<p class="introHomeText">This will provide a brief intro to main functionalities of the app.</p>'+
         '<div class="neverAskIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="homeIntroSkip" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="homeIntroNext" onclick="next_intro_alert(home_tab_intro())" style="color:#f9a825">Next</div></div>', 
+        '<div class="askIntroNext" onclick="next_intro_alert(home_tab_intro())" style="color:var(--introAlertMain-text)">Next</div></div>', 
         cPosition='center',
         cClass = {
             popup: 'askForIntroAlert',
@@ -92,13 +92,13 @@ function ask_for_intro(){
 
 //STEP 1: INTRODUCE HOME TAB AND TEACH TO SEARCH PATTERN AND ITS DATA
 function home_tab_intro(){
-    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#ff6584">Home Tab: You can search patterns and their data here</p>',
+    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:var(--homeTab-text)">Home Tab: You can search patterns and their data here</p>',
         cHtml='<p class="introHomeText">First time it could show empty warning. To avoid '+
         'that warning, you can import pattern database or generate database locally in further steps.</p>'+
         '<div class="neverHomeIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="homeIntroSkip" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="homeIntroNext" onclick="next_intro_alert(downloaded_database_tab_intro())" style="color:#f9a825">Next</div></div>', 
+        '<div class="homeIntroNext" onclick="next_intro_alert(downloaded_database_tab_intro())" style="color:var(--homeTab-text)">Next</div></div>', 
         cPosition='bottom',
         cClass = {
             popup: 'homeIntroAlert',
@@ -129,13 +129,13 @@ function home_tab_intro(){
 function downloaded_database_tab_intro(){
     app_intro_alert(cTarget='importDownDB', cTitle='',
         cHtml='<p class="introDownDbTitle">Database: Here you can import downloaded database</p>'+
-        '<p class="introDownDbText">If you don\'t have any database then download it from <a href=\'#\' style="color:#5A81AE">here</a>'+
+        '<p class="introDownDbText">If you don\'t have any database then download it from <a href=\'#\' style="color:var(--databaseDownload-text)">here</a>'+
         ' and then copy paste that database in above "INPUT FOLDER".</br>'+
         'Once you have imported downloaded database then you can search pattern on home tab.</p>'+
         '<div class="downDbIntroNever" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="downDbSkipIntro" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="downDbNextIntro" onclick="next_intro_alert(process_analyze_tab_intro())" style="color:#f9a825">Next</div></div>', 
+        '<div class="downDbNextIntro" onclick="next_intro_alert(process_analyze_tab_intro())" style="color:var(--databaseDownload-text)">Next</div></div>', 
         cPosition='bottom-start',
         cClass = {
             popup: 'databaseIntroAlert',
@@ -145,8 +145,8 @@ function downloaded_database_tab_intro(){
         cOnOpen = ()=>{
             document.querySelector("#impDownDB").click();
             document.querySelector("#databaseTabButton").click();
-            document.querySelector("#impDownTextHead").style.color  = '#D3D3D3';
-            document.querySelector("#impDownText").style.color  = '#D3D3D3';
+            document.querySelector("#impDownTextHead").style.color  = 'var(--alertLowVisible-text)';
+            document.querySelector("#impDownText").style.color  = 'var(--alertLowVisible-text)';
             document.querySelector("#importDownStop").style.pointerEvents = 'none';
             document.querySelector("#importDownStart").style.pointerEvents = 'none';
             document.querySelector("#homeTabButton").style.visibility = 'hidden';
@@ -157,7 +157,7 @@ function downloaded_database_tab_intro(){
             document.querySelector("#databaseLowerBox").style.opacity = '0';
         },
         cOnClose = ()=>{
-            document.querySelector("#impDownTextHead").style.color  = '#5A81AE';
+            document.querySelector("#impDownTextHead").style.color  = 'var(--databaseDownload-text)';
             document.querySelector("#impDownText").style.color  = 'grey';
             document.querySelector("#importDownStop").style.pointerEvents = 'all';
             document.querySelector("#importDownStart").style.pointerEvents = 'all';
@@ -169,7 +169,7 @@ function downloaded_database_tab_intro(){
 
 //STEP 3: INTRODUCE ANALYZATION TAB AND TEACH TO PROCESS RAW DATA
 function process_analyze_tab_intro(){
-    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:#78126A">Analyze Tab: Here you can process raw data locally</p>',
+    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:var(--processAnalyze-text)">Analyze Tab: Here you can process raw data locally</p>',
         cHtml='<p class="processIntroText">*Process raw data to detect patterns in them</br>'+
         '*Raw data implies to raw emails and passwords pairs, data files should have plain text in them (txt, csv and no-extension).</br>'+
         '*Required data format => email:password</br>'+
@@ -178,7 +178,7 @@ function process_analyze_tab_intro(){
         '<div class="neverProcessIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="processSkipIntro" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="processNextIntro" onclick="next_intro_alert(process_stats_tab_intro())" style="color:#f9a825">Next</div></div>', 
+        '<div class="processAnalyzeNextIntro" onclick="next_intro_alert(process_stats_tab_intro())" style="color:var(--processAnalyze-text)">Next</div></div>', 
         cPosition='top-start',
         cClass = {
             popup: 'processIntroAlert',
@@ -217,14 +217,14 @@ function process_analyze_tab_intro(){
 
 //STEP 4: INTRODUCE STATISTICS TAB AND TEACH TO GENERATE STATISTICS
 function process_stats_tab_intro(){
-    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:#E86135">Statistics Tab: Here you can generate stats of analyzed patterns</p>',
-        cHtml='<p class="processIntroText">*Generate statistics of analyzed patterns</br>'+
-        '*In previous step we generated patterns out of raw data, now we can create stats of those patterns.</br>'+
-        '*Once stats are generated then you will be shown pattern categories and their data.</br></p>'+
+    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:var(--processStats-text)">Statistics Tab: Here you can generate stats of analyzed patterns</p>',
+        cHtml='<p class="processIntroText">* Generate statistics of analyzed patterns</br>'+
+        '* In previous step we generated patterns out of raw data, now we can create stats of those patterns.</br>'+
+        '* Once stats are generated then you will be shown pattern categories and their data.</br></p>'+
         '<div class="neverProcessIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="processSkipIntro" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="processNextIntro" onclick="next_intro_alert(import_database_tab_intro())" style="color:#f9a825">Next</div></div>', 
+        '<div class="processStatsNextIntro" onclick="next_intro_alert(import_database_tab_intro())" style="color:var(--processStats-text)">Next</div></div>', 
         cPosition='top-start',
         cClass = {
             popup: 'processIntroAlert',
@@ -264,13 +264,13 @@ function process_stats_tab_intro(){
 //STEP 5: TEACH TO IMPORT LOCALLY GENERATED PATTERN IN DATABASE
 function import_database_tab_intro(){
     app_intro_alert(cTarget='importDB', cTitle='',
-        cHtml='<p class="introDownDbTitle" style="color:#AE1100">Database: Here you can import downloaded database</p>'+
+        cHtml='<p class="introDownDbTitle" style="color:var(--databaseImport-text)">Database: Here you can import downloaded database</p>'+
         '<p class="introDownDbText">The stats generated in previous step could be imported in this tab, you can check input in "DATABASE INPUT FOLDER". '+
         'Once import process completes then you will be able to search patterns in home tab, which processed locally.</p>'+
         '<div class="downDbIntroNever" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="downDbSkipIntro" onclick="stop_app_intro()">Skip</div>'+
-        '<div class="downDbNextIntro" onclick="intro_is_completed()" style="color:#f9a825">Next</div></div>', 
+        '<div class="dbImportNextIntro" onclick="intro_is_completed()" style="color:var(--databaseImport-text)">Next</div></div>', 
         cPosition='bottom-start',
         cClass = {
             popup: 'databaseImportIntro',
@@ -281,8 +281,8 @@ function import_database_tab_intro(){
             document.querySelector("#processTabButton").style.visibility = 'hidden';
             document.querySelector("#databaseTabButton").click();
             document.querySelector("#impDB").click();
-            document.querySelector("#impDataHeading").style.color  = '#D3D3D3';
-            document.querySelector("#impDataText").style.color  = '#D3D3D3';
+            document.querySelector("#impDataHeading").style.color  = 'var(--alertLowVisible-text)';
+            document.querySelector("#impDataText").style.color  = 'var(--alertLowVisible-text)';
             document.querySelector("#importDbStart").style.pointerEvents = 'none';
             document.querySelector("#importDbStop").style.pointerEvents = 'none';
             document.querySelector("#navTab").style.visibility = 'hidden';
@@ -296,7 +296,7 @@ function import_database_tab_intro(){
         cOnClose = ()=>{
             document.querySelector("#importDbStart").style.pointerEvents = 'all';
             document.querySelector("#importDbStop").style.pointerEvents = 'all';
-            document.querySelector("#impDataHeading").style.color  = '#AE1100';
+            document.querySelector("#impDataHeading").style.color  = 'var(--databaseImport-text)';
             document.querySelector("#impDataText").style.color  = 'grey';
             document.querySelector("#processTabButton").style.visibility = 'visible';
             document.querySelector("#homeTabButton").style.visibility = 'visible';
@@ -312,8 +312,9 @@ function import_database_tab_intro(){
 
 //STEP 6: ACKNOWLEDGMENT OF INTRO COMPLETION
 function intro_is_completed(){
-    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:#f9a825">That\'s it</p>',
-        cHtml='<div class="completedIntroSkip" onclick="never_show_intro()" style="color:#f9a825">DONE</div>', 
+    app_intro_alert(cTarget='homeTab', cTitle='<p style="color:var(--introAlertMain-text)">Theme can be changed from top right button</p>',
+        cHtml='<p class="introHomeText">You can choose between dark and light theme and your preference will be saved in local database.</p>'+
+        '<div class="completedIntroSkip" onclick="never_show_intro()" style="color:var(--introAlertMain-text)">DONE</div>', 
         cPosition='center',
         cClass = {
             popup: 'askForIntroAlert',
@@ -321,9 +322,25 @@ function intro_is_completed(){
             title: 'askIntroTitle',
             content: 'completedIntroContent'
             },
-        cOnOpen = ()=>{
+        cOnOpen = ()=>{            
+            document.querySelector("#navTab").style.pointerEvents = 'none';
+            document.querySelector("#navTab").style.visibility = 'hidden';
+            document.querySelector("#targetTabButton").style.visibility = 'hidden';
+            document.querySelector("#processTabButton").style.visibility = 'hidden';
+            document.querySelector("#databaseTabButton").style.visibility = 'hidden';
+            document.querySelector("#documentsTabButton").style.visibility = 'hidden';
+            document.querySelector("#homeDecor1").style.opacity = '0.2';
+            document.querySelector("#homeDecor2").style.opacity = '0.2';
         },
         cOnClose = ()=>{
+            document.querySelector("#navTab").style.pointerEvents = 'all';
+            document.querySelector("#navTab").style.visibility = 'visible';
+            document.querySelector("#targetTabButton").style.visibility = 'visible';
+            document.querySelector("#processTabButton").style.visibility = 'visible';
+            document.querySelector("#databaseTabButton").style.visibility = 'visible';
+            document.querySelector("#documentsTabButton").style.visibility = 'visible';
+            document.querySelector("#homeDecor1").style.opacity = '1';
+            document.querySelector("#homeDecor2").style.opacity = '1';
         },
     );
 }

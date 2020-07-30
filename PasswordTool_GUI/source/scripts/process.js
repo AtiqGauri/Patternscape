@@ -52,11 +52,11 @@ function change_analyse_to_stats(){
 
 	//change color depending on button change state
     if(analyseOrStats!=true){
-        arrowClass.style.backgroundColor = "#78126A";
+        arrowClass.style.backgroundColor = "var(--processAnalyze-text)";
         analyseElement.style.display = "block";
         statElement.style.display = "none";
     }else{
-        arrowClass.style.backgroundColor = "#E86135";
+        arrowClass.style.backgroundColor = "var(--processStats-text)";
         statElement.style.display = "block";
         analyseElement.style.display = "none";
 
@@ -70,16 +70,16 @@ function change_analyse_to_stats(){
 function process_change_button(){
     document.querySelector("#changeUserTypes").onmouseover = function() {
         if(analyseOrStats!=true){
-            this.style.backgroundColor = "#E86135";
+            this.style.backgroundColor = "var(--processStats-text)";
         }else{
-            this.style.backgroundColor = "#78126A";
+            this.style.backgroundColor = "var(--processAnalyze-text)";
         }
     }
     document.querySelector("#changeUserTypes").onmouseout = function() {
         if(analyseOrStats!=true){
-            this.style.backgroundColor = "#78126A";
+            this.style.backgroundColor = "var(--processAnalyze-text)";
         }else{
-            this.style.backgroundColor = "#E86135";
+            this.style.backgroundColor = "var(--processStats-text)";
         }
     }
 }

@@ -24,22 +24,22 @@
     text-align: justify !important;
     font-weight: 900 !important;
     font-size: 2vh !important;
-    color: grey !important;
+    color: var(--alertBody-text) !important;
 }
 .neverHomeIntro{
     margin-top: 2%;
     margin-left: 4%;
     padding: 1% 2% 1% 2%;
-    color: #C0C0C0;
+    color: var(--alertBody-text);
     width: 30%;
     font-weight: 900 !important;
     font-size: 2vh !important;
     border-radius: 3px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .neverHomeIntro:hover{
-    background-color: var(--blood-red);
-    color: white;
+    background-color: var(--brightRed-red);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -71,17 +71,37 @@
     margin-top: 6%;
     margin-left: 4%;
     padding: 0.5% 2% 0.5% 2%;
-    color: #C0C0C0;
+    color: var(--alertBody-text);
     width: 30%;
     font-weight: 900 !important;
     font-size: 2vh !important;
     border-radius: 3px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: var(--mainTheme-color);
+    box-shadow: var(--cardBlock-shadow);
 }
 .neverAskIntro:hover{
-    background-color: var(--blood-red);
-    color: white;
+    background-color: var(--brightRed-red);
+    color: var(--mainTheme-color);
     transition: 0.3s;
+    cursor: pointer;
+}
+
+.askIntroNext{
+    margin-top: 4%;
+    margin-left: 4%;
+    padding: 3% 8% 3% 8%;
+    width: 30%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: var(--highElevatedButton-shadow);
+}
+.askIntroNext:hover{
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--introAlertMain-text);
+    color: var(--mainTheme-color) !important;
+    transition: 0.1s;
     cursor: pointer;
 }
 /********************INTRO ALERT END**********************/
@@ -113,16 +133,16 @@
     margin-top: 4%;
     margin-left: 4%;
     padding: 3% 8% 3% 8%;
-    color: #B0B0B0;
+    color: var(--alertBody-text);
     width: 30%;
     font-weight: 900 !important;
     font-size: 3vh !important;
     border-radius: 7px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .homeIntroSkip:hover{
-    background-color: #B0B0B0;
-    color: white;
+    background-color: var(--alertBody-text);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -136,10 +156,12 @@
     font-size: 3vh !important;
     letter-spacing: 1.5px;
     border-radius: 7px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .homeIntroNext:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--homeTab-text);
+    color: var(--mainTheme-color) !important;
     transition: 0.1s;
     cursor: pointer;
 }
@@ -167,7 +189,7 @@
 .introDownDbTitle{
     margin-top: 4%;
     margin-left: 1%;
-    color: var(--sea-blue);
+    color: var(--databaseDownload-text);
     font-weight: 900;
     text-align: left;
 }
@@ -178,22 +200,22 @@
     text-align: justify !important;
     font-weight: 900 !important;
     font-size: 2.2vh !important;
-    color: grey !important;
+    color: var(--alertBody-text) !important;
 }
 .downDbIntroNever{
     margin-top: 1.5%;
     margin-left: 1%;
     padding: 0.5% 2% 0.5% 2%;
-    color: #C0C0C0;
+    color: var(--alertBody-text);
     width: 15%;
     font-weight: 900 !important;
     font-size: 2vh !important;
     border-radius: 3px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .downDbIntroNever:hover{
-    background-color: var(--blood-red);
-    color: white;
+    background-color: var(--brightRed-red);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -202,16 +224,16 @@
     margin-top: 2%;
     margin-left: 1%;
     padding: 1% 4% 1% 4%;
-    color: #B0B0B0;
+    color: var(--alertBody-text);
     width: 15%;
     font-weight: 900 !important;
     font-size: 3vh !important;
     border-radius: 7px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .downDbSkipIntro:hover{
-    background-color: #B0B0B0;
-    color: white;
+    background-color: var(--alertBody-text);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -225,10 +247,12 @@
     font-size: 3vh !important;
     letter-spacing: 1.5px;
     border-radius: 7px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
 .downDbNextIntro:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--databaseDownload-text);
+    color: var(--mainTheme-color) !important;
     transition: 0.1s;
     cursor: pointer;
 }
@@ -249,6 +273,26 @@
     letter-spacing: 1.5px;
     border-radius: 9px !important;
     user-select: none;
+}
+
+
+.dbImportNextIntro{
+    margin-top: 2%;
+    margin-left: 4%;
+    padding: 1% 4% 1% 4%;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: var(--highElevatedButton-shadow);
+}
+.dbImportNextIntro:hover{
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--databaseImport-text);
+    color: var(--mainTheme-color) !important;
+    transition: 0.1s;
+    cursor: pointer;
 }
 /********************DATABASE ALERTS END**********************/
 
@@ -288,23 +332,23 @@
     text-align: left !important;
     font-weight: 900 !important;
     font-size: 2.2vh !important;
-    color: grey !important;
+    color: var(--alertBody-text) !important;
 }
 
 .neverProcessIntro{
     margin-top: 3%;
     margin-left: 2%;
     padding: 0.5% 2% 0.5% 2%;
-    color: #C0C0C0;
+    color: var(--alertBody-text);
     width: 18%;
     font-weight: 900 !important;
     font-size: 2vh !important;
     border-radius: 3px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .neverProcessIntro:hover{
-    background-color: var(--blood-red);
-    color: white;
+    background-color: var(--brightRed-red);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -313,21 +357,21 @@
     margin-top: 2%;
     margin-left: 2.1%;
     padding: 1% 4% 1% 4%;
-    color: #B0B0B0;
+    color: var(--alertBody-text);
     width: 15%;
     font-weight: 900 !important;
     font-size: 3vh !important;
     border-radius: 7px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cardBlock-shadow);
 }
 .processSkipIntro:hover{
-    background-color: #B0B0B0;
-    color: white;
+    background-color: var(--alertBody-text);
+    color: var(--mainTheme-color);
     transition: 0.3s;
     cursor: pointer;
 }
 
-.processNextIntro{
+.processAnalyzeNextIntro{
     margin-top: 2%;
     margin-left: 3%;
     padding: 1% 4% 1% 4%;
@@ -336,15 +380,35 @@
     font-size: 3vh !important;
     letter-spacing: 1.5px;
     border-radius: 7px;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
 }
-.processNextIntro:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+.processAnalyzeNextIntro:hover{
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--processAnalyze-text);
+    color: var(--mainTheme-color) !important;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.processStatsNextIntro{
+    margin-top: 2%;
+    margin-left: 3%;
+    padding: 1% 4% 1% 4%;
+    width: 15%;
+    font-weight: 900 !important;
+    font-size: 3vh !important;
+    letter-spacing: 1.5px;
+    border-radius: 7px;
+    box-shadow: var(--highElevatedButton-shadow);
+}
+.processStatsNextIntro:hover{
+    box-shadow: var(--highElevatedHover-shadow);
+    background-color: var(--processStats-text);
+    color: var(--mainTheme-color) !important;
     transition: 0.1s;
     cursor: pointer;
 }
 /********************PROCESS ALERTS END**********************/
-
 
 /********************ACKNOWLEDGE ALERTS START**********************/
 .completedIntroContent{
@@ -360,6 +424,10 @@
     letter-spacing: 1.5px;
     border-radius: 7px;
     cursor: pointer;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
+}
+.completedIntroSkip:hover{
+    background-color: var(--introAlertMain-text);
+    color: var(--mainTheme-color) !important;
 }
 /********************ACKNOWLEDGE ALERTS END**********************/

@@ -9,6 +9,12 @@ document.onreadystatechange = () => {
     }
 };
 
+//SET WINDOW THEME BASED ON APP THEME
+if(window.localStorage.user_theme == 'dark'){
+    document.querySelector("#targetSuggestionHtml").setAttribute("data-theme", "dark");
+    console.log("child theme should be: " + window.localStorage.user_theme);  
+}
+
 //GET ORDERED LIST ELEMENT TO APPEND SUGGESTION ROWS INTO IT
 var olContainer = document.querySelector('#suggestionList'), li;
 
@@ -85,17 +91,17 @@ function handleWindowControls() {
     };
     //Recolor window control buttons when focused
     suggestionWin.on('focus', ()=>{
-        document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
-        document.querySelector("#maxWindowDiv").style.backgroundColor = '#00CA4E';
-        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#00CA4E';
-        document.querySelector("#closeWindowDiv").style.backgroundColor = '#FF605C';
+        document.querySelector("#minWindowDiv").style.backgroundColor = 'var(--windowMinimize-yellow)';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = 'var(--windowResize-green)';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = 'var(--windowResize-green)';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = 'var(--windowClose-red)';
     });
     //Grey out window control button when not focused 
     suggestionWin.on('blur', ()=>{
-        document.querySelector("#minWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#maxWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#closeWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#minWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
     });
 }
 

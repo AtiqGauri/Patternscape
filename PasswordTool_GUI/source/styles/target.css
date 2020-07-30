@@ -12,7 +12,7 @@
     width: 98%;
     height: 96%;
     border-radius: 7px;
-    box-shadow: -8px -8px 10px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--bigTabContainers-shadow);
     user-select: none;
 }
 /******************HEADER END***********************/
@@ -20,7 +20,7 @@
     position: absolute;
     top: 12%;
     left: 5%;
-    color: var(--sea-blue);
+    color: var(--targetTab-text);
     letter-spacing: 1px;
     word-spacing: 2px;
     font-family: Montserrat;
@@ -50,10 +50,10 @@
     padding: 0% 0% 0.5% 1%;
     width: 20%;
     height: 5%;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     border: none;
-    color: var(--sea-blue);
-    border-bottom: 2px solid var(--sea-blue);
+    color: var(--targetTab-text);
+    border-bottom: 2px solid var(--targetTab-text);
     letter-spacing: 1px;
     word-spacing: 2px;
     font-family: Montserrat;
@@ -65,7 +65,7 @@
     user-select: none;
 }
 .targetInputs:focus, .targetInputs:not(:placeholder-shown){
-    border-bottom: 2px solid var(--white-like);
+    border-bottom: 2px solid var(--mainTheme-color);
 }
 .targetLabels{
     position: absolute;
@@ -174,7 +174,7 @@
     max-width: 58%;
     bottom: 7%;
     left: 5%;
-    color: var(--sea-blue);
+    color: var(--targetTab-text);
     overflow: scroll;
     text-align: center;
     letter-spacing: 1px;
@@ -204,8 +204,8 @@
 }
 
 .getPattern:hover{
-    background-color: var(--sea-blue);
-    color: white;
+    background-color: var(--targetTab-text);
+    color: var(--mainTheme-color);
     transition: 0.3s;
 }
 
@@ -214,19 +214,19 @@
     left: 74%;
     bottom: 11%;
     padding: 1% 3% 1% 3%;
-    color: var(--sea-blue);
+    color: var(--targetTab-text);
     border-radius: 10px;
     letter-spacing: 1px;
     font-family: Montserrat;
     font-style: light;
     font-size: 4vh;
     font-weight: 900;
-    box-shadow: -8px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
     cursor:pointer;
 }
 .targetSubmit:hover{
-    background-color: var(--sea-blue);
-    color: white;
+    background-color: var(--targetTab-text);
+    color: var(--mainTheme-color);
     transition: 0.3s;
 }
 

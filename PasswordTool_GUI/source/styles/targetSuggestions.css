@@ -5,7 +5,7 @@
 /****************************************************/
 
 html, body{margin:0px; padding:0px;
-    background-color: #F2F2F2;
+    background-color: var(--mainTheme-color);
 }
 @font-face {
     font-family: "Montserrat";
@@ -21,7 +21,7 @@ html, body{margin:0px; padding:0px;
     top: 0%;
     width: 100%;
     color: black;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     z-index: 99;
 }
 #dragRegion{
@@ -39,7 +39,7 @@ html, body{margin:0px; padding:0px;
     height: 100%;
     width: 17%;
     left: 43%;
-    color: var(--database-blue);
+    color: var(--windowTitle-text);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -95,7 +95,7 @@ html, body{margin:0px; padding:0px;
 }
 #minWindowDiv{
     position: relative;
-    background-color: var(--minimize-yellow);
+    background-color: var(--windowMinimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -114,7 +114,7 @@ html, body{margin:0px; padding:0px;
 #maxWindowDiv{
     position: relative;
     display: block;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -133,7 +133,7 @@ html, body{margin:0px; padding:0px;
 #restoreWindowDiv{
     position: relative;
     display: none;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -151,7 +151,7 @@ html, body{margin:0px; padding:0px;
 
 #closeWindowDiv{
     position: relative;
-    background-color: var(--close-red);
+    background-color: var(--windowClose-red);
     
 }
 #closeWindowDiv:hover #closeWindow{
@@ -186,15 +186,15 @@ html, body{margin:0px; padding:0px;
     margin: 20px;
     margin-top: 6%;
     margin-right: 60px;
-    color: var(--white-like);
+    color: var(--mainTheme-color);
 }
 
 li{
     margin: 25px;
     padding: 20px;
     border-radius: 12px;
-    background-color: var(--white-like);
-    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--mainTheme-color);
+    box-shadow: var(--tabContainersInner-shadow);
 }
 
 dt {
@@ -203,9 +203,9 @@ dt {
     padding-left: 15px;
     margin: 8px;
     border-radius: 11px;
-    color: var(--sea-blue);
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    color: var(--wedgeWood-blue);
+    text-shadow: var(--greyText-shadow);
+    box-shadow: var(--mediumElevatedButton-shadow);
 }
 
 dd {
@@ -217,14 +217,14 @@ dd {
     border-radius: 11px;
     width: min-content;
 
-    color: var(--golden-yellow);
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    color: var(--buff-yellow);
+    box-shadow: var(--mediumElevatedButton-shadow);
 }
 
 dd:hover{
-    background-color: var(--golden-yellow);
+    background-color: var(--buff-yellow);
     color: black;
-    box-shadow: -2px -2px 3px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--mediumElevatedHover-shadow);
 }
 
 
@@ -234,10 +234,10 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
     -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    background: var(--white-like);
+    background: var(--mainTheme-color);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #bebdbd;
+  background-color: var(--scroll-bar);
   border-radius: 5px;
 }
 body::-webkit-scrollbar-corner {
