@@ -13,6 +13,11 @@ document.onreadystatechange = () => {
     }
 };
 
+//SET WINDOW THEME BASED ON APP THEME
+if(window.localStorage.user_theme == 'dark'){
+    document.querySelector("#patterCategoryHtml").setAttribute("data-theme", "dark");
+    console.log("child theme should be: ");  
+}
 
 //INITIALIZE N-READLINES WITH DATA FILE ADDRESS
 //DOUBLE IF STATEMENT TO AVOID PATH ERROR BECAUSE OF ASAR PACKAGING OF ELECTRON APP
@@ -62,13 +67,13 @@ while(line = liner.next()){
 
         //enter pattern data
         pattern.innerHTML = splitter[0];
-        pattern.style.color = '#B94955';
+        pattern.style.color = 'var(--patternCategory-pattern)';
         //enter popularity data
         popularity.innerHTML = splitter[2];
-        popularity.style.color = '#5A81AE';
+        popularity.style.color = 'var(--patternCategory-popularity)';
         //enter address data
         address.innerHTML = splitter[1];
-        address.style.color = '#f9a825';
+        address.style.color = 'var(--patternCategory-address)';
 
         //append row into table element
         table.appendChild(tr);
@@ -146,18 +151,18 @@ function handleWindowControls() {
 
     //Recolor window control buttons when focused
     patternCategoryWin.on('focus', ()=>{
-        document.querySelector("#minWindowDiv").style.backgroundColor = '#FFBD44';
-        document.querySelector("#maxWindowDiv").style.backgroundColor = '#00CA4E';
-        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#00CA4E';
-        document.querySelector("#closeWindowDiv").style.backgroundColor = '#FF605C';
+        document.querySelector("#minWindowDiv").style.backgroundColor = 'var(--windowMinimize-yellow)';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = 'var(--windowResize-green)';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = 'var(--windowResize-green)';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = 'var(--windowClose-red)';
     });
 
     //Grey out window control button when not focused
     patternCategoryWin.on('blur', ()=>{
-        document.querySelector("#minWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#maxWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#restoreWindowDiv").style.backgroundColor = '#D3D3D3';
-        document.querySelector("#closeWindowDiv").style.backgroundColor = '#D3D3D3';
+        document.querySelector("#minWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#maxWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#restoreWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
+        document.querySelector("#closeWindowDiv").style.backgroundColor = 'var(--windowsControls-unfocused)';
     });
 }
 

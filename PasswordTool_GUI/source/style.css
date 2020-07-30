@@ -12,7 +12,7 @@ html, body{margin:0px; padding:0px;}
     src: url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
 body {
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     color: black;
     font-family: "Lato", sans-serif;
 }
@@ -23,7 +23,7 @@ body {
     height: 3.5vh;
     width: 100%;
     color: black;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     z-index: 99;
 }
 #dragRegion{
@@ -40,7 +40,7 @@ body {
     height: 100%;
     width: 17%;
     left: 44%;
-    color: var(--database-blue);
+    color: var(--windowTitle-text);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -96,7 +96,7 @@ body {
 }
 #minWindowDiv{
     position: relative;
-    background-color: var(--minimize-yellow);
+    background-color: var(--windowMinimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -115,7 +115,7 @@ body {
 #maxWindowDiv{
     position: relative;
     display: none;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -134,7 +134,7 @@ body {
 #restoreWindowDiv{
     position: relative;
     display: block;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -152,7 +152,7 @@ body {
 
 #closeWindowDiv{
     position: relative;
-    background-color: var(--close-red); 
+    background-color: var(--windowClose-red); 
 }
 #closeWindowDiv:hover #closeWindow{
     visibility: visible;
@@ -160,10 +160,10 @@ body {
 }
 #closeWindow{
     position: absolute;
-    left: 32%;
-    top: 25%;
-    height: 50%;
-    width: 40%;
+    left: 25%;
+    top: 20%;
+    height: 60%;
+    width: 50%;
     cursor:pointer;
     visibility: hidden;
 }
@@ -182,7 +182,7 @@ body {
 .splashScreen{
     width: 100vw;
     height: 100vh;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     visibility: visible;
     opacity: 1;
     pointer-events: none;
@@ -214,7 +214,7 @@ body {
     bottom: 0;
     grid-template-columns: 1fr 10fr;
     grid-template-rows: 1fr;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
 }
 
 .navTab{
@@ -223,14 +223,14 @@ body {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     top: 1.8%;
     height: 98%;
     border-top-right-radius: 40px;
     /*
     border-top-right-radius: 45px;
     */
-    box-shadow:-8px -8px 10px rgba(255, 255, 255, 255), 5px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--navbar-shadow);
     user-select: none;
 }
 
@@ -244,15 +244,15 @@ body {
     width: 11.5vh;
     margin-top: 36%;
     cursor:pointer;
-    box-shadow: -12px -12px 13px rgba(255, 255, 255, 1), 8px 8px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--navButton-shadow);
 }
 
 .navTab div:hover{
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 255), 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--navButtonHover-shadow);
     transition: 0.1s;
 }
 .navTab div.active{
-    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1), inset 8px 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--navButtonActive-shadow);
     cursor: default;
     transition: 0.5s;
 }
@@ -275,7 +275,7 @@ body {
     left: 25%;
     bottom: 11%;
     font-size: 2vh;
-    color: #6A9BD8;
+    color: var(--databaseTabButton-label);
     user-select: none;
     font-family: Montserrat;
     font-weight: 600;
@@ -291,12 +291,12 @@ body {
 }
 
 #homeLabel{
-    color: var(--home-red);
+    color: var(--homeTabButton-label);
     letter-spacing: 0.5px;
 }
 
 #targetLabel{
-    color: var(--target-green);
+    color: var(--targetTabButton-label);
     letter-spacing: 0.5px;
 }
 
@@ -305,14 +305,14 @@ body {
     top: 66%;
     left: 15%;
     letter-spacing: 1px;
-    color: var(--process-yellow);
+    color: var(--processTabButton-label);
 }
 
 #documentLabel {
     position: relative;
     left: 7%;
     top: 75%;
-    color: var(--document-grey);
+    color: var(--documentTabButton-label);
     font-size: 1.7vh;
 }
 

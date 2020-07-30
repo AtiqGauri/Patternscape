@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="appIndexHtml">
   <head>
 	<!--BOILERPLATE AND LINKS-->
 	<meta charset="UTF-8">
@@ -30,11 +30,15 @@
 		</div>
 		<div id="windowTitle">
 			<span id="appHeaderName">Ongoing Project</span>
-			<img class="appHeaderIcon" src="assets/icons/app-icon.svg" id="appHeaderIcon" draggable="false">
+			<img class="appHeaderIcon" src="assets/icons/app-icon-transparent.svg" id="appHeaderIcon" draggable="false">
 		</div>
 	</div>
   </header>
-  <body id="appBody">
+  <body id="appBody" data-theme="light">
+	<script>
+		if(window.localStorage.user_theme == 'dark')
+			document.querySelector("#appBody").setAttribute("data-theme", "dark");
+	</script>
 	<!--SPLASH SCREEN-->
 	<div class="splashScreen" id="splashScreen">
 		<img class="splashIcon" src="assets/images/splash-screen.svg" draggable="false">
@@ -45,23 +49,23 @@
 		<main class="mainContainer" id="mainContainer">
 			<section class="navTab" id="navTab">
 			  <div class="tabLinks" id="targetTabButton" onclick="change_main_tabs(event, 'targetTab')">
-				<img class="navIcons" src="assets/icons/target.svg" draggable="false">
+				<img class="navIcons" id="target_button_icon" src="assets/icons/target.svg" draggable="false">
 				<label class="navLabels" id="targetLabel">Target</label>
 			  </div>
 			  <div class="tabLinks" id="processTabButton" onclick="change_main_tabs(event, 'processTab')">
-				<img class="navIcons" src="assets/icons/process.svg" draggable="false">
+				<img class="navIcons" id="process_button_icon" src="assets/icons/process.svg" draggable="false">
 				<label class="navLabels" id="processLabel">Process</label>
 			  </div>
 			  <div class="tabLinks" id="homeTabButton" onclick="change_main_tabs(event, 'homeTab')">
-				<img class="navIcons" src="assets/icons/home.svg" draggable="false">
+				<img class="navIcons" id="home_button_icon" src="assets/icons/home.svg" draggable="false">
 				<label class="navLabels" id="homeLabel">Home</label>
 			  </div>
 			  <div class="tabLinks" id="databaseTabButton" onclick="change_main_tabs(event, 'databaseTab')">
-				<img class="navIcons" src="assets/icons/database.svg" draggable="false">
+				<img class="navIcons" id="database_button_icon" src="assets/icons/database.svg" draggable="false">
 				<label class="navLabels" id="databaseLabel">Database</label>
 			  </div>
 			  <div class="tabLinks" id="documentsTabButton" onclick="change_main_tabs(event, 'documentTab')">
-				<img class="navIcons" src="assets/icons/documents.svg" draggable="false">
+				<img class="navIcons" id="document_button_icon" src="assets/icons/documents.svg" draggable="false">
 				<label class="navLabels" id="documentLabel">Documents</label>
 			  </div>
 			</section>
@@ -86,7 +90,7 @@
 		</main>
 	</div>
 	  <!-- JAVASCRIPT FILES -->
-	  <script src="./preload.js"></script> 
+	  <script src="./app_startup.js"></script> 
 	  <script src="./scripts/appIntro.js"></script>
 	  <script src="./renderer.js"></script>
 	  <script src="./scripts/databaseClient.js"></script>
@@ -107,6 +111,9 @@
 		* THIS FUNCTION WILL TRIGGER AND WE CAN ACCESS CONTENT OF THOSE HTML FILES.
 		*/
 		document.addEventListener('includemeCompleted', async function (e) {
+			//set app theme once all html files are loaded >>renderer.js<<
+			set_app_theme();
+
 			//click on export tab of database window >>htmls/database.html<<
 			document.querySelector("#expDB").click();
 			

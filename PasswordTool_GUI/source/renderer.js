@@ -333,3 +333,60 @@ function process_single_password(detectedData){
 		targetPasswordWindow.webContents.send('message', detectedData);
 	});
 }
+
+
+/**
+ * FUNCTION TO CHANGE APP THEME BASED ON USER PREFERENCE.
+ * THIS WILL CHECK USER PREFERENCE IN LOCAL-STORAGE DATABASE -
+ * AND CHANGE CSS IDENTIFIER AND SOME VARIABLES ACCORDING TO THEME.
+ * LASTLY UPDATE THEME VALUE IN DATABASE 
+ */
+function set_app_theme(){
+	if(window.localStorage.user_theme == 'dark'){ //dark theme
+		//change theme icon and button background
+		document.querySelector(".appThemeIcon").src = "assets/icons/light_mode.svg";
+		document.querySelector(".themeChangeButton").style.backgroundColor = "var(--dark-grey)";
+		//change search bar internal icon
+		document.querySelector(".patternSearchBar").style.backgroundImage = "url(assets/icons/search-icon-white.svg)";
+		//change home image (dark-mode)
+		document.querySelector(".homeImageLight").src = "assets/images/home-page-image-dark.svg";
+		//decrease home images brightness
+		document.querySelector(".homeDecor1").style.filter = "brightness(75%)";
+		document.querySelector(".homeDecor2").style.filter = "brightness(75%)";
+		//change nav tab icons color according to dark-mode
+		//all the tab icons are black without these filters
+		document.querySelector("#target_button_icon").style.filter = "invert(64%) sepia(89%) saturate(1210%) hue-rotate(185deg) brightness(88%) contrast(92%)";
+		document.querySelector("#process_button_icon").style.filter = "invert(59%) sepia(67%) saturate(4413%) hue-rotate(340deg) brightness(94%) contrast(92%)";
+		document.querySelector("#home_button_icon").style.filter = "invert(37%) sepia(47%) saturate(5355%) hue-rotate(330deg) brightness(96%) contrast(86%)";
+		document.querySelector("#database_button_icon").style.filter = "invert(60%) sepia(56%) saturate(581%) hue-rotate(102deg) brightness(97%) contrast(85%)";
+		document.querySelector("#document_button_icon").style.filter = "invert(83%) sepia(20%) saturate(861%) hue-rotate(350deg) brightness(104%) contrast(90%)";
+		//SET DARK-MODE ATTRIBUTE IN INDEX.HTML
+		document.querySelector("#appBody").setAttribute("data-theme", "dark");
+		//save user preference
+		window.localStorage.user_theme = 'dark';
+		console.log('dark theme activated');
+    }else{
+		//change theme icon and button background
+		document.querySelector(".appThemeIcon").src = "assets/icons/dark_mode.svg";
+		document.querySelector(".themeChangeButton").style.backgroundColor = "#121312";
+		//change search bar internal icon
+		document.querySelector(".patternSearchBar").style.backgroundImage = "url(assets/icons/search-icon.svg)";
+		//change home image (light-mode) 
+		document.querySelector(".homeImageLight").src = "assets/images/home-page-image.svg";
+		//increase home images brightness
+		document.querySelector(".homeDecor1").style.filter = "brightness(100%)";
+		document.querySelector(".homeDecor2").style.filter = "brightness(100%)";
+		//change nav tab icons color according to light-mode
+		//all the tab icons are black without these filters
+		document.querySelector("#target_button_icon").style.filter = "invert(54%) sepia(80%) saturate(398%) hue-rotate(102deg) brightness(101%) contrast(93%)";
+		document.querySelector("#process_button_icon").style.filter = "invert(90%) sepia(28%) saturate(4837%) hue-rotate(333deg) brightness(94%) contrast(108%)";
+		document.querySelector("#home_button_icon").style.filter = "invert(66%) sepia(60%) saturate(4408%) hue-rotate(312deg) brightness(103%) contrast(105%)";
+		document.querySelector("#database_button_icon").style.filter = "invert(55%) sepia(17%) saturate(1098%) hue-rotate(173deg) brightness(104%) contrast(93%)";
+		document.querySelector("#document_button_icon").style.filter = "invert(42%) sepia(9%) saturate(891%) hue-rotate(204deg) brightness(91%) contrast(85%)";
+		//SET LIGHT-MODE ATTRIBUTE IN INDEX.HTML
+		document.querySelector("#appBody").setAttribute("data-theme", "light");
+		//save user preference
+		window.localStorage.user_theme = 'light';
+		console.log('light theme activated');
+    }
+}

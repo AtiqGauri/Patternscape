@@ -5,7 +5,7 @@
 /****************************************************/
 
 html, body{margin:0px; padding:0px;
-background-color: #F2F2F2;
+background-color: var(--mainTheme-color);
 }
 @font-face {
     font-family: "Montserrat";
@@ -17,11 +17,11 @@ background-color: #F2F2F2;
     position: absolute;
     display: block;
     position: fixed;
-    height: 3.5vh;
+    height: 5vh;
     top: 0%;
     width: 100%;
     color: black;
-    background-color: var(--white-like);
+    background-color: var(--mainTheme-color);
     z-index: 99;
 }
 #dragRegion{
@@ -39,7 +39,7 @@ background-color: #F2F2F2;
     height: 100%;
     width: 17%;
     left: 43%;
-    color: var(--database-blue);
+    color: var(--windowTitle-text);
 
     letter-spacing: 1px;
     word-spacing: 2.5px;
@@ -95,7 +95,7 @@ background-color: #F2F2F2;
 }
 #minWindowDiv{
     position: relative;
-    background-color: var(--minimize-yellow);
+    background-color: var(--windowMinimize-yellow);
 }
 #minWindowDiv:hover #minimizeWindow{
     visibility: visible;
@@ -114,7 +114,7 @@ background-color: #F2F2F2;
 #maxWindowDiv{
     position: relative;
     display: block;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #maxWindowDiv:hover #maximizeWindow{
     visibility: visible;
@@ -133,7 +133,7 @@ background-color: #F2F2F2;
 #restoreWindowDiv{
     position: relative;
     display: none;
-    background-color: var(--resize-green);
+    background-color: var(--windowResize-green);
 }
 #restoreWindowDiv:hover #restoreWindow{
     visibility: visible;
@@ -151,7 +151,7 @@ background-color: #F2F2F2;
 
 #closeWindowDiv{
     position: relative;
-    background-color: var(--close-red);
+    background-color: var(--windowClose-red);
     
 }
 #closeWindowDiv:hover #closeWindow{
@@ -190,7 +190,7 @@ background-color: #F2F2F2;
     letter-spacing: 4px;
     text-align: center;
 
-    color: var(--darker-royal-blue);
+    color: var(--patternCategory-header);
     user-select: none;
 }
 
@@ -211,12 +211,12 @@ th {
     padding: 8px;
     height: 50px;
     border-radius: 11px;
-    background-color: #F2F2F2;
-    color: var(--darker-royal-blue);
+    background-color: var(--mainTheme-color);
+    color: var(--downriver-blue);
     text-align: center;
     white-space:normal;
     overflow: auto;
-    box-shadow: -4px -8px 20px rgba(255, 255, 255, 255), 8px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--highElevatedButton-shadow);
     user-select: none;
 }
 
@@ -238,21 +238,21 @@ td::-webkit-scrollbar-track {
     border-radius: 5px;
 }
 td::-webkit-scrollbar-thumb {
-  background-color: #D3D3D3;
+  background-color: var(--scroll-bar);
   border-radius: 5px;
 }
 
 
 .patternColumn{
-    color: var(--blood-red);
+    color: var(--patternCategory-pattern);
 }
 
 .popularityColumn{
-    color: var(--sea-blue);
+    color: var(--patternCategory-popularity);
 }
 
 .addressColumn{
-    color: var(--process-yellow);
+    color: var(--patternCategory-address);
 }
 
 
@@ -262,10 +262,10 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
     -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    background: var(--white-like);
+    background: var(--mainTheme-color);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: rgb(180, 179, 179);
+  background-color: var(--scroll-bar);
   border-radius: 5px;
 }
 body::-webkit-scrollbar-corner {

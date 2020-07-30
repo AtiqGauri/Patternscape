@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="65px" height="64px" viewBox="0 0 65 64" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <desc>Created with Lunacy</desc>
-  <g id="mid">
-    <g id="noun_Fullscreen_56015">
-      <g id="Group">
-        <path d="M29.933 30L0 0L30 0.00289156L29.933 30L29.933 30L29.933 30Z" transform="translate(0 34)" id="Shape" fill="#686868" stroke="none" />
-        <path d="M0.0669663 0L30 30L0 30L0.0669663 0L0.0669663 0L0.0669663 0Z" transform="translate(34 0)" id="Shape" fill="#686868" stroke="none" />
-      </g>
-    </g>
-  </g>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="mid">
+<g id="noun Fullscreen 56015">
+<g id="Group">
+<path id="Shape" d="M29.933 64L0 34L30 34.0029L29.933 64Z" fill="#2A2A2A"/>
+<path id="Shape_2" d="M34.067 0L64 30H34L34.067 0Z" fill="#2A2A2A"/>
+</g>
+</g>
+</g>
 </svg>

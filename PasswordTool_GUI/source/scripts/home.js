@@ -170,3 +170,23 @@ function autocomplete(inp) {
 
 //initiate the autocomplete function
 //autocomplete(document.getElementById("patternBar"));
+
+
+
+/**
+ * FUNCTION TO CHANGE APP THEME BETWEEN DARK AND LIGHT
+ * 1. FIST CHECK WHAT IS USER PREFERENCE IN DATABASE
+ * 2. IF DARK THEN CHANGE PREFERENCE TO LIGHT AND VICE VERSA 
+ * 3. CALL SET THEME FUNCTION TO CHANGE THEME.
+ */
+function change_app_theme() {
+    if(window.localStorage.user_theme == 'dark'){
+        window.localStorage.user_theme = 'light';
+        //>>source/renderer.js<<
+        set_app_theme();
+    }else{
+        window.localStorage.user_theme = 'dark';
+        //>>source/renderer.js<<
+        set_app_theme();
+    }
+}

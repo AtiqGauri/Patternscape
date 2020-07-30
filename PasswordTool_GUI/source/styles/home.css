@@ -45,16 +45,15 @@
     border-style: solid;
     border-radius: 4px;
     font-size: 16px;
-    background-color: var(--white-like);
-    background-image: url("../assets/icons/search-icon.svg");
+    background-color: var(--mainTheme-color);
+    background-image:  url("../assets/icons/search-icon.svg");
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    border-color: var(--darker-yellow);
-    color: var(--blood-red);
+    border-color: var(--searchBar-unfocused);
+    color: var(--searchBar-text);
     padding: 12px 20px 12px 40px;
-    box-shadow: 0 18px 70px 0 var(--process-yellow);
-    box-shadow: -20px -20px 70px rgba(255, 255, 255, 1),
-              12px 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 18px 70px 0 var(--seaBuckthorn-yellow);
+    box-shadow: var(--homeSearchBar-shadow);
     transition: width 10s ease, top 0.4s ease, border-color 0.5s ease;
 
     font-family: Montserrat;
@@ -66,9 +65,8 @@
     outline: none;
 }
 
-
 .searchBarContainer.focused .patternSearchBar {
-    border-color: var(--blood-red);
+    border-color: var(--searchBar-focused);
 }
 
 .homeImage {
@@ -94,7 +92,7 @@
 .autocomplete-items {
     width: 100%;
     position: relative;
-    border: 2px solid var(--white-like);
+    border: 2px solid var(--mainTheme-color);
     border-top: none;
     border-bottom: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -109,17 +107,17 @@
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    color: var(--blood-red);
-    background-color: var(--white-like); 
-    border-bottom: 1px solid var(--white-like); 
+    color: var(--searchBar-text);
+    background-color: var(--mainTheme-color); 
+    border-bottom: 1px solid var(--mainTheme-color); 
     overflow: hidden;
     text-overflow: ellipsis; 
 }
   
 /*when hovering an item:*/
 .autocomplete-items div:hover {
-    background-color: var(--database-blue); 
-    color: white;
+    background-color: var(--danube-blue); 
+    color: var(--mainTheme-color);
 }
 
 /********search results popularity*********/
@@ -128,41 +126,40 @@
     padding: 0.5% 0.5% 0.5% 0.5%;
     width: fit-content;
     right: 1.5%;
-    color: var(--white-like);
+    color: var(--mainTheme-color);
     font-size: 2vh;
-    background-color: var(--database-blue);
+    background-color: var(--danube-blue);
     border-radius: 50px;
     transform: translateY(-18%);
 }
 .autocomplete-items div:hover #searchPatternPopularity{
-    background-color: var(--process-yellow);
+    background-color: var(--searchBar-popularity);
 }
 #searchPatternPopularity:hover{
-    background-color: var(--blood-red) !important;
+    background-color: var(--brightRed-red) !important;
 }
   
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-    background-color: var(--database-blue) !important; 
-    color: white !important; 
+    background-color: var(--danube-blue) !important; 
+    color: var(--mainTheme-color) !important; 
 }
 .autocomplete-active #searchPatternPopularity{
-    background-color: var(--process-yellow) !important;
+    background-color: var(--searchBar-popularity) !important;
 }
 
 .homeSubmit{
     position: absolute;
     top: 50.5%;
     left: 68%;
-    background-color: var(--white-like);
-    color: var(--blood-red);
+    background-color: var(--mainTheme-color);
+    color: var(--searchBar-unfocused);
     cursor: pointer;
     border: solid transparent;
     border-radius: 4px;
     padding: 0.6%;
     font-size: 100%;
-    box-shadow: -20px -20px 70px rgba(255, 255, 255, 1),
-              2px 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--homeSearchSubmit-shadow);
     transition: 0.5s;
 
     font-family: Montserrat;
@@ -172,15 +169,55 @@
     user-select: none;
 }
 
+/****************THEME BUTTON START*****************/
+.appThemeIcon{
+    display: block;
+    position: absolute;
+    height: 75%;
+    width: 75%;
+    right: 12.5%;
+    top: 12%;
+    cursor:pointer;
+    pointer-events: none;
+}
+.themeChangeButton{
+    position: absolute;
+    height: 6%;
+    width: 4%;
+    right: 2%;
+    top: 2%;
+    text-align: center;
+    color: black;
+    background-color: #121312;
+    border-radius: 15px;
+    box-shadow: var(--smallSquareButton-shadow);
+    user-select: none;
+    cursor:pointer;
+    transition: opacity 1000ms, visibility 1000ms;
+    z-index: 10;
+}
+.themeChangeButton:hover{
+    box-shadow: var(--smallSquareHover-shadow);
+    transition: 0.1s;
+}
+.themeChangeButton.active{
+    box-shadow: var(--smallSquareActive-shadow);
+    transition: 0.4s;
+}
+/****************THEME BUTTON END*****************/
 
+
+
+/****************DECORATION START*****************/
 .homeSubmit:hover{
-    background-color: var(--database-blue);
-    color: var(--white-like);
+    background-color: var(--danube-blue);
+    color: var(--mainTheme-color);
 }
 
 .searchBarContainer.focused~.homeSubmit{
     top: 10.5%;
     left: 87.5%;
+    color: var(--searchBar-focused);
     transition: 1s ease;
 }
 
@@ -199,13 +236,13 @@
     position: absolute;
     top: 2%;
     right: 2%;
-    height: 60%;
+    height: 27%;
 
     z-index: 0;
     user-select: none;
     transition: opacity 1000ms, visibility 1000ms;
 }
-
+/****************DECORATION END*****************/
 
 
 /****************ALERTS START*****************/
@@ -219,5 +256,9 @@
     font-size: 2.2vh;
     letter-spacing: 1.5px;
     user-select: none;
+}
+
+.swal2-content{
+    color: var(--alertBody-text);
 }
 /****************ALERTS END*****************/

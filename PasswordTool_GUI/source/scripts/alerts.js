@@ -8,7 +8,7 @@ function target_alerts(cTarget, cTitle, cClass, cTime=2000){
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         showConfirmButton: false,
         toast: true,
         timer: cTime,
@@ -31,7 +31,7 @@ function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> In
         html: cHtml,
         customClass: 'centerErrorAlert',
         position: 'center',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         showConfirmButton: false,
         toast: true,
@@ -48,7 +48,7 @@ function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> In
 /*****************PROCESS STARTS***********************/
 
 //Output folder function is defined in //>>APP_FOLDER/source/scripts/renderer.js<<
-function moving_forward_to_stats(cTitle='<b style="color:#5c0e51; user-select:none;">Finished</b>', 
+function moving_forward_to_stats(cTitle='<b style="color:var(--processAnalyze-text); user-select:none;">Finished</b>', 
 cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create statistics of analyzed data</b></br>'+
        '<button class="analyzeAlertOutput" onclick="output_of_analyzing()">Output folder</button>',
  cIcon='success', cTime='4000', cConfirmButton=true, cCancelButton=true){
@@ -59,7 +59,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create 
         padding: '2vh 4vh 2vh 4vh',
         customClass: 'processAnalyzeAlert',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         focusCancel: true,
         showConfirmButton: cConfirmButton,
@@ -67,7 +67,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create 
         confirmButtonColor: 'grey',
         showCancelButton: cCancelButton,
         cancelButtonText: 'Move Forward',
-        cancelButtonColor: '#78126A',
+        cancelButtonColor: 'var(--processAnalyze-text)',
         timer: cTime,
         timerProgressBar: true,
         onOpen: (toast) => {
@@ -85,7 +85,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create 
 }
 
 //Output folder is defined in //>>APP_FOLDER/source/scripts/renderer.js<<
-function moving_forward_to_importDB(cTitle='<b style="color:#E86135; user-select:none;">Finished</b>', 
+function moving_forward_to_importDB(cTitle='<b style="color:var(--processStats-text); user-select:none;">Finished</b>', 
 cHtml='<b style="margin:0 4vw 0 1vw; user-select:none;">Now import these statistics into database</b></br>'+
 '<button class="statsAlertOutput" onclick="output_of_stats_generator()">Output folder</button>',
  cIcon='success', cTime='240000', cConfirmButton=true, cCancelButton=true){
@@ -96,7 +96,7 @@ cHtml='<b style="margin:0 4vw 0 1vw; user-select:none;">Now import these statist
         padding: '2vh 4vh 2vh 4vh',
         customClass: 'processStatsAlert',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         focusCancel: true,
         showConfirmButton: cConfirmButton,
@@ -104,7 +104,7 @@ cHtml='<b style="margin:0 4vw 0 1vw; user-select:none;">Now import these statist
         confirmButtonColor: 'grey',
         showCancelButton: cCancelButton,
         cancelButtonText: 'Let\'s Import',
-        cancelButtonColor: '#E86135',
+        cancelButtonColor: 'var(--processStats-text)',
         timer: cTime,
         timerProgressBar: true,
         onOpen: (toast) => {
@@ -128,7 +128,7 @@ function general_stop_alerts(cTarget, cTitle, cIcon, cClass, cTime=600, cProgres
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         showConfirmButton: false,
         toast: true,
@@ -148,7 +148,7 @@ function process_single_user_alerts(cTarget, cTitle, cClass, cTime=2000){
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         showConfirmButton: false,
         toast: true,
         timer: cTime,
@@ -171,7 +171,7 @@ function database_acknowledgment(cTarget='importDB', cTitle='Imported Successful
         customClass: cClass,
         padding: '2vh 2vh 2vh 2vh',
         position: 'top',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         showConfirmButton: false,
         toast: true,
@@ -194,7 +194,7 @@ function database_error_alerts(cTarget, cTitle, cHtml, cIcon, cClass, cTime, cBC
         padding: '2vh 4vh 2vh 4vh',
         customClass: cClass,
         position: 'center',
-        background: '#F2F2F2',
+        background: 'var(--mainTheme-color)',
         icon: cIcon,
         focusCancel: true,
         showConfirmButton: true,

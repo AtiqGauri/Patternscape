@@ -1,13 +1,17 @@
 // MODULES TO CONTROL APPLICATION LIFE AND CREATE NATIVE BROWSER WINDOW
-const {app, BrowserWindow, Menu, screen} = require('electron')
+const {app, BrowserWindow, Menu, screen, nativeTheme} = require('electron')
 const path = require('path')
 
 // KEEP A GLOBAL REFERENCE OF THE WINDOW OBJECT, IF YOU DON'T, THE WINDOW WILL
 // BE CLOSED AUTOMATICALLY WHEN THE JAVASCRIPT OBJECT IS GARBAGE COLLECTED.
 
 let mainWindow
+var SYSTEM_THEME;
 
 function createWindow () {
+  //GET SYSTEM THEME MODE
+  SYSTEM_THEME = nativeTheme.shouldUseDarkColors ? '#161617' : '#F2F2F2';
+
   //STORE SYSTEM SCREEN SIZE
   var { width, height } = screen.getPrimaryDisplay().workAreaSize;
   //Set windows size according to scree resolution
@@ -28,9 +32,10 @@ function createWindow () {
     //icon: __dirname + '/asset/icons/app-icon.png',
     autoHideMenuBar: true,
     frame: false,
-    backgroundColor: '#F2F2F2',
+    backgroundColor: SYSTEM_THEME,
     show: false,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
       nativeWindowOpen: true,
       nodeIntegration: true,
       nodeIntegrationInWorker: true,

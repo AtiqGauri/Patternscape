@@ -63,5 +63,5 @@
 
 #percentageCircle{
   display: none;
-  fill: var(--blood-red);
+  fill: var(--brightRed-red);
 }
