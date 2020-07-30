@@ -21,7 +21,7 @@
   },
   "cmake-js": {
     "runtime": "electron",
-    "runtimeVersion": "8.1.1",
+    "runtimeVersion": "9.1.2",
     "arch": "ia32"
   },
   "devDependencies": {
