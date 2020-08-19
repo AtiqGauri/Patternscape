@@ -3,7 +3,7 @@
                         IMPORTANT NOTE
 #########################################################################
 1. CHECK PROJECT ROOT FOLDER VARIABLE(PROJECT_ROOT) IT SHOULD RESOLVE TO
-REPOSITORY FOLDER (Parent folder of PasswordTool_GUI)
+REPOSITORY FOLDER (Parent folder of Patternscape_GUI)
 
 2. OUTPUT FILE(./ThirdPartyLicense.txt) WILL HAVE FAILED CASES AT THE 
 END OF FILE. WITH A LABEL NOT FOUND FOR LICENSE FIELD.
@@ -38,7 +38,7 @@ try {
 const path = require('path');
 //PROJECT ROOT FOLDER ADDRESS
 PROJECT_ROOT = path.join('..','..','..');
-const fs = require(path.join(PROJECT_ROOT, 'PasswordTool_GUI', 'node_modules', 'fs-extra'));
+const fs = require(path.join(PROJECT_ROOT, 'Patternscape_GUI', 'node_modules', 'fs-extra'));
 
 
 //PATH OF OUTPUT FILE(THIRD PARTY DEPENDENCIES LICENSES)
@@ -56,7 +56,7 @@ license_checker.init(
   {
     //DIRECTORY PATH TO SEARCH DEPENDENCIES
     //CHANGE (IF REQUIRED) IT TO NODE_MODULE PATH
-    start: path.join(__dirname, PROJECT_ROOT, "PasswordTool_GUI")
+    start: path.join(__dirname, PROJECT_ROOT, "Patternscape_GUI")
   },
   function(error, json) {
     if (error) {

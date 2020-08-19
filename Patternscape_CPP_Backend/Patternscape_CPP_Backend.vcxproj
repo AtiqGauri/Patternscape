@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{8E74D372-0303-4766-ABB2-E6B0D342334E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PasswordToolCPPBackend</RootNamespace>
+    <RootNamespace>PatternscapeCPPBackend</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -159,7 +159,7 @@
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="DataCleanser.cpp" />
     <ClCompile Include="FileHandler.cpp" />
-    <ClCompile Include="PasswordTool_CPP_Backend.cpp" />
+    <ClCompile Include="Patternscape_CPP_Backend.cpp" />
     <ClCompile Include="Patterns.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="StatsGenerator.cpp" />

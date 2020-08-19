@@ -32,7 +32,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
-        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+        working-directory: Patternscape_GUI/ # all the run commands gonna run in this directory
 
     steps:
       - name: Checkout master (${{ github.event.inputs.git-ref }}) 
@@ -59,8 +59,8 @@ jobs:
       - name: Upload macos artifact
         uses: actions/upload-artifact@v2
         with:
-          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
-          path: PasswordTool_GUI/releases/darwin/x64/PasswordTool-darwin-v${{ env.APP_VERSION }}.dmg
+          name: Patternscape-${{ env.NPM_PLATFORM }}-x64
+          path: Patternscape_GUI/releases/darwin/x64/Patternscape-darwin-v${{ env.APP_VERSION }}.dmg
 
   test-linux: # build for linux
     runs-on: ${{ matrix.platform }}
@@ -74,7 +74,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
-        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+        working-directory: Patternscape_GUI/ # all the run commands gonna run in this directory
 
     steps:
       - name: Checkout master  (${{ github.event.inputs.git-ref }})
@@ -97,13 +97,13 @@ jobs:
               npm run dist
               echo '::set-env name=NPM_PLATFORM::linux'
               echo '::set-env name=APP_EXT::'
-              mv releases/linux/x64/linux-unpacked releases/linux/x64/PasswordTool-linux-v${{ env.APP_VERSION }}
+              mv releases/linux/x64/linux-unpacked releases/linux/x64/Patternscape-linux-v${{ env.APP_VERSION }}
 
       - name: Upload linux artifact
         uses: actions/upload-artifact@v2
         with:
-          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
-          path: PasswordTool_GUI/releases/linux/x64/PasswordTool-linux-v${{ env.APP_VERSION }}
+          name: Patternscape-${{ env.NPM_PLATFORM }}-x64
+          path: Patternscape_GUI/releases/linux/x64/Patternscape-linux-v${{ env.APP_VERSION }}
 
   test-windows: # build for windows
     runs-on: ${{ matrix.platform }}
@@ -117,7 +117,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
-        working-directory: PasswordTool_GUI/ # all the run commands gonna run in this directory
+        working-directory: Patternscape_GUI/ # all the run commands gonna run in this directory
 
     steps:
       - name: Checkout master (${{ github.event.inputs.git-ref }})
@@ -145,8 +145,8 @@ jobs:
       - name: Upload windows artifact
         uses: actions/upload-artifact@v2
         with:
-          name: PasswordTool-${{ env.NPM_PLATFORM }}-x64
-          path: PasswordTool_GUI/releases/win32/x64/PasswordTool-win32-v${{ env.APP_VERSION }}.exe
+          name: Patternscape-${{ env.NPM_PLATFORM }}-x64
+          path: Patternscape_GUI/releases/win32/x64/Patternscape-win32-v${{ env.APP_VERSION }}.exe
 
   delete-old-artifacts: # delte old artifact after matched condition
     needs: [test-windows, test-linux, test-macos] # run only after above jobs

@@ -1,10 +1,10 @@
 {
-  "name": "PasswordTool",
-  "productName": "Password Tool",
+  "name": "Patternscape",
+  "productName": "Patternscape",
   "version": "0.0.2",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
-  "homepage": "https://github.com/AtiqGauri/PasswordTool",
+  "homepage": "https://github.com/AtiqGauri/Patternscape",
   "scripts": {
     "preinstall": "npm install npm-run-all && npm-run-all copy_package preinstall_actions",
     "install": "(npm-run-all install_addon && npm install --arch=x64 electron)",
@@ -20,8 +20,8 @@
     "install_32bit": "npm install --arch=ia32 electron",
     "preinstall_actions": "node ../Tests_and_assets/project_operations/app/beforeInstall.js",
     "postinstall_actions": "node ../Tests_and_assets/project_operations/app/afterInstall.js",
-    "install_addon": "npm install ../PasswordTool_Native_Addon --no-save",
-    "install_addon32bit": "npm run install32 --prefix ../PasswordTool_Native_Addon --no-save",
+    "install_addon": "npm install ../Patternscape_Native_Addon --no-save",
+    "install_addon32bit": "npm run install32 --prefix ../Patternscape_Native_Addon --no-save",
     "build_dist": "electron-builder --x64 --publish never",
     "build_dist32": "electron-builder --ia32 --publish never",
     "predist_actions": "node ../Tests_and_assets/project_operations/app/beforeDist.js",
@@ -46,7 +46,7 @@
       "data/Stats/Error Log",
       "data/Stats/Patterns Data/Error Log",
       "data/Temp/Error Log",
-      "Launch PasswordTool.sh"
+      "Launch Patternscape.sh"
     ],
     "win": {
       "target": "nsis",
@@ -57,13 +57,13 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
-      "artifactName": "PasswordTool-win32-v${version}.${ext}"
+      "artifactName": "Patternscape-win32-v${version}.${ext}"
     },
     "mac": {
       "target": "dmg",
       "category": "public.app-category.developer-tools",
       "icon": "source/assets/icons/app-icon.png",
-      "artifactName": "PasswordTool-darwin-v${version}.${ext}"
+      "artifactName": "Patternscape-darwin-v${version}.${ext}"
     },
     "dmg": {
       "background": "../Tests_and_assets/original_assets/images/installer_backgroud.tif",
@@ -92,14 +92,14 @@
       "desktop": {
         "Comment": "App to detect patterns in passwords",
         "Icon": "source/assets/icons/app-icon.png",
-        "Name": "PasswordTool",
+        "Name": "Patternscape",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
         "Categories": "Development;"
       },
-      "artifactName": "PasswordTool",
-      "executableName": "PasswordTool",
+      "artifactName": "Patternscape",
+      "executableName": "Patternscape",
       "maintainer": "gauriatiq@gmail.com",
       "target": [
         "dir"
@@ -135,13 +135,13 @@
     "sweetalert2": "^9.8.2"
   },
   "keywords": [
-    "Password tool",
+    "Patternscape",
     "Password",
     "Pattern",
     "Security",
     "Attack"
   ],
-  "repository": "https://github.com/AtiqGauri/PasswordTool.git",
+  "repository": "https://github.com/AtiqGauri/Patternscape.git",
   "author": {
     "name": "Atiq Gauri",
     "email": "gauriatiq@gmail.com"

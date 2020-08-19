@@ -50,12 +50,12 @@ html, body{margin:0px; padding:0px;
 }
 #appHeaderName{
     position: absolute;
-    left: 5%;
+    left: 10%;
     top: 17%;
 }
 #appHeaderIcon{
     position: absolute;
-    right: -30%;
+    right: -15%;
     top: 30%;
     height: 80%;
     width: 80%;

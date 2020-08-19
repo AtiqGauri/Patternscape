@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html id="patterCategoryHtml" data-theme="light">
+<html id="targetPatternHtml" data-theme="light">
     <head>
-        <title>Pattern Categories</title>
-	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <title> Target Patterns </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta name="HandheldFriendly" content="true">
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="../styles/patternsCategories.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/targetPattern.css"/>
     </head>
-    <body id="patterCategoryBody">
+    <body>
+        <!--TITLE BAR AND APP WINDOW BUTTONS-->
         <header id="titleBar">
-            <!--TITLE BAR AND APP WINDOW BUTTONS-->
             <div id="dragRegion">
                 <div id="windowControls" class="windowControls">
                     <div class="windowControlDiv" id="minWindowDiv">
@@ -26,26 +26,22 @@
                     </div>
                 </div>
                 <div id="windowTitle">
-                    <span id="appHeaderName">Ongoing Project</span>
+                    <span id="appHeaderName">Patternscape</span>
                     <img class="appHeaderIcon" src="../assets/icons/app-icon-transparent.svg" id="appHeaderIcon" draggable="false">
                 </div>
             </div>
         </header>
-        <h1 id='header' >Generated Stats: </h1>
-        <!-- CONTENT TABLE -->
-        <!-- PATTERN POPULARITY ADDRESS -->
-        <table id='patternTable'>
-            <tr>
-                <th class="patternColumn">Pattern</th>
-                <th class="popularityColumn">Popularity</th>
-                <th class="addressColumn">File Address</th>
-            </tr>
-        </table>
+        <!-- Password -->
+        <h1 id="passwordString"></h1>
+        
+        <!-- list of detected pattern and its data -->
+        <ol id='generatedPatterns'>
+        </ol>
 
-        <!-- NO RECEIVED ERROR -->
-        <img id="noDataReceived" style="display: none;" alt="NO DATA RECEIVED" draggable="false">
-
-        <!-- JS -->
-        <script src="../scripts/patternsCategories.js"></script>
+         <!-- NO RECEIVED ERROR -->
+         <img id="noDataReceived" style="display: none;" alt="NO DATA RECEIVED" draggable="false">
+        
+        <!-- js scripts -->
+        <script src="../scripts/targetPattern.js"></script>
     </body>
 </html>

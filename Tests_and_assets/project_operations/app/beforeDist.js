@@ -3,7 +3,7 @@
 /*******************************************************/
 
 //IMPORT CPY PACKAGE
-const cpy = require(__dirname + '/../../../PasswordTool_GUI/node_modules/cpy');
+const cpy = require(__dirname + '/../../../Patternscape_GUI/node_modules/cpy');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,9 +12,9 @@ const path = require('path');
 	await cpy(
 		[
 		__dirname + '/../../data/sample_input.txt',
-		__dirname + '/../../original_assets/additional scripts/Launch PasswordTool.sh'
+		__dirname + '/../../original_assets/additional scripts/Launch Patternscape.sh'
 		],
-		__dirname + '/../../../PasswordTool_GUI/data/Input/'
+		__dirname + '/../../../Patternscape_GUI/data/Input/'
 		);
 })();
 
@@ -24,12 +24,12 @@ if(process.platform === "linux"){
 	(async () => {
 		await cpy(
 			[
-			__dirname + '/../../original_assets/additional scripts/Launch PasswordTool.sh'
+			__dirname + '/../../original_assets/additional scripts/Launch Patternscape.sh'
 			],
-			__dirname + '/../../../PasswordTool_GUI/'
+			__dirname + '/../../../Patternscape_GUI/'
 			);
 	})();
 }
 
 //DELETE DIST FOLDER OF APP DISTRIBUTABLE BEFORE CREATING NEW ONE
-fs.rmdirSync(path.join(__dirname, '/../../../PasswordTool_GUI/releases'), { recursive: true });
+fs.rmdirSync(path.join(__dirname, '/../../../Patternscape_GUI/releases'), { recursive: true });

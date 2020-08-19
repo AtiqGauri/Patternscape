@@ -46,11 +46,11 @@ jobs:
         run: |
           git config --global user.name "AtiqGauri"
           git config --global user.email "gauriatiq@gmail.com"
-          npm install standard-version --prefix PasswordTool_GUI/ --no-save
-          npm run release --prefix PasswordTool_GUI/ -- --release-as ${{ github.event.inputs.version }}
+          npm install standard-version --prefix Patternscape_GUI/ --no-save
+          npm run release --prefix Patternscape_GUI/ -- --release-as ${{ github.event.inputs.version }}
           echo ::set-env name=COMMIT_HASH::$(git rev-parse --verify HEAD)
           git push --follow-tags origin master
-          echo ::set-env name=PACKAGE_VERSION::$(node -p -e "require('./PasswordTool_GUI/package.json').version")
+          echo ::set-env name=PACKAGE_VERSION::$(node -p -e "require('./Patternscape_GUI/package.json').version")
 
       - name: Create a release draft
         id: create_release_draft
@@ -59,7 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         with:
           tag_name: v${{ env.PACKAGE_VERSION }}
-          release_name: PasswordTool v${{ env.PACKAGE_VERSION }}
+          release_name: Patternscape v${{ env.PACKAGE_VERSION }}
           body: |
             Changelog: [Project Timeline](https://paper.dropbox.com/doc/Projects-Timeline--A4KNJax_pZMmJHwFv57DRJU~AQ-BoYhgTkFCHQ91an0uF9eg)
             ${{ github.event.inputs.changelog }}
@@ -79,7 +79,7 @@ jobs:
       APP_VERSION: ${{ needs.release-draft.outputs.app_version }} # get app version from draft job
     defaults:
       run:
-        working-directory: PasswordTool_GUI/ #all the run commands gonna run in this directory
+        working-directory: Patternscape_GUI/ #all the run commands gonna run in this directory
 
     steps:
       - name: Checkout master 
@@ -121,7 +121,7 @@ jobs:
         run:   |
               echo '::set-env name=NPM_PLATFORM::win32'
               echo '::set-env name=APP_EXT::exe'
-              powershell Compress-Archive releases/win32/x64/PasswordTool-win32-${{ env.APP_VERSION }}.exe PasswordTool-win32-x64.zip
+              powershell Compress-Archive releases/win32/x64/Patternscape-win32-${{ env.APP_VERSION }}.exe Patternscape-win32-x64.zip
         
         # set platform as macOS, extension as exe and zip built app
         # last command zip built app while excluding parent directory from zip
@@ -130,7 +130,7 @@ jobs:
         run:   |
               echo '::set-env name=NPM_PLATFORM::darwin'
               echo '::set-env name=APP_EXT::dmg'
-              (cd releases/darwin/x64/ && zip -r ../../../PasswordTool-darwin-x64.zip PasswordTool-darwin-${{ env.APP_VERSION }}.dmg)
+              (cd releases/darwin/x64/ && zip -r ../../../Patternscape-darwin-x64.zip Patternscape-darwin-${{ env.APP_VERSION }}.dmg)
         
         # set platform as linux, extension as exe
         # rename unpacked folder and zip folder while removing parent directory
@@ -139,16 +139,16 @@ jobs:
         run:   |
               echo '::set-env name=NPM_PLATFORM::linux'
               echo '::set-env name=APP_EXT::'
-              mv releases/linux/x64/linux-unpacked releases/linux/x64/PasswordTool-linux-${{ env.APP_VERSION }}
-              (cd releases/linux/x64/ && zip -r ../../../PasswordTool-linux-x64.zip PasswordTool-linux-${{ env.APP_VERSION }})
+              mv releases/linux/x64/linux-unpacked releases/linux/x64/Patternscape-linux-${{ env.APP_VERSION }}
+              (cd releases/linux/x64/ && zip -r ../../../Patternscape-linux-x64.zip Patternscape-linux-${{ env.APP_VERSION }})
       
         # upload assets to release draft
       - name: Upload app builds to release asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ needs.release-draft.outputs.upload_url }} # get upload url form previous job
-          asset_path: PasswordTool_GUI/PasswordTool-${{ env.NPM_PLATFORM }}-x64.zip
-          asset_name: PasswordTool-${{ env.NPM_PLATFORM }}-x64.zip
+          asset_path: Patternscape_GUI/Patternscape-${{ env.NPM_PLATFORM }}-x64.zip
+          asset_name: Patternscape-${{ env.NPM_PLATFORM }}-x64.zip
           asset_content_type: application/zip
 
   publish-release:

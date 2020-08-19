@@ -1,4 +1,4 @@
-# Ongoing Project <img src="../PasswordTool_GUI/source/assets/icons/app-icon.svg" alt="Logo" width="25" height="25">
+# Patternscape <img src="../Patternscape_GUI/source/assets/icons/app-icon.svg" alt="Logo" width="25" height="25">
 
 ### IDE SETTINGS FOR BACKEND DEVELOPMENT 
 </br>

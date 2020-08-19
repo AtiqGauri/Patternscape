@@ -25,7 +25,7 @@ function show_document1(){
 function show_document2(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/PasswordTool--Au~PAqfJxsR1WhC4wjI7Wcf0AQ-3zHDe81rsqDHR0Ukq5QgY";
+    webview.src = "https://paper.dropbox.com/doc/Patternscape--Au~PAqfJxsR1WhC4wjI7Wcf0AQ-3zHDe81rsqDHR0Ukq5QgY";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
