@@ -28,7 +28,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: width, height: height,
     minWidth: 1280, minHeight:720,
-    title: "PasswordTool",
+    title: "Patternscape",
     //icon: __dirname + '/asset/icons/app-icon.png',
     autoHideMenuBar: true,
     frame: false,

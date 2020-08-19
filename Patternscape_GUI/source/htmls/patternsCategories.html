@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html id="targetPatternHtml" data-theme="light">
+<html id="patterCategoryHtml" data-theme="light">
     <head>
-        <title> Target Patterns </title>
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <title>Pattern Categories</title>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta name="HandheldFriendly" content="true">
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="../styles/targetPattern.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/patternsCategories.css"/>
     </head>
-    <body>
-        <!--TITLE BAR AND APP WINDOW BUTTONS-->
+    <body id="patterCategoryBody">
         <header id="titleBar">
+            <!--TITLE BAR AND APP WINDOW BUTTONS-->
             <div id="dragRegion">
                 <div id="windowControls" class="windowControls">
                     <div class="windowControlDiv" id="minWindowDiv">
@@ -26,22 +26,26 @@
                     </div>
                 </div>
                 <div id="windowTitle">
-                    <span id="appHeaderName">Ongoing Project</span>
+                    <span id="appHeaderName">Patternscape</span>
                     <img class="appHeaderIcon" src="../assets/icons/app-icon-transparent.svg" id="appHeaderIcon" draggable="false">
                 </div>
             </div>
         </header>
-        <!-- Password -->
-        <h1 id="passwordString"></h1>
-        
-        <!-- list of detected pattern and its data -->
-        <ol id='generatedPatterns'>
-        </ol>
+        <h1 id='header' >Generated Stats: </h1>
+        <!-- CONTENT TABLE -->
+        <!-- PATTERN POPULARITY ADDRESS -->
+        <table id='patternTable'>
+            <tr>
+                <th class="patternColumn">Pattern</th>
+                <th class="popularityColumn">Popularity</th>
+                <th class="addressColumn">File Address</th>
+            </tr>
+        </table>
 
-         <!-- NO RECEIVED ERROR -->
-         <img id="noDataReceived" style="display: none;" alt="NO DATA RECEIVED" draggable="false">
-        
-        <!-- js scripts -->
-        <script src="../scripts/targetPattern.js"></script>
+        <!-- NO RECEIVED ERROR -->
+        <img id="noDataReceived" style="display: none;" alt="NO DATA RECEIVED" draggable="false">
+
+        <!-- JS -->
+        <script src="../scripts/patternsCategories.js"></script>
     </body>
 </html>

@@ -1,5 +1,5 @@
 //IMPORT CPY PACKAGE TO MOVE, COPY & REPLACE FILES
-const cpy = require(__dirname + '/../../../PasswordTool_GUI/node_modules/cpy');
+const cpy = require(__dirname + '/../../../Patternscape_GUI/node_modules/cpy');
 const fs = require('fs');
 var path = require("path");
 
@@ -8,30 +8,30 @@ var path = require("path");
 (async () => {
 	await cpy(
 		[
-		__dirname + '/../../../PasswordTool_CPP_Backend/*.h',
-		__dirname + '/../../../PasswordTool_CPP_Backend/*.cpp',
-		'!' + __dirname + '/../../../PasswordTool_CPP_Backend/PasswordTool_CPP_Backend.cpp'
+		__dirname + '/../../../Patternscape_CPP_Backend/*.h',
+		__dirname + '/../../../Patternscape_CPP_Backend/*.cpp',
+		'!' + __dirname + '/../../../Patternscape_CPP_Backend/Patternscape_CPP_Backend.cpp'
 		],
-		__dirname + '/../../../PasswordTool_Native_Addon/src/');
+		__dirname + '/../../../Patternscape_Native_Addon/src/');
 })();
 
 //COPY SAMPLE INPUT FOR THE FIRST TIME USER
 (async () => {
 	await cpy(
 		__dirname + '/../../data/sample_input.txt', 
-		__dirname + '/../../../PasswordTool_Native_Addon/data/Input/'
+		__dirname + '/../../../Patternscape_Native_Addon/data/Input/'
 		);
 })();
 (async () => {
 	await cpy(
 		__dirname + '/../../data/sample_input.txt', 
-		__dirname + '/../../../PasswordTool_GUI/data/Input/'
+		__dirname + '/../../../Patternscape_GUI/data/Input/'
 		);
 })();
 (async () => {
 	await cpy(
 		__dirname + '/../../data/sample_input.txt', 
-		__dirname + '/../../../PasswordTool_CPP_Backend/data/Input/'
+		__dirname + '/../../../Patternscape_CPP_Backend/data/Input/'
 		);
 })();
 

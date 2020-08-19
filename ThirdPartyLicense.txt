@@ -18,7 +18,7 @@ LIST OF PACKAGES(DEPENDENCIES, DEV-DEPENDENCIES AND TRANSITIVE-DEPENDENCIES) USE
 @types/minimatch@3.0.3
 @types/node@12.12.47
 @types/node@14.0.13
-PasswordTool@1.0.0
+Patternscape@1.0.0
 ajv-keywords@3.4.1
 ajv@6.10.2
 ansi-align@3.0.0

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PasswordTool_CPP_Backend.cpp">
+    <ClCompile Include="Patternscape_CPP_Backend.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Comparison.cpp">

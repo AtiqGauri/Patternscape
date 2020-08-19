@@ -5,7 +5,7 @@
 /****************************************************/
 
 html, body{margin:0px; padding:0px;
-    background-color: var(--mainTheme-color);
+background-color: var(--mainTheme-color);
 }
 @font-face {
     font-family: "Montserrat";
@@ -17,7 +17,7 @@ html, body{margin:0px; padding:0px;
     position: absolute;
     display: block;
     position: fixed;
-    height: 3.5vh;
+    height: 5vh;
     top: 0%;
     width: 100%;
     color: black;
@@ -50,12 +50,12 @@ html, body{margin:0px; padding:0px;
 }
 #appHeaderName{
     position: absolute;
-    left: 5%;
+    left: 10%;
     top: 17%;
 }
 #appHeaderIcon{
     position: absolute;
-    right: -30%;
+    right: -15%;
     top: 30%;
     height: 80%;
     width: 80%;
@@ -167,6 +167,7 @@ html, body{margin:0px; padding:0px;
     cursor:pointer;
     visibility: hidden;
 }
+
 @media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
 (-webkit-device-pixel-ratio: 2), (device-pixel-ratio: 2),
 (-webkit-device-pixel-ratio: 3), (device-pixel-ratio: 3) {
@@ -177,54 +178,81 @@ html, body{margin:0px; padding:0px;
 }
 /*********************APP HEADER END************************/
 
-#suggestionList {
+
+#header{
+    margin-top: 2.8%;
+    font-family: Montserrat;
+    font-weight: 900;
+    font-style: bold;
+    font-size: 35px;
+    word-spacing: 4px;
+    line-height: 1.6;
+    letter-spacing: 4px;
+    text-align: center;
+
+    color: var(--patternCategory-header);
+    user-select: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    table-layout:fixed;
     font-family: Montserrat;
     font-style: light;
     font-weight: 600;
-    font-size: 35px;
-
-    margin: 20px;
-    margin-top: 6%;
-    margin-right: 60px;
-    color: var(--mainTheme-color);
+    font-size: 25px;
+    word-spacing: 2px;
+    line-height: 1.6;
+    letter-spacing: 2px;
 }
 
-li{
-    margin: 25px;
-    padding: 20px;
-    border-radius: 12px;
+th {
+    padding: 8px;
+    height: 50px;
+    border-radius: 11px;
     background-color: var(--mainTheme-color);
-    box-shadow: var(--tabContainersInner-shadow);
+    color: var(--downriver-blue);
+    text-align: center;
+    white-space:normal;
+    overflow: auto;
+    box-shadow: var(--highElevatedButton-shadow);
+    user-select: none;
 }
 
-dt {
-    font-size: 27px;
-    padding: 10px;
-    padding-left: 15px;
-    margin: 8px;
-    border-radius: 11px;
-    color: var(--wedgeWood-blue);
-    text-shadow: var(--greyText-shadow);
-    box-shadow: var(--mediumElevatedButton-shadow);
+td {
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;    
+    white-space:normal;
+    text-align: center;
+    overflow: auto;
 }
 
-dd {
-    font-size: 23px;
-    overflow: hidden;
-    padding: 10px;
-    padding-right: 40px;
-    padding-left: 15px;
-    border-radius: 11px;
-    width: min-content;
-
-    color: var(--buff-yellow);
-    box-shadow: var(--mediumElevatedButton-shadow);
+td::-webkit-scrollbar {
+    width: auto;
+}
+td::-webkit-scrollbar-track {
+    -webkit-box-shadow:  -6px -6px 20px rgba(255, 255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+td::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar);
+  border-radius: 5px;
 }
 
-dd:hover{
-    background-color: var(--buff-yellow);
-    color: black;
-    box-shadow: var(--mediumElevatedHover-shadow);
+
+.patternColumn{
+    color: var(--patternCategory-pattern);
+}
+
+.popularityColumn{
+    color: var(--patternCategory-popularity);
+}
+
+.addressColumn{
+    color: var(--patternCategory-address);
 }
 
 

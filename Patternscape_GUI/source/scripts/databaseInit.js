@@ -3,7 +3,7 @@ var Dexie = require('dexie');
 var {database_error_alerts} = require('./alerts.js');
 
 //INITIALIZE DATABASE 
-var database = new Dexie("PasswordTool");
+var database = new Dexie("Patternscape");
 
 //INITIALIZE DATABASE SCHEMA
 database.version(1).stores({
