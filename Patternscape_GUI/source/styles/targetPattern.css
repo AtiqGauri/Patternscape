@@ -77,18 +77,18 @@ html, body{margin:0px; padding:0px;
 }
 .forMac{
     display: block;
-    left: -0.5%;
+    left: -1%;
     top: 10%;
 }
 .forElse{
     display: block;
-    right: 0.5%;
+    right: -1%;
     top: 15%;
 }
 
 .windowControlDiv{
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     margin: 5%;
     cursor:pointer;
@@ -122,7 +122,7 @@ html, body{margin:0px; padding:0px;
 }
 #maximizeWindow{
     position: absolute;
-    left: 28.5%;
+    left: 29.5%;
     top: 21.5%;
     height: 55%;
     width: 45%;

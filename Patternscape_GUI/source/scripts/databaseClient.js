@@ -293,7 +293,6 @@ function persist_database(){
     
     //pass acknowledgment
     isPersisted.then(function(result){
-        console.log('yes p');
         //>>APP_FOLDER/source/scripts/alerts.js<<
         database_acknowledgment('dataPersistance', result, 'success', 'databasePersistAlert', 'persistDataButton');
     });

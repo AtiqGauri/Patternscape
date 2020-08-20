@@ -4,7 +4,7 @@
   <img src="Patternscape_GUI/source/assets/icons/app-icon.svg" alt="Logo" width="100" height="100">
   <h1 align="center">Patternscape</h1>
   <p align="center">
-    A project designed to understand different patterns out of data breaches.
+    A project to detect patterns in passwords by processing data breaches.
   </p>
 </p>
 <img src="screenshot.gif">      
