@@ -6,7 +6,7 @@
     <!--SINGLE USER TAB-->
     <div class="singleUserTab processTabContent" id="singleUserTabID">
         <p class="singleUserText">
-            * Here you can get patterns detected in a single password.</br>
+            Here you can detect patterns in a specific password.</br>
         </p>
         <div class="singleUserInput">
             <form id="singleUserForm">
@@ -28,16 +28,15 @@
         <!--ANALYZE RAW DATA-->
         <div class="processRawData" id="processRawData">
             <p class="rawDataHead">
-                Analyse Raw Data to detect Patterns in them:
+                Analyse raw data to detect patterns:
             </p>
             <p class="rawDataText">
-                * first copy paste raw data into "Raw Input" folder.</br>
-                * Second select how many thread you want to use.</br>
-                * Third press "Analyse" button to start processing raw data.</br>
-                * If you want stop process press "Stop" button.</br>
-                * You can check output in "Processed Data" folder.</br>
-                * After That you need to create statistics of this processed data.</br>
-                * To perform stats generation you will be taken to next tab soon...</br>
+                * copy paste raw data into "Raw Input" folder.</br>
+                * select how many thread you want to use.</br>
+                * press "Analyse" button to start processing raw data.</br>
+                * you can stop process by pressing "Stop" button.</br>
+                * output can be accessed from "Processed Data" folder.</br>
+                * once process done, you will be taken to next step(stat generation).</br>
             </p>
             <!-- >>APP_FOLDER/source/scripts/process.js<<-->
             <div class="analyzeStart" onclick="analyze_passwords_emails()" id="analyzeStart">Analyse</div>
@@ -48,16 +47,16 @@
         <!--GENERATE PATTERN STATISTICS-->
         <div class="statsGeneration" id="statsGeneration">
             <p class="statsHead">
-                Generate Statistics out of processed data patterns:
+                Generate statistics of detected patterns:
             </p>
             <p class="statsText">
-                * Here we generate statistics auto of analyzed data.</br>
-                * Input will be automatically taken from previous analyzation(if any).</br>
-                * Alternatively add your own stats in "Processed Data" folder. </br>
-                * Data should be in required format else will be ignored.</br>
-                * Press "Statistics" button to start stat generation.</br>
-                * If you want to stop process press "Stop" button.</br>
+                * input will be taken from previous step(Analyzed passwords).</br>
+                * detected patterns(input) can be accessed from "Processed Data" folder.</br>
+                * select how many thread you want to use.</br>
+                * press "Statistics" button to start stats generation.</br>
+                * you can stop process by pressing "Stop" button.</br>
                 * Finally you can check output in "Generated Stats" folder.</br>
+                * once process done, you will be taken to next step(import statistics).</br>
             </p>
             <!-- >>APP_FOLDER/source/scripts/process.js<<-->
             <div class="statsStart" onclick="generate_statistics()" id="statsStart">Statistics</div>
@@ -72,7 +71,7 @@
         </div>
         <!-- >>APP_FOLDER/source/scripts/process.js<<-->
         <div class="changeUserTypes" id="changeUserTypes" onclick="change_analyse_to_stats()">
-            <img class="arrowIcon" src="assets/icons/arrow.svg" draggable="false">
+            <img class="arrowIcon" src="assets/icons/arrow.svg" id="arrowIcon" draggable="false">
         </div>
     </div>
     <!--PROCESS SUB-TABS-->

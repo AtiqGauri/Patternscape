@@ -51,7 +51,7 @@ function home_pattern_error(cTitle='<b style="width:10vw; margin-right:1vw;"> In
 function moving_forward_to_stats(cTitle='<b style="color:var(--processAnalyze-text); user-select:none;">Finished</b>', 
 cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create statistics of analyzed data</b></br>'+
        '<button class="analyzeAlertOutput" onclick="output_of_analyzing()">Output folder</button>',
- cIcon='success', cTime='4000', cConfirmButton=true, cCancelButton=true){
+ cIcon='success', cTime='600000', cConfirmButton=true, cCancelButton=true){
     alertComponent.fire({
         target: document.querySelector('#processTab'),
         title: cTitle,
@@ -88,7 +88,7 @@ cHtml='<b style="margin: 0 4vw 0 1vw; user-select: none;">Let\'s move to create 
 function moving_forward_to_importDB(cTitle='<b style="color:var(--processStats-text); user-select:none;">Finished</b>', 
 cHtml='<b style="margin:0 4vw 0 1vw; user-select:none;">Now import these statistics into database</b></br>'+
 '<button class="statsAlertOutput" onclick="output_of_stats_generator()">Output folder</button>',
- cIcon='success', cTime='240000', cConfirmButton=true, cCancelButton=true){
+ cIcon='success', cTime='2400000', cConfirmButton=true, cCancelButton=true){
     alertComponent.fire({
         target: document.querySelector('#statsGeneration'),
         title: cTitle,

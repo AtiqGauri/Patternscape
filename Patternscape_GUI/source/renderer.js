@@ -351,7 +351,7 @@ function set_app_theme(){
 		//change search bar internal icon
 		document.querySelector(".patternSearchBar").style.backgroundImage = "url(assets/icons/search-icon-white.svg)";
 		//change home image (dark-mode)
-		document.querySelector(".homeImageLight").src = "assets/images/home-page-image-dark.svg";
+		document.querySelector("#homeImage").src = "assets/images/home-page-image-dark.svg";
 		//decrease home images brightness
 		document.querySelector(".homeDecor1").style.filter = "brightness(75%)";
 		document.querySelector(".homeDecor2").style.filter = "brightness(75%)";
@@ -362,6 +362,10 @@ function set_app_theme(){
 		document.querySelector("#home_button_icon").style.filter = "invert(37%) sepia(47%) saturate(5355%) hue-rotate(330deg) brightness(96%) contrast(86%)";
 		document.querySelector("#database_button_icon").style.filter = "invert(60%) sepia(56%) saturate(581%) hue-rotate(102deg) brightness(97%) contrast(85%)";
 		document.querySelector("#document_button_icon").style.filter = "invert(83%) sepia(20%) saturate(861%) hue-rotate(350deg) brightness(104%) contrast(90%)";
+		//change process tab svg filters
+		document.querySelector("#arrowIcon").style.filter = "invert(8%) sepia(5%) saturate(332%) hue-rotate(201deg) brightness(95%) contrast(89%)";
+		//change database tab svg filters
+		document.querySelector(".deleteIcon").style.filter = "invert(8%) sepia(5%) saturate(332%) hue-rotate(201deg) brightness(95%) contrast(89%)";
 		//SET DARK-MODE ATTRIBUTE IN INDEX.HTML
 		document.querySelector("#appBody").setAttribute("data-theme", "dark");
 		//save user preference
@@ -375,7 +379,7 @@ function set_app_theme(){
 		//change search bar internal icon
 		document.querySelector(".patternSearchBar").style.backgroundImage = "url(assets/icons/search-icon.svg)";
 		//change home image (light-mode) 
-		document.querySelector(".homeImageLight").src = "assets/images/home-page-image.svg";
+		document.querySelector("#homeImage").src = "assets/images/home-page-image.svg";
 		//increase home images brightness
 		document.querySelector(".homeDecor1").style.filter = "brightness(100%)";
 		document.querySelector(".homeDecor2").style.filter = "brightness(100%)";
@@ -386,6 +390,10 @@ function set_app_theme(){
 		document.querySelector("#home_button_icon").style.filter = "invert(66%) sepia(60%) saturate(4408%) hue-rotate(312deg) brightness(103%) contrast(105%)";
 		document.querySelector("#database_button_icon").style.filter = "invert(55%) sepia(17%) saturate(1098%) hue-rotate(173deg) brightness(104%) contrast(93%)";
 		document.querySelector("#document_button_icon").style.filter = "invert(42%) sepia(9%) saturate(891%) hue-rotate(204deg) brightness(91%) contrast(85%)";
+		//change process tab icons svg filters
+		document.querySelector("#arrowIcon").style.filter = "invert(98%) sepia(31%) saturate(244%) hue-rotate(230deg) brightness(110%) contrast(90%)";
+		//change database tab svg filters
+		document.querySelector(".deleteIcon").style.filter = "invert(100%) sepia(0%) saturate(3482%) hue-rotate(184deg) brightness(122%) contrast(81%)";
 		//SET LIGHT-MODE ATTRIBUTE IN INDEX.HTML
 		document.querySelector("#appBody").setAttribute("data-theme", "light");
 		//save user preference

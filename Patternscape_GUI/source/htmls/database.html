@@ -15,12 +15,11 @@
     <div class="databaseOperation">
       <!--TAB 1. IMPORT LOCAL DATABASE-->
       <div id="importDB" class="dbTabContent">
-        <p class="impDataHeading" id="impDataHeading">Import data which has been processed</p>
+        <p class="impDataHeading" id="impDataHeading">Import locally processed data</p>
         <p class="impDataText" id="impDataText">
-          * Here you can import data which has been processed locally.</br>
-          * Input will be taken from stats generation process's output.</br>
-          * If you want to process more data head back to process window.</br>
-          * This must be a whole database transaction else will be rolled back.</br>
+          * here you can import locally generated pattern statistics.</br>
+          * input will be taken from previous step(stats generation).</br>
+          * this must be a whole database transaction else will be rolled back.</br>
         </p>
         <div class="importDbButtons">
           <!-- >>APP_FOLDER/source/scripts/databaseClient.js<<-->
@@ -40,12 +39,13 @@
       <!--TAB 2. IMPORT DOWNLOADED DATABASE-->
       <div id="importDownDB" class="importDownDBClass dbTabContent">
         <div class="impDownTextBox">
-          <p class="impDownTextHead" id="impDownTextHead">Import backup/downloaded database</p>
+          <p class="impDownTextHead" id="impDownTextHead">Import downloaded database</p>
           <p class="impDownText" id="impDownText">
-            * You can import our provided database here.</br>
-            * First download it then copy-paste inside database input folder.</br>
-            * Local exported database can be imported automatically,</br>
-            just click import start button (must be in JSON).</br>
+            * here you can import remotely generated database.</br>
+            * download it then place it inside "database input folder".</br>
+            * locally exported database can be imported directly.</br>
+            * click "Import" button to start process.</br>
+            * database file must be in JSON format.</br>
           </p>
         </div>
         <div class="impDownButtons">
@@ -69,11 +69,11 @@
       <!--TAB 3. EXPORT DATABASE-->
       <div id="exportDB" class="exportDBClass dbTabContent">
         <div class="exportDBTextBox">
-          <p class="exportDBTextHead">Export database for backup purpose</p>
+          <p class="exportDBTextHead">Export patterns database</p>
           <p class="exportDBText">
-            * This will export database in JSON files.</br>
-            * Exported database can be found in database export folder.</br>
-            * This must be a whole database transaction else will be rolled back.</br>
+            * database will be exported in JSON files.</br>
+            * exported database can be found in "database export folder".</br>
+            * this must be a whole database transaction else will be rolled back.</br>
           </p>
         </div>
         <div class="exportDBButtons">
@@ -116,7 +116,7 @@
           </div>
           <p class="deleteWarningText">
             CAUTION!</br>You won't be able to rollback.</br>
-            Check cross button to delete database.
+            Check cross button to allow database deletion.
           </p>
         </div>
         <!-- >>APP_FOLDER/source/scripts/databaseClient.js<<-->

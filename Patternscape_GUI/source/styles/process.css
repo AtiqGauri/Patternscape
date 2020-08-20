@@ -116,7 +116,7 @@ p h1 h2 h3{
     color: var(--processSingeUser-text);
     letter-spacing: 1px;
     word-spacing: 2px;
-    font-size: 2.5vh;
+    font-size: 3vh;
     font-weight: 600;
     user-select: none;
 }
@@ -153,7 +153,7 @@ p h1 h2 h3{
     top: 59%;
     left: 6%;
     color: grey;
-    font-size: 3vh;
+    font-size: 2.5vh;
     user-select: none;
     pointer-events: none;
     opacity: 0.7;
@@ -171,7 +171,7 @@ p h1 h2 h3{
     height: 10%;
     top: 55%;
     left: 41%;
-    font-size: 3vh;
+    font-size: 2.5vh;
     color: var(--processSingeUser-text);
     background-color: var(--mainTheme-color);
     border: none;
@@ -366,7 +366,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     color: grey;
     font-weight: 900;
     font-style: light;
-    font-size: 2.5vh;
+    font-size: 2.2vh;
 }
 
 .analyzeStart{
@@ -473,7 +473,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     color: grey;
     font-weight: 900;
     font-style: light;
-    font-size: 2.5vh;
+    font-size: 2.2vh;
 }
 
 .statsStart{

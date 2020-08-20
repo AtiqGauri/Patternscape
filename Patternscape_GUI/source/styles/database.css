@@ -174,7 +174,7 @@ p {
     position: absolute;
     padding: 3% 4% 3% 4%;
     width: fit-content;
-    left: 116%;
+    left: 121%;
     top: 5%;
     text-align: center;
     border-radius: 11px;
@@ -209,10 +209,10 @@ p {
 }
 .impInputFolder{
     position: absolute;
-    margin-top: -10%;
-    margin-left: 25%;
+    margin-top: -13.5%;
+    margin-left: 38%;
     padding: 9%;
-    width: 81%;
+    width: 90%;
     font-size: 2.5vh;
     word-spacing: 2px;
     letter-spacing: 1px;
@@ -620,7 +620,7 @@ p {
 .deleteButton{
     margin-top: 3%;
     padding: 2%;
-    width: 63.5%;
+    width: 72.5%;
     text-align: center;
     background-color: var(--mainTheme-color);
     
@@ -639,7 +639,7 @@ p {
 .deleteButton:hover{
     background-color: var(--brightRed-red);
     color: var(--mainTheme-color);
-    text-shadow: none;
+    font-weight: bolder;
     transition: 0.4s;
 }
 /******************DELETE DATABASE END**********************/

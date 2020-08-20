@@ -93,7 +93,7 @@ function ask_for_intro(){
 //STEP 1: INTRODUCE HOME TAB AND TEACH TO SEARCH PATTERN AND ITS DATA
 function home_tab_intro(){
     app_intro_alert(cTarget='homeTab', cTitle='<p style="color:var(--homeTab-text)">Home Tab: You can search patterns and their data here</p>',
-        cHtml='<p class="introHomeText">First time it could show empty warning. To avoid '+
+        cHtml='<p class="introHomeText">First time it could show database is empty. To avoid '+
         'that warning, you can import pattern database or generate database locally in further steps.</p>'+
         '<div class="neverHomeIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
@@ -131,7 +131,7 @@ function downloaded_database_tab_intro(){
         cHtml='<p class="introDownDbTitle">Database: Here you can import downloaded database</p>'+
         '<p class="introDownDbText">If you don\'t have any database then download it from <a href=\'#\' style="color:var(--databaseDownload-text)">here</a>'+
         ' and then copy paste that database in above "INPUT FOLDER".</br>'+
-        'Once you have imported downloaded database then you can search pattern on home tab.</p>'+
+        'Once database is imported then you can search pattern on home tab.</p>'+
         '<div class="downDbIntroNever" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="downDbSkipIntro" onclick="stop_app_intro()">Skip</div>'+
@@ -170,10 +170,10 @@ function downloaded_database_tab_intro(){
 //STEP 3: INTRODUCE ANALYZATION TAB AND TEACH TO PROCESS RAW DATA
 function process_analyze_tab_intro(){
     app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:var(--processAnalyze-text)">Analyze Tab: Here you can process raw data locally</p>',
-        cHtml='<p class="processIntroText">*Process raw data to detect patterns in them</br>'+
-        '*Raw data implies to raw emails and passwords pairs, data files should have plain text in them (txt, csv and no-extension).</br>'+
-        '*Required data format => email:password</br>'+
-        '*After putting data in input folder, you can start analyzation process with suitable number of threads.'+
+        cHtml='<p class="processIntroText">* process raw data to detect patterns in them.</br>'+
+        '* required data format => email:password</br>'+
+        '* sample input file is already provided.</br>' +
+        '* raw data implies to email and password pairs, data files should have plain text in them (txt, csv or no-extension).</br>'+
         '</p>'+
         '<div class="neverProcessIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
@@ -217,10 +217,9 @@ function process_analyze_tab_intro(){
 
 //STEP 4: INTRODUCE STATISTICS TAB AND TEACH TO GENERATE STATISTICS
 function process_stats_tab_intro(){
-    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:var(--processStats-text)">Statistics Tab: Here you can generate stats of analyzed patterns</p>',
-        cHtml='<p class="processIntroText">* Generate statistics of analyzed patterns</br>'+
-        '* In previous step we generated patterns out of raw data, now we can create stats of those patterns.</br>'+
-        '* Once stats are generated then you will be shown pattern categories and their data.</br></p>'+
+    app_intro_alert(cTarget='multiUserTabID', cTitle='<p style="color:var(--processStats-text)">Statistics Tab: Here you can generate stats of detected patterns</p>',
+        cHtml='<p class="processIntroText">* previous step detects patterns in raw data, here we can generate stats about processed data.</br>'+
+        '* input will be taken automatically from last step, so just press statistics to start it.</br></p>'+
         '<div class="neverProcessIntro" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="processSkipIntro" onclick="stop_app_intro()">Skip</div>'+
@@ -265,8 +264,8 @@ function process_stats_tab_intro(){
 function import_database_tab_intro(){
     app_intro_alert(cTarget='importDB', cTitle='',
         cHtml='<p class="introDownDbTitle" style="color:var(--databaseImport-text)">Database: Here you can import downloaded database</p>'+
-        '<p class="introDownDbText">The stats generated in previous step could be imported in this tab, you can check input in "DATABASE INPUT FOLDER". '+
-        'Once import process completes then you will be able to search patterns in home tab, which processed locally.</p>'+
+        '<p class="introDownDbText">The stats generated in previous step can be imported here, you can check input in "DATABASE INPUT FOLDER".&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'+
+        'Once database is imported, then you will be able to search locally processed pattern from home tab.</p>'+
         '<div class="downDbIntroNever" onclick="never_show_intro()">Never Show again</div>'+
         '<div class="introSkipNextDiv">'+
         '<div class="downDbSkipIntro" onclick="stop_app_intro()">Skip</div>'+

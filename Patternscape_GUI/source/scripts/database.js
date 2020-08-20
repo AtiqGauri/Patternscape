@@ -48,6 +48,8 @@ function database_delete_checkbox() {
 function persist_database_color(){
   var element = document.querySelector("#persistDataButton");
 
-  element.style.backgroundColor = "#4CBB17"
-  element.style.color = "white";
+  element.style.backgroundColor = "var(--christi-green)"
+  element.style.color = "var(--mainTheme-color)";
+  element.style.textShadow = "none";
+  element.style.fontWeight = "bolder";
 }

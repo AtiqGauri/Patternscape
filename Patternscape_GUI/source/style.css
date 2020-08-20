@@ -78,18 +78,18 @@ body {
 }
 .forMac{
     display: block;
-    left: -0.5%;
+    left: -1.5%;
     top: 10%;
 }
 .forElse{
     display: block;
-    right: 0.5%;
+    right: -1%;
     top: 15%;
 }
 
 .windowControlDiv{
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     margin: 5%;
     cursor:pointer;
@@ -104,7 +104,7 @@ body {
 }
 #minimizeWindow{
     position: absolute;
-    left: 22%;
+    left: 20.15%;
     top: 15%;
     height: 70%;
     width: 60%;
@@ -123,8 +123,8 @@ body {
 }
 #maximizeWindow{
     position: absolute;
-    left: 28.5%;
-    top: 21.5%;
+    left: 26%;
+    top: 22.5%;
     height: 55%;
     width: 45%;
     cursor:pointer;
@@ -142,7 +142,7 @@ body {
 }
 #restoreWindow{
     position: absolute;
-    left: 16.5%;
+    left: 14.5%;
     top: 10.5%;
     height: 80%;
     width: 70%;
@@ -160,7 +160,7 @@ body {
 }
 #closeWindow{
     position: absolute;
-    left: 25%;
+    left: 26%;
     top: 20%;
     height: 60%;
     width: 50%;

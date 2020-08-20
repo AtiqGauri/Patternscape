@@ -131,9 +131,9 @@ function analyze_passwords_emails(){
 		if(fs.existsSync(path.join(process.resourcesPath, '..','data','Input'))){
 			if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Input')).length <= 1){
 				//>>APP_FOLDER/source/scripts/alerts.js<<
-				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+				moving_forward_to_stats(cTitle='<b style="color:var(--processAnalyze-text);">No file available to analyze</b>', 
 				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again (*consider required format)</b>',
-				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+				 cIcon='warning', cTime='600000', cConfirmButton=true, cCancelButton=false);
 				document.querySelector("#progressAnimation").style.display = "none";
 				bAnalyzer = true;
 				return;
@@ -141,9 +141,9 @@ function analyze_passwords_emails(){
 		}else if(fs.existsSync(path.join(__dirname, '..','data','Input'))){
 			if(fs.readdirSync(path.join(__dirname, '..','data','Input')).length <= 1){
 				//>>APP_FOLDER/source/scripts/alerts.js<<
-				moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">No file available to analyze</b>', 
+				moving_forward_to_stats(cTitle='<b style="color:var(--processAnalyze-text);">No file available to analyze</b>', 
 				cHtml='<b style="margin: 0 4vw 0 1vw;">copy paste files inside "Raw Data" folder, then try again (*consider required format)</b>',
-				 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+				 cIcon='warning', cTime='600000', cConfirmButton=true, cCancelButton=false);
 				document.querySelector("#progressAnimation").style.display = "none";
 				bAnalyzer = true;
 				return;
@@ -208,9 +208,9 @@ function analyze_passwords_emails(){
 			//stop loading bar
 			document.querySelector("#progressAnimation").style.display = "none";
 			//>>APP_FOLDER/source/scripts/alerts.js<<
-			moving_forward_to_stats(cTitle='<b style="color:#5c0e51;">Error</b>', 
+			moving_forward_to_stats(cTitle='<b style="color:var(--processAnalyze-text);">Error</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
-		 	cIcon='error', cTime='180000');
+		 	cIcon='error', cTime='1800000');
 		};
 	}
 }
@@ -261,9 +261,9 @@ function generate_statistics(){
 	if(fs.existsSync(path.join(process.resourcesPath, '..','data','Output'))){
 		if(fs.readdirSync(path.join(process.resourcesPath, '..','data','Output')).length <= 1){
 			//>>APP_FOLDER/source/scripts/alerts.js<<
-			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
+			moving_forward_to_stats(cTitle='<b style="color:var(--processStats-text);">No file available to generate statistics</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">First analyze some raw data in previous analyzation process then try again</b>',
-			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+			 cIcon='warning', cTime='600000', cConfirmButton=true, cCancelButton=false);
 			document.querySelector("#progressAnimation").style.display = "none";
 			bAnalyzer = true;
 			return;
@@ -271,9 +271,9 @@ function generate_statistics(){
 	}else if(fs.existsSync(path.join(__dirname, '..', 'data', 'Output'))){
 		if(fs.readdirSync(path.join(__dirname, '..', 'data', 'Output')).length <= 1){
 			//>>APP_FOLDER/source/scripts/alerts.js<<
-			moving_forward_to_stats(cTitle='<b style="color:#E86135;">No file available to generate statistics</b>', 
+			moving_forward_to_stats(cTitle='<b style="color:var(--processStats-text);">No file available to generate statistics</b>', 
 			cHtml='<b style="margin: 0 4vw 0 1vw;">First analyze some raw data in previous analyzation process then try again</b>',
-			 cIcon='warning', cTime='60000', cConfirmButton=true, cCancelButton=false);
+			 cIcon='warning', cTime='600000', cConfirmButton=true, cCancelButton=false);
 			document.querySelector("#progressAnimation").style.display = "none";
 			bAnalyzer = true;
 			return;
@@ -333,9 +333,9 @@ function generate_statistics(){
 		//stop progress bar
 		document.querySelector("#progressAnimation").style.display = "none";
 		//>>APP_FOLDER/source/scripts/alerts.js<<
-		moving_forward_to_importDB(cTitle='<b style="color:#E86135;">Error</b>', 
+		moving_forward_to_importDB(cTitle='<b style="color:var(--processStats-text);">Error</b>', 
 		cHtml='<b style="margin: 0 4vw 0 1vw;">'+ event.message +'</b>',
-		 cIcon='error', cTime='180000');
+		 cIcon='error', cTime='1800000');
 	};
 }
 
