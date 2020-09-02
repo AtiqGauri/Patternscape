@@ -1,7 +1,7 @@
 {
   "name": "Patternscape",
   "productName": "Patternscape",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "App to detect patterns in passwords",
   "main": "source/main.js",
   "homepage": "https://github.com/AtiqGauri/Patternscape",

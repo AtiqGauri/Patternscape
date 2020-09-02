@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.3 (2020-09-02)
+
+
+### Bug Fixes
+
+* update backend folder's readme ([46c6d52](https://github.com/AtiqGauri/Patternscape/commit/46c6d52081504d89cc6aa00677c903aa1fc8af6c))
+
 ### 0.0.2 (2020-07-30)
 
 
