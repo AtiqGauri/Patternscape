@@ -37,7 +37,7 @@ If you want to know more about the project then checkout [Patternscape wiki](htt
   * [MacOS](#download)
   * [Linux](#download)
 * [Patternscape Documentation](#documentation)
-* [Requirements](#requirements)
+* [Installation Requirements](#requirements)
 * [Installation](#installation)
   * [64 bit (Recommended)](#64bit)
   * [32 bit](#32bit)
