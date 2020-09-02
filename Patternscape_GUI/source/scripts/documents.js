@@ -9,59 +9,72 @@ function get_back_button(){
 }
 
 /**
- * PROJECT TIME-LINE/ROADMAP DOCUMENT 
+ * NEW USER DOCUMENT
  */
 function show_document1(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/Projects-Timeline--Au_uNAbosZspAZq20qN7JwJwAQ-BoYhgTkFCHQ91an0uF9eg";
+    webview.src = "https://www.notion.so/atiqgauri/New-User-a4f3448686724c5c9dcd0d91fe88817d";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
 
 /**
- * PROJECT MAIN DOCUMENT 
+ * PATTERNSCAPE WIKI
  */
 function show_document2(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/Patternscape--Au~PAqfJxsR1WhC4wjI7Wcf0AQ-3zHDe81rsqDHR0Ukq5QgY";
+    webview.src = "https://www.notion.so/atiqgauri/Patternscape-46cee07f3f6443628655cc1f48ca1e07";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
 
 /**
- * PROJECT LAYER 1 DOCUMENT (C++ BACKEND)
+ * PATTERNSCAPE USER GUIDES
  */
 function show_document3(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/C-Standalone-Application-XIYcE37iG0GRxuEQ1Sx5H?_tk=share_copylink";
+    webview.src = "https://www.notion.so/atiqgauri/User-Guides-c5e2f377a55448fba0dbc5aeb3ee7374";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
 
 /**
- * PROJECT LAYER 1.5 DOCUMENT (NODE-ADDON-API) 
+ * PATTERNSCAPE CODE DOCUMENTS
  */
 function show_document4(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/Node.js-Native-Addon-Multithreaded-C--Au8EfYeDbcOfM00hKENSH4iTAQ-cFkQqARLDY2VQZe85fYWc";
+    webview.src = "https://www.notion.so/atiqgauri/Documentation-432add2c655d4ef2b58e6e275fb06369";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
 
 /**
- * PROJECT LAYER 2 DOCUMENT (GUI) 
+ * PATTERNSCAPE DEVELOPMENT DOCUMENTS
  */
 function show_document5(){
     webview = document.createElement('webview');
     webview.classList.add("documentFrame");
-    webview.src = "https://paper.dropbox.com/doc/C-GUI-using-Electron-Multi-threaded-using-Web-Workers--Au96bjWvIWRuY0fZxjTSwTrGAQ-lYArGJfO2KSWVPLSUMBK9";
+    webview.src = "https://www.notion.so/atiqgauri/Development-43cccfc464f94f51b8f5d5a39058ccfb";
     document.querySelector("#documentsContentContainer").appendChild(webview);
     backButton.style.display = "block";
 }
+
+
+/**
+ *  PATTERNSCAPE CHANGELOG DOCUMENT
+ */
+function show_document6(){
+    webview = document.createElement('webview');
+    webview.classList.add("documentFrame");
+    webview.src = "https://www.notion.so/atiqgauri/Patternscape-Changelog-efe215fa53aa4412aef4439753ae52cd";
+    document.querySelector("#documentsContentContainer").appendChild(webview);
+    backButton.style.display = "block";
+}
+
 
 /**
  * FUNCTION TO CLOSE WEBVIEW

@@ -87,9 +87,17 @@
 .document5{
     top: 71%;
     left: 7%;
-    
 }
 .document5:hover{
+    background-color: var(--documentTab-text);
+    color: var(--mainTheme-color);
+}
+
+.document6{
+    top: 83%;
+    left: 7%;
+}
+.document6:hover{
     background-color: var(--documentTab-text);
     color: var(--mainTheme-color);
 }
