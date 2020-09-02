@@ -61,7 +61,7 @@ jobs:
           tag_name: v${{ env.PACKAGE_VERSION }}
           release_name: Patternscape v${{ env.PACKAGE_VERSION }}
           body: |
-            Changelog: [Project Timeline](https://paper.dropbox.com/doc/Projects-Timeline--A4KNJax_pZMmJHwFv57DRJU~AQ-BoYhgTkFCHQ91an0uF9eg)
+            Changelog: [Project Timeline](https://www.notion.so/atiqgauri/Patternscape-Changelog-efe215fa53aa4412aef4439753ae52cd)
             ${{ github.event.inputs.changelog }}
           draft: true
           prerelease: false
