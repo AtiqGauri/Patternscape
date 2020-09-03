@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.4 (2020-09-03)
+
+
+### Bug Fixes
+
+* **ci:** hostfix for ci failing on windows ([77d70ed](https://github.com/AtiqGauri/Patternscape/commit/77d70ed89518297a8b402c49ea76f912d4fd5227))
+
 ### 0.0.3 (2020-09-02)
 
 
