@@ -159,7 +159,7 @@ jobs:
       uses: c-hive/gha-remove-artifacts@v1
       with:
         age: '0 month' #'Artifacts older than this will be deleted (e.g. "2 months", "1 day"). Parsed by moment.'
-        skip-recent: 3 # skip X number of recently created artifacts
+        skip-recent: 9 # skip X number of recently created artifacts
         # skip-tags: true # If enabled, tag build artifacts (e.g. release artifacts) will be kept.
 
     #uncomment these commands if you are getting error for exceeding storage limit

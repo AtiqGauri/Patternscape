@@ -7,6 +7,19 @@
     A project to detect patterns in passwords by processing data breaches.
   </p>
 </p>
+
+<p align="center">
+  <a href="https://github.com/AtiqGauri/Patternscape/actions?query=workflow%3A%22Continuous+Integration%22" alt="CI">
+    <img alt="CI master" src="https://github.com/AtiqGauri/Patternscape/workflows/Continuous%20Integration/badge.svg">
+  </a>
+  <a href="https://github.com/AtiqGauri/Patternscape/actions?query=workflow%3ATest-Commit" alt="Test-Commit">
+    <img alt="Test-Commit master" src="https://github.com/AtiqGauri/Patternscape/workflows/Test-Commit/badge.svg">
+  </a>
+  <a href="https://www.notion.so/atiqgauri/Patternscape-46cee07f3f6443628655cc1f48ca1e07" alt="Documentation">
+    <img alt="docs master" src="https://img.shields.io/badge/docs-passing-brightgreen">
+  </a>
+</p>
+
 <img src="screenshot.gif">      
 We developed this project to analyze passwords and detect specific patterns in them. 
 These patterns can be used to avoid insecure passwords, to target specific passwords, reporting vulnerable passwords or any other security application. 
