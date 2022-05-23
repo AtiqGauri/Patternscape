@@ -128,7 +128,7 @@
     "standard-version": "^9.0.0"
   },
   "dependencies": {
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "dexie-export-import": "^1.0.0-rc.1",
     "n-readlines": "^1.0.0",
     "stream-to-blob": "^2.0.0",
