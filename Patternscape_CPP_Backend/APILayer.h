@@ -91,7 +91,13 @@ namespace APILayer {
 			STEP 7. ALL THREAD(THREAD_PROCESS()) WILL RUN CONCURRENTLY AND SENDS OUPUT TO RESOURCES::RESULTS VECTOR
 			STEP 8. MEMORY GETS RELEASED FOR NEXT FILE
 	*/
-	void main_program(int numberOfThreads=2, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
+	struct ProcessResult {
+		long long int ignoredRecords;
+		long long int processedFiles;
+		vector<string> errors;
+	};
+
+	ProcessResult main_program(int numberOfThreads=2, string inputFolderPath= Constants::inputFolderAddress, string outputFolderPath=Constants::outputFolderAddress) {
 		//threads and objects declaration
 		static const unsigned int totalThreads = numberOfThreads;
 		//Creating objects for thread safe executing data processing
@@ -114,6 +120,8 @@ namespace APILayer {
 		auto stop = time_stamp();
 		cout << "Read Resources and files name in:  "; time_elapsed(start, stop);
 		
+		long long int ignoredRecords = 0;
+		vector<string> errors;
 
 		//process files
 		auto start2 = time_stamp();
@@ -189,6 +197,7 @@ namespace APILayer {
 		filePaths.clear(); filePaths.shrink_to_fit();
 		cout << "\nFiles Loop:  "; time_elapsed(start2, stop2);
 		//Processed
+		return { ignoredRecords, fileCounter, errors };
 	}
 
 	/*
